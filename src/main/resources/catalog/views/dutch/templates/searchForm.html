@@ -1,0 +1,201 @@
+<form id="ngr-search-form" role="form" class="ngr-search">
+  <!--ANY full text search input-->
+  <div class="row">
+    <div class="col-md-4 gn-padding-left-extra">
+      <div class="form-group ngr-search-topic">
+        <label for="inp-any" data_translate="">SearchAny</label>
+        <input type="text" autocomplete="off"
+               id="inp-any"
+               class="form-control input-lg"
+               autofocus=""
+               data-ng-model="searchObj.params.any_OR__title"
+               data-ng-model-options="modelOptionsForm"
+               placeholder="{{'anyPlaceHolder' | translate}}"
+               data-ng-keyup="$event.keyCode == 13 && triggerSearch()"
+               data-typeahead="address for address in getAnySuggestions($viewValue)"
+               data-typeahead-loading="anyLoading"
+               data-typeahead-min-length="1"
+               data-typeahead-focus-first="false"/>
+      </div>
+    </div>
+    <div class="col-md-4 gn-padding-left-extra">
+      <div class="form-group has-feedback ngr-search-location">
+        <label for="sel-location" data-translate="">AtLocation</label>
+        <select multiple
+                class="form-control input-lg"
+                id="sel-location"
+                data-ngr-multi-location
+                data-thesaurus-key="external.place.administrativeAreas"
+                data-uri-string="searchObj.params.geometry"></select>
+        <span class="form-control-feedback">
+          <i class="fa fa-map-marker fa-2x"></i>
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4 gn-padding-left-extra">
+      <div class="form-group">
+        <button type="button"
+                id="btn-trigger-search"
+                data-ng-click="triggerSearch()"
+                class="btn btn-primary btn-lg">
+          {{'ShowResultats'|translate}}
+        </button>
+        <button type="button" id="btn-reset-search"
+                data-ng-click="resetSearch(searchObj.defaultParams, false);"
+                title="{{'ClearTitle' | translate}}"
+                class="btn btn-primary btn-lg">
+          {{'Reset'|translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 gn-padding-left-extra">
+      <button type="button" id="btn-advanced-search"
+              class="btn btn-link"
+              data-ng-model="searchObj.advancedMode"
+              btn-checkbox=""
+              btn-checkbox-true="1"
+              btn-checkbox-false="0">
+        {{'AdvancedSearch'|translate}} <i class="fa fa-arrow-down"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row" id="pnl-advanced-search" data-ng-show="searchObj.advancedMode">
+    <!--Advanced search form-->
+    <div class="gn-search-filter">
+
+
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label data-translate="">DataAvailability</label>
+              <div class="checkbox">
+                <label>
+                  <input id="chk-visualisation" type="checkbox" value="true" checked="{searchObj.params.dynamic}"
+                         data-ng-model="searchObj.params.dynamic">
+                  {{'Visualisation'|translate}}
+                </label>
+              </div>
+              <div class="checkbox ">
+                <label>
+                  <input id="chk-download" type="checkbox" value="true" data-ng-model="searchObj.params.download"/>
+                  {{'DownloadData'|translate}}
+                </label>
+              </div>
+              <div class="checkbox ">
+                <label>
+                  <input id="chk-data-request" type="checkbox" value="true"
+                         data-ng-model="searchObj.params.nodynamicdownload"/>
+                  {{'DataOnRequest'|translate}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-md-12">
+            <label data-translate="">ByDate</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.metadataDateFrom" lang="lang">
+
+                <input id="creationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.metadataDateTo" lang="lang">
+
+                <input id="creationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label data_translate="">ByDateExtent</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.extFrom" lang="lang">
+
+                <input id="validityDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.extTo" lang="lang">
+
+                <input id="validityDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- todo: add here the search on temporal extent -->
+
+      </div>
+
+      <div class="col-md-4 gn-padding-left-extra">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="inspireThemeF" data-translate="">INSPIREtheme</label>
+              <input type="text" id="inspireThemeF" value=""
+                     class="form-control"
+                     gn-values="searchObj.params['inspiretheme']"
+                     gn-sortby="name"
+                     gn-typeahead="inspirethemeOptions"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="orgNameF"
+                     data-translate="">orgName</label>
+              <input type="text" id="orgNameF" value=""
+                     class="form-control"
+                     gn-values="searchObj.params.orgName"
+                     gn-sortby="name"
+                     gn-typeahead="orgNameOptions"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</form>

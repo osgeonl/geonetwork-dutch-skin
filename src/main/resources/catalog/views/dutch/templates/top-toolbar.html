@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul data-ng-show="!authenticated" class="nav navbar-nav">
+    <!-- <ul class="nav navbar-nav"> -->
+      <li>
+        <a data-gn-active-tb-item="catalog.search#/home"
+           title="{{'Home' | translate}}">
+          <span data-translate="">Home</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/search"
+           title="{{'menu_search' | translate}}">
+          <span data-translate="">menu_search</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/map"
+           title="{{'map' | translate}}">
+          <span data-translate="">map</span>
+        </a>
+      </li>
+      <li data-ng-show="authenticated && user.isEditorOrMore()">
+        <a data-gn-active-tb-item="catalog.edit"
+           title="{{'Dashboard' | translate}}">
+          <span data-translate="">Dashboard</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/latest"
+           title="{{'menu_latest' | translate}}">
+          <span data-translate="">menu_latest</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/about"
+           title="{{'menu_about' | translate}}">
+          <span data-translate="">menu_about</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/devel"
+           title="{{'menu_developers' | translate}}">
+          <span data-translate="">menu_developers</span>
+        </a>
+      </li>
+      <li data-ng-show="user.isUserAdminOrMore()">
+        <a data-gn-active-tb-item="admin.console"
+           title="{{'adminConsole' | translate}}">
+          <span data-translate="">adminConsole</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul data-ng-show="user.isEditorOrMore()" class="nav navbar-nav">
+      <li>
+        <a data-gn-active-tb-item="catalog.search#/home"
+           title="{{'Home' | translate}}">
+          <span data-translate="">Home</span>
+        </a>
+      </li>
+      <li data-ng-show="authenticated && user.isEditorOrMore()">
+        <a data-gn-active-tb-item="catalog.edit"
+           title="{{'Dashboard' | translate}}">
+          <span  data-translate="">Dashboard</span>
+        </a>
+      </li>
+      <li data-ng-show="user.isUserAdminOrMore()">
+        <a data-gn-active-tb-item="admin.console"
+           title="{{'adminConsole' | translate}}">
+          <span data-translate="">adminConsole</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <div class="navbar-text hidden-xs" data-ng-show="authenticated">
+        <span class="ngr-text-lighter" data-ng-show="authenticated && user.isEditorOrMore()" data-translate="">Welkom</span>
+        {{user.name}} {{user.surname}} 
+        <span class="ngr-text-smaller ngr-text-lighter" data-ng-show="authenticated && user.isEditorOrMore()">({{user.profile}})</span>
+      </div>
+
+      <li data-ng-show="authenticated">
+        <a id="signOfflink" href="../../j_spring_security_logout"
+           title="{{'signout' | translate}}">
+          {{'signout' | translate}}
+        </a>
+      </li>
+      <li data-ng-show="!authenticated && service !== 'catalog.signin'">
+        <a id="signInlink" data-gn-active-tb-item="catalog.signin"
+           title="{{'signIn'|translate}}"
+           data-ng-keypress="$event">
+          {{'signIn' | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+
+<span class="alert alert-danger ng-hide"
+      data-ng-show="session.remainingTime > 0 && session.remainingTime < session.alertInTitleWhen"
+      data-translate=""
+      data-translate-values="{remainingTime: '{{session.remainingTime}}'}">
+  sessionWillExpireIn
+</span>

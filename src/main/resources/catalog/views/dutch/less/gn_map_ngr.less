@@ -1,0 +1,292 @@
+
+// map for search results
+[data-gn-map-field] > [ngeo-map] {
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  right: 0;
+  bottom: 0;
+  position: fixed !important;
+  z-index: 99;
+  width: 250px !important;
+  heigth: 250px !important;
+  margin: 10px 5px;
+}
+
+[gn-main-viewer] [ngeo-map], .gn-main-viewer [ngeo-map] {
+  width: calc(~"100% - 40px");
+  height: 89.9vh;
+  margin: 20px;
+  @media (max-width: 767px) {
+    margin-top: 55px;
+  }
+}
+// initial height for the map div, this shouldn't be less than the height
+// of .gn-search-map [ngeo-map] (see below)
+.gn-search-map {
+  height: 300px
+}
+.gn-search-map [ngeo-map] {
+  display: block;
+  position: absolute !important;
+  width: 200px !important;
+  height: 300px;
+  min-height: 300px;
+  width: inherit;
+  bottom: inherit;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+// ----- button container for on the map
+.gn-search-map [ngeo-map] .gn-draw-btn {
+  border: 0;
+  background-color: #999;
+  top: -1px;
+  left: -1px;
+}
+.gn-search-map [ngeo-map] .btn-group-vertical {
+  top: -1px;
+  right: -1px;
+}
+// ----- buttons
+.gn-search-map [ngeo-map] .gn-draw-btn .btn, .gn-search-map [ngeo-map] .btn-group-vertical .btn {
+  border-radius: 0;
+}
+
+// map view
+
+[gn-main-viewer], .gn-main-viewer {
+  
+  // ----- all the tools on the map
+  .tools {
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 3px;
+    button { 
+      border: none;
+      border-bottom: 1px solid #ccc;
+      width: auto; 
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+    button:focus, button:hover {
+      background-color: #efefef;
+    }
+  }
+
+  // ----- tools on the right side: e.g. add layer
+  .map-tools {
+    width: 160px;
+    right: 35px;
+    border-bottom: 0;
+    @media (max-width: 767px) {
+      width: 38px;
+    }
+    [role=tooltip] {
+      padding-left: 5px;
+      font-size: 12px;
+      clip: auto;
+      right: auto;
+    }
+    button {
+      width: 158px;
+      text-align: left;
+      @media (max-width: 767px) {
+        width: 36px;
+      }
+    }
+    button:focus [role=tooltip], button:hover [role=tooltip] {
+      background: none;
+      color: #000;
+      padding-left: 5px;
+      padding-top: 0;
+      text-shadow: none;
+      margin-top: 0;
+      border-radius: 0;
+    }
+  }
+
+  // ----- tools on the left side: zoom in, zoom out, etc.
+  .control-tools {
+    width: 38px;
+    bottom: auto;
+    top: 1em;
+    right: auto;
+    left: 35px;
+    border-bottom: 0;
+    // tooltip on the right side of the tools
+    [role=tooltip] {
+      margin-top: -5px;
+      left: 37px;
+      padding: 5px 10px;
+      right: auto;
+      border-radius: 0;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+    button {
+      width: 36px;
+    }
+  }
+
+  // search input above the map
+  .search-container {
+    top: -62px;
+    right: 20px;
+    left: auto;
+    width: 20em;
+  }
+  @media (max-width: 767px) {
+    .search-container {
+      top: -45px;
+      right: auto;
+      left: 20px;
+      width: 90%;
+    }
+  }
+  
+  [gn-graticule-btn], [rel=\#draw] {
+    display: none;
+  }
+
+  // individual map tools, e.g. add layer
+  .panel-tools {
+    right: 35px;
+    width: 30em;
+    background: #fff;
+    @media (max-width: 767px) {
+      right: 28px;
+    }
+    .btn-group {
+      display: inline-block;
+    }
+    [gn-layermanager] .list-group {
+      margin-bottom: 10px;
+    }
+    [gn-layermanager] .list-group-item, .list-group-item {
+      padding-left: 0;
+      padding-right: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+      div {
+        clear: both;
+        line-height: 36px;
+      }
+      .btn-cog {
+        position: absolute;
+        margin-top: -1px;
+        padding-top: 0;
+        right: 14px;
+        color: #333;
+      }
+      .btn-cog-left {
+        padding: 0px 6px 6px 0;
+        margin-right: 0px;
+        right: auto;
+        position: relative;
+        color: #333;
+      }
+    }
+    [gn-layermanager] .list-group-item.gn-searchlayer, .list-group-item.gn-searchlayer {
+      .btn-cog {
+        margin-top: 2px;
+        padding-top: 6px;
+      }
+    }
+    .panel-heading {
+      // height: 2.8em;
+      // background: #fff;
+    }
+    .panel-heading h3 {
+      font-size: 16px;
+    }
+    .panel-body {
+      max-height: calc(~"100vh - 180px");
+      overflow: auto;
+      min-height: 85px;
+    }
+    .baselayer {
+      margin: 0;
+      position: absolute;
+    }
+    [data-dropup] {
+      margin-bottom: 10px;
+    }
+    .dropup {
+      // position: absolute;
+    }
+    label {
+      padding-left: 0;
+    }
+    fieldset {
+      margin-top: 20px;
+    }
+    legend {
+      font-family: rijksoverheidsanstext-bold;
+      font-size: 16px;
+      border: 0;
+    }
+    .alert {
+      padding: 0;
+      margin: 0 0 10px 0;
+      background: 0;
+      color: #999;
+      border: 0;
+    }
+  }
+  // identify
+  [gn-gfi] .results {
+    background: #fff;
+    z-index: 100;
+    .panel-heading {
+      background-color: #eee;
+      height: auto;
+    }
+    .panel-body {
+      max-height: 36em;
+      overflow: auto;
+      h5 {
+        padding: 0 15px 15px 15px;
+        margin-right: -15px;
+        margin-left: -15px;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+    .row {
+      border-bottom: 1px solid #ddd;
+    }
+    .row:last-child {
+      border: 0;
+    }
+    .gfi-label {
+      color: #333;
+      padding: 5px 0px;
+    }
+    .gfi-value {
+      padding: 5px 0px;
+      color: #999;
+    }
+  }
+
+  // responsive width
+  @media (max-width: 768px) {
+    .panel-tools {
+      width: 30em;
+    }
+  }
+  @media (max-width: 450px) {
+    .panel-tools {
+      width: 100%;
+      top: 8px;
+    }
+    [gn-gfi] .results {
+      width: 92%;
+    }
+  }
+} 
+
+// hide featureinfo
+#feature-info {
+  display: none;
+}
+

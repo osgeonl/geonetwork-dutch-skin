@@ -1,0 +1,713 @@
+/* Defined here any custom style for the view
+   which has to be applied for all apps
+   (ie. admin, search, login, editor). */
+
+@import "gn_variables_ngr.less"; // must be first
+@import "gn_navbar_ngr.less";
+@import "gn_map_ngr.less";
+
+html, body {
+  height: 100%;
+}
+
+// container
+.container {
+  // extra room for the footer
+  // margin-bottom: 45px;
+}
+@media (max-width: 768px) {
+  .container {
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+}
+// layout
+@media (min-width: 1200px) {
+  #gn-directory-container {
+    width: 1100px;
+  }
+}
+
+.page {
+  background: white;
+  padding-bottom: 60px;
+}
+
+// ----- header
+header {
+  height: 80px;
+  margin-top: 0px;
+  padding-top: 10px;
+  background-color: white;
+}
+@media (max-width: @screen-sm-min) {
+  header {
+    height: 95px;
+  }
+}
+@media (max-width: 320px) {
+  .branding a img {
+    height: 80%;
+    width: 80%;
+  }
+}
+.gn-top-bar {
+  padding: 0 8px;
+}
+.contact-links {
+  padding-right: 10px;
+  a {
+    color: gray;
+    padding: 10px;
+  }
+}
+.home-header {
+  text-shadow: 0px 0px 4px #333333;
+  font-size: 48px;
+}
+
+// ----- footer
+.footer {
+  background: #fff;
+  padding: 10px;
+}
+#footer a {
+  color: black;
+  font-weight: bold;
+  padding-right: 12px;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+.bottom-bar {
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  text-align: right;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+// logo (left side the same as the left of the text on the first tab)
+.branding {
+  padding-left: 3px;
+}
+
+// home header
+.intro-text {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  background: none;
+  color: white;
+  text-align: center;
+  @media (max-height: 800px) {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  h1 {
+    width: 60%;
+    font-size: 3em;
+    line-height: 1.3em;
+    margin: 0 auto;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+    @media (max-width: 450px) {
+      font-size: 2em;
+    }
+  }
+  .intro-scrolldown {
+    font-size: 76px;
+    margin-top: 0px;
+  }
+}
+
+// divider
+.gn-divider-bar {
+  height: 5px;
+  background-color: @gnMainColorLight;
+}
+
+// typography
+//
+// general text styling
+//
+// ----- fonts
+@font-face {
+  font-family: rijksoverheidsanstext-bold;
+  src: url(../catalog/views/ngr/images/rijksoverheidsansheading-bold.woff);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: rijksoverheidsanstext-bold, sans, arial !important;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: rijksoverheidsanstext-regular;
+  src: url(../catalog/views/ngr/images/rijksoverheidsanstext-regular.woff);
+}
+
+body,p,div,span,a,blockquote {
+  font-family: rijksoverheidsanstext-regular, sans, arial !important;
+}
+
+.fa, .fa span, .fa div, .fa a {
+  font-family: FontAwesome !important;
+}
+.fa.pull-left {
+  margin-right: .3em;
+  margin-top: 7px;
+}
+// ----- alerts
+.alert {
+  line-height: 1.6em;
+  max-width: 1000px;
+}
+.alert-warning {
+  //why was this deactivated?
+  //background: 0 !important;
+  //border: 0;
+  //padding-left: 20px;
+  //margin: 0;
+  //color: #999;
+}
+// ----- about, for developers, etc
+.plain-text {
+  width: 80%;
+  padding: 20px;
+  margin: 0;
+  h1 {
+    margin: 30px 0 30px 0;
+  }
+  h4 {
+    margin: 30px 0 20px 0;
+  }
+  p {
+    line-height: 1.7em;
+  }
+  li a {
+    display: block;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+@media (max-width: 767px) {
+  .plain-text {
+    width: 100%;
+    h1 {
+      margin: 20px 0 20px 0;
+    }
+  }
+}
+// custom text styles
+//
+// ----- general
+.ngr-text-smaller {
+  font-size: 12px;
+}
+.ngr-capitalize {
+  text-transform: capitalize;
+}
+.ngr-hierarchy {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.ngr-md-label, .ngr-md-label span {
+  font-family: rijksoverheidsanstext-bold, sans, arial !important;
+  color: #333;
+}
+// ----- toggle option
+.collapse-text-toggle {
+  cursor: pointer;
+}
+.collapse-text-toggle:hover {
+  text-decoration: underline;
+}
+
+// ----- keywords
+.ngr-keyword {
+  margin-right: 3px;
+  color: #333;
+  text-decoration: underline;
+}
+.ngr-keyword:hover {
+  color: #000;
+}
+.ngr-keyword:after {
+  content: ","
+}
+.ngr-keyword:last-child:after {
+  content: ""
+}
+// ----- sort label
+.ngr-sort-label {
+  margin-top: 6px;
+}
+
+// tab styling
+
+.nav-tabs > li > a {
+  color: #999;
+  white-space: nowrap;
+  &:hover {
+    color: #333;
+  }
+
+}
+@media (max-width: 450px) {
+  .nav-tabs > li {
+    width: 100%;
+    border: 0;
+    float: none;
+  }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      color: #333;
+      background-color: #efefef;
+      border: 0;
+      border-bottom-color: transparent;
+  }
+}
+
+// top bar (contact & help)
+nav.verytop a {
+  color: darkgrey;
+  text-decoration: none;
+}
+.verytop ul li {
+  float: left;
+  padding: 0 10px;
+}
+.verytop ul {
+  list-style: none;
+  padding: 0px;
+}
+
+// general dropdown
+//
+.ngr-search-form, .navbar {
+  .dropdown-menu {
+    // max-width: 100%;
+    max-height: 350px;
+    min-width: 250px;
+    overflow: auto;
+    .divider {
+      margin: 0;
+    }
+  }
+  @media (min-width: @screen-sm-min) {
+    .dropdown-menu {
+      // max-width: 200%;
+    }
+  }
+  .dropdown-menu > li > a {
+    white-space: nowrap;
+    // max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// dropdown higher than footer
+.dropdown-menu {
+  z-index: 1001;
+
+  // sometimes a dropdown is used within a class 'text-right', this to align elements
+  // to the right, but in a dropdown text should always be on the left
+  li {
+    text-align: left;
+  }
+  // disable click function on disabled items
+  li.disabled {
+    a {
+      pointer-events: none;
+    }
+  }
+  // ----- remove the double toggle buttons
+  i.fa-sort {
+    display: none;
+  }
+  // ----- more whitespace in the dropdown
+  .caret {
+    margin-left: 5px;
+  }
+}
+// active/hover color
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  color: #333;
+  background-color: @gnMainColorLight;
+}
+// breadcrumbs (in second toolbar/navbar)
+.crumb {
+  background-color: @gnCrumbBackground;
+  padding: 1.0em 21px 1.3em 21px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  a {
+    color: @gnCrumbText;
+  }
+}
+
+// inspire styles for NGR
+//
+// used for search results & detail view
+.ngr-inspire-list {
+  margin-top: 10px;
+  list-style: none;
+  li {
+    margin-bottom: 10px;
+  }
+  li:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    position: absolute;
+    margin-left: -14px;
+    font-size: 16px;
+  }
+}
+
+// categories
+
+// ----- list of categories
+.ngr-categories {
+  text-align: center;
+}
+.ngr-categories h3 {
+  margin-bottom: 50px;
+}
+// ----- single category
+.ngr-category {
+  text-transform: lowercase;
+  float: left;
+  padding: 5px 0px;
+  a {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.5em;
+    .gn-icon {
+      font-size: 1.5em;
+    }
+    .gn-icon-label {
+      font-family: rijksoverheidsanstext-bold, sans, arial !important;
+      font-size: 14px;
+    }
+    .gn-icon-count {
+      color: #999;
+    }
+  }
+}
+
+// buttons en custom links
+//
+.btn {
+  font-family: rijksoverheidsanstext-regular, sans, arial !important;
+}
+// ----- override default .btn settings
+.btn:active {
+  box-shadow: none;
+}
+// ----- remove default blue styling
+.btn-primary {
+  color: #fff;
+  background-color: @gnMainColorDark;
+  border-color: @gnMainColorDark;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
+.open .dropdown-toggle.btn-primary, .btn-primary.running {
+  color: #fff;
+  background-color: @gnMainColorDark;
+  border-color: @gnMainColorDark;
+  box-shadow: none;
+}
+.btn-group > .btn-primary + .dropdown-toggle {
+  border-left: 1px solid #fff;
+}
+.btn-primary.diabled {
+  background-color: @gnMainColorLight;
+}
+.btn-primary.active {
+  background-color: #a05106;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+// ----- extra button styling
+.btn-ngr-outline {
+  border-color: @gnMainColor;
+  background-color: #fff;
+  box-shadow: none !important;
+  color: @gnMainColor;
+  margin-right: 4px;
+  &:hover {
+    border-color: @gnMainColor;
+    color: @gnMainColor;
+    background-color: @gnMainColorLight;
+    text-decoration: none;
+  }
+  &:focus {
+    color: @gnMainColor;
+  }
+  i {
+    // margin-right: 5px;
+  }
+  .btn-group > .btn, .btn-group-vertical > .btn {
+    padding: 0;
+    color: @gnMainColor;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.btn-ngr-outline.fa {
+  span {
+    font-family: rijksoverheidsanstext-regular, sans, arial !important;
+    margin-left: -2px;
+    color: @gnMainColor;
+    text-rendering: auto;
+    -webkit-font-smoothing: initial;
+  }
+  &:hover {
+    span {
+      color: #333;
+    }
+  }
+}
+
+
+.btn-group.open .btn-ngr-outline.dropdown-toggle {
+  background-color: @gnMainColorLight;
+  color: @gnMainColor;
+}
+
+// ----- back button
+.btn-ngr-back {
+  color: #333;
+  cursor: pointer;
+  &:hover {
+    color: #000;
+  }
+  .fa {
+    font-size: 20px;
+  }
+}
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, 
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, 
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, 
+.btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, 
+.btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+  background-color: @gnMainColorDark;
+  border-color: @gnMainColorDark;
+}
+
+// ----- button with conflicting font-families, i.e. when a button has both class .btn and .fa
+.btn.fa:before {
+  font-family: FontAwesome !important;
+  margin-right: 5px;
+}
+// ----- caret in button
+.btn span + .caret {
+  margin-left: 5px;
+}
+
+// custom radio
+// 
+// ----- custom colored radio
+input[type=radio].ngr-radio {
+  display: none;
+}
+input[type=radio].ngr-radio + span.ngr-radio-label {
+  padding-left: 30px;
+  display: inline-block;
+  line-height: 26px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: 0 4px;
+}
+span.ngr-radio-label {
+  background-image: url('../catalog/views/ngr/images/ngr-radio-unchecked.png');
+}
+input[type=radio].ngr-radio:checked + span.ngr-radio-label {
+  // background-position: 0 -26px;
+  background-image: url('../catalog/views/ngr/images/ngr-radio-checked.png');
+}
+
+// ----- special for import screen
+#gn-import .radio-inline {
+  padding-left: 0;
+}
+
+// custom checkboxes
+// 
+// ----- general
+.checkbox, .checkbox-inline {
+  padding-left: 0;
+}
+// ----- custom colored checkbox
+input[type=checkbox].ngr-checkbox {
+  display: none;
+}
+input[type=checkbox].ngr-checkbox + span.ngr-checkbox-label {
+  padding-left: 30px;
+  display: inline-block;
+  line-height: 26px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: 0 4px;
+}
+input[type=checkbox].ngr-checkbox:checked + span.ngr-checkbox-label {
+  background-position: 0 -26px;
+}
+span.ngr-checkbox-label {
+  background-image: url('../catalog/views/ngr/images/ngr-checkbox.png');
+}
+
+// modal
+.modal h3 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+// ----- image popup modal
+.gn-img-modal {
+  background-color: #fff;
+  .gn-btn-modal-img {
+    top: -18px;
+    right: -18px;
+    background: #fff;
+    border-radius: 18px;
+    height: 34px;
+    width: 34px;
+    border: 2px solid @gnMainColor;
+    padding: 0px;
+    font-size: 20px;
+    .text-danger {
+      color: @gnMainColor;
+    }
+  }
+}
+
+// general styles
+//
+// padding
+.ngr-padding-top, .gn-padding-top {
+  padding-top: @gnSpacing;
+}
+.ngr-padding-right, .gn-padding-right {
+  padding-right: @gnSpacing;
+}
+.ngr-padding-bottom, .gn-padding-bottom {
+  padding-bottom: @gnSpacing;
+}
+.ngr-padding-left, .gn-padding-left {
+  padding-left: @gnSpacing;
+}
+// no padding
+.ngr-nopadding, .gn-nopadding {
+  padding: 0;
+}
+.ngr-nopadding-tablet {
+  @media (min-width: 800px) and (max-width: 1024px) {
+    padding: 0;
+  }
+}
+.ngr-nopadding-top, .gn-nopadding-top {
+  padding-top: 0;
+}
+.ngr-nopadding-right, .gn-nopadding-right {
+  padding-right: 0;
+}
+.ngr-nopadding-bottom, .gn-nopadding-bottom {
+  padding-bottom: 0;
+}
+.ngr-nopadding-left, .gn-nopadding-left {
+  padding-left: 0;
+}
+
+// extra padding for columns
+@media (min-width: @screen-sm-max) {
+  .gn-padding-left-extra {
+    padding-left: 25px;
+  }
+}
+
+// margin
+.ngr-margin-all, .gn-margin-all {
+  margin: @gnSpacing;
+}
+.ngr-margin-top, .gn-margin-top {
+  margin-top: @gnSpacing;
+}
+.ngr-margin-right, .gn-margin-right {
+  margin-right: @gnSpacing;
+}
+.ngr-margin-bottom, .gn-margin-bottom {
+  margin-bottom: @gnSpacing;
+}
+.ngr-margin-left, .gn-margin-left {
+  margin-left: @gnSpacing;
+}
+// margin for small devices
+@media (max-width: 750px) {
+  .ngr-xs-margin-bottom, .gn-xs-margin-bottom {
+    margin-bottom: @gnSpacing;
+  }
+}
+
+// widths
+.ngr-width-80, .gn-width-80 {
+  width: 80%;
+}
+.ngr-width-60, .gn-width-60 {
+  width: 60%;
+}
+.ngr-width-90, .gn-width-90 {
+  width: 90%;
+}
+.ngr-width-10, .gn-width-10 {
+  width: 10%;
+}
+.ngr-width-full, .gn-width-full {
+  width: 100%;
+}
+
+img.gfi-image {
+max-width:200px;
+max-height:150px;
+}
+
+// text
+.text-preline {
+  white-space: pre-line;
+}
+.text-scroll {
+  overflow: auto;
+}
+
+// test
+.bingo {
+  color: red !important;
+}
+
+.gn-info, .gn-alerts .alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  max-width: none;
+  text-align: left;
+  border-width: 0 0 1px 0;
+}
+.navbar .dropdown-menu, .dropdown img.img-circle, .dropdown span.gn-user-role {
+  display:none !important;
+}
+div.navbar {
+  margin-bottom: 10px;
+}
