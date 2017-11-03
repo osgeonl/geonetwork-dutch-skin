@@ -1,9 +1,9 @@
 (function () {
   goog.provide('abc');
 
-  var module = angular.module('ngr_search_home_controller', []);
+  var module = angular.module('dutch_search_home_controller', []);
 
-  module.controller('NgrSearchHomeController', ['$scope', '$location', '$log',
+  module.controller('DutchSearchHomeController', ['$scope', '$location', '$log',
     function ($scope, $location, $log) {
 
       $scope.resetHomeParams = function () {

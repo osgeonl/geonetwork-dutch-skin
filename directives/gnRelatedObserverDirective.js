@@ -2,9 +2,9 @@
  * Created by juanluisrp on 30/08/2016.
  */
 (function () {
-  goog.provide('ngr_related_observer_directive');
+  goog.provide('dutch_related_observer_directive');
 
-  var module = angular.module('ngr_related_observer_directive', []);
+  var module = angular.module('dutch_related_observer_directive', []);
 
 
   module.directive('relatedObserver', [
@@ -62,7 +62,7 @@
       return {
         restrict: 'A',
         transclude: true,
-        templateUrl: '../../catalog/views/ngr/templates/relatedObserverTemplate.html',
+        templateUrl: '../../catalog/views/dutch/templates/relatedObserverTemplate.html',
         scope: {},
         controller: ['$scope', '$rootScope', RelatedObserverController],
         controllerAs: 'observerController',

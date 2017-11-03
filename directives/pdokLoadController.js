@@ -1,11 +1,11 @@
 (function(){
-    goog.provide('ngr_pdok_load_controller');
+    goog.provide('dutch_pdok_load_controller');
 
     goog.require('gn_cat_controller');
 
-    var module = angular.module('ngr_pdok_load_controller', ['gn_cat_controller']);
+    var module = angular.module('dutch_pdok_load_controller', ['gn_cat_controller']);
 
-    module.controller('ngrPdokLoad', 
+    module.controller('dutchPdokLoad', 
         [
           '$http',
           'gnLangs',

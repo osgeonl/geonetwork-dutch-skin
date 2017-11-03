@@ -1,11 +1,11 @@
 (function(){
-    goog.provide('ngr_multi_location_directive');
+    goog.provide('dutch_multi_location_directive');
 
     goog.require('gn_thesaurus_service');
 
-    var module = angular.module('ngr_multi_location_directive', ['gn_thesaurus_service']);
+    var module = angular.module('dutch_multi_location_directive', ['gn_thesaurus_service']);
 
-    module.directive('ngrMultiLocation', ['gnThesaurusService', '$location', '$q', '$cacheFactory', '$browser',
+    module.directive('dutchMultiLocation', ['gnThesaurusService', '$location', '$q', '$cacheFactory', '$browser',
         function(gnThesaurusService, $location, $q, $cacheFactory, $browser) {
             var cache = $cacheFactory('locations');
             var prefix = 'region:';

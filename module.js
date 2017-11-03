@@ -23,26 +23,26 @@
 
 (function() {
 
-  goog.provide('gn_search_ngr');
+  goog.provide('gn_search_dutch');
 
   goog.require('cookie_warning');
   goog.require('gn_mdactions_directive');
   goog.require('gn_related_directive');
   goog.require('gn_search');
   goog.require('gn_gridrelated_directive');
-  goog.require('gn_search_ngr_config');
+  goog.require('gn_search_dutch_config');
   goog.require('gn_search_default_directive');
-  goog.require('ngr_search_controller');
-  goog.require('ngr_multi_location_directive');
-  goog.require('ngr_pdok_load_controller');
+  goog.require('dutch_search_controller');
+  goog.require('dutch_multi_location_directive');
+  goog.require('dutch_pdok_load_controller');
   goog.require('gn_cors_interceptor');
 
-  var module = angular.module('gn_search_ngr',
-      ['gn_search', 'gn_search_ngr_config',
+  var module = angular.module('gn_search_dutch',
+      ['gn_search', 'gn_search_dutch_config',
        'gn_search_default_directive', 'gn_related_directive',
-       'cookie_warning', 'gn_mdactions_directive', 'gn_gridrelated_directive', 'ngr_search_controller',
-       'ngr_multi_location_directive', 'ngr_search_home_controller',
-       'ngr_pdok_load_controller',
+       'cookie_warning', 'gn_mdactions_directive', 'gn_gridrelated_directive', 'dutch_search_controller',
+       'dutch_multi_location_directive', 'dutch_search_home_controller',
+       'dutch_pdok_load_controller',
        'gn_cors_interceptor']);
 
 
@@ -95,7 +95,7 @@ module.controller('gnsSearchTopEntriesController', [
         }
       };
     }]);
-  module.controller('gnsNGR', [
+  module.controller('gnsDUTCH', [
     '$scope',
     '$location',
     'suggestService',

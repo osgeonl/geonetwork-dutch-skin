@@ -1,17 +1,17 @@
 <!-- Powered by: {{info.site.platform.name}}, version: {{info.site.platform.version}} -->
 <div class="container">
 
-  <header data-ng-include="'../../catalog/views/ngr/templates/header.html'"></header>
+  <header data-ng-include="'../../catalog/views/dutch/templates/header.html'"></header>
 
   <div class="navbar navbar-default gn-top-bar" role="navigation"
-       data-ng-include="'../../catalog/views/ngr/templates/top-toolbar.html'"
+       data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'"
        xmlns="http://www.w3.org/1999/html">
   </div>
 
   <div data-gn-alert-manager="" id="alerts"></div>
-  <div class="gn-search-page" data-ng-controller="NgrSearchController">
+  <div class="gn-search-page" data-ng-controller="DutchSearchController">
   <div class="gn-divider-bar"></div>
-  <div class="" data-ng-controller="gnsNGR">
+  <div class="" data-ng-controller="gnsDUTCH">
 
     <div class="container intro-text" data-ng-show="activeTab == '/home'">
       <h1 id="homeHeaderText">{{'homeHeaderText'|translate}}</h1>
@@ -22,20 +22,20 @@
     </div>
 
     <div class="page">
-      <div data-ng-include="'../../catalog/views/ngr/templates/home.html'"
+      <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
            data-ng-show="activeTab == '/home'"/>
-      <div data-ng-include="'../../catalog/views/ngr/templates/results.html'"
+      <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
            data-ng-show="activeTab == '/search'"/>
       <div data-ng-if="isMapViewerEnabled"
-           data-ng-include="'../../catalog/views/ngr/templates/map.html'"
+           data-ng-include="'../../catalog/views/dutch/templates/map.html'"
            data-ng-show="activeTab == '/map'"/>
-      <div data-ng-include="'../../catalog/views/ngr/templates/recordView.html'"
+      <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
            data-ng-show="activeTab == '/metadata'"/>
-      <div data-ng-include="'../../catalog/views/ngr/templates/about.html'"
+      <div data-ng-include="'../../catalog/views/dutch/templates/about.html'"
            data-ng-show="activeTab == '/about'"/>
-  	  <div data-ng-include="'../../catalog/views/ngr/templates/devel.html'"
+  	  <div data-ng-include="'../../catalog/views/dutch/templates/devel.html'"
            data-ng-show="activeTab == '/devel'"/>
-      <div data-ng-include="'../../catalog/views/ngr/templates/latest.html'"
+      <div data-ng-include="'../../catalog/views/dutch/templates/latest.html'"
            data-ng-show="activeTab == '/latest'"/>
     </div>
   </div>
@@ -43,7 +43,7 @@
 </div>
 
 
-<div data-ng-include="'../../catalog/views/ngr/templates/footer.html'"></div>
+<div data-ng-include="'../../catalog/views/dutch/templates/footer.html'"></div>
 
 </div>
 </div>

@@ -1,6 +1,5 @@
 (function() {
-    goog.provide('ngr_search_controller');
-
+    goog.provide('dutch_search_controller');
     goog.require('gn_searchsuggestion_service');
     goog.require('gn_thesaurus_service');
     goog.require('abc');
@@ -9,7 +8,7 @@
 
 
 
-    var module = angular.module('ngr_search_controller', [
+    var module = angular.module('dutch_search_controller', [
         'ui.bootstrap.typeahead',
         'gn_searchsuggestion_service',
         'gn_thesaurus_service',
@@ -21,7 +20,7 @@
      * Main search controller attached to the first element of the
      * included html file from the base-layout.xsl output.
      */
-    module.controller('NgrSearchController', [
+    module.controller('DutchSearchController', [
         '$scope',
         '$q',
         '$http',

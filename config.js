@@ -23,11 +23,11 @@
 
 (function() {
 
-  goog.provide('gn_search_ngr_config');
+  goog.provide('gn_search_dutch_config');
 
   goog.require('ol.proj.EPSG28992');
 
-  var module = angular.module('gn_search_ngr_config', ['ol.proj.EPSG28992']);
+  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992']);
 
   module.value('gnTplResultlistLinksbtn',
         '../../catalog/views/default/directives/partials/linksbtn.html');
@@ -280,7 +280,7 @@
 
           /* Custom templates for search result views */
           searchSettings.resultViewTpls = [{
-            tplUrl: '../../catalog/views/ngr/templates/card.html',
+            tplUrl: '../../catalog/views/dutch/templates/card.html',
             tooltip: 'Grid',
             icon: 'fa-th'
           }];
