@@ -1,0 +1,1001 @@
+// @import "gn_search_dutch.less";
+
+@import "gn_variables_dutch.less"; // must be first
+@import "../../../style/gn_editor";
+@import "gn_navbar_dutch.less";
+@import "gn_facet_dutch.less";
+@import "gn_pagination_dutch.less";
+@import "gn_view_dutch.less";
+@import "gn_onlinesrc_popup_dutch.less";
+
+
+.page {
+  padding-bottom: 60px;
+}
+
+h4 {
+  font-size: 20px;
+  a {
+    color: #333;
+    font-weight: normal;
+  }
+}
+
+// used to be only visibility hidden, but visibility hidden still takes
+// some pixels on the webpage, display:none doesn't
+.invisible {
+  display: none;
+}
+
+.page, #gn-new-metadata-container {
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+}
+// topbar
+.ngr-topbar {
+  margin-top: -20px;
+}
+.navbar-default.ngr-subbar {
+  border: 0;
+  border-top: 6px solid @gnMainColorLight;
+  background-color: #fff;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 8px;
+
+  li a:hover, li a:active, li a:focus, a:hover, a:focus, a:active {
+    // background: #fff !important;
+  }
+  .navbar-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.gn-view-menu-button {
+  color: #333;
+    li a, a {
+    padding: 0.8em 0.9091em 0.6em !important;
+    color: #333;
+    background: #fff;
+    &:hover, &:focus, &:active {
+      padding: 0.8em 0.9091em 0.6em !important;
+    }
+    .fa, .caret {
+      color: #333;
+    }
+  }
+}
+.navbar-default .gn-view-menu-button.navbar-nav > .open > a {
+  padding: 0.8em 0.9091em 0.6em !important;
+}
+
+.text-danger {
+  color: #DF0808;
+}
+
+// tooltip and remove icon
+//
+// ----- general
+.field-tooltip {
+  padding: 5px 0 0 4px;
+}
+// ----- in header
+legend .field-tooltip {
+  padding-top: 0;
+  position: absolute;
+  right: calc(~"8.3% + 4px");
+  margin-top: 3px;
+}
+// ----- no padding-top in middle column
+.gn-field .col-sm-8 .field-tooltip {
+  padding-top: 5px;
+  float: right;
+  margin-right: -32px;
+}
+// ----- in right column
+.gn-control {
+  padding-left: 0;
+  padding-right: 0;
+  .field-tooltip {
+    float: none;
+    position: relative;
+  }
+
+}
+// popover
+.gn-popover {
+  max-width: 500px;
+  .title {
+    text-transform: uppercase;
+  }
+}
+// popup
+// 
+// ----- general
+@media (min-width: 769px) {
+  [gn-popup] {
+    max-width: 800px;
+  }
+}
+// ----- draggable
+// 
+// make the popup fixed so it won't open out of sight at the top of the page
+.gn-popup-fixed {
+  position: fixed !important;
+}
+.gn-draggable {
+  .popover-title {
+    cursor: move;
+  }
+  // table with results
+  .gn-share-grid {
+    max-height: calc(~"100vh - 300px");
+    overflow: auto;
+    margin-bottom: 10px;
+  }
+  // filter input
+  .gn-searchgroup-input {
+    padding-left: 0;
+  }
+}
+
+// label in addon
+.input-group-addon label {
+  margin-bottom: 0;
+}
+// move icons
+@media (min-width: 769px) {
+  form.gn-editor legend > div.gn-move {
+    margin-left: -42px;
+    margin-top: -24px;
+  }
+}
+form.gn-editor legend > div.gn-move a {
+  font-size: 22px;
+}
+form.gn-editor legend > div.gn-move a:hover {
+  text-decoration: none;
+}
+
+// move icons for individual inputs
+form.gn-editor .gn-field .gn-move {
+  display: none;
+}
+
+form.gn-editor .gn-field {
+  padding-top: 0;
+}
+form.gn-editor fieldset > div.form-group.gn-field, form.gn-editor fieldset > div.row.gn-field {
+    padding-top: 10px;
+    .pull-right {
+      margin-top: -2px;
+    }
+}
+form.gn-editor fieldset > div.form-group.gn-field:last-child, form.gn-editor fieldset > div.row.gn-field:last-child {
+    padding-bottom: 10px;
+}
+
+form.gn-editor fieldset legend, .gn-field .gn-control {
+  .pull-right {
+    visibility: visible !important;
+    margin-top: -5px;
+    padding: 7px 8px;
+  }
+}
+
+// labels before 'add' buttons
+form.gn-editor div.gn-extra-field > label {
+  visibility: hidden;
+  white-space: normal;
+}
+
+.gn-editor-container {
+
+  .nav-tabs {
+    border: 0;
+  }
+  form {
+    background-color: white;
+    // padding-top: 20px;
+  }
+  .tag {
+    padding: 5px;
+    text-align: left;
+    line-height: 1.5em;
+  }
+  .panel {
+    // border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    button .fa {
+      display: inline-block;
+    }
+  }
+  .panel-heading {
+    border: 0;
+    border-radius: 0;
+    font-size: 16px;
+    .btn {
+      padding: 3px 6px;
+    }
+  }
+  .panel-body {
+    border: 0;
+    h4 {
+      font-size: 14px;
+    }
+    // .list-group {
+    //   a {
+    //     border: 0;
+    //     padding-left: 0;
+    //     padding-right: 0;
+    //     font-size: 13px;
+    //   }
+    //   a:hover {
+    //     background: none;
+    //     text-decoration: underline;
+    //   }
+    // }
+  }
+  // special: draw map
+  .gn-drawmap-panel {
+    .panel {
+      border: 0;
+      margin-top: 0;
+    }
+    .panel-body {
+      padding-left: 0;
+      .input-group {
+        margin-bottom: 15px;
+      }
+      .draw-map-box {
+        position: relative;
+        display: inline-block;
+        margin: 30px 0 30px 0;
+        padding: 0 75px 0 75px;
+        width: 100%;
+        .input-group {
+          margin-bottom: 0;
+          z-index: 100;
+        }
+      }
+      .coord {
+        position: absolute;
+        width: 150px;
+      }
+      .coord-north {
+        top: -1.25em;
+        margin-left: -75px;
+        left: 50%;
+      }
+      .coord-east {
+        right: 0;
+        top: 50%;
+        margin-top: -1.25em;
+      }
+      .coord-west {
+        left: 0;
+        top: 50%;
+        margin-top: -1.25em;
+      }
+      .coord-south {
+        left: 50%;
+        margin-left: -75px;
+        bottom: -1.25em;
+      }
+      .map {
+        border: 1px solid #ccc;
+        width: 100%;
+        .ol-rotate, .ol-attribution {
+          display: none;
+        }
+      }
+    }
+  }
+  // remove icon
+  .fa-times:before {
+    content: "\f014";
+    color: #a94442;
+  }
+}
+
+.gn-editor-board {
+  background-color: white;
+  padding-top: 20px;
+}
+#gn-new-metadata-container {
+  background-color: white;
+  padding-top: 20px;
+  width: 100%;
+}
+
+// editor screen
+//
+// ----- hide TOC (scroll spy)
+.gn-scroll-spy {
+  display: none !important;
+}
+// ----- add metadata
+form.gn-editor label.gn-required:after {
+  content: "*";
+  margin: 7px 0 0 7px;
+  position: absolute;
+  color: #a94442;
+  font-weight: normal;
+}
+form.gn-editor .gn-required > label:after, form.gn-editor label.gn-required:after {
+  font-size: 20px;
+  margin-top: 0px;
+}
+
+[data-gn-slide-toggle]:before {
+  content: "\f078";
+  font-size: 14px;
+  position: absolute;
+  float: right;
+  margin-left: inherit;
+  right: calc(~"8.3% + 35px");
+}
+.panel [data-gn-slide-toggle] {
+  padding-left: 15px;
+}
+.panel [data-gn-slide-toggle]:before {
+  right: calc(~"8.3% + 40px");
+}
+[data-gn-slide-toggle].collapsed:before {
+  content: "\f054";
+}
+form.gn-editor div[data-gn-toggle] {
+  display: none;
+}
+@media (max-width: 767px) {
+  [data-gn-slide-toggle]:before {
+    right: calc(~"2.3% + 30px");
+  }
+}
+
+// editor tools
+.gn-editor-tools-container {
+  .panel [data-gn-slide-toggle]:before {
+    right: calc(8.3% + 4px);
+  }
+  .panel-heading {
+    padding-left: 10px;
+  }
+}
+// ----- suggestions
+[data-gn-suggestion-list] {
+  .panel-body {
+    padding: 10px;
+  }
+}
+
+form.gn-editor fieldset {
+  padding: 0px 10px;
+	border: 1px solid #ddd;
+  border-top: 0;
+  margin-bottom: 15px;
+  border-radius: 0;
+  &:hover, &:active, &:focus {
+    background: 0;
+  }
+  label {
+    padding-left: 0px;
+    padding-top: 5px;
+  }
+  .well {
+    padding-left: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    label {
+      padding-left: 15px;
+    }
+  }
+  legend {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    margin-left: -11px;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    width: calc(~"100% + 22px");
+    margin-bottom: 0;
+  }
+  fieldset {
+    padding: 0;
+    margin-top: 25px;
+    // margin-bottom: 20px;
+    border: 0;
+    legend {
+      font-size: 18px;
+      // padding-top: 5px;
+      font-family: rijksoverheidsanstext-regular, sans, arial !important;
+      background: #fff;
+      border-top: 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table {
+      margin-bottom: 0;
+    }
+    .table > thead > tr > th {
+      border-bottom: 0;
+    }
+  }
+
+  // keyword/thesaurus section
+  .gn-descriptiveKeywords {
+    background: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ddd;
+    legend {
+      background: #f5f5f5;
+      border-top: 1px solid #ddd;
+      .field-tooltip {
+        right: calc(~"8.3% + 12px");
+      }
+    }
+    // do not show the add button, there is already an add button
+    .form-group.gn-field.gn-add-field {
+      display: none;
+    }
+    .form-group.gn-field.gn-extra-field.gn-add-field {
+      display: block;
+    }
+  }
+  .field-bg {
+    background: transparent;
+  }
+  // hide transformation list dropdown
+  [data-gn-keyword-selector] {
+    .col-sm-1 {
+      .dropdown-toggle {
+        display: none;
+      }
+    }
+  }
+}
+
+// DCP should also be required (show asterisk)
+.gn-containsOperations {
+  table {
+    .gn-DCP > label:after {
+      content: "*";
+      font-size: 20px;
+      margin: 0 0 0 7px;
+      position: absolute;
+      color: #a94442;
+      font-weight: normal;
+    }
+  }
+}
+
+form.gn-editor .control-label {
+  font-family: rijksoverheidsanstext-bold, sans, arial !important;
+  color: #333;
+  text-align: left;
+  padding-top: 5px;
+}
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+      text-align: left;
+  }
+}
+
+// special case for date fields
+form.gn-editor .gn-field .col-sm-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (max-width: 768px) {
+  .gn-value {
+    padding-left: 5px;
+    padding-top: 3px;
+  }
+}
+.gn-date-picker {
+  width: 100%;
+}
+
+// edit fields in table
+.gn-table div.gn-field .col-sm-8 {
+  width: 100%;
+  padding: 0;
+}
+
+// online resource panel
+.gn-onlinesrc-panel {
+  .list-group {
+    margin-bottom: 10px;
+  }
+  .list-group-item {
+    padding: 10px 0 0 0;
+    border-radius: 0;
+    border: 0;
+    .row > div {
+      padding-left: 0;
+      padding-right: 1px;
+    }
+    .onlinesrc-link {
+      display: block;
+      color: #333;
+      padding-bottom: 6px;
+    }
+    .btn-group {
+      margin-left: -3px;
+    }
+  }
+  .gn-list-thumb {
+    margin: 0 0 4px 4px;
+    border-radius: 0;
+    .btn-group {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+    }
+    img.thumb-small {
+      min-height: auto;
+    }
+  }
+}
+[data-gn-onlinesrc-list] {
+  .panel-heading {
+    padding: 10px;
+  }
+  .panel-body {
+    padding: 10px 10px 0 10px;
+  }
+}
+
+// styling for the editor search results
+.gn-editor-board {
+  padding-top: 0;
+}
+.gn-editor-board .table.gn-results-editor td .gn-record-details {
+  padding: 0px;
+}
+.gn-editor-board .table.gn-results-editor td :nth-of-type(n) {
+  font-size: 100%;
+  padding-top: 3px;
+  a {
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 5px;
+  }
+  a:hover .text-muted {
+    color: #428bca;
+  }
+}
+.gn-editor-board .table.gn-results-editor td {
+  padding: 5px;
+  .btn-group a {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+.gn-editor-board .table.gn-results-editor h1 {
+  font-size: 16px !important;
+  margin: 0 0 5px 0;
+}
+
+// batch editor
+//
+
+.gn-batch-editor {
+  // ----- list items
+  .gn-resultview {
+
+    li.list-group-item {
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid #ddd;
+      padding: 6px;
+    }
+    li.list-group-item:first-child {
+      border-top: 1px solid #ddd;
+    }
+  }
+  [data-gn-slide-toggle] {
+      padding-left: 0px;
+  }
+  .input-group-addon {
+    background-color: #fff;
+    box-shadow: none;
+    outline: 0;
+    &:focus {
+      border-color: #adadad;
+    }
+  }
+  // ----- select
+  select.form-control {
+    border-radius: 0;
+    font-size: 14px;
+  }
+  // ----- info box
+  .alert-info {
+    border: 1px solid transparent;
+    background: 0;
+    color: #999;
+  }
+  .alert {
+    margin-bottom: 10px;
+  }
+  .alert-warning {
+    background-color: #fcf8e3 !important;
+    border-color: #faebcc;
+    color: #8a6d3b;
+  }
+  // ----- active button
+  .btn.active {
+    border-color: #adadad;
+  }
+
+}
+
+// ----- dropdown menu
+//
+// ----- default
+.dropdown-menu {
+  max-width: auto !important;
+  .dropdown-header {
+    padding: 8px 12px;
+  }
+}
+@media (min-width: @screen-sm-min) {
+  .dropdown-menu {
+    max-width: auto !important;
+  }
+}
+
+.navbar .dropdown-menu-checkboxlist .dropdown-menu > li > a {
+  color: #333;
+  padding-left: 30px;
+  padding-left: 20px !important;
+}
+.navbar .dropdown-menu-checkboxlist .dropdown-menu > li > a:before,
+.navbar .dropdown-menu-radiolist .dropdown-menu > li > a:before {
+  width: 22px;
+  height: 20px;
+  margin-right: 4px;
+  content: " ";
+  display: block;
+  float: left;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: 0 -28px;
+  background-image: url('../catalog/views/ngr/images/ngr-checkbox.png');
+}
+.navbar .dropdown-menu-radiolist .dropdown-menu > li > a:before {
+  background-image: url('../catalog/views/ngr/images/ngr-radio.png');
+}
+.navbar .dropdown-menu-checkboxlist .dropdown-menu > .disabled > a:before,
+.navbar .dropdown-menu-radiolist .dropdown-menu > .disabled > a:before,
+.navbar .dropdown-menu-checkboxlist .dropdown-menu > .notselected > a:before,
+.navbar .dropdown-menu-radiolist .dropdown-menu > .notselected > a:before {
+  background-position: 0 2px;
+}
+
+
+// ----- typeahead
+.tt-dropdown-menu, .tt-menu {
+  // margin-top: 10px;
+  margin-left: -7px;
+  padding: 9px 0;
+  border: 1px solid #ccc;
+  width: calc(~"100% + 14px");
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  // max-width: 100%;
+  max-height: 350px;
+  // height: 100px;
+  overflow: auto;
+}
+.tt-dropdown-menu *, .tt-menu * {
+  font-size: 14px;
+}
+// ----- the active or hovered item in the dropdown
+.tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {
+  background: @gnMainColorLight;
+  color: #333;
+}
+[data-gn-region-picker] {
+  .twitter-typeahead {
+    z-index: 120;
+  }
+  .tt-menu {
+    margin-top: 36px;
+    margin-left: 0;
+    width: 100%;
+    z-index: 120;
+  }
+}
+
+div.gn-scroll-spy {
+  bottom: auto;
+  right: auto;
+  opacity: 1;
+  font-size: 100%;
+  width: 18%;
+  margin-left: -22%;
+  z-index: 999;
+  max-height: auto;
+  overflow: auto;
+  background-color: #fff;
+  border: 0;
+  border-right: 1px solid #ccc;
+  padding: 0;
+  text-align: right;
+  // height: 100%;
+  .btn-toolbar {
+    display: none;
+  }
+  ul {
+    li {
+      font-size: 16px;
+      padding: 0;
+      a {
+        padding: 4px 12px 4px 0;
+        color: #333;
+        border-radius: 0;
+      }
+      ul {
+        li {
+          padding: 0;
+          a {
+            font-size: 12px;
+            padding: 4px 12px;
+          }
+        }
+      }
+    }
+  }
+}
+div.gn-scroll-spy ul li ul li.active > a {
+  font-weight: bold;
+}
+div.gn-scroll-spy ul li.active > a {
+  font-weight: bold;
+  color: #333;
+  background-color: transparent;
+}
+.affix-top {
+  // position: fixed;
+  // top: 136px;
+}
+.affix {
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 900;
+}
+
+// validation report
+.gn-validation-report {
+  .panel {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-width: 1px 0 0 0;
+  }
+  .panel-title, h4 {
+    font-size: 14px;
+    a {
+      cursor: pointer;
+    }
+    .label {
+      font-size: 11px;
+    }
+  }
+  .panel-body {
+    padding: 0;
+    max-height: 300px;
+    overflow: auto;
+    .list-group {
+      margin-bottom: 0;
+    }
+    .list-group-item {
+      border: 0;
+      border-top: 1px solid #ddd;
+      border-radius: 0;
+      margin: 0;
+      font-size: 13px;
+      div.pull-left {
+        width: 10%;
+        .fa {
+          color: @brand-success;
+        }
+      }
+      div.pull-left + div.pull-left {
+        width: 90%
+      }
+      p {
+        margin: 10px 0 0 0;
+        overflow: auto;
+      }
+    }
+    .list-group-item.text-danger {
+      div.pull-left {
+        .fa {
+          color: @brand-danger;
+        }
+      }
+    }
+  }
+}
+
+// parameter form (within a table)
+// 
+// ----- table
+.gn-table {
+  [data-gn-field-highlight-remove] {
+    display: block !important;
+  }
+}
+// ----- special case
+.gn-containsOperations {
+  .gn-table {
+    margin-top: 10px;
+    thead {
+      display: none;
+    }
+  }
+}
+.gn-table :not(.gn-table-label) div.gn-field label {
+  display: block;
+  font-family: rijksoverheidsanstext-regular, sans, arial !important;
+  width: auto;
+  padding-top: 0;
+}
+.gn-table .gn-table-label {
+  padding-right: 0;
+  div.gn-field {
+    label {
+      padding-top: 5px;
+      width: 25%;
+    }
+  }
+}
+.gn-table-label {
+  .col-sm-8 {
+    width: 66.66666666666666% !important;
+  }
+}
+td {
+  .gn-parameters {
+    margin-top: -5px !important;
+    border-bottom: 1px solid #ddd;
+    width: calc(~"100% - 16px");
+    margin-left: 5px;
+    legend {
+      font-size: 14px !important;
+      font-family: rijksoverheidsanstext-bold, sans, arial !important;
+      color: #333;
+      font-weight: 200;
+      border-right: 0 !important;
+      border-left: 0 !important;
+      .field-tooltip {
+        right: calc(~"8.3% + 12px");
+      }
+    }
+    .col-sm-1 {
+      width: 10% !important;
+      padding:  10px 0px 10px 8px !important;
+    }
+    .col-sm-3 {
+      padding:  15px 0 10px 0 !important;
+    }
+    .col-sm-8 {
+      padding:  10px 0 10px 0 !important;
+      width: 65% !important;
+    }
+  }
+}
+
+// search filter boxes
+// search terms
+.ngr-searchterm {
+  margin: 0 5px 5px 0;
+  max-width: 100%;
+  span {
+    max-width: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+  }
+  i {
+    margin-top: -15px;
+    margin-left: 5px;
+  }
+}
+
+//hack to hide suggest list for first other constraitns element
+.gn-otherConstraints:not(.gn-extra-field) select {
+	display:none;
+}
+
+// webkit HTML5 date
+::-webkit-calendar-picker-indicator {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+::-webkit-calendar-picker-indicator:hover {
+  background-color: #fff;
+}
+
+// conformance
+div[data-gn-directory-entry-selector] {
+  [data-ng-search-form] {
+    .input-group {
+      display: block;
+      input.form-control {
+        display: block;
+        width: 100%;
+      }
+      .list-group.tt-dropdown-menu.gn-autocomplete-list {
+        width: 100%;
+        margin-left: 0;
+      }
+      .input-group-btn {
+        display: block;
+        z-index: 3;
+        .btn {
+          width: 40px;
+          margin-left: -40px !important;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+  button.dropdown-toggle {
+    display: none;
+  }
+}
+
+// required
+// 
+// ----- table view
+// form.gn-editor td .gn-required .gn-value :after {
+//   content: "*";
+//   margin: 7px 0 0 0px;
+//   position: absolute;
+//   color: #a94442;
+//   font-weight: normal;
+//   font-size: 20px;
+// }
+
+// trashbin
+.gn-tab-dutch-default, .gn-tab-default {
+
+  div[data-gn-directory-entry-selector] button.dropdown-toggle {
+    display: none;
+  }
+  /* Status is not mandatory in XSD, but flagged as mandatory
+  in labels.xml. Jose added the * to make it mandatory but no
+  changes made to handle this on the remove action. This is a hack
+  to hide the remove button. */
+  .gn-status.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-valueType.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-language.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-hierarchyLevel.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-useLimitation.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-metadataStandardName.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-metadataStandardVersion.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-characterSet.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-accessConstraints.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-otherConstraints.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-organisationName.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-electronicMailAddress.gn-required .gn-control [data-gn-click-and-spin],
+  .gn-codeSpace.gn-required .gn-control [data-gn-click-and-spin] {
+    display: none !important;
+  }
+
+  .gn-otherConstraints.gn-required.gn-extra-field .gn-control [data-gn-click-and-spin] {
+    display: block !important;
+  }
+}
+
+div.navbar {
+  margin-bottom: 10px;
+}
