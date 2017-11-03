@@ -1,4 +1,4 @@
-<div data-ng-controller="GnMdViewController" class="ngr-md-view">
+<div data-ng-controller="GnMdViewController" class="dutch-md-view">
 
   <div class="crumb"><a href="#/home">Home</a> / <a href data-ng-click="closeRecord(mdView.current.record)">Zoeken</a> /
     {{mdView.current.record.title || mdView.current.record.defaultTitle}}
@@ -69,7 +69,7 @@
 
     <div data-ng-show="usingFormatter" class="row">
       <div id="gn-metadata-display"
-           class="gn-metadata-display col-md-12 ngr-nopadding ngr-margin-top">
+           class="gn-metadata-display col-md-12 dutch-nopadding dutch-margin-top">
       </div>
     </div>
 
@@ -84,7 +84,7 @@
           </h1>
 
           <!-- hierarchy -->
-          <p class="ngr-hierarchy">
+          <p class="dutch-hierarchy">
             <span data-translate="">types</span>: {{(mdView.current.record.type|empty)|translate}}
           </p>
 
@@ -99,7 +99,7 @@
                  style="white-space: pre;"></div>
           </div>
 
-          <div class="row ngr-margin-bottom" data-related-observer>
+          <div class="row dutch-margin-bottom" data-related-observer>
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
@@ -143,18 +143,18 @@
 
                 <!-- keywords -->
                 <div class="row" data-ng-if="mdView.current.record.keyword">
-                  <div class="col-md-5 ngr-md-label" data-translate="">keyword</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">keyword</div>
                   <div class="col-md-7">
-                    <a class="ngr-keyword" data-ng-repeat="k in mdView.current.record.keyword track by $index"
+                    <a class="dutch-keyword" data-ng-repeat="k in mdView.current.record.keyword track by $index"
                        href="#/search?any={{k}}">
                       {{k}}</a></div>
                 </div>
 
                 <!-- topic -->
                 <div class="row" data-ng-if="mdView.current.record.topicCat.length > 0">
-                  <div class="col-md-5 ngr-md-label" data-translate="">topicCat</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">topicCat</div>
                   <div class="col-md-7">
-                    <a class="ngr-keyword" data-ng-repeat="t in mdView.current.record.topicCat track by $index"
+                    <a class="dutch-keyword" data-ng-repeat="t in mdView.current.record.topicCat track by $index"
                        data-ng-href="#/search?topicCat={{t}}">
                       <i class="fa gn-icon-{{t}}"></i>
                       {{t | translate}}
@@ -164,7 +164,7 @@
 
                 <!-- legal constraints -->
                 <div class="row" data-ng-if="mdView.current.record.legalConstraints">
-                  <div class="col-md-5 ngr-md-label" data-translate="">legalConstraints</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">legalConstraints</div>
                   <div class="col-md-7">
                     <span data-ng-repeat="c in (mdView.current.record.legalConstraints|asArray) track by $index">
                       <span data-ng-bind-html="c | striptags | linky"></span><br/>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="row" data-ng-if="mdView.current.record.resourceConstraints">
-                  <div class="col-md-5 ngr-md-label" data-translate="">resourceConstraints</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">resourceConstraints</div>
                   <div class="col-md-7">
                     <span
                       data-ng-repeat="c in (mdView.current.record.resourceConstraints|asArray) track by $index"><span data-ng-bind-html="c | striptags | linky"><br/></span>
@@ -182,7 +182,7 @@
 
                 <!-- useLimitation -->
                 <div class="row" data-ng-if="mdView.current.record.useLimitation">
-                  <div class="col-md-5 ngr-md-label" data-translate="">useLimitation</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">useLimitation</div>
                   <div class="col-md-7">
                   <span
                     data-ng-repeat="c in (mdView.current.record.useLimitation|asArray) track by $index">
@@ -191,21 +191,21 @@
                 </div>
 
                 <div class="row" data-ng-if="mdView.current.record.licenseLink">
-                  <div class="col-md-5 ngr-md-label" data-translate="">license</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">license</div>
                   <div class="col-md-7"><a href="{{mdView.current.record.licenseLink|empty}}" target="_blank">{{mdView.current.record.licenseLink|empty}}</a>
                   </div>
                 </div>
 
                 <!-- status -->
                 <div class="row" data-ng-if="mdView.current.record.status_text.length > 0">
-                  <div class="col-md-5 ngr-md-label" data-translate="">resourceStatus</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">resourceStatus</div>
                   <div class="col-md-7"><span
                     data-ng-repeat="s in (mdView.current.record.status_text|asArray)">{{s}}</span></div>
                 </div>
 
                 <!-- update frequency -->
                 <div class="row" data-ng-if="mdView.current.record.updateFrequency">
-                  <div class="col-md-5 ngr-md-label" data-translate="">updateFrequency</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">updateFrequency</div>
                   <div class="col-md-7">{{mdView.current.record.updateFrequency|translate}}</div>
                 </div>
 
@@ -218,7 +218,7 @@
 
                   <!-- creation date -->
                   <div class="row" data-ng-show="mdView.current.record.creationDate">
-                    <div class="col-md-5 ngr-md-label" data-translate="">creationDate</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">creationDate</div>
                     <div class="col-md-5">
                       <span data-gn-humanize-time="{{mdView.current.record.creationDate|empty}}"
                             data-format="YYYY-MM-DD"/>
@@ -227,7 +227,7 @@
 
                   <!-- publication date -->
                   <div class="row" data-ng-show="mdView.current.record.publicationDate">
-                    <div class="col-md-5 ngr-md-label" data-translate="">publicationDate</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">publicationDate</div>
                     <div class="col-md-5">
                       <span data-gn-humanize-time="{{mdView.current.record.publicationDate|empty}}"
                             data-format="YYYY-MM-DD"/>
@@ -236,7 +236,7 @@
 
                   <!-- revision date -->
                   <div class="row" data-ng-show="mdView.current.record.revisionDate">
-                    <div class="col-md-5 ngr-md-label" data-translate="">revisionDate</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">revisionDate</div>
                     <div class="col-md-5">
                       <span data-gn-humanize-time="{{mdView.current.record.revisionDate|empty}}"
                             data-format="YYYY-MM-DD"/>
@@ -255,7 +255,7 @@
 
                 <!-- identifier -->
                 <div class="row" data-ng-if="mdView.current.record.identifier">
-                  <div class="col-md-5 ngr-md-label" data-translate="">identifier</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">identifier</div>
                   <div class="col-md-7"><i>{{mdView.current.record.identifier|empty}}</i></div>
                 </div>
 
@@ -266,7 +266,7 @@
                 </div> -->
 
                 <div class="row" data-ng-if="mdView.current.record.crs">
-                  <div class="col-md-5 ngr-md-label" data-translate="">crs</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">crs</div>
                   <div class="col-md-7">
                     <span data-ng-repeat="crs in mdView.current.record.crs track by $index">
                       {{crs|empty}}<br>
@@ -276,7 +276,7 @@
 
                 <!-- lineage -->
                 <div class="row" data-ng-if="mdView.current.record.lineage">
-                  <div class="col-md-5 ngr-md-label" data-translate="">lineage</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">lineage</div>
                   <div class="col-md-7"><span data-ng-bind-html="mdView.current.record.lineage | newlines  | striptags | linky"/>
                   </div>
                 </div>
@@ -293,19 +293,19 @@
 
                 <!-- ID -->
                 <div class="row">
-                  <div class="col-md-5 ngr-md-label" data-translate="">mdId</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">mdId</div>
                   <div class="col-md-7"><i>{{mdView.current.record['geonet:info'].uuid}}</i></div>
                 </div>
 
                 <!-- hierarchy -->
                 <div class="row">
-                  <div class="col-md-5 ngr-md-label" data-translate="">types</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">types</div>
                   <div class="col-md-7">{{mdView.current.record.type|empty|translate}}</div>
                 </div>
 
                 <!-- date -->
                 <div class="row" data-ng-show="mdView.current.record['geonet:info'].changeDate">
-                  <div class="col-md-5 ngr-md-label" data-translate="">mdDate</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">mdDate</div>
                   <div class="col-md-7">
                     <span data-gn-humanize-time="{{mdView.current.record['geonet:info'].changeDate}}"
                           data-format="YYYY-MM-DD"/>
@@ -314,20 +314,20 @@
 
                 <!-- schema name -->
                 <div class="row" data-ng-show="mdView.current.record.standardName!=''">
-                  <div class="col-md-5 ngr-md-label" data-translate="">mdName</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">mdName</div>
                   <!-- <div class="col-md-7">{{mdView.current.record['geonet:info'].schema}}</div> -->
                   <div class="col-md-7">{{mdView.current.record.standardName}}</div>
                 </div>
 
                 <!-- version -->
                 <div class="row" data-ng-show="mdView.current.record.standardVersion!=''">
-                  <div class="col-md-5 ngr-md-label" data-translate="">mdVersion</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">mdVersion</div>
                   <div class="col-md-7">{{mdView.current.record.standardVersion}}</div>
                 </div>
 
                 <!-- version -->
                 <div class="row" data-ng-show="mdView.current.record.standardVersion!=''">
-                  <div class="col-md-5 ngr-md-label" data-translate="">ValidationStatus</div>
+                  <div class="col-md-5 dutch-md-label" data-translate="">ValidationStatus</div>
                   <div class="col-md-7">{{('validStatus-'+mdView.current.record.valid)|translate}} (<i>{{mdView.current.record['geonet:info'].schema}}</i>)
                   </div>
                 </div>
@@ -340,7 +340,7 @@
                    data-ng-class="{active: currentTabMdView === 'contact'}"
                    data-ng-show="currentTabMdView === 'contact'">
                 <div data-ng-repeat="cntct in mdView.current.record.responsibleParty track by $index">
-                  <h2 class="ngr-capitalize">
+                  <h2 class="dutch-capitalize">
                     <!-- {{(cntct|split:'|':0)|translate}} -->
                     <span data-ng-show="(cntct|split:'|':1) !== 'resource'"> {{(cntct|split:'|':1)|translate}}</span>
                     <span data-ng-show="(cntct|split:'|':1) === 'resource'"> {{mdView.current.record.type[0]}}</span>
@@ -348,51 +348,51 @@
                   </h2>
 
                   <div class="row" data-ng-show="{{cntct.split('|')[5]!=''}}">
-                    <div class="col-md-5 ngr-md-label" data-translate="">mdContactName</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">mdContactName</div>
                     <div class="col-md-7">{{cntct|split:'|':5}}</div>
                   </div>
                   <div class="row" data-ng-show="{{cntct.split('|')[2]!=''}}">
-                    <div class="col-md-5 ngr-md-label" data-translate="">mdContactSource</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">mdContactSource</div>
                     <div class="col-md-7">{{cntct|split:'|':2}}</div>
                   </div>
                   <div class="row" data-ng-show="{{cntct.split('|')[0]!=''}}">
-                    <div class="col-md-5 ngr-md-label" data-translate="">mdContactRole</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">mdContactRole</div>
                     <div class="col-md-7">{{(cntct|split:'|':0)|translate}}</div>
                   </div>
                   <div class="row" data-ng-show="{{cntct.split('|')[6]!=''}}">
-                    <div class="col-md-5 ngr-md-label" data-translate="">positionName</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">positionName</div>
                     <div class="col-md-7">{{cntct|split:'|':6}}</div>
                   </div>
                   <div class="row" data-ng-show="{{cntct.split('|')[11]!=''}}">
-                    <div class="col-md-5 ngr-md-label" data-translate="">mdPhone</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">mdPhone</div>
                     <div class="col-md-7">{{cntct|split:'|':11}}</div>
                   </div>
                   <div data-ng-show="{{cntct.split('|')[7]!=''}}">
                     <div class="row">
-                      <div class="col-md-5 ngr-md-label" data-translate="">address</div>
+                      <div class="col-md-5 dutch-md-label" data-translate="">address</div>
                       <div class="col-md-7">{{cntct|split:'|':7}}</div>
                     </div>
                     <div class="row" data-ng-show="{{cntct.split('|')[8]!=''}}">
-                      <div class="col-md-5 ngr-md-label" data-translate="">mdPostalcode</div>
+                      <div class="col-md-5 dutch-md-label" data-translate="">mdPostalcode</div>
                       <div class="col-md-7">{{cntct|split:'|':8}}</div>
                     </div>
                     <div class="row" data-ng-show="{{cntct.split('|')[9]!=''}}">
-                      <div class="col-md-5 ngr-md-label" data-translate="">mdCity</div>
+                      <div class="col-md-5 dutch-md-label" data-translate="">mdCity</div>
                       <div class="col-md-7">{{cntct|split:'|':9}}</div>
                     </div>
                     <div class="row" data-ng-show="{{cntct.split('|')[10]!=''}}">
-                      <div class="col-md-5 ngr-md-label" data-translate="">country</div>
+                      <div class="col-md-5 dutch-md-label" data-translate="">country</div>
                       <div class="col-md-7">{{cntct|split:'|':10}}</div>
                     </div>
                   </div>
                   <div class="row" data-ng-show="{{cntct.split('|')[4]!=''}}">
-                    <div class="col-md-5 ngr-md-label">E-mail</div>
+                    <div class="col-md-5 dutch-md-label">E-mail</div>
                     <div class="col-md-7">
                       <a href="mailto:{{cntct|split:'|':4}}">{{cntct|split:'|':4}}</a>
                     </div>
                   </div>
                   <div class="row" data-ng-show="{{cntct.split('|')[12]!=''}}">
-                    <div class="col-md-5 ngr-md-label" data-translate="">Web</div>
+                    <div class="col-md-5 dutch-md-label" data-translate="">Web</div>
                     <div class="col-md-7">
                       <a href="{{cntct|split:'|':12}}" target="_blank">{{cntct|split:'|':12}}</a>
                     </div>
@@ -407,7 +407,7 @@
                    data-ng-show="currentTabMdView === 'relations'">
 
                 <!-- text and link for explaining data formats, staat ook al in protocol
-                <p class="ngr-info">
+                <p class="dutch-info">
                   <span data-translate="mdDataFormats"></span>
                   <a href="http://pdok-ngr.readthedocs.io/services.html" target="_blank">pdok-ngr.readthedocs.io/services.html</a>
                 </p>-->
@@ -431,14 +431,14 @@
               <!-- /.tab-pane -->
 
               <!-- INSPIRE -->
-              <div role="tabpanel" class="tab-pane ngr-padding-top" id="inspire"
+              <div role="tabpanel" class="tab-pane dutch-padding-top" id="inspire"
                    data-ng-class="{active: currentTabMdView === 'inspire'}"
                    data-ng-show="currentTabMdView === 'inspire'"
                    ng-show="mdView.current.record.inpiretheme != ''">
 
                 <div data-ng-if="mdView.current.record.inspirethemewithac.length > 0 ||
-                                 mdView.current.record.inspirethemewithac.length > 0" class="row ngr-margin-top">
-                  <div class="col-md-4 ngr-md-label" data-translate="">inspireThemes</div>
+                                 mdView.current.record.inspirethemewithac.length > 0" class="row dutch-margin-top">
+                  <div class="col-md-4 dutch-md-label" data-translate="">inspireThemes</div>
                   <div class="col-md-8">
           				<span data-ng-repeat="cat in mdView.current.record.inspirethemewithac track by $index"
                         title="{{cat|split:'|':1}}">{{cat|split:'|':1}}<br/></span>
@@ -447,7 +447,7 @@
 
                 <!-- conformiteit -->
                 <div class="row">
-                  <div class="col-md-4 ngr-md-label">
+                  <div class="col-md-4 dutch-md-label">
                     <h4 data-translate="">inspireConformance</h4>
                   </div>
                   <div class="col-md-8">
@@ -466,7 +466,7 @@
 
                 <!-- format -->
                 <div class="row" data-ng-if="mdView.current.record.format">
-                  <div class="col-md-4 ngr-md-label">
+                  <div class="col-md-4 dutch-md-label">
                     <h4 data-translate="">format</h4>
                   </div>
                   <div class="col-md-8"><span data-ng-repeat="f in (mdView.current.record.format|asArray) track by $index"
