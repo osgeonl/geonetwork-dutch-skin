@@ -1,11 +1,19 @@
 <!-- Powered by: {{info.site.platform.name}}, version: {{info.site.platform.version}} -->
 <div class="container">
 
-  <header data-ng-include="'../../catalog/views/dutch/templates/header.html'"></header>
+  
+<div class="pull-right contact-links">
+  {{'header-right'|translate}}
+</div>
+<div class="branding">
+  <a href="#/home"> 
+    <img class="gn-logo"
+             data-ng-src="../../images/logos/{{info.site.siteId}}.png?{{info.site.lastUpdate}}" alt="Home">
+    </a>
+</div>
 
   <div class="navbar navbar-default gn-top-bar" role="navigation"
-       data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'"
-       xmlns="http://www.w3.org/1999/html">
+       data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'">
   </div>
 
   <div data-gn-alert-manager="" id="alerts"></div>
@@ -14,11 +22,8 @@
   <div class="" data-ng-controller="gnsDUTCH">
 
     <div class="container intro-text" data-ng-show="activeTab == '/home'">
-      <h1 id="homeHeaderText">{{'homeHeaderText'|translate}}</h1>
+      <h1 id="homeHeaderText">{{info.site.name}}</h1>
 		  <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
-      <!-- <div class="visible-xs intro-scrolldown">
-          <span class="fa fa-angle-down"></span>
-      </div> -->
     </div>
 
     <div class="page">
@@ -43,8 +48,14 @@
 </div>
 
 
-<div data-ng-include="'../../catalog/views/dutch/templates/footer.html'"></div>
-
+<div id="footer" class="footer clearfix">
+  <div>
+    {{'footer-left'|translate}}
+  </div>
+  <div class="pull-right">
+    {{'footer-right'|translate}}
+  </div>
+</div>  
 </div>
 </div>
 </html>

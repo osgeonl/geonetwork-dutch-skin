@@ -1,0 +1,12 @@
+{
+"menu-search":"Zoeken",
+"menu-about":"Over NGR",
+"menu-latest":"Laatste nieuws",
+"menu-developers":"Voor ontwikkelaars",
+"header-right":"<a href='#'>Contact</a> <a href='#'>Help</a>",
+"footer-left":"GeoNetwork",
+"footer-right":"<a href='#'>Privacy</a> <a href='#'>Cookies</a> <a href='#'>Copyright</a>"
+"byCategory":"Per categorie",
+"SearchAny":"Zoeken op trefwoord",
+"AtLocation":"Op locatie"
+}
