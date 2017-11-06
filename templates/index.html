@@ -2,9 +2,7 @@
 <div class="container">
 
   
-<div class="pull-right contact-links">
-  {{'header-right'|translate}}
-</div>
+<div class="pull-right contact-links" data-translate="">header-right</div>
 <div class="branding">
   <a href="#/home"> 
     <img class="gn-logo"
@@ -23,7 +21,7 @@
 
     <div class="container intro-text" data-ng-show="activeTab == '/home'">
       <h1 id="homeHeaderText">{{info.site.name}}</h1>
-		  <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
+      <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
     </div>
 
     <div class="page">
@@ -38,7 +36,7 @@
            data-ng-show="activeTab == '/metadata'"/>
       <div data-ng-include="'../../catalog/views/dutch/templates/about.html'"
            data-ng-show="activeTab == '/about'"/>
-  	  <div data-ng-include="'../../catalog/views/dutch/templates/devel.html'"
+      <div data-ng-include="'../../catalog/views/dutch/templates/devel.html'"
            data-ng-show="activeTab == '/devel'"/>
       <div data-ng-include="'../../catalog/views/dutch/templates/latest.html'"
            data-ng-show="activeTab == '/latest'"/>
@@ -49,12 +47,8 @@
 
 
 <div id="footer" class="footer clearfix">
-  <div>
-    {{'footer-left'|translate}}
-  </div>
-  <div class="pull-right">
-    {{'footer-right'|translate}}
-  </div>
+  <div class="pull-left" data-translate="">footer-left</div>
+  <div class="pull-right" data-translate="">footer-right</div>
 </div>  
 </div>
 </div>
