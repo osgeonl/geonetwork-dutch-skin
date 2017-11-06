@@ -140,7 +140,7 @@ header {
 // ----- fonts
 @font-face {
   font-family: rijksoverheidsanstext-bold;
-  src: url(../catalog/views/ngr/images/rijksoverheidsansheading-bold.woff);
+  src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -150,7 +150,7 @@ h1,h2,h3,h4,h5,h6 {
 
 @font-face {
   font-family: rijksoverheidsanstext-regular;
-  src: url(../catalog/views/ngr/images/rijksoverheidsanstext-regular.woff);
+  src: url(../catalog/views/dutch/images/rijksoverheidsanstext-regular.woff);
 }
 
 body,p,div,span,a,blockquote {
@@ -292,17 +292,11 @@ nav.verytop a {
 //
 .dutch-search-form, .navbar {
   .dropdown-menu {
-    // max-width: 100%;
-    max-height: 350px;
+    max-height: 400px;
     min-width: 250px;
     overflow: auto;
     .divider {
       margin: 0;
-    }
-  }
-  @media (min-width: @screen-sm-min) {
-    .dropdown-menu {
-      // max-width: 200%;
     }
   }
   .dropdown-menu > li > a {
@@ -530,11 +524,11 @@ input[type=radio].dutch-radio + span.dutch-radio-label {
   background-position: 0 4px;
 }
 span.dutch-radio-label {
-  background-image: url('../catalog/views/ngr/images/dutch-radio-unchecked.png');
+  background-image: url('../catalog/views/dutch/images/dutch-radio-unchecked.png');
 }
 input[type=radio].dutch-radio:checked + span.dutch-radio-label {
   // background-position: 0 -26px;
-  background-image: url('../catalog/views/ngr/images/dutch-radio-checked.png');
+  background-image: url('../catalog/views/dutch/images/dutch-radio-checked.png');
 }
 
 // ----- special for import screen
@@ -564,7 +558,7 @@ input[type=checkbox].dutch-checkbox:checked + span.dutch-checkbox-label {
   background-position: 0 -26px;
 }
 span.dutch-checkbox-label {
-  background-image: url('../catalog/views/ngr/images/dutch-checkbox.png');
+  background-image: url('../catalog/views/dutch/images/dutch-checkbox.png');
 }
 
 // modal
@@ -708,6 +702,33 @@ max-height:150px;
 .navbar .dropdown-menu, .dropdown img.img-circle, .dropdown span.gn-user-role {
   display:none !important;
 }
-div.navbar {
-  margin-bottom: 10px;
+// div.navbar {
+//   margin-bottom: 10px;
+// }
+
+// handle hover dropdowns for editor and admin menu (only if not on mobile)
+@media (min-width: @screen-sm-min) {
+  li.dropdown-hover {
+    & > .dropdown-toggle {
+      position: relative;
+      &:after {
+        font-family: FontAwesome;
+        content: "\f0d7";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 0.9em;
+      }
+    }
+    &.open:not(.active) > .dropdown-toggle {
+      background: none;
+    }
+    ul {
+      display: none;
+    }
+    &:hover ul, & > a:focus + ul, & > a:active + ul {
+      display: block !important;
+    }
+  }
 }
