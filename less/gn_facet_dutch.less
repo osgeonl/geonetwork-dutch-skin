@@ -1,99 +1,111 @@
 // facet
 //
-// ----- sidebar with keywords related to the search
-.gn-facet-label {
-  cursor: pointer;
-  max-width: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 12px;
-  display: block;
-  white-space: nowrap;
-}
-span.gn-facet-label {
-  display: block;
-}
-.gn-facet-count {
-  color: #999;
-  margin-left: 3px;
-  font-size: 12px;
-}
-.gn-facet .gn-facet-collapseall {
-  display: none !important;
-}
-.gn-facet h4, .gn-facet .list-group {
-  border: none;
-}
-.gn-facet h4 {
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  padding: 0 0 0 20px;
-  color: #333;
-  cursor: pointer;
-  @media (max-width: 767px) {
-    padding: 0;
-  }
-}
-.gn-editor-board {
-  padding-left: 0;
-}
-// ----- list of subitems
 .gn-facet-list {
-  margin-bottom: 20px;
-  input {
-    display: none;
+  h4 {
+    font-size: 14px;
+  }
+  .list-group-item {
+    font-size: 12px;
+    color: @gnBlue;
+    border: 0;
+    border-radius: 0;
+    padding: 2px 15px;
   }
 }
-.gn-facet .list-group {
-  margin-left: 20px;
-  padding-left: 20px;
-  margin-bottom: 30px;
-  list-style: none;
-  @media (max-width: 767px) {
-    padding-left: 0;
-  }
-}
-// ----- subitem
-.gn-facet .list-group-item, .gn-facet .list-group li {
-  padding: 0;
-  color: #428bca;
-  border: none;
-  height: 22px;
-}
-.gn-editor-board .gn-facet .list-group li {
-  padding-left: 0px;
-  label {
-    margin-bottom: 0;
-    margin-top: 5px;
-  }
-}
-.gn-facet .list-group-item:hover, .gn-facet .list-group li:hover {
-  color: @gnBlue;
-}
-.gn-facet .list-group-item:hover label, .gn-facet .list-group li:hover label {
-  cursor: auto;  
-}
+// ----- sidebar with keywords related to the search
+// .gn-facet-label {
+//   cursor: pointer;
+//   max-width: 140px;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   font-size: 12px;
+//   display: block;
+//   white-space: nowrap;
+// }
+// span.gn-facet-label {
+//   display: block;
+// }
+// .gn-facet-count {
+//   color: #999;
+//   margin-left: 3px;
+//   font-size: 12px;
+// }
+// .gn-facet .gn-facet-collapseall {
+//   display: none !important;
+// }
+// .gn-facet h4, .gn-facet .list-group {
+//   border: none;
+// }
+// .gn-facet h4 {
+//   font-size: 14px;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   margin-bottom: 5px;
+//   padding: 0 0 0 20px;
+//   color: #333;
+//   cursor: pointer;
+//   @media (max-width: 767px) {
+//     padding: 0;
+//   }
+// }
+// .gn-editor-board {
+//   padding-left: 0;
+// }
+// // ----- list of subitems
+// .gn-facet-list {
+//   margin-bottom: 20px;
+//   input {
+//     display: none;
+//   }
+// }
+// .gn-facet .list-group {
+//   margin-left: 20px;
+//   padding-left: 20px;
+//   margin-bottom: 30px;
+//   list-style: none;
+//   @media (max-width: 767px) {
+//     padding-left: 0;
+//   }
+// }
+// // ----- subitem
+// .gn-facet .list-group-item, .gn-facet .list-group li {
+//   padding: 0;
+//   color: #428bca;
+//   border: none;
+//   height: 22px;
+// }
+// .gn-editor-board .gn-facet .list-group li {
+//   padding-left: 0px;
+//   label {
+//     margin-bottom: 0;
+//     margin-top: 5px;
+//   }
+// }
+// .gn-facet .list-group-item:hover, .gn-facet .list-group li:hover {
+//   color: @gnBlue;
+// }
+// .gn-facet .list-group-item:hover label, .gn-facet .list-group li:hover label {
+//   cursor: auto;  
+// }
 
-.gn-facet-toggle {
-  display: none !important;
-}
-/* 
-this is a hack to hide a facet not to be displayed because used to get complex
-field for rendering properly INSPIRE theme icons only. It may be more relevant to
-have this at the  facetsConfigService ? */
-[data-facet=inspireThemesWithAc] {
-  display: none;
-}
+// .gn-facet-toggle {
+//   display: none !important;
+// }
+// /* 
+// this is a hack to hide a facet not to be displayed because used to get complex
+// field for rendering properly INSPIRE theme icons only. It may be more relevant to
+// have this at the  facetsConfigService ? */
+// [data-facet=inspireThemesWithAc] {
+//   display: none;
+// }
 
-// more or less link
-.gn-facet-moreorless .btn-link {
-  color: #333;
-  font-size: 12px;
-  text-decoration: underline;
-  padding-left: 0;
-}
-.gn-facet .gn-facet-moreorless button {
-  width: auto;
-}
+// // more or less link
+// .gn-facet-moreorless .btn-link {
+//   color: #333;
+//   font-size: 12px;
+//   text-decoration: underline;
+//   padding-left: 0;
+// }
+// .gn-facet .gn-facet-moreorless button {
+//   width: auto;
+// }
