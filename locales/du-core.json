@@ -61,5 +61,9 @@
 "isPublishedToAll": "Gepubliceerd",
 "linkToXmlTab": "Fouten in de metadata zijn mogelijk op te lossen in de <a href=\"#/metadata/{{metadataId}}/tab/xml\">XML editor</a>.",
 "transferownerhelp":"Selecteer een gebruikersnaam en een groepsnaam en klik vervolgens op de Save knop om de wijzigingen door te voeren.",
-"updateLinkAnyway":"Link toch bijwerken"
+"updateLinkAnyway":"Link toch bijwerken",
+"AdvancedSearch":"Geavanceerd zoeken",
+"resultsFound":"resultaten gevonden",
+"sortOn":"Sorteer op",
+"results":"resultaten"
 }
