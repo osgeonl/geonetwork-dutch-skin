@@ -300,7 +300,6 @@ nav.verytop a {
 .dutch-search-form, .navbar {
   .dropdown-menu {
     max-height: 400px;
-    min-width: 250px;
     overflow: auto;
     .divider {
       margin: 0;
@@ -308,7 +307,6 @@ nav.verytop a {
   }
   .dropdown-menu > li > a {
     white-space: nowrap;
-    // max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -690,11 +688,6 @@ max-height:150px;
   overflow: auto;
 }
 
-// test
-.bingo {
-  color: red !important;
-}
-
 .gn-info, .gn-alerts .alert {
   position: fixed;
   top: 0;
@@ -706,12 +699,12 @@ max-height:150px;
   text-align: left;
   border-width: 0 0 1px 0;
 }
-.navbar .dropdown-menu, .dropdown img.img-circle, .dropdown span.gn-user-role {
+.dropdown img.img-circle, .dropdown span.gn-user-role {
   display:none !important;
 }
-// div.navbar {
-//   margin-bottom: 10px;
-// }
+.navbar .dropdown-hover .dropdown-menu {
+  display: none;
+}
 
 // handle hover dropdowns for editor and admin menu (only if not on mobile)
 @media (min-width: @screen-sm-min) {
