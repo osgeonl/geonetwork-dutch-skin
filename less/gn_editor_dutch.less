@@ -21,6 +21,16 @@ h4 {
   }
 }
 
+// button bar
+[data-ng-search-form] {
+  .gn-top-search {
+    // hide links
+    a[href*="directory"], a[href*="batchedit"] {
+      display: none;
+    }
+  }
+}
+
 // used to be only visibility hidden, but visibility hidden still takes
 // some pixels on the webpage, display:none doesn't
 .invisible {
@@ -299,10 +309,6 @@ form.gn-editor div.gn-extra-field > label {
   }
 }
 
-.gn-editor-board {
-  background-color: white;
-  padding-top: 20px;
-}
 #gn-new-metadata-container {
   background-color: white;
   padding-top: 20px;
@@ -549,9 +555,6 @@ form.gn-editor .gn-field .col-sm-12 {
 }
 
 // styling for the editor search results
-.gn-editor-board {
-  padding-top: 0;
-}
 .gn-editor-board .table.gn-results-editor td .gn-record-details {
   padding: 0px;
 }
@@ -994,8 +997,4 @@ div[data-gn-directory-entry-selector] {
   .gn-otherConstraints.gn-required.gn-extra-field .gn-control [data-gn-click-and-spin] {
     display: block !important;
   }
-}
-
-div.navbar {
-  margin-bottom: 10px;
 }
