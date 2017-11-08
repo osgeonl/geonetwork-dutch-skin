@@ -12,16 +12,16 @@
           '$scope',
           '$attrs',
           '$element',
-        function($http, gnLangs, $scope, $attrs, $element) {
-            var lang = "nl";
-            if(gnLangs.getIso2Lang() == "en") {
-              lang = gnLangs.getIso2Lang();
-            }
-            
+          'gnGlobalSettings',
+        function($http, gnLangs, $scope, $attrs, $element,gnGlobalSettings) {
+
+            var lang = gnGlobalSettings.lang;
+
             $http.get("https://www.pdok.nl/" + lang + "/ngr.xml").
               success(function(data, status) {
+                console.log(data);
                 var xml = $.parseXML(data);
-				if (xml){
+				        if (xml){
                 $.each(xml.getElementsByTagName("item"), function(i, item) {
                   var tmp = item.getElementsByTagName("link")[0];
                   var link = tmp.innerText || tmp.textContent;
@@ -35,7 +35,7 @@
                    }
                   });
 			    }
-              });
+        });
       }  
     ]);
 
