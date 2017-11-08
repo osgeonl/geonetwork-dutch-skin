@@ -78,20 +78,21 @@
                 remote: {
                    filter: function(data) {
                     var datum = [];
-                    data[0].forEach(function(item) {
+                    data.forEach(function(item) {
                       datum.push({
-                          id: item.values[0]['#text'],
-                          name: item.values[0]['#text']
+                          id: item.value,
+                          name: item.values.dut,
+                          desc: item.definitions.dut
                         });
                       });
                       return datum;
                     },
-                    url: gnUrlUtils.append(gnHttp.getService('keywords'),
+                    url: gnUrlUtils.append('../api/registries/vocabularies/search',
                         gnUrlUtils.toKeyValue({
-                          pThesauri: 'external.theme.inspire-theme',
+                          thesaurus: 'external.theme.inspire-theme',
                           maxResults: 50,
                           pLang: ['dut','eng'],
-                          pKeyword: 'KEYWORD*'
+                          q: 'KEYWORD*'
                         })
                     ),
                     wildcard: 'KEYWORD'
