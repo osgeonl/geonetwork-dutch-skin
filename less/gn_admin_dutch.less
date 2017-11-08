@@ -4,8 +4,6 @@
 body {
   background-image: none;
 }
-.container { padding-top:20px; }
-.adminMenu { padding-left:20px; }
 
 .gn-info, .gn-alerts .alert {
   position: fixed;
@@ -23,9 +21,19 @@ body {
   padding-top: 25px;
   color: #333;
   font-size: 16px;
+  background-color: #fff !important;
+  border-color: #ccc !important;
+  &:hover {
+    background-color: #e5e5e5 !important;
+    color: #000 !important;
+  }
   p {
     margin-top: 5px;
   }
+}
+
+.gn-top-bar {
+  margin-bottom: 10px;
 }
 
 @import "gn_view_dutch.less";
