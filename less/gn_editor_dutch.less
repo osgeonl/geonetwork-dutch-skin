@@ -37,7 +37,7 @@ h4 {
   display: none;
 }
 
-.page, #gn-new-metadata-container {
+.page {
   padding-right: 0 !important;
   padding-top: 0 !important;
 }
@@ -313,6 +313,38 @@ form.gn-editor div.gn-extra-field > label {
   background-color: white;
   padding-top: 20px;
   width: 100%;
+}
+
+// add metadata page
+#gn-new-metadata-container.new-metadata-vertical {
+  padding-bottom: 15px;
+  .gn-record-type > a.list-group-item {
+    text-align: left;
+  }
+  .list-group {
+    border: 0;
+  }
+  .list-group-item {
+    border: 0;
+    padding: 4px 0px 4px 30px;
+    line-height: 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position: 0 8px;
+    background-image: url('../catalog/views/dutch/images/dutch-radio-unchecked.png');
+    i.fa {
+      display: none;
+    }
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+  .list-group-item.active {
+    background-image: url('../catalog/views/dutch/images/dutch-radio-checked.png');
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 // editor screen
