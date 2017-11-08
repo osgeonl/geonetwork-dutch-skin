@@ -57,6 +57,10 @@ header {
 [ng-app="gn_editor"] {
   .gn-top-bar {
     margin-bottom: 10px;
+    // remove text
+    .gn-logo + span {
+      display: none;
+    }
   }
 }
 .contact-links {
@@ -102,7 +106,7 @@ header {
   min-height: 80px;
   background-color:white;
   .gn-logo {
-    margin:5px;
+    margin: 5px;
     min-height: 70px;
   }
 }
