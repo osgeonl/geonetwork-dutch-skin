@@ -45,7 +45,7 @@
 
           // Load the context defined in the configuration
           viewerSettings.defaultContext =
-              (viewerSettings.mapConfig.map || '../../map/config-viewer.xml');
+              (viewerSettings.mapConfig.map || '');
           viewerSettings.owsContext = $location.search().map;
 
           // these layers will be added along the default context
@@ -284,38 +284,6 @@
             tooltip: 'Grid',
             icon: 'fa-th'
           }];
-
-          // For the time being metadata rendering is done
-          // using Angular template. Formatter could be used
-          // to render other layout
-
-          // TODO: formatter should be defined per schema
-          // schema: {
-          // iso19139: 'md.format.xml?xsl=full_view&&id='
-          // }
-          searchSettings.formatter = {
-            // defaultUrl: 'md.format.xml?xsl=full_view&id='
-            defaultUrl: 'md.format.xml?xsl=xsl-view&uuid=',
-            defaultPdfUrl: 'md.format.pdf?xsl=xsl-view&root=metadata&view=advanced&uuid=',
-            list: [{
-            //  label: 'inspire',
-            //  url: 'md.format.xml?xsl=xsl-view' + '&view=inspire&id='
-            //}, {
-            //  label: 'full',
-            //  url: 'md.format.xml?xsl=xsl-view&view=advanced&id='
-            //}, {
-              label: 'full',
-              url: 'md.format.xml?xsl=xsl-view&view=advanced&viewType=div&uuid='
-              /*
-              // You can use a function to choose formatter
-              url : function(md) {
-                return 'md.format.xml?xsl=full_view&uuid=' + md.getUuid();
-              }*/
-            },{
-				label: 'xml',
-                url: 'md.format.xml?xsl=xml_view&uuid='
-			}]
-          };
 
           // Mapping for md links in search result list.
           searchSettings.linkTypes = {
