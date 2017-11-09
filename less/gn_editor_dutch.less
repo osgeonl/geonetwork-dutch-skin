@@ -375,10 +375,75 @@ form.gn-editor div.gn-extra-field > label {
       border: 1px solid #ccc;
     }
   }
+  // hide import options
+  .radio:nth-child(2), .radio:nth-child(3) {
+    display: none !important;
+  }
   // import form
   #gn-import {
     margin-top: 20px;
+    .radio {
+      display: block !important
+    }
+    // hide import blocks (NOTE: not the best way to do it, depends on the order of groups)
+    .form-group:nth-child(5), .form-group:nth-child(7), .form-group:nth-child(9) {
+      display: none !important;
+    }
   }
+  // custom radio
+  // 
+  // ----- custom colored radio
+  .radio {
+    label {
+      padding-left: 0;
+    }
+    input[type=radio] {
+      display: none;
+    }
+    input[type=radio] + span {
+      padding-left: 30px;
+      display: inline-block;
+      line-height: 26px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-position: 0 4px;
+    }
+    span {
+      background-image: url('../catalog/views/dutch/images/dutch-radio-unchecked.png');
+    }
+    input[type=radio]:checked + span {
+      background-image: url('../catalog/views/dutch/images/dutch-radio-checked.png');
+    }
+  }
+  // custom checkboxes
+  // 
+  // ----- general
+  .checkbox {
+    padding-left: 0;
+    label {
+      padding-left: 0;
+    }
+    // ----- custom colored checkbox
+    input[type=checkbox] {
+      display: none;
+    }
+    input[type=checkbox] + span {
+      padding-left: 30px;
+      display: inline-block;
+      line-height: 26px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-position: 0 4px;
+    }
+    span {
+      background-image: url('../catalog/views/dutch/images/dutch-checkbox.png');
+    }
+    input[type=checkbox]:checked + span {
+      background-position: 0 -26px;
+    }
+  }
+
+
   // upload dropzone
   #md-import-upload {
     .btn-success, &:hover {
