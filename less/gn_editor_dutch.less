@@ -53,9 +53,6 @@ h4 {
   margin-bottom: 20px;
   padding: 8px;
 
-  li a:hover, li a:active, li a:focus, a:hover, a:focus, a:active {
-    // background: #fff !important;
-  }
   .navbar-btn {
     margin-top: 0;
     margin-bottom: 0;
@@ -234,18 +231,20 @@ form.gn-editor div.gn-extra-field > label {
     h4 {
       font-size: 14px;
     }
-    // .list-group {
-    //   a {
-    //     border: 0;
-    //     padding-left: 0;
-    //     padding-right: 0;
-    //     font-size: 13px;
-    //   }
-    //   a:hover {
-    //     background: none;
-    //     text-decoration: underline;
-    //   }
-    // }
+  }
+  // online resources panel
+  .col-md-8 {
+    [data-gn-onlinesrc-list] {
+      margin-top: 10px;
+      // make it pull to the left
+      .dropdown-menu.pull-right {
+        right: auto !important;
+      }
+    }
+  }
+  // panels in right column
+  .gn-editor-tools-container {
+    margin-top: 30px;
   }
   // special: draw map
   .gn-drawmap-panel {
@@ -354,6 +353,7 @@ form.gn-editor div.gn-extra-field > label {
   display: none !important;
 }
 // ----- add metadata
+
 form.gn-editor label.gn-required:after {
   content: "*";
   margin: 7px 0 0 7px;
@@ -361,7 +361,8 @@ form.gn-editor label.gn-required:after {
   color: #a94442;
   font-weight: normal;
 }
-form.gn-editor .gn-required > label:after, form.gn-editor label.gn-required:after {
+form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
+form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after {
   font-size: 20px;
   margin-top: 0px;
 }
