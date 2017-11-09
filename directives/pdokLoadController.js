@@ -19,7 +19,6 @@
 
             $http.get("https://www.pdok.nl/" + lang + "/ngr.xml").
               success(function(data, status) {
-                console.log(data);
                 var xml = $.parseXML(data);
 				        if (xml){
                 $.each(xml.getElementsByTagName("item"), function(i, item) {
