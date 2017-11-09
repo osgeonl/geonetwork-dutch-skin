@@ -30,6 +30,26 @@ h4 {
     }
   }
 }
+// fix the toolbars and show them all the time
+[ng-app="gn_editor"] {
+  body {
+    padding-top: 65px;
+  }
+  .gn-top-bar {
+    display: block !important;
+    z-index: 102;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  [data-ng-view] {
+    .navbar-fixed-top.gn-top-bar {
+      top: 56px;
+      z-index: 101
+    }
+  }
+}
 
 // used to be only visibility hidden, but visibility hidden still takes
 // some pixels on the webpage, display:none doesn't
