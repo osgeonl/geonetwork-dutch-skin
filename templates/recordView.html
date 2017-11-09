@@ -406,12 +406,6 @@
                    data-ng-class="{active: currentTabMdView === 'relations'}"
                    data-ng-show="currentTabMdView === 'relations'">
 
-                <!-- text and link for explaining data formats, staat ook al in protocol
-                <p class="dutch-info">
-                  <span data-translate="mdDataFormats"></span>
-                  <a href="http://pdok-ngr.readthedocs.io/services.html" target="_blank">pdok-ngr.readthedocs.io/services.html</a>
-                </p>-->
-
                 <div data-gn-related="mdView.current.record"
                      data-types="onlines"
                      data-title="{{'downloadsAndResources' | translate}}">
@@ -521,7 +515,7 @@
           <section data-ng-if="mdView.current.record.getThumbnails().small">
             <!-- todo: show only the small thumbnail and link to the large thumbnail -->
             <img class="img-thumbnail"
-                 onerror="$(this).attr('src','../../catalog/views/ngr/images/no-thumbnail.png')"
+                 onerror="$(this).attr('src','../../catalog/views/dutch/images/no-thumbnail.png')"
                  data-ng-src="{{mdView.current.record.getThumbnails().small}}"
             />
           </section>
