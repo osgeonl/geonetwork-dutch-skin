@@ -21,7 +21,7 @@
               success(function(data, status) {
                 var xml = $.parseXML(data);
 				        if (xml){
-                $.each(xml.getElementsByTagName("item"), function(i, item) {
+                $.each(xml.getElementsByTagName(lang), function(i, item) {
                   var tmp = item.getElementsByTagName("link")[0];
                   var link = tmp.innerText || tmp.textContent;
                   if(link == $attrs.item) {
