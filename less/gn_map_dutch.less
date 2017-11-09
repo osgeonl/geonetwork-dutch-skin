@@ -61,7 +61,7 @@
     border: 1px solid #ccc;
     background: rgba(255, 255, 255, 1);
     border-radius: 3px;
-    margin-right: 35px;
+    margin-right: 160px;
     button { 
       border: none;
       border-bottom: 1px solid #ccc;
@@ -72,13 +72,18 @@
     button:focus, button:hover {
       background-color: #efefef;
     }
+    .tools-spacer {
+      display: none;
+    }
+
   }
 
   // ----- tools on the right side: e.g. add layer
-  .map-tools {
+  .map-tools, [gi-btn-group] {
     width: 160px;
     right: 35px;
     border-bottom: 0;
+    margin-right: 0;
     @media (max-width: 767px) {
       width: 38px;
     }
@@ -87,6 +92,9 @@
       font-size: 12px;
       clip: auto;
       right: auto;
+      width: 115px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     button {
       width: 158px;
