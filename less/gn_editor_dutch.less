@@ -308,15 +308,16 @@ form.gn-editor div.gn-extra-field > label {
   }
 }
 
-#gn-new-metadata-container {
-  background-color: white;
-  padding-top: 20px;
-  width: 100%;
-}
-
 // add metadata page
+#gn-new-metadata-container {
+  background-color: #fff;
+  padding-top: 20px;
+}
 #gn-new-metadata-container.new-metadata-vertical {
   padding-bottom: 15px;
+  h2 {
+    margin-left: 15px;
+  }
   .gn-record-type > a.list-group-item {
     text-align: left;
   }
@@ -344,6 +345,49 @@ form.gn-editor div.gn-extra-field > label {
     background-color: #fff;
     color: #000;
   }
+}
+
+// import metadata
+#gn-import-container {
+  .col-sm-7 {
+    padding-left: 0;
+  }
+  .panel {
+    border: 0;
+    .panel-heading {
+      padding-top: 20px;
+      background: 0;
+      border: 0;
+      span {
+        font-family: rijksoverheidsanstext-bold, sans, arial !important;
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+    .panel-body {
+      border: 0;
+      .control-label {
+        font-family: rijksoverheidsanstext-bold, sans, arial !important;
+        font-weight: bold;
+      }
+    }
+    .panel {
+      border: 1px solid #ccc;
+    }
+  }
+  // import form
+  #gn-import {
+    margin-top: 20px;
+  }
+  // upload dropzone
+  #md-import-upload {
+    .btn-success, &:hover {
+      border: 0;
+      background: #fff;
+      color: #333;
+    }
+  }
+
 }
 
 // editor screen
