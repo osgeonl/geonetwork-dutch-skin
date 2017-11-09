@@ -66,8 +66,12 @@
 "resultsFound":"resultaten gevonden",
 "sortOn":"Sorteer op",
 "results":"resultaten",
-"createA":"Registreer",
+"createA":"Record toevoegen",
 "protocol":"Online bronnen",
 "Expand":"Uitklappen",
-"Collapse":"Inklappen"
+"Collapse":"Inklappen",
+"createMetadata":"Registreer",
+"createDateYears":"Jaar (aangemaakt)",
+"publicationDateYears":"Jaar (publicatie)",
+"revisionDateYears":"Jaar (laatste wijziging)"
 }
