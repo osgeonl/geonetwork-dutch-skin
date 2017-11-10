@@ -2,7 +2,18 @@
 <div class="container">
 
   
-<div class="pull-right contact-links" data-translate="">header-right</div>
+<div class="pull-right contact-links">
+        <a id="changeLangLink" data-ng-show="lang=='dut'"
+           href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
+           title="{{'English'|translate}}">
+          {{'English' | translate}}
+        </a>
+        <a id="changeLangLink" data-ng-show="lang=='eng'"
+           href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
+           title="{{'Nederlands'|translate}}">
+          {{'Nederlands' | translate}}
+        </a>
+       <span data-translate="">header-right</span></div>
 <div class="branding">
   <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
     <img class="gn-logo"
