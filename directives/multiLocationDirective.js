@@ -5,8 +5,9 @@
 
     var module = angular.module('dutch_multi_location_directive', ['gn_thesaurus_service']);
 
-    module.directive('dutchMultiLocation', ['gnThesaurusService', '$location', '$q', '$cacheFactory', '$browser',
-        function(gnThesaurusService, $location, $q, $cacheFactory, $browser) {
+    module.directive('dutchMultiLocation', ['gnGlobalSettings', 'gnThesaurusService', '$location',
+      '$q', '$cacheFactory', '$browser',
+        function(gnGlobalSettings, gnThesaurusService, $location, $q, $cacheFactory, $browser) {
             var cache = $cacheFactory('locations');
             var prefix = 'region:';
             return {
@@ -21,9 +22,10 @@
                     scope.model = [];
 
 
-
+                    var lang = gnGlobalSettings.locale.iso3lang;
                     var keywordsAutocompleter = gnThesaurusService.getKeywordAutocompleter({
-                        thesaurusKey: scope.thesaurusKey
+                        thesaurusKey: scope.thesaurusKey,
+                        lang: lang
                     });
 
                     var source = keywordsAutocompleter.ttAdapter();
