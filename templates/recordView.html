@@ -1,6 +1,6 @@
 <div data-ng-controller="GnMdViewController" class="dutch-md-view">
 
-  <div class="crumb"><a href="#/home">Home</a> / <a href data-ng-click="closeRecord(mdView.current.record)">Zoeken</a> /
+  <div class="crumb"><a href="#/home">Home</a> / <a href data-ng-click="closeRecord(mdView.current.record)" data-translate="">search</a> /
     {{mdView.current.record.title || mdView.current.record.defaultTitle}}
   </div>
 
@@ -48,10 +48,10 @@
         </li>
       </ul>
     </div>
-
-    <div class="gn-md-actions-btn pull-right"
-         data-gn-md-actions-menu="mdView.current.record"/>
-
+<div class="pull-right">hello</div>
+    <div class="gn-md-actions-btn pull-right" 
+        data-gn-md-actions-menu="mdView.current.record" />
+b
     <a class="btn btn-default gn-md-delete-btn pull-right"
        data-ng-show="user.canEditRecord(mdView.current.record)"
        data-gn-click-and-spin="deleteRecord(mdView.current.record)"
@@ -520,8 +520,8 @@
 
           <section data-ng-if="mdView.current.record.geoBox.length > 0">
 
-            <p data-ng-if="mdView.current.record.geoDesc">
-              <b data-ng-repeat="d in mdView.current.record.geoDesc">{{d}} </b>
+            <!--<p data-ng-if="mdView.current.record.geoDesc">
+              <b data-ng-repeat="d in mdView.current.record.geoDesc">{{d}} </b>-->
 
               <!-- TODO: add a dynamic map -->
             <p data-ng-repeat="bbox in mdView.current.record.geoBox">
