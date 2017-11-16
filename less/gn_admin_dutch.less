@@ -4,7 +4,27 @@
 body {
   background-image: none;
 }
-
+[ng-app="gn_admin"] {
+  .gn-top-bar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    .gn-top-bar {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .gn-top-bar {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .gn-top-bar {
+      width: 1170px;
+    }
+  }
+}
 .gn-info, .gn-alerts .alert {
   position: fixed;
   top: 0;

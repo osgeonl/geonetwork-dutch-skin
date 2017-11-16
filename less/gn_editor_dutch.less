@@ -34,6 +34,8 @@ h4 {
 [ng-app="gn_editor"] {
   body {
     padding-top: 65px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .gn-top-bar {
     display: block !important;
@@ -46,8 +48,52 @@ h4 {
   [data-ng-view] {
     .navbar-fixed-top.gn-top-bar {
       top: 56px;
-      z-index: 101
+      height: 56px;
+      z-index: 101;
+      border-top: 6px solid #F6D4B1;
+      background-color: #fff;
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+      .navbar-text {
+        margin-top: 5px;
+      }
     }
+  }
+  .gn-sub-bar {
+    top: 56px;
+    border: 0;
+    border-top: 6px solid #F6D4B1;
+    background-color: #fff;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  .gn-editor-board {
+    padding-top: 70px;
+  }
+  body, .gn-top-bar, .gn-sub-bar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 1170px;
+    }
+  }
+  .gn-editor-container {
+    padding-top: 70px;
+  }
+  // xml editor
+  #xmleditor {
+    position: relative;
+    min-height: 700px;
   }
 }
 
