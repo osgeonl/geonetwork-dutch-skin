@@ -45,7 +45,7 @@
 
           // Load the context defined in the configuration
           viewerSettings.defaultContext =
-              (viewerSettings.mapConfig.map || '');
+              (viewerSettings.mapConfig.map || '../../map/config-viewer.xml');
           viewerSettings.owsContext = $location.search().map;
 
           // these layers will be added along the default context
@@ -72,9 +72,6 @@
           viewerSettings.bgLayers = [
             gnMap.createLayerForType('osm')
           ];
-
-          viewerSettings.bingKey = 'AnElW2Zqi4fI-9cYx1LHiQfokQ9GrNzcjOh_' +
-              'p_0hkO1yo78ba8zTLARcLBIf8H6D';
 
           viewerSettings.servicesUrl =
             (viewerSettings.mapConfig && viewerSettings.mapConfig.listOfServices)?viewerSettings.mapConfig.listOfServices:{};
@@ -124,83 +121,21 @@
           // Object to store the current Map context
           viewerSettings.storage = 'sessionStorage';
 
-          /*******************************************************************
-           * Define maps
-           */
-          var matrixIds=[];
-			    var matrixIds2=[];
-
-          for (var i=0;i<=14;++i) {
-            if (i<10){
-  			      matrixIds[i]="0"+i;
-  			      matrixIds2[i]="EPSG:28992:"+i;
-  			    } else {
-              matrixIds[i]=""+i;
-  			      matrixIds2[i]="EPSG:28992:"+i;
-  			    }
-          }
-
-          var resolutions = [3440.64,1720.32,860.16,430.08,215.04,107.52,53.76,26.88,13.44,6.72,3.36,1.68,0.84,0.42,0.21];
-			    var tileLayers = [
-            new ol.layer.Tile({
-              title:'BRT',attribution:'PDOK',
-              source: new ol.source.WMTS({
-                url: '//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartgrijs',
-                layer: 'brtachtergrondkaartgrijs',
-                matrixSet: 'EPSG:28992',
-                format: 'image/png',
-                projection: ol.proj.get('EPSG:28992'),
-                tileGrid: new ol.tilegrid.WMTS({
-                  origin: [-285401.92,903402.0],
-                  resolutions: resolutions,
-                  matrixIds: matrixIds2
-                }),
-                wrapX: true
-              })
-            }),
-            new ol.layer.Tile({
-              title:'Luchtfoto',attribution:'PDOK',visible:false,
-              source: new ol.source.WMTS({
-                url: '//geodata1.nationaalgeoregister.nl/luchtfoto/wmts?style=default&',
-                layer: 'luchtfoto',
-                matrixSet: 'nltilingschema',
-                format: 'image/jpeg',
-                projection: ol.proj.get('EPSG:28992'),
-                tileGrid: new ol.tilegrid.WMTS({
-                  origin: [-285401.92,903402.0],
-                  resolutions: resolutions,
-                  matrixIds: matrixIds,
-                  style:'default'
-                }),
-                wrapX: true
-              })
-            })
-          ];
-
-    			//important to set the projection info here (also), used as view configuration
-    			var mapsConfig = {
-      			resolutions: resolutions,
-      			extent: [-285401.92,22598.08,595401.92,903401.92],
-      			projection: 'EPSG:28992',
-      			center: [150000, 450000],
-      			zoom: 3
-    			};
-
-    			// Add backgrounds to TOC
-    			viewerSettings.bgLayers = tileLayers;
-    			viewerSettings.servicesUrl = {};
+          var mapsConfig = viewerSettings.aoi || {
+            center: [280274.03240585705, 6053178.654789996],
+            zoom: 2
+          };
 
     			//Configure the ViewerMap
     			var viewerMap = new ol.Map({
       			controls:[],
-      			layers: tileLayers,
       			view: new ol.View(mapsConfig)
     			});
 
     			//configure the SearchMap
     			var searchMap = new ol.Map({
       			controls:[],
-      			layers: [tileLayers[0]],
+      			layers: [],
       			view: new ol.View(mapsConfig)
     			});
 
@@ -287,13 +222,30 @@
 
           // Mapping for md links in search result list.
           searchSettings.linkTypes = {
-            links: ['LINK', 'kml'],
-            downloads: ['DOWNLOAD'],
+            links: ['LINK', 'kml', 'pdf', 'docx', 'gml', 'geojson'],
+            downloads: ['DOWNLOAD','Inspire atom'],
             //layers:['OGC', 'kml'],
             layers:['OGC'],
-            maps: ['ows']
+            maps: ['OGC:OWC']
           };
-
+          // Map protocols used to load layers/services in the map viewer
+          searchSettings.mapProtocols = {
+            layers: [
+              'OGC:WMS',
+              'OGC:WMTS',
+              'TMS',
+              'OGC:WFS',
+              'KML',
+              'GML',
+              'geojson'
+              ],
+            services: [
+              'OGC:WMS',
+              'OGC:WMTS',
+              'TMS',
+              'OGC:WFS'
+              ]
+          };
           // Set the default template to use
           searchSettings.resultTemplate =
               searchSettings.resultViewTpls[0].tplUrl;
