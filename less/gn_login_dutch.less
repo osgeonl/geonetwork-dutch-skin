@@ -16,10 +16,38 @@ body {
 }
 
 [ng-app="gn_login"] {
+  body, .gn-top-bar, .gn-sub-bar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 1170px;
+    }
+  }
+  .gn-top-bar {
+    // remove text
+    .gn-logo + span {
+      display: none;
+    }
+  }
   [data-ng-controller="GnLoginController"] {
-    form {
-      background-color: #fff;
-      padding: 20px;
+    background-color: #fff;
+    padding: 20px;
+  }
+  .navbar {
+    i {
+      display: none;
     }
   }
 }
