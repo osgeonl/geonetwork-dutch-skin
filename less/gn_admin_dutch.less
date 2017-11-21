@@ -56,5 +56,19 @@ body {
   margin-bottom: 10px;
 }
 
+// harvester
+[data-ng-controller="GnHarvestSettingsController"] {
+  // do not show logo picker
+  [gn-logo-picker="harvester.site.icon"] {
+    display: none;
+  }
+  // input full width
+  [data-gn-harvester-identification="harvesterSelected"] {
+    .input-group {
+      width: 100%;
+    }
+  }
+}
+
 @import "gn_view_dutch.less";
 
