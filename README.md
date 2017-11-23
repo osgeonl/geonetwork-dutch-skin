@@ -2,7 +2,7 @@
 
 This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core instance as a git submodule.
 
-This work has been started by Kadaster Netherlands and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue traker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
+This work has been started by Kadaster Netherlands and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
 
 The license of the project is GPLv2.
 
