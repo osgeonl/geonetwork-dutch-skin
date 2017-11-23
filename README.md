@@ -10,7 +10,7 @@ The license of the project is GPLv2.
 
 Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
 
-`git submodule add git@eos.geocat.net:ngr/dutch-gov-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x`
+`git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x`
 `git submodule init`
 
 Verify the view by browsing to catalog.search?view=dutch
