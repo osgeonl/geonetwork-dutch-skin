@@ -10,10 +10,10 @@ The license of the project is GPLv2.
 
 Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
 
-`git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x`
-`git submodule init`
+`git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x
+git submodule init`
 
-Verify the view by browsing to catalog.search?view=dutch
+Verify the view by browsing to catalog.search?view=dutch. 
 If ok, then alter the setting "view" to "dutch" in admin > settings
 
 Some optional additional settings on the main project
