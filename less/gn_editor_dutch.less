@@ -54,7 +54,7 @@ h4 {
       background-color: #fff;
       box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
       .navbar-text {
-        margin-top: 5px;
+        display: none;
       }
     }
   }
@@ -318,6 +318,11 @@ form.gn-editor div.gn-extra-field > label {
   }
   // special: draw map
   .gn-drawmap-panel {
+    .col-md-9, .col-md-3 {
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 10px;
+    }
     .panel {
       border: 0;
       margin-top: 0;
