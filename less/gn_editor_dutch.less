@@ -1160,28 +1160,28 @@ td {
 
 // conformance
 div[data-gn-directory-entry-selector] {
-  [data-ng-search-form] {
-    .input-group {
-      display: block;
-      input.form-control {
-        display: block;
-        width: 100%;
-      }
-      .list-group.tt-dropdown-menu.gn-autocomplete-list {
-        width: 100%;
-        margin-left: 0;
-      }
-      .input-group-btn {
-        display: block;
-        z-index: 3;
-        .btn {
-          width: 40px;
-          margin-left: -40px !important;
-          border-radius: 0;
-        }
-      }
-    }
-  }
+  // [data-ng-search-form] {
+  //   .input-group {
+  //     display: block;
+  //     input.form-control {
+  //       display: block;
+  //       width: 100%;
+  //     }
+  //     .list-group.tt-dropdown-menu.gn-autocomplete-list {
+  //       width: 100%;
+  //       margin-left: 0;
+  //     }
+  //     .input-group-btn {
+  //       display: block;
+  //       z-index: 3;
+  //       .btn {
+  //         // width: 40px;
+  //         // margin-left: -40px !important;
+  //         border-radius: 0;
+  //       }
+  //     }
+  //   }
+  // }
   button.dropdown-toggle {
     display: none;
   }
@@ -1200,7 +1200,8 @@ div[data-gn-directory-entry-selector] {
 // }
 
 // trashbin
-.gn-tab-dutch-default, .gn-tab-default {
+// .gn-tab-dutch-default, .gn-tab-default, .gn-tab-identificationInfo {
+form[class*="gn-tab-"] {
 
   div[data-gn-directory-entry-selector] button.dropdown-toggle {
     display: none;
@@ -1224,8 +1225,30 @@ div[data-gn-directory-entry-selector] {
   .gn-codeSpace.gn-required .gn-control [data-gn-click-and-spin] {
     display: none !important;
   }
+  // with mandatory class
+  .gn-status.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-valueType.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-language.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-hierarchyLevel.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-useLimitation.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-metadataStandardName.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-metadataStandardVersion.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-characterSet.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-accessConstraints.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-otherConstraints.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-organisationName.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-electronicMailAddress.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-codeSpace.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-MD_TopicCategoryCode.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-statement.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-protocol.gn-mandatory .gn-control [data-gn-click-and-spin] {
+    display: none !important;
+  }
 
   .gn-otherConstraints.gn-required.gn-extra-field .gn-control [data-gn-click-and-spin] {
+    display: block !important;
+  }
+    .gn-otherConstraints.gn-mandatory.gn-extra-field .gn-control [data-gn-click-and-spin] {
     display: block !important;
   }
 }
