@@ -518,7 +518,6 @@ form.gn-editor div.gn-extra-field > label {
     }
   }
 
-
   // upload dropzone
   #md-import-upload {
     .btn-success, &:hover {
@@ -781,6 +780,10 @@ form.gn-editor .gn-field .col-sm-12 {
   .panel-body {
     padding: 10px 10px 0 10px;
   }
+}
+// no thumbnail maker
+[data-ng-show="params.linkType.sources.thumbnailMaker"] {
+  display: none;
 }
 
 // styling for the editor search results
