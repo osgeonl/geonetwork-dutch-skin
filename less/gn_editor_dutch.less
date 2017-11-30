@@ -1,6 +1,7 @@
 // @import "gn_search_dutch.less";
 
 @import "gn_variables_dutch.less"; // must be first
+@import "../../../style/gn_search.less";
 @import "../../../style/gn_editor";
 @import "gn_navbar_dutch.less";
 @import "gn_facet_dutch.less";
@@ -305,7 +306,10 @@ form.gn-editor div.gn-extra-field > label {
   // online resources panel
   .col-md-8 {
     [data-gn-onlinesrc-list] {
-      margin-top: 10px;
+      margin-top: 20px;
+      .gn-onlinesrc-panel {
+        margin-top: 10px;
+      }
       // make it pull to the left
       .dropdown-menu.pull-right {
         right: auto !important;
@@ -825,14 +829,23 @@ form.gn-editor .gn-field .col-sm-12 {
 //
 
 .gn-batch-editor {
+  .gn-search-facet {
+    margin-top: 10px;
+  }
   // ----- list items
   .gn-resultview {
-
+    margin-top: 10px;
     li.list-group-item {
       border-radius: 0;
       border: 0;
       border-bottom: 1px solid #ddd;
-      padding: 6px;
+      padding: 8px 4px;
+      &:hover {
+        background-color: #eee;
+        a {
+          text-decoration: none;
+        }
+      }
     }
     li.list-group-item:first-child {
       border-top: 1px solid #ddd;
@@ -872,7 +885,11 @@ form.gn-editor .gn-field .col-sm-12 {
   .btn.active {
     border-color: #adadad;
   }
-
+  // ----- filters
+  [data-search-filter-tags] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 // ----- dropdown menu
