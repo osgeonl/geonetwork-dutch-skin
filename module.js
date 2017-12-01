@@ -256,38 +256,21 @@ module.controller('gnsSearchTopEntriesController', [
       });
 
       $scope.resultviewFns = {
-        addMdLayerToMapSimple: function (link, md) {
-          if (gnMap.isLayerInMap(viewerMap,
-              link.name, link.url)) {
-            return;
-          }
-          var loadLayerPromise;
-
-          // handle WMTS layer info
-          if (link.protocol.indexOf('WMTS') > -1) {
-            loadLayerPromise = gnMap.addWmtsFromScratch(
-              viewerMap, link.url, link.name, undefined, md);
-          } else {
-            loadLayerPromise = gnMap.addWmsFromScratch(
-              viewerMap, link.url, link.name, undefined, md);
-          }
-
-          loadLayerPromise.then(function (layer) {
-            if (layer) {
-              gnMap.feedLayerWithRelated(layer, link.group);
-            }
-          });
-        },
-        // Add to basket first and then trigger add to map
         addMdLayerToMap: function (link, md) {
           var config = {
             uuid: md.getUuid(),
             type: link.protocol.indexOf('WMTS') > -1 ? 'wmts' : 'wms',
-            url: link.url
+            url: $filter('gnLocalized')(link.url) || link.url
           };
 
-          if (link.name !== '') {
-            config.name = link.name;
+          var layer =
+            typeof link.title === 'object' ?
+              ($.isEmptyObject(link.title) ?
+                null : $filter('gnLocalized')(link.title)) :
+              link.title
+          ;
+          if (layer !== '' && layer != null) {
+            config.layer = layer;
             config.group = link.group;
           }
 
@@ -296,7 +279,7 @@ module.controller('gnsSearchTopEntriesController', [
           $location.path('map').search({
             add: encodeURIComponent(angular.toJson([config]))});
           return;
-      },
+        },
         addAllMdLayersToMap: function (layers, md) {
           angular.forEach(layers, function (layer) {
             $scope.resultviewFns.addMdLayerToMap(layer, md);

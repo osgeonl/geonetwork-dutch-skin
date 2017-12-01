@@ -1,6 +1,7 @@
 // @import "gn_search_dutch.less";
 
 @import "gn_variables_dutch.less"; // must be first
+@import "../../../style/gn_search.less";
 @import "../../../style/gn_editor";
 @import "gn_navbar_dutch.less";
 @import "gn_facet_dutch.less";
@@ -54,7 +55,7 @@ h4 {
       background-color: #fff;
       box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
       .navbar-text {
-        margin-top: 5px;
+        display: none;
       }
     }
   }
@@ -94,6 +95,9 @@ h4 {
   #xmleditor {
     position: relative;
     min-height: 700px;
+    * {
+      font-family: monospace !important;
+    }
   }
 }
 
@@ -302,7 +306,10 @@ form.gn-editor div.gn-extra-field > label {
   // online resources panel
   .col-md-8 {
     [data-gn-onlinesrc-list] {
-      margin-top: 10px;
+      margin-top: 20px;
+      .gn-onlinesrc-panel {
+        margin-top: 10px;
+      }
       // make it pull to the left
       .dropdown-menu.pull-right {
         right: auto !important;
@@ -315,6 +322,11 @@ form.gn-editor div.gn-extra-field > label {
   }
   // special: draw map
   .gn-drawmap-panel {
+    .col-md-9, .col-md-3 {
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 10px;
+    }
     .panel {
       border: 0;
       margin-top: 0;
@@ -509,7 +521,6 @@ form.gn-editor div.gn-extra-field > label {
       background-position: 0 -26px;
     }
   }
-
 
   // upload dropzone
   #md-import-upload {
@@ -774,6 +785,10 @@ form.gn-editor .gn-field .col-sm-12 {
     padding: 10px 10px 0 10px;
   }
 }
+// no thumbnail maker
+[data-ng-show="params.linkType.sources.thumbnailMaker"] {
+  display: none;
+}
 
 // styling for the editor search results
 .gn-editor-board .table.gn-results-editor td .gn-record-details {
@@ -814,14 +829,23 @@ form.gn-editor .gn-field .col-sm-12 {
 //
 
 .gn-batch-editor {
+  .gn-search-facet {
+    margin-top: 10px;
+  }
   // ----- list items
   .gn-resultview {
-
+    margin-top: 10px;
     li.list-group-item {
       border-radius: 0;
       border: 0;
       border-bottom: 1px solid #ddd;
-      padding: 6px;
+      padding: 8px 4px;
+      &:hover {
+        background-color: #eee;
+        a {
+          text-decoration: none;
+        }
+      }
     }
     li.list-group-item:first-child {
       border-top: 1px solid #ddd;
@@ -861,7 +885,11 @@ form.gn-editor .gn-field .col-sm-12 {
   .btn.active {
     border-color: #adadad;
   }
-
+  // ----- filters
+  [data-search-filter-tags] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 // ----- dropdown menu
@@ -1157,28 +1185,28 @@ td {
 
 // conformance
 div[data-gn-directory-entry-selector] {
-  [data-ng-search-form] {
-    .input-group {
-      display: block;
-      input.form-control {
-        display: block;
-        width: 100%;
-      }
-      .list-group.tt-dropdown-menu.gn-autocomplete-list {
-        width: 100%;
-        margin-left: 0;
-      }
-      .input-group-btn {
-        display: block;
-        z-index: 3;
-        .btn {
-          width: 40px;
-          margin-left: -40px !important;
-          border-radius: 0;
-        }
-      }
-    }
-  }
+  // [data-ng-search-form] {
+  //   .input-group {
+  //     display: block;
+  //     input.form-control {
+  //       display: block;
+  //       width: 100%;
+  //     }
+  //     .list-group.tt-dropdown-menu.gn-autocomplete-list {
+  //       width: 100%;
+  //       margin-left: 0;
+  //     }
+  //     .input-group-btn {
+  //       display: block;
+  //       z-index: 3;
+  //       .btn {
+  //         // width: 40px;
+  //         // margin-left: -40px !important;
+  //         border-radius: 0;
+  //       }
+  //     }
+  //   }
+  // }
   button.dropdown-toggle {
     display: none;
   }
@@ -1197,7 +1225,8 @@ div[data-gn-directory-entry-selector] {
 // }
 
 // trashbin
-.gn-tab-dutch-default, .gn-tab-default {
+// .gn-tab-dutch-default, .gn-tab-default, .gn-tab-identificationInfo {
+form[class*="gn-tab-"] {
 
   div[data-gn-directory-entry-selector] button.dropdown-toggle {
     display: none;
@@ -1221,8 +1250,30 @@ div[data-gn-directory-entry-selector] {
   .gn-codeSpace.gn-required .gn-control [data-gn-click-and-spin] {
     display: none !important;
   }
+  // with mandatory class
+  .gn-status.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-valueType.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-language.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-hierarchyLevel.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-useLimitation.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-metadataStandardName.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-metadataStandardVersion.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-characterSet.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-accessConstraints.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-otherConstraints.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-organisationName.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-electronicMailAddress.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-codeSpace.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-MD_TopicCategoryCode.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-statement.gn-mandatory .gn-control [data-gn-click-and-spin],
+  .gn-protocol.gn-mandatory .gn-control [data-gn-click-and-spin] {
+    display: none !important;
+  }
 
   .gn-otherConstraints.gn-required.gn-extra-field .gn-control [data-gn-click-and-spin] {
+    display: block !important;
+  }
+    .gn-otherConstraints.gn-mandatory.gn-extra-field .gn-control [data-gn-click-and-spin] {
     display: block !important;
   }
 }
