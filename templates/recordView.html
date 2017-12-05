@@ -103,26 +103,26 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li data-ng-class="{active: currentTabMdView === 'general'}">
-                <a ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=general"
+                <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=general"
                    aria-controls="general">
                   <span data-translate="">mdTabGeneral</span>
                 </a>
               </li>
               <li data-ng-class="{active: currentTabMdView === 'contact'}">
-                <a ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=contact"
+                <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=contact"
                    aria-controls="contact">
                   <span data-translate="">mdTabContact</span>
                 </a>
               </li>
               <li data-ng-class="{active: currentTabMdView === 'relations'}" data-ng-show="relatedsFound">
-                <a ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=relations"
+                <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=relations"
                    aria-controls="relations">
                   <span data-translate="">mdTabRelations</span>
                 </a>
               </li>
               <li data-ng-class="{active: currentTabMdView === 'inspire'}"
-                  ng-show="mdView.current.record.category.indexOf('inspire')>-1">
-                <a ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=inspire"
+                  data-ng-show="mdView.current.record.category.indexOf('inspire')>-1">
+                <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=inspire"
                    aria-controls="inspire">
                   <span data-translate="">mdTabInspire</span>
                 </a>
@@ -251,6 +251,9 @@
                 - Code referentie systeem
                 - Algemene beschrijving herkomst
                 -->
+                <div data-ng-if="mdView.current.record.attributeTable"
+                     data-gn-attribute-table-renderer="mdView.current.record.attributeTable">
+                </div>
 
                 <!-- identifier -->
                 <div class="row" data-ng-if="mdView.current.record.identifier">
@@ -416,7 +419,8 @@
                 </div>
 
                 <div data-gn-related="mdView.current.record"
-                     data-types="fcats"
+                     data-user="user"
+                     data-types="fcats|related"
                      data-title="{{'featureCatalog' | translate}}">
                 </div>
 
