@@ -101,6 +101,7 @@ module.controller('gnsSearchTopEntriesController', [
     'suggestService',
     '$http',
     '$translate',
+    '$filter',
     'gnUtilityService',
     'gnSearchSettings',
     'gnViewerSettings',
@@ -112,7 +113,7 @@ module.controller('gnsSearchTopEntriesController', [
     'gnOwsContextService',
     'hotkeys',
     'gnGlobalSettings',
-    function($scope, $location, suggestService, $http, $translate,
+    function($scope, $location, suggestService, $http, $translate,$filter,
              gnUtilityService, gnSearchSettings, gnViewerSettings,
              gnMap, gnMdView, mdView, gnWmsQueue,
              gnSearchLocation, gnOwsContextService,
@@ -258,20 +259,17 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.resultviewFns = {
         addMdLayerToMap: function (link, md) {
           var config = {
-            uuid: md.getUuid(),
-            type: link.protocol.indexOf('WMTS') > -1 ? 'wmts' : 'wms',
-            url: $filter('gnLocalized')(link.url) || link.url
-          };
-
-          var layer =
-            typeof link.title === 'object' ?
-              ($.isEmptyObject(link.title) ?
-                null : $filter('gnLocalized')(link.title)) :
-              link.title
-          ;
-          if (layer !== '' && layer != null) {
-            config.layer = layer;
+             uuid: md?md.getUuid():null,
+             type: link.protocol.indexOf('WMTS') > -1 ? 'wmts' : 'wms',
+             url: $filter('gnLocalized')(link.url) || link.url
+           };
+ 
+          if (link.name && link.name !== '') {
+            config.name = link.name;
             config.group = link.group;
+            // Related service return a property title for the name
+          } else if (link.title) {
+            config.name = $filter('gnLocalized')(link.title) || link.title;
           }
 
           // This is probably only a service
@@ -289,6 +287,9 @@ module.controller('gnsSearchTopEntriesController', [
           gnOwsContextService.loadContextFromUrl(map.url, viewerMap);
         }
       };
+
+      // Share map loading functions
+      gnViewerSettings.resultviewFns = $scope.resultviewFns;
 
       // Manage route at start and on $location change
       // depending on configuration
