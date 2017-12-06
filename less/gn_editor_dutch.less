@@ -791,43 +791,31 @@ form.gn-editor .gn-field .col-sm-12 {
 }
 
 // styling for the editor search results
-.gn-editor-board .table.gn-results-editor td .gn-record-details {
-  padding: 0px;
-}
-.gn-editor-board .table.gn-results-editor td :nth-of-type(n) {
-  font-size: 100%;
-  padding-top: 3px;
-  a {
-    display: block;
-    padding-top: 2px;
-    padding-bottom: 5px;
-  }
-  a:hover .text-muted {
-    color: #428bca;
-  }
-}
-.gn-editor-board .table.gn-results-editor td {
-  padding: 5px;
-  .btn-group a {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-}
-.gn-editor-board .table.gn-results-editor h1 {
-  font-size: 16px !important;
-  margin: 0 0 5px 0;
-}
 .gn-editor-board {
-  [data-search-filter-tags] {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-bottom: 10px;
+  .table.gn-results-editor td {
+    .col-lg-8, .col-md-8, .col-lg-4, .col-md-4 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @media (min-width: @screen-md-min) {
+      .btn-group {
+        float: right;
+      }
+    }
   }
 }
+
+// user/group edit
+//
+// ----- user
+.gn-user-edit {
+  select[multiple], select[size] {
+    min-height: 110px;
+  }
+}
+// ----- group
 
 // batch editor
-//
-
 .gn-batch-editor {
   .gn-search-facet {
     margin-top: 10px;
