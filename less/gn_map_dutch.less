@@ -20,6 +20,13 @@
     margin-top: 55px;
   }
 }
+[gn-main-viewer] {
+  [gn-localisation-input] {
+    .dropdown-menu {
+      margin-top: 2px;
+    }
+  }
+}
 // initial height for the map div, this shouldn't be less than the height
 // of .gn-search-map [ngeo-map] (see below)
 .gn-search-map {
@@ -111,6 +118,11 @@
       text-shadow: none;
       margin-top: 0;
       border-radius: 0;
+    }
+    @media (max-width: 750px) {
+      [role=tooltip] {
+        display: none;
+      }
     }
   }
 
@@ -247,6 +259,20 @@
     }
     .checkbox {
       padding-left: 20px;
+    }
+    // special
+    // 
+    // ----- hide 'maps' tab
+    [active="addLayerTabs.maps"] {
+      display: none;
+    }
+    // ----- hide 'styles icon' in add layer panel
+    .layerTree {
+      .list-group-item {
+        .gn-layer-actions {
+          display: none;
+        }
+      }
     }
   }
   // identify
