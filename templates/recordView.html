@@ -525,7 +525,7 @@
               <!-- TODO: add a dynamic map -->
             <p data-ng-repeat="bbox in mdView.current.record.geoBox">
               <img class="gn-img-thumbnail img-thumbnail gn-img-extent"
-                   data-ng-src="region.getmap.png?mapsrs=EPSG:28992&width=200&background=openbasiskaart&geomsrs=EPSG:4326&geom={{mdView.current.record.getBoxAsPolygon($index)}}"/>
+                   data-ng-src="region.getmap.png?mapsrs=EPSG:4326&width=200&background=osm&geomsrs=EPSG:4326&geom={{mdView.current.record.getBoxAsPolygon($index)}}"/>
             </p>
           </section>
 
