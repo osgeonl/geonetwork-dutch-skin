@@ -3,7 +3,7 @@
 
   
 <div class="pull-right contact-links">
-        <!--<a id="changeLangLink" data-ng-show="lang=='dut'"
+        <a id="changeLangLink" data-ng-show="lang=='dut'"
            href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
            title="{{'English'|translate}}">
           {{'English' | translate}}
@@ -12,8 +12,8 @@
            href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
            title="{{'Nederlands'|translate}}">
           {{'Nederlands' | translate}}
-        </a>-->
-       <span data-translate="">header-right</span></div>
+        </a>
+       <!--<span data-translate="">header-right</span></div>-->
 <div class="branding">
   <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
     <img class="gn-logo"
@@ -57,8 +57,14 @@
 </div>
 
 <div id="footer" class="footer clearfix">
-  <div class="pull-left"><span data-translate="">footer-left</span> {{info['system/platform/version']}}<!--.{{info['system/platform/subVersion']}}--></div>
-  <div class="pull-right" data-translate="">footer-right</div>
+  <div class="pull-left">
+    <a href="http://geonetwork-opensource.org/">
+    <i class="fa fa-fw"></i>
+    <span data-translate="">about</span></a>
+    <span data-translate=""
+          data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}">versionDetails</span>
+  </div>
+  <!--<div class="pull-right" data-translate="">footer-right</div>-->
 </div>  
 </div>
 </div>

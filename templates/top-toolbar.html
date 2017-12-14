@@ -13,7 +13,7 @@
     </button>
   </div>
   <div id="navbar" class="navbar-collapse collapse">
-    <ul data-ng-show="!authenticated" class="nav navbar-nav">
+    <ul class="nav navbar-nav">
     <!-- <ul class="nav navbar-nav"> -->
       <li>
         <a data-gn-active-tb-item="catalog.search#/home"
@@ -23,23 +23,23 @@
       </li>
       <li data-ng-show="!layout.isEditMode">
         <a data-gn-active-tb-item="catalog.search#/search"
-           title="{{'menu_search' | translate}}">
-          <span data-translate="">menu_search</span>
+           title="{{'search' | translate}}">
+          <span data-translate="">search</span>
         </a>
       </li>
       <li data-ng-show="!layout.isEditMode">
         <a data-gn-active-tb-item="catalog.search#/map"
-           title="{{'map' | translate}}">
-          <span data-translate="">map</span>
+           title="{{'makeYourMap' | translate}}">
+          <span data-translate="">makeYourMap</span>
         </a>
       </li>
       <li data-ng-show="authenticated && user.isEditorOrMore()">
         <a data-gn-active-tb-item="catalog.edit"
-           title="{{'Dashboard' | translate}}">
-          <span data-translate="">Dashboard</span>
+           title="{{'contribute' | translate}}">
+          <span data-translate="">contribute</span>
         </a>
       </li>
-      <li data-ng-show="!layout.isEditMode">
+     <!-- <li data-ng-show="!layout.isEditMode">
         <a data-gn-active-tb-item="catalog.search#/latest"
            title="{{'menu_latest' | translate}}">
           <span data-translate="">menu_latest</span>
@@ -56,28 +56,7 @@
            title="{{'menu_developers' | translate}}">
           <span data-translate="">menu_developers</span>
         </a>
-      </li>
-      <li data-ng-show="user.isUserAdminOrMore()">
-        <a data-gn-active-tb-item="admin.console"
-           title="{{'adminConsole' | translate}}">
-          <span data-translate="">adminConsole</span>
-        </a>
-      </li>
-    </ul>
-
-    <ul data-ng-show="user.isEditorOrMore()" class="nav navbar-nav">
-      <li>
-        <a data-gn-active-tb-item="catalog.search#/home"
-           title="{{'Home' | translate}}">
-          <span data-translate="">Home</span>
-        </a>
-      </li>
-      <li data-ng-show="authenticated && user.isEditorOrMore()">
-        <a data-gn-active-tb-item="catalog.edit"
-           title="{{'Dashboard' | translate}}">
-          <span  data-translate="">Dashboard</span>
-        </a>
-      </li>
+      </li> -->
       <li data-ng-show="user.isUserAdminOrMore()">
         <a data-gn-active-tb-item="admin.console"
            title="{{'adminConsole' | translate}}">
@@ -89,9 +68,7 @@
     <ul class="nav navbar-nav navbar-right">
 
       <div class="navbar-text hidden-xs" data-ng-show="authenticated">
-        <span class="dutch-text-lighter" data-ng-show="authenticated && user.isEditorOrMore()" data-translate="">Welkom</span>
         {{user.name}} {{user.surname}} 
-        <!--<span class="dutch-text-smaller dutch-text-lighter" data-ng-show="authenticated && user.isEditorOrMore()">({{user.profile}})</span>-->
       </div>
 
       <li data-ng-show="authenticated">
