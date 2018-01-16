@@ -1,26 +1,25 @@
 <!-- Powered by: {{info.site.platform.name}}, version: {{info.site.platform.version}} -->
 <div class="container">
-
-  
-<div class="pull-right contact-links">
-        <a id="changeLangLink" data-ng-show="lang=='dut'"
-           href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
-           title="{{'English'|translate}}">
-          {{'English' | translate}}
-        </a>
-        <a id="changeLangLink" data-ng-show="lang=='eng'"
-           href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
-           title="{{'Nederlands'|translate}}">
-          {{'Nederlands' | translate}}
-        </a>
-       <!--<span data-translate="">header-right</span></div>-->
-<div class="branding">
-  <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-    <img class="gn-logo"
-         data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}" 
-         title="{{'home'|translate}}"/>
-  </a>
-</div>
+  <div class="pull-right contact-links">
+    <a id="changeLangLink" data-ng-show="lang=='dut'"
+       href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
+       title="{{'English'|translate}}">
+      {{'English' | translate}}
+    </a>
+    <a id="changeLangLink" data-ng-show="lang=='eng'"
+       href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
+       title="{{'Nederlands'|translate}}">
+      {{'Nederlands' | translate}}
+    </a>
+    <!--<span data-translate="">header-right</span>-->
+  </div>
+  <div class="branding">
+    <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+      <img class="gn-logo"
+           data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}" 
+           title="{{'home'|translate}}"/>
+    </a>
+  </div>
 
   <div class="navbar navbar-default gn-top-bar" role="navigation"
        data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'">
