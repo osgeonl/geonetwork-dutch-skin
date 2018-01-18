@@ -1,23 +1,29 @@
-@import "gn_variables_dutch.less"; // must be first
 @import "../../../style/gn_search.less";
 @import "../../../style/gn_metadata.less";
+@import "gn_facets_dutch.less";
 @import "gn_pagination_dutch.less";
-@import "gn_results_dutch.less";
-@import "gn_facet_dutch.less";
-@import "gn_record_dutch.less";
 @import "gn_feedback_dutch.less";
+// page layout
+@import "gn_layout_dutch.less";
+// header
+@import "gn_header_dutch.less";
+// navigation
+@import "gn_navbar_dutch.less";
+// styling for a single result: metadata view
+@import "gn_result_dutch.less";
+// styling for all search results
+@import "gn_results_dutch.less";
+// main map and minimap
+@import "gn_map_dutch.less";
+// footer and bottombar
+@import "gn_footer_dutch.less";
+// variables for manipulating the theme
+@import "gn_variables_dutch.less"; // must be last
 
 /* Hide the tabset selector because tab
    switch is available in the top tool bar */
 #main-tabset > ul:nth-child(1) {
   display: none;
-}
-
-body {
-  background-image: @gnBackgroundImage;
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .jumbotron {
@@ -26,7 +32,10 @@ body {
   }
 }
 
+// ----------------------------------------------------------------------
 // sort options
+// ----------------------------------------------------------------------
+
 .dutch-sort {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -37,16 +46,6 @@ body {
   }
 }
 
-
-[gn-main-viewer] .search-container, .gn-main-viewer .search-container {
-  right: 20px;
-}
-
-.gn-sort-by {
-  .btn-group > button {
-    .btn-link();
-  }
-}
 .gn-search-page {
   clear: both;
   .badge {
@@ -160,29 +159,6 @@ body {
   float: left;
 }
 
-/*
-    Place bottom-bar at the bottom of page; approach is based on http://matthewjamestaylor.com/blog/bottom-footer-demo.htm
-*/
-.gn-bottom-bar {
-  bottom:0;
-  height:50px;
-  position:absolute;
-  overflow:hidden;
-  width:100%;
-  margin-bottom:0px;
-  border-radius: 0px;
-}
-
-.cookie-warning {
-  .alert;
-  .alert-info;
-}
-
-.gn-full {
-  min-height: 100%;
-  position: relative;
-}
-
 // styling for full detail view
 .page.gn-full {
   .nav-tabs {
@@ -287,7 +263,7 @@ body {
   padding-bottom: 20px;
   padding-top: 20px;
   margin: -25px -15px 25px -15px;
-  background-color: @gnMainColorLight;
+  background-color: @gn-menubar-background-active;
 }
 .dutch-search-home-nojs {
   margin-top: 0;
@@ -296,7 +272,7 @@ body {
 
 // ----- general search form
  #dutch-search-form {
-  background-color: @gnMainColorLight;
+  background-color: @gn-menubar-background-active;
   margin-right: -15px;
   margin-left: -15px;
   // margin-top: -25px;
@@ -322,19 +298,18 @@ body {
 }
 // ----- dropdown
 #dutch-search-form .dropdown-menu {
-  border-color: @gnMainColor;
+  border-color: @gn-menubar-background;
   border-radius: 3px;
   max-height: 350px;
   overflow: auto;
   overflow-x: hidden;
-  // width: calc(~"100% - 16px");
   li a {
     &:hover {
-      background-color: @gnMainColorLight;
+      background-color: @gn-menubar-background-active;
       color: #333;
     }
     &:first-letter {
-    text-transform: uppercase;
+      text-transform: uppercase;
     }
   }
 }
@@ -342,7 +317,7 @@ body {
 .dutch-search {
   // ----- orange border NOT on all pages
   .form-control, .form-control:focus, .form-control:active { 
-    border: 1px solid @gnMainColor;
+    border: 1px solid @gn-menubar-background;
     outline: 0;
     box-shadow: none;
   }
@@ -353,7 +328,7 @@ body {
   }
   // ----- feedback
   .has-feedback .fa-2x {
-    padding-top:7px;
+    padding-top: 7px;
   }
   .input-lg + .form-control-feedback {
     margin-top: 6px;
@@ -371,7 +346,7 @@ body {
     line-height: 1.33;
     min-height: 46px;
     border-radius: 6px;
-    border: 1px solid @gnMainColor;
+    border: 1px solid @gn-menubar-background;
     margin-bottom: 0;
     .tag {
       display: inline-block;
@@ -391,9 +366,9 @@ body {
   }
 
   .bootstrap-tagsinput.focused {
-      border-color: @gnMainColor;
+      border-color: @gn-menubar-background;
       outline: 0;
-      @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@gnMainColor, 20%);
+      @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@gn-menubar-background, 20%);
       .box-shadow(@shadow);
   }
   // ----- trigger button
@@ -442,17 +417,15 @@ body {
     border-right: 0;
   }
   .date .input-group-addon {
-    background-color: #fff;
-    border-color: @gnMainColor;
+    background-color: @input-bg;
+    border-color: @gn-menubar-background;
     color: #333;
   }
   #btn-advanced-search.active {
-    // background-color: #FAE2CB;
-    -webkit-box-shadow: none; 
     box-shadow: none; 
   }
   #pnl-advanced-search {
-    background-color: #FAE2CB;
+    background-color: @gn-topics-background-color;
     margin-right: -20px;
     margin-left: -20px;
     margin-top: 10px;
@@ -490,7 +463,7 @@ body {
   margin-top: 10px;
   margin-left: -7px;
   padding: 9px 0;
-  border: 1px solid @gnMainColor;
+  border: 1px solid @gn-menubar-background;
   width: calc(~"100% + 20px");
   box-shadow: none;
   border-radius: 3px;
@@ -501,7 +474,7 @@ body {
   overflow: auto;
 }
 .dropdown-menu {
-  margin-top: -1px;
+  margin-top: 2px;
   margin-left: 0;
   width: auto;
   max-width: none;
@@ -509,10 +482,10 @@ body {
 }
 .dutch-search-home {
   .dropdown-menu {
-    border-color: @gnMainColor;
+    border-color: @gn-menubar-background;
     li a {
     &:hover {
-      background-color: @gnMainColorLight;
+      background-color: @gn-menubar-background-active;
       color: #333;
     }
     &:first-letter {
@@ -533,12 +506,12 @@ body {
 }
 // ----- the active or hovered item in the dropdown
 .tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {
-  background: @gnMainColorLight;
+  background: @gn-menubar-background-active;
   color: #333;
 }
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   color: #333;
-  background-color: @gnMainColorLight;
+  background-color: @gn-menubar-background-active;
 }
 // ----- tag search input for location
 .dutch-search-location .tt-dropdown-menu {

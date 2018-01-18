@@ -1,14 +1,18 @@
-// @import "gn_search_dutch.less";
-
-@import "gn_variables_dutch.less"; // must be first
 @import "../../../style/gn_search.less";
 @import "../../../style/gn_editor";
-@import "gn_navbar_dutch.less";
-@import "gn_facet_dutch.less";
+@import "gn_facets_dutch.less";
 @import "gn_pagination_dutch.less";
-@import "gn_view_dutch.less";
 @import "gn_onlinesrc_popup_dutch.less";
-
+// header
+@import "gn_header_dutch.less";
+// navigation
+@import "gn_navbar_dutch.less";
+// footer and bottombar
+@import "gn_footer_dutch.less";
+// dutch style overrides
+@import "gn_view_dutch.less";
+// variables for manipulating the theme
+@import "gn_variables_dutch.less"; // must be last
 
 .page {
   padding-bottom: 60px;
@@ -51,7 +55,7 @@ h4 {
       top: 56px;
       height: 56px;
       z-index: 101;
-      border-top: 6px solid #F6D4B1;
+      border-top: 6px solid @gn-menubar-background-active;
       background-color: #fff;
       box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
       .navbar-text {
@@ -62,7 +66,7 @@ h4 {
   .gn-sub-bar {
     top: 56px;
     border: 0;
-    border-top: 6px solid #F6D4B1;
+    border-top: 6px solid @gn-menubar-background-active;
     background-color: #fff;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
   }
@@ -117,7 +121,7 @@ h4 {
 }
 .navbar-default.dutch-subbar {
   border: 0;
-  border-top: 6px solid @gnMainColorLight;
+  border-top: 6px solid @gn-menubar-background-active;
   background-color: #fff;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -944,7 +948,7 @@ form.gn-editor .gn-field .col-sm-12 {
 }
 // ----- the active or hovered item in the dropdown
 .tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {
-  background: @gnMainColorLight;
+  background: @gn-menubar-background-active;
   color: #333;
 }
 [data-gn-region-picker] {

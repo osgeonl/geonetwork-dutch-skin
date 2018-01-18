@@ -1,4 +1,5 @@
-@import "gn_variables_dutch.less"; // must be first
+// variables for manipulating the theme
+@import "gn_variables_dutch.less"; // must be last
 
 // resultview
 ul.gn-resultview {
@@ -23,9 +24,6 @@ ul.gn-resultview {
     &:hover {
       background-color: #fff;
       cursor: default;
-      .media h4 a {
-        color: @gnMainColor;
-      }
     }
 
     .gn-md-thumbnail {
@@ -59,9 +57,6 @@ ul.gn-resultview {
         font-weight: 700;
         font-size: 16px;
         line-height: 1.5em;
-        a {
-          color: @gnBlue;
-        }
       }
       // override the justify
       .text-justify {
@@ -84,7 +79,6 @@ ul.gn-resultview {
     height: 268px;
     padding: 18px;
     .gn-md-details {
-      //margin-left: @thumbnail-width;
       color: #6a6a6a;
       max-height: 50px;
       overflow: hidden;
@@ -115,32 +109,22 @@ ul.gn-resultview {
       }
     }
     .gn-source-logo {
-      //position: absolute;
-      //right: 0px;
       margin: @grid-bottom-margin;
       z-index: 10;
-      //border-radius: 50%;
-      //max-width: 24px;
       height: 24px;
       width: auto;
       float: right;
     }
     .gn-md-thumbnail {
-      //position: absolute;
-      //top: 82px;
-      //opacity: .8;
       overflow: hidden;
       .gn-img-thumbnail {
         max-width: @thumbnail-width;
         max-height: 140px;
         min-height: 40px;
-        //margin: @grid-bottom-margin;
         height: auto;
       }
     }
     .gn-md-links {
-      //position: absolute;
-      //bottom: @grid-bottom-margin;
       background: none;
       margin-top: 15px;
     }
@@ -206,7 +190,6 @@ ul.gn-resultview {
   padding: 0px;
   border-radius: 0px;
   margin-bottom: 10px;
-  // border: 0;
 }
 
 // map for search results
@@ -218,7 +201,7 @@ ul.gn-resultview {
   position: fixed !important;
   z-index: 99;
   width: 250px !important;
-  heigth: 250px !important;
+  height: 250px !important;
   margin: 10px 5px;
 }
 
@@ -250,6 +233,7 @@ ul.gn-resultview {
 .gn-search-map [ngeo-map] .gn-draw-btn .btn, .gn-search-map [ngeo-map] .btn-group-vertical .btn {
   border-radius: 0;
 }
+
 
 // no JS
 .record-nojs {

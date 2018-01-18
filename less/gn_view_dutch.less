@@ -3,105 +3,11 @@
    (ie. admin, search, login, editor). */
 
 @import "gn_variables_dutch.less"; // must be first
-@import "gn_navbar_dutch.less";
-@import "gn_map_dutch.less";
 
-html, body {
-  height: 100%;
-}
-
-// container
-.container {
-  // extra room for the footer
-  // margin-bottom: 45px;
-}
-@media (max-width: 768px) {
-  .container {
-      padding-left: 0px;
-      padding-right: 0px;
-  }
-}
-// layout
-@media (min-width: 1200px) {
-  #gn-directory-container {
-    width: 1100px;
-  }
-}
-
-.page {
-  background: white;
-  padding-bottom: 60px;
-}
-
-// ----- header
-header {
-  height: 80px;
-  margin-top: 0px;
-  padding-top: 10px;
-  background-color: white;
-}
-@media (max-width: @screen-sm-min) {
-  header {
-    height: 95px;
-  }
-}
-@media (max-width: 320px) {
-  .branding a img {
-    height: 80%;
-    width: 80%;
-  }
-}
-.gn-top-bar {
-  padding: 0 8px;
-}
-[ng-app="gn_editor"], [ng-app="gn_admin"] {
-  .gn-top-bar {
-    margin-bottom: 10px;
-    // remove text
-    .gn-logo + span {
-      display: none;
-    }
-  }
-}
-.contact-links {
-  padding-right: 10px;
-  padding-top: 10px;
-  a {
-    color: gray;
-    padding: 10px;
-  }
-}
-.home-header {
-  text-shadow: 0px 0px 4px #333333;
-  font-size: 48px;
-}
-
-// ----- footer
-.footer {
-  background: #fff;
-  padding: 10px;
-}
-#footer a {
-  color: black;
-  font-weight: bold;
-  padding-right: 12px;
-}
-.footer a {
-  color: white;
-  text-decoration: none;
-}
-.bottom-bar {
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
-  background: #fff;
-  text-align: right;
-  left: 0;
-  bottom: 0;
-  z-index: 1000;
-}
-
+// ----------------------------------------------------------------------
 // logo (left side the same as the left of the text on the first tab)
+// ----------------------------------------------------------------------
+
 .branding {
   padding-left: 3px;
   min-height: 80px;
@@ -113,65 +19,28 @@ header {
   }
 }
 
-
-// home header
-.intro-text {
-  margin-top: 60px;
-  margin-bottom: 80px;
-  background: none;
-  color: white;
-  text-align: center;
-  @media (max-height: 800px) {
-    margin-top: 40px;
-    margin-bottom: 60px;
-  }
-  @media (max-width: 767px) {
-    margin-top: 30px;
-    margin-bottom: 40px;
-  }
-  h1 {
-    width: 60%;
-    font-size: 3em;
-    line-height: 1.3em;
-    margin: 0 auto;
-    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
-    @media (max-width: 450px) {
-      font-size: 2em;
-    }
-  }
-  .intro-scrolldown {
-    font-size: 76px;
-    margin-top: 0px;
-  }
-}
-
-// divider
-.gn-divider-bar {
-  height: 5px;
-  background-color: @gnMainColorLight;
-}
-
+// ----------------------------------------------------------------------
 // typography
 //
 // general text styling
-//
-// ----- fonts
+// ----------------------------------------------------------------------
+
+// ----- font bold
 @font-face {
   font-family: rijksoverheidsanstext-bold;
   src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
 }
-
 h1,h2,h3,h4,h5,h6 {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
   font-weight: bold;
 }
 
+// ----- font regular
 @font-face {
   font-family: rijksoverheidsanstext-regular;
   src: url(../catalog/views/dutch/images/rijksoverheidsanstext-regular.woff);
 }
-
-body,p,div,span,a,blockquote {
+body,p,div,span,a,blockquote,.btn {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
 }
 
@@ -182,19 +51,24 @@ body,p,div,span,a,blockquote {
   margin-right: .3em;
   margin-top: 7px;
 }
+
 // ----- alerts
 .alert {
   line-height: 1.6em;
   max-width: 1000px;
 }
-.alert-warning {
-  //why was this deactivated?
-  //background: 0 !important;
-  //border: 0;
-  //padding-left: 20px;
-  //margin: 0;
-  //color: #999;
+.gn-info, .gn-alerts .alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  max-width: none;
+  text-align: left;
+  border-width: 0 0 1px 0;
 }
+
 // ----- about, for developers, etc
 .plain-text {
   width: 80%;
@@ -223,15 +97,12 @@ body,p,div,span,a,blockquote {
     }
   }
 }
+
+// ----------------------------------------------------------------------
 // custom text styles
-//
+// ----------------------------------------------------------------------
+
 // ----- general
-.dutch-text-smaller {
-  font-size: 12px;
-}
-.dutch-capitalize {
-  text-transform: capitalize;
-}
 .dutch-hierarchy {
   font-size: 16px;
   margin-bottom: 25px;
@@ -240,6 +111,7 @@ body,p,div,span,a,blockquote {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
   color: #333;
 }
+
 // ----- toggle option
 .collapse-text-toggle {
   cursor: pointer;
@@ -268,16 +140,10 @@ body,p,div,span,a,blockquote {
   margin-top: 6px;
 }
 
+// ----------------------------------------------------------------------
 // tab styling
+// ----------------------------------------------------------------------
 
-.nav-tabs > li > a {
-  color: #999;
-  white-space: nowrap;
-  &:hover {
-    color: #333;
-  }
-
-}
 @media (max-width: 450px) {
   .nav-tabs > li {
     width: 100%;
@@ -292,22 +158,11 @@ body,p,div,span,a,blockquote {
   }
 }
 
-// top bar (contact & help)
-nav.verytop a {
-  color: darkgrey;
-  text-decoration: none;
-}
-.verytop ul li {
-  float: left;
-  padding: 0 10px;
-}
-.verytop ul {
-  list-style: none;
-  padding: 0px;
-}
+// ----------------------------------------------------------------------
+// Dropdowns
+// ----------------------------------------------------------------------
 
-// general dropdown
-//
+// -----general dropdown
 .dutch-search-form, .navbar {
   .dropdown-menu {
     max-height: 400px;
@@ -323,7 +178,7 @@ nav.verytop a {
   }
 }
 
-// dropdown higher than footer
+// ----- dropdown higher than footer
 .dropdown-menu {
   z-index: 1001;
 
@@ -338,34 +193,21 @@ nav.verytop a {
       pointer-events: none;
     }
   }
-  // ----- remove the double toggle buttons
+  // remove the double toggle buttons
   i.fa-sort {
     display: none;
   }
-  // ----- more whitespace in the dropdown
+  // more whitespace in the dropdown
   .caret {
     margin-left: 5px;
   }
 }
-// active/hover color
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  color: #333;
-  background-color: @gnMainColorLight;
-}
-// breadcrumbs (in second toolbar/navbar)
-.crumb {
-  background-color: @gnCrumbBackground;
-  padding: 1.0em 21px 1.3em 21px;
-  font-size: 12px;
-  margin-bottom: 10px;
-  a {
-    color: @gnCrumbText;
-  }
-}
 
-// inspire styles for NGR
-//
-// used for search results & detail view
+// ----------------------------------------------------------------------
+// inspire styles for Dutch Skin
+// ----------------------------------------------------------------------
+
+// ----- used for search results & detail view
 .dutch-inspire-list {
   margin-top: 10px;
   list-style: none;
@@ -384,7 +226,9 @@ nav.verytop a {
   }
 }
 
+// ----------------------------------------------------------------------
 // categories
+// ----------------------------------------------------------------------
 
 // ----- list of categories
 .dutch-categories {
@@ -415,120 +259,20 @@ nav.verytop a {
   }
 }
 
+// ----------------------------------------------------------------------
 // buttons en custom links
-//
-.btn {
-  font-family: rijksoverheidsanstext-regular, sans, arial !important;
-}
+// ----------------------------------------------------------------------
+
 // ----- override default .btn settings
 .btn:active {
   box-shadow: none;
 }
-// ----- remove default blue styling
-.btn-primary {
-  color: #fff;
-  background-color: @gnMainColorDark;
-  border-color: @gnMainColorDark;
-}
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
-.open .dropdown-toggle.btn-primary, .btn-primary.running {
-  color: #fff;
-  background-color: @gnMainColorDark;
-  border-color: @gnMainColorDark;
-  box-shadow: none;
-}
+
+// ----- styling for primary buttons
+@btn-primary-bg: darken(@gn-menubar-background, 5%);
+
 .btn-group > .btn-primary + .dropdown-toggle {
   border-left: 1px solid #fff;
-}
-.btn-primary.diabled {
-  background-color: @gnMainColorLight;
-}
-.btn-primary.active {
-  background-color: #a05106;
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-// ----- extra button styling
-.btn-dutch-outline {
-  border-color: @gnMainColor;
-  background-color: #fff;
-  box-shadow: none !important;
-  color: @gnMainColor;
-  margin-right: 4px;
-  &:hover {
-    border-color: @gnMainColor;
-    color: @gnMainColor;
-    background-color: @gnMainColorLight;
-    text-decoration: none;
-  }
-  &:focus {
-    color: @gnMainColor;
-  }
-  i {
-    // margin-right: 5px;
-  }
-  .btn-group > .btn, .btn-group-vertical > .btn {
-    padding: 0;
-    color: @gnMainColor;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-.btn-dutch-outline.fa {
-  span {
-    font-family: rijksoverheidsanstext-regular, sans, arial !important;
-    margin-left: -2px;
-    color: @gnMainColor;
-    text-rendering: auto;
-    -webkit-font-smoothing: initial;
-  }
-  &:hover {
-    span {
-      color: #333;
-    }
-  }
-}
-
-// help button
-[data-gn-need-help] {
-  margin-top: 10px;
-}
-.panel-heading {
-  [data-gn-need-help] {
-    margin-top: 0;
-  }
-}
-
-.btn-group.open .btn-dutch-outline.dropdown-toggle {
-  background-color: @gnMainColorLight;
-  color: @gnMainColor;
-}
-
-// ----- back button
-.btn-dutch-back {
-  color: #333;
-  cursor: pointer;
-  &:hover {
-    color: #000;
-  }
-  .fa {
-    font-size: 20px;
-  }
-}
-.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, 
-.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, 
-.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, 
-.btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, 
-.btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
-  background-color: @gnMainColorDark;
-  border-color: @gnMainColorDark;
-}
-.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover,
-.btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, 
-.btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
-  color: #fff;
-  background-color: @gnMainColorDark;
-  border-color: @gnMainColorDark;
 }
 
 // ----- button with conflicting font-families, i.e. when a button has both class .btn and .fa
@@ -536,13 +280,16 @@ nav.verytop a {
   font-family: FontAwesome !important;
   margin-right: 5px;
 }
+
 // ----- caret in button
 .btn span + .caret {
   margin-left: 5px;
 }
 
+// ----------------------------------------------------------------------
 // custom radio
-// 
+// ----------------------------------------------------------------------
+ 
 // ----- custom colored radio
 input[type=radio].dutch-radio {
   display: none;
@@ -567,12 +314,15 @@ input[type=radio].dutch-radio:checked + span.dutch-radio-label {
   padding-left: 0;
 }
 
+// ----------------------------------------------------------------------
 // custom checkboxes
-// 
+// ----------------------------------------------------------------------
+
 // ----- general
 .checkbox, .checkbox-inline {
   padding-left: 0;
 }
+
 // ----- custom colored checkbox
 input[type=checkbox].dutch-checkbox {
   display: none;
@@ -592,7 +342,10 @@ span.dutch-checkbox-label {
   background-image: url('../catalog/views/dutch/images/dutch-checkbox.png');
 }
 
+// ----------------------------------------------------------------------
 // modal
+// ----------------------------------------------------------------------
+
 .modal h3 {
   font-size: 20px;
   margin-top: 10px;
@@ -608,18 +361,17 @@ span.dutch-checkbox-label {
     border-radius: 18px;
     height: 34px;
     width: 34px;
-    border: 2px solid @gnMainColor;
+    border: 2px solid @gn-menubar-background;
     padding: 0px;
     font-size: 20px;
-    .text-danger {
-      color: @gnMainColor;
-    }
   }
 }
 
+// ----------------------------------------------------------------------
 // general styles
-//
-// padding
+// ----------------------------------------------------------------------
+
+// ----- padding
 .dutch-padding-top, .gn-padding-top {
   padding-top: @gnSpacing;
 }
@@ -632,7 +384,7 @@ span.dutch-checkbox-label {
 .dutch-padding-left, .gn-padding-left {
   padding-left: @gnSpacing;
 }
-// no padding
+// ----- no padding
 .dutch-nopadding, .gn-nopadding {
   padding: 0;
 }
@@ -654,14 +406,14 @@ span.dutch-checkbox-label {
   padding-left: 0;
 }
 
-// extra padding for columns
+// ----- extra padding for columns
 @media (min-width: @screen-sm-max) {
   .gn-padding-left-extra {
     padding-left: 25px;
   }
 }
 
-// margin
+// ----- margin
 .dutch-margin-all, .gn-margin-all {
   margin: @gnSpacing;
 }
@@ -677,14 +429,15 @@ span.dutch-checkbox-label {
 .dutch-margin-left, .gn-margin-left {
   margin-left: @gnSpacing;
 }
-// margin for small devices
+
+// ----- margin for small devices
 @media (max-width: 750px) {
   .dutch-xs-margin-bottom, .gn-xs-margin-bottom {
     margin-bottom: @gnSpacing;
   }
 }
 
-// widths
+// ----- widths
 .dutch-width-80, .gn-width-80 {
   width: 80%;
 }
@@ -706,7 +459,7 @@ max-width:200px;
 max-height:150px;
 }
 
-// text
+// ----- text
 .text-preline {
   white-space: pre-line;
 }
@@ -714,17 +467,7 @@ max-height:150px;
   overflow: auto;
 }
 
-.gn-info, .gn-alerts .alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  border-radius: 0;
-  max-width: none;
-  text-align: left;
-  border-width: 0 0 1px 0;
-}
+
 .dropdown img.img-circle, .dropdown span.gn-user-role {
   display:none !important;
 }
@@ -757,17 +500,6 @@ max-height:150px;
       display: block !important;
     }
   }
-}
-
-.gnMdfeedback { 
-    padding-bottom: 5px;
-    padding-top:5px;
-    font-size: 12px;
-    line-height: 1.5;
-    a {
-    background-color:transparent;
-    border-color:transparent;
-    }
 }
 
 //nojs interface

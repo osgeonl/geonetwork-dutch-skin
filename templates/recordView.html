@@ -339,7 +339,7 @@
                    data-ng-class="{active: currentTabMdView === 'contact'}"
                    data-ng-show="currentTabMdView === 'contact'">
                 <div data-ng-repeat="cntct in mdView.current.record.responsibleParty track by $index">
-                  <h2 class="dutch-capitalize">
+                  <h2 class="text-capitalize">
                     <!-- {{(cntct|split:'|':0)|translate}} -->
                     <span data-ng-show="(cntct|split:'|':1) !== 'resource'"> {{(cntct|split:'|':1)|translate}}</span>
                     <span data-ng-show="(cntct|split:'|':1) === 'resource'"> {{mdView.current.record.type[0]}}</span>
