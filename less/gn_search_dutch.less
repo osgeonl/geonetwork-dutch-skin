@@ -67,9 +67,6 @@
   }
 }
 
-
-
-
 [data-ng-search-form] {
   .gn-top-search {
     padding-bottom: 10px;
@@ -248,13 +245,9 @@
   }
 }
 
-
 .navbar-form {
   border:none;
 }
-
-
-
 
 // search form
 
@@ -316,7 +309,7 @@
 
 .dutch-search {
   // ----- orange border NOT on all pages
-  .form-control, .form-control:focus, .form-control:active { 
+  .form-control, .form-control:focus, .form-control:active {
     border: 1px solid @gn-menubar-background;
     outline: 0;
     box-shadow: none;
@@ -332,7 +325,7 @@
   }
   .input-lg + .form-control-feedback {
     margin-top: 6px;
-  }  
+  }
   // ----- more space means another top for the location icon
   .has-feedback .form-control-feedback {
     top: 41px;
@@ -345,7 +338,7 @@
     font-size: 18px;
     line-height: 1.33;
     min-height: 46px;
-    border-radius: 6px;
+    border-radius: @border-radius-large;
     border: 1px solid @gn-menubar-background;
     margin-bottom: 0;
     .tag {
@@ -422,7 +415,7 @@
     color: #333;
   }
   #btn-advanced-search.active {
-    box-shadow: none; 
+    box-shadow: none;
   }
   #pnl-advanced-search {
     background-color: @gn-topics-background-color;
@@ -431,7 +424,7 @@
     margin-top: 10px;
     padding: 15px 10px 15px 10px;
     margin-bottom: -20px;
-  
+
     // ---- tags input for advanced search
     .bootstrap-tagsinput {
       padding: 7px 12px 7px 6px;
@@ -457,7 +450,7 @@
 }
 
 // typeahead search boxes
-// 
+//
 // ----- tag search inputs
 .tt-dropdown-menu, .tt-menu, .dropdown-menu {
   margin-top: 10px;
