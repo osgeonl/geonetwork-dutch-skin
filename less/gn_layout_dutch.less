@@ -1,3 +1,4 @@
+@import "../../../style/gn_bootstrap.less"; // must be first
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
@@ -11,7 +12,7 @@ html, body {
 
 // background image and color
 [ng-app^="gn_search_"] body, [ng-app="gn_login"] body {
-  background-image: url(@gn-background-image); 
+  background-image: url(@gn-background-image);
   background-color: @gn-background-color;
   background-position: center top;
   background-size: cover;
