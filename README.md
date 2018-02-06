@@ -20,9 +20,11 @@ Some optional additional settings on the main project
 
 - In pom.xml, configure the database type and connection details, Language.default, Language.forcedefault.
 
-- In /WEB-INF/config/config-summary.xml, configure the facets to be displayed on the search results.
+- In /catalog/js/gnLocale.js, reference the skin language override file /catalog/views/dutch/locales/nl-core.json (line 90)
 
-- In /catalog/js/gnLocale.js, reference the skin language override file /catalog/views/dutch/locales/nl-core.json
+`
+options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
+`
 
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
 
