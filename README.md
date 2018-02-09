@@ -8,10 +8,20 @@ The license of the project is GPLv2.
 
 # Installation instructions
 
-Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
+## at build time (mvn install)
+
+- Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
 
 `git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x
 git submodule init`
+
+## at run time (war)
+
+- Deploy the latest geonetwork 3.4.x war from sourceforge
+- grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.4.x
+- unzip it in /geonetwork/catalog/views/dutch
+
+## next
 
 Verify the view by browsing to catalog.search?view=dutch. 
 If ok, then alter the setting "view" to "dutch" in admin > settings
@@ -25,7 +35,6 @@ Some optional additional settings on the main project
 `
 options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
 `
-
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
 
 - On 'Admin > Settings' and 'Admin > Settings > User Interface' configure things such as catalog title, logo, url, map extent, etc
