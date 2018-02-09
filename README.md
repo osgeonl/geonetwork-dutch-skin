@@ -1,8 +1,10 @@
 # A custom view for GeoNetwork: 'Dutch Government Skin'
 
-This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core instance as a git submodule.
+This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build war.
 
 This work has been started by Kadaster Netherlands and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
+
+A preconfigured skin is available as docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
 
 The license of the project is GPLv2.
 
