@@ -43,6 +43,8 @@ Some additional settings on the main project
 
 - On 'Admin > Settings' and 'Admin > Settings > User Interface' configure things such as catalog title, logo, url, map extent, etc
 
+- On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at ../../catalog/views/dutch/config.xml
+
 ## Finally
 
 - (re)start the service
