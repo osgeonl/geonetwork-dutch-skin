@@ -45,12 +45,6 @@
            data-ng-show="activeTab == '/map'"/>
       <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
            data-ng-show="activeTab == '/metadata'"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/about.html'"
-           data-ng-show="activeTab == '/about'"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/devel.html'"
-           data-ng-show="activeTab == '/devel'"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/latest.html'"
-           data-ng-show="activeTab == '/latest'"/>
     </div>
   </div>
 </div>
@@ -61,7 +55,7 @@
     <i class="fa fa-fw"></i>
     <span data-translate="">about</span></a>
     <span data-translate=""
-          data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}">versionDetails</span>
+          data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: ''}">versionDetails</span>
   </div>
   <!--<div class="pull-right" data-translate="">footer-right</div>-->
 </div>  
