@@ -155,7 +155,7 @@
             });
           }
 
-                   
+
 
 /** Facets configuration */
           searchSettings.facetsSummaryType = 'details';
@@ -234,9 +234,6 @@
               'OGC:WMTS-1.0.0-http-get-capabilities'
               ]
           };
-          // Set the default template to use
-          searchSettings.resultTemplate =
-              searchSettings.resultViewTpls[0].tplUrl;
 
           // Set custom config in gnSearchSettings
           angular.extend(searchSettings, {
