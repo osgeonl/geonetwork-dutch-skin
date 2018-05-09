@@ -76,6 +76,10 @@
       width: auto;
       border-radius: 0;
       margin-bottom: 0;
+      .fa {
+        width: 15px;
+        text-align: center;
+      }
     }
     button:focus, button:hover {
       background-color: #efefef;
@@ -179,7 +183,7 @@
       right: 28px;
     }
     .btn-group {
-      display: inline-block;
+      // display: inline-block;
     }
     [gn-layermanager] .list-group {
       margin-bottom: 10px;
@@ -198,7 +202,6 @@
         position: absolute;
         margin-top: -1px;
         padding-top: 0;
-        right: 14px;
         color: #333;
       }
       .btn-cog-left {
@@ -210,17 +213,18 @@
       }
     }
     [gn-layermanager] .list-group-item.gn-searchlayer, .list-group-item.gn-searchlayer {
-      .btn-cog {
-        margin-top: 2px;
-        padding-top: 6px;
+      ul {
+        padding-left: 14px;
+        list-style: disc;
+        li {
+          padding: 4px 0;
+        }
       }
     }
     .panel-heading {
       .clearfix();
       height: 4em;
       line-height: 4em;
-      // height: 2.8em;
-      // background: #fff;
     }
     .panel-heading h3 {
       font-size: 16px;
@@ -232,13 +236,9 @@
     }
     .baselayer {
       margin: 0;
-      position: absolute;
     }
     [data-dropup] {
       margin-bottom: 10px;
-    }
-    .dropup {
-      // position: absolute;
     }
     label {
       padding-left: 0;
@@ -286,6 +286,7 @@
     }
     .panel-body {
       max-height: 36em;
+      min-height: 7em;
       overflow: auto;
       h5 {
         padding: 0 15px 15px 15px;
