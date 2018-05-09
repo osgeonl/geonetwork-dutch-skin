@@ -95,7 +95,7 @@ module.controller('gnsSearchTopEntriesController', [
         }
       };
     }]);
-  module.controller('gnsDUTCH', [
+  module.controller('gnsDutch', [
     '$scope',
     '$location',
     'suggestService',
