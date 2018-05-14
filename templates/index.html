@@ -35,7 +35,7 @@
       <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
     </div>
 
-    <div class="page">
+    <div class="page" data-ng-class="{mappage: activeTab === '/map'}">
       <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
            data-ng-show="activeTab == '/home'"/>
       <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
