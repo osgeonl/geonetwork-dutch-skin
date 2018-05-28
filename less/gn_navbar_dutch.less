@@ -86,6 +86,7 @@ div.navbar {
   }
 }
 
+
 // dropdown in navigation menu
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
@@ -167,6 +168,19 @@ div.navbar {
   }
   .navbar-nav {
     background: @gn-menubar-color;
+  }
+  .navbar-default .nav > li > a {
+    color: #333 !important;
+  }
+  // smaller logo on smaller screens
+  .branding .gn-logo {
+    min-height: auto !important;
+    max-height: 70px !important;
+    margin-top: 15px !important;
+  }
+  // no language selection on small screens
+  .pull-right.contact-links {
+    display: none;
   }
 }
 
