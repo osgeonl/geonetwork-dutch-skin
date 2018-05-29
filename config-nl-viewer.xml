@@ -23,7 +23,7 @@
 			<ows:Title>Luchtfoto</ows:Title>
 			<ows-context:Server service="urn:ogc:serviceType:WMS">
 				<ows-context:OnlineResource 
-					xlink:href="https://geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts">
+					xlink:href="https://geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts"/>
 			</ows-context:Server>
 		</ows-context:Layer>
     </ows-context:ResourceList>
