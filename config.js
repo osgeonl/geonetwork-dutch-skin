@@ -30,7 +30,7 @@
   var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992']);
 
   module.value('gnTplResultlistLinksbtn',
-        '../../catalog/views/default/directives/partials/linksbtn.html');
+      '../../catalog/views/default/directives/partials/linksbtn.html');
 
   module
       .run([
@@ -38,43 +38,23 @@
         'gnViewerSettings',
         'gnOwsContextService',
         'gnMap',
-        'gnGlobalSettings',
-        '$location',
+        'gnMapsManager',
+        'gnDefaultGazetteer',
         function(searchSettings, viewerSettings, gnOwsContextService,
-                 gnMap, gnGlobalSettings, $location) {
+                 gnMap, gnMapsManager, gnDefaultGazetteer) {
 
-          // Load the context defined in the configuration
-          viewerSettings.defaultContext =
-              (viewerSettings.mapConfig.map || '../../map/config-viewer.xml');
-          viewerSettings.owsContext = $location.search().map;
-
-          // these layers will be added along the default context
-          // (transform settings to be usable by the OwsContextService)
-          var viewerMapLayers = viewerSettings.mapConfig.viewerMapLayers
-          viewerSettings.additionalMapLayers =
-            viewerMapLayers && viewerMapLayers.map ?
-            viewerMapLayers.map(function (layer) {
-              return {
-                name: '{type=' + layer.type + ', name=' + layer.name + '}',
-                title: layer.title,
-                group: 'Background layers',
-                server: [{
-                  service: 'urn:ogc:serviceType:WMS',
-                  onlineResource: [{
-                    href: layer.url
-                  }]
-                }]
-              }
-            }) : [];
+          if(viewerSettings.mapConfig.viewerMapLayers) {
+            console.warn('[geonetwork] Use of "mapConfig.viewerMapLayers" is deprecated. ' +
+              'Please configure layer per map type.')
+          }
 
           // Keep one layer in the background
           // while the context is not yet loaded.
           viewerSettings.bgLayers = [
             gnMap.createLayerForType('osm')
           ];
-
           viewerSettings.servicesUrl =
-            (viewerSettings.mapConfig && viewerSettings.mapConfig.listOfServices)?viewerSettings.mapConfig.listOfServices:{};
+            viewerSettings.mapConfig.listOfServices || {};
 
           // WMS settings
           // If 3D mode is activated, single tile WMS mode is
@@ -118,87 +98,11 @@
 
           };
 
-          // Object to store the current Map context
-          viewerSettings.storage = 'sessionStorage';
+          var searchMap = gnMapsManager.createMap(gnMapsManager.SEARCH_MAP);
+          var viewerMap = gnMapsManager.createMap(gnMapsManager.VIEWER_MAP);
 
-          var mapsConfig = viewerSettings.aoi || {
-            center: [280274.03240585705, 6053178.654789996],
-            zoom: 2
-          };
-
-    			//Configure the ViewerMap
-    			var viewerMap = new ol.Map({
-      			controls:[],
-      			view: new ol.View(mapsConfig)
-    			});
-
-    			//configure the SearchMap
-    			var searchMap = new ol.Map({
-      			controls:[],
-      			layers: [],
-      			view: new ol.View(mapsConfig)
-    			});
-
-// initialize search map layers according to settings
-          // (default is OSM)
-          var searchMapLayers = viewerSettings.mapConfig.searchMapLayers;
-          if (!searchMapLayers || !searchMapLayers.length) {
-            searchMap.addLayer(new ol.layer.Tile({
-              source: new ol.source.OSM()
-            }));
-          } else {
-            searchMapLayers.forEach(function (layerInfo) {
-              gnMap.createLayerForType(layerInfo.type, {
-                name: layerInfo.name,
-                url: layerInfo.url
-              }, layerInfo.title, searchMap);
-            });
-          }
-
-
-
-/** Facets configuration */
-          searchSettings.facetsSummaryType = 'details';
-
-          /*
-           * Hits per page combo values configuration. The first one is the
-           * default.
-           */
-          searchSettings.hitsperpageValues = [20, 50, 100];
-
-          /* Pagination configuration */
-          searchSettings.paginationInfo = {
-            hitsPerPage: searchSettings.hitsperpageValues[0]
-          };
-
-          /*
-           * Sort by combo values configuration. The first one is the default.
-           */
-          searchSettings.sortbyValues = [{
-            sortBy: 'relevance',
-            sortOrder: ''
-          }, {
-            sortBy: 'changeDate',
-            sortOrder: ''
-          }, {
-            sortBy: 'title',
-            sortOrder: 'reverse'
-          }, {
-            sortBy: 'rating',
-            sortOrder: ''
-          }, {
-            sortBy: 'popularity',
-            sortOrder: ''
-          }, {
-            sortBy: 'denominatorDesc',
-            sortOrder: ''
-          }, {
-            sortBy: 'denominatorAsc',
-            sortOrder: 'reverse'
-          }];
-
-          /* Default search by option */
-          searchSettings.sortbyDefault = searchSettings.sortbyValues[0];
+          // To configure a gazetteer provider
+          viewerSettings.gazetteerProvider = gnDefaultGazetteer;
 
           /* Custom templates for search result views */
           searchSettings.resultViewTpls = [{
@@ -240,5 +144,6 @@
             viewerMap: viewerMap,
             searchMap: searchMap
           });
+
         }]);
 })();
