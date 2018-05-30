@@ -26,8 +26,9 @@
   goog.provide('gn_search_dutch_config');
 
   goog.require('ol.proj.EPSG28992');
+  goog.require('gn_dutch_gazetteer_factory');
 
-  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992']);
+  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992', 'gn_dutch_gazetteer_factory']);
 
   module.value('gnTplResultlistLinksbtn',
         '../../catalog/views/default/directives/partials/linksbtn.html');
@@ -40,8 +41,14 @@
         'gnMap',
         'gnGlobalSettings',
         '$location',
+        'gnDefaultGazetteer',
+        'gnDutchGazetteer',
         function(searchSettings, viewerSettings, gnOwsContextService,
-                 gnMap, gnGlobalSettings, $location) {
+                 gnMap, gnGlobalSettings, $location, gnDefaultGazetteer,
+                 gnDutchGazetteer) {
+        	
+//          viewerSettings.gazetteerProvider = gnDefaultGazetteer;
+        	viewerSettings.gazetteerProvider = gnDutchGazetteer;
 
           // Load the context defined in the configuration
           viewerSettings.defaultContext =
