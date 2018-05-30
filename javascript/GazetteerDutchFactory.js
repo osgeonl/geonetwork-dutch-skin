@@ -54,10 +54,12 @@
 
                   if (response.response.numFound > 0) {
 
-                    // the centroid is returned as WKT
-                    var centroideRD = response.response.docs[0].centroide_rd;
-                    // turn it into a geometry
-                    var geom = new ol.format.WKT().readGeometry(centroideRD);
+                	var dataPoint = response.response.docs[0].centroide_ll;
+
+                	var mapProjection = map.getView().getProjection().getCode();
+
+                    // turn it into a geometry and convert
+                    var geom = new ol.format.WKT().readGeometry(dataPoint).transform('EPSG:4326', mapProjection);
                     // zoom to the coordinates
                     // 
                     // zoom depends on type

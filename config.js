@@ -45,9 +45,6 @@
         function(searchSettings, viewerSettings, gnOwsContextService,
                  gnMap, gnMapsManager, gnDefaultGazetteer, gnDutchGazetteer) {
 
-          // viewerSettings.gazetteerProvider = gnDefaultGazetteer;
-        	viewerSettings.gazetteerProvider = gnDutchGazetteer;
-
           if(viewerSettings.mapConfig.viewerMapLayers) {
             console.warn('[geonetwork] Use of "mapConfig.viewerMapLayers" is deprecated. ' +
               'Please configure layer per map type.')
@@ -107,7 +104,7 @@
           var viewerMap = gnMapsManager.createMap(gnMapsManager.VIEWER_MAP);
 
           // To configure a gazetteer provider
-          viewerSettings.gazetteerProvider = gnDefaultGazetteer;
+          viewerSettings.gazetteerProvider = gnDutchGazetteer;
 
           /* Custom templates for search result views */
           searchSettings.resultViewTpls = [{
