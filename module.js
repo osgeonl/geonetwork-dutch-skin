@@ -389,7 +389,7 @@ module.controller('gnsSearchTopEntriesController', [
         viewerMap: viewerMap,
         searchMap: searchMap,
         mapfieldOption: {
-          relations: ['within']
+          relations: ['within_bbox']
         },
         hitsperpageValues: gnSearchSettings.hitsperpageValues,
         filters: gnSearchSettings.filters,
@@ -405,8 +405,5 @@ module.controller('gnsSearchTopEntriesController', [
         },
         sortbyValues: gnSearchSettings.sortbyValues
       });
-
-
-
     }]);
 })();
