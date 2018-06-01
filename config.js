@@ -26,8 +26,9 @@
   goog.provide('gn_search_dutch_config');
 
   goog.require('ol.proj.EPSG28992');
+  goog.require('gn_dutch_gazetteer_factory');
 
-  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992']);
+  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992', 'gn_dutch_gazetteer_factory']);
 
   module.value('gnTplResultlistLinksbtn',
       '../../catalog/views/default/directives/partials/linksbtn.html');
@@ -40,8 +41,9 @@
         'gnMap',
         'gnMapsManager',
         'gnDefaultGazetteer',
+        'gnDutchGazetteer',
         function(searchSettings, viewerSettings, gnOwsContextService,
-                 gnMap, gnMapsManager, gnDefaultGazetteer) {
+                 gnMap, gnMapsManager, gnDefaultGazetteer, gnDutchGazetteer) {
 
           if(viewerSettings.mapConfig.viewerMapLayers) {
             console.warn('[geonetwork] Use of "mapConfig.viewerMapLayers" is deprecated. ' +
@@ -102,7 +104,7 @@
           var viewerMap = gnMapsManager.createMap(gnMapsManager.VIEWER_MAP);
 
           // To configure a gazetteer provider
-          viewerSettings.gazetteerProvider = gnDefaultGazetteer;
+          viewerSettings.gazetteerProvider = gnDutchGazetteer;
 
           /* Custom templates for search result views */
           searchSettings.resultViewTpls = [{
