@@ -6,10 +6,14 @@
 
   <!-- todo: should be changed to data-ng-show, only when record retrieval fails -->
   <div class="alert alert-warning"
-       data-ng-if="!mdView.current.record"
+       data-ng-hide="!mdView.loadDetailsFinished || mdView.current.record"
        data-translate=""
-       data-translate-values="{uuid: '{{recordIdentifierRequested}}'}">
+       data-translate-values="{uuid: '{{recordIdentifierRequested  | htmlToPlaintext}}'}">
     recordNotFound
+  </div>
+  <div class="row"
+       data-ng-show="!mdView.loadDetailsFinished">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
   </div>
 
   <div class="row gn-md-view"
@@ -49,7 +53,7 @@
       </ul>
     </div>
 
-    <div class="gn-md-actions-btn pull-right" 
+    <div class="gn-md-actions-btn pull-right"
         data-gn-md-actions-menu="mdView.current.record" />
     <a class="btn btn-default gn-md-delete-btn pull-right"
        data-ng-show="user.canEditRecord(mdView.current.record)"
@@ -497,7 +501,7 @@
                 data-ng-href="https://www.facebook.com/sharer/sharer.php?u=http://{{$location.host()}}/geonetwork/srv/metadata/{{mdView.current.record['geonet:info'].uuid}}"
                 target="_blank"
                 class="btn btn-link btn-sm"><i class="fa fa-fw fa-facebook"></i><span class="hidden-xs"> Facebook</span></a>
-              
+
               <a data-ng-href="./rss.search?sortBy=changeDate&uuid={{mdView.current.record['geonet:info'].uuid}}"
                  target="_blank"
                  class="btn btn-link btn-sm">
