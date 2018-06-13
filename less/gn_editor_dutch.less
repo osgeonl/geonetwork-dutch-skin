@@ -196,6 +196,117 @@ legend .field-tooltip {
     text-transform: uppercase;
   }
 }
+
+// for icons that also get the `gn-control` class
+.fa-remove:before, .fa-close:before, .fa-times:before {
+  content: "\f00d" !important;
+}
+// and question marks
+.fa-question-circle-o:before {
+  content: "\f29c" !important;
+}
+
+.gn-editor {
+  // required
+  label.gn-required::after, .gn-required > label::after {
+    font-size: 1.5em !important;
+    position: inherit !important;
+  }
+  // delete icon/button
+  [data-gn-field-highlight-remove] {
+    visibility: visible !important;
+  }
+  // ----- positioning
+  fieldset {
+    [data-gn-field-highlight-remove] {
+      margin-right: 6px;
+    }
+    legend {
+      [data-gn-field-highlight-remove] {
+        margin-right: 7px;
+      }
+    }
+    fieldset {
+      [data-gn-field-highlight-remove] {
+        margin-right: 0px;
+      }
+      legend {
+        [data-gn-field-highlight-remove] {
+          margin-right: 3px;
+        }
+      }
+      fieldset {
+        legend {
+          [data-gn-field-highlight-remove] {
+            margin-right: -2px;
+          }
+        }
+      }
+    }
+    .gn-table {
+      [data-gn-field-highlight-remove] {
+        padding: 6px 5px;
+      }
+    }
+  }
+  // columns in columns
+  .col-sm-9 {
+    .col-sm-11 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  // tooltip
+  // 
+  // ----- icon to open
+  .field-tooltip {
+    padding: 6px;
+    color: #428bca;
+    margin-top: -3px;
+    font-size: 16px;
+  }
+  .field-tooltip:active {
+    box-shadow: none;
+  }
+  // ----- column for tooltips
+  .gn-control {
+    padding-left: 0px;
+    padding-right: 5px;
+    .clearfix();
+    .btn {
+      padding: 6px;
+    }
+    @media (max-width: 1200px) {
+      .btn {
+        padding: 6px 3px;
+      }
+    }
+    .field-tooltip {
+      float: left;
+    }
+  }
+  // when there are more of the same tooltip icons in the column (.gn-control),
+  // hide all but the first one
+  [data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
+    display: none;
+  }
+  fieldset {
+    fieldset {
+      .field-tooltip {
+        margin-left: 5px;
+      }
+    }
+  }
+  .gn-multilingual-field {
+    .label {
+      font-size: 10px;
+    }
+    .nav > li > a {
+      font-size: 10px;
+    }
+  }
+}
+
 // popup
 //
 // ----- general
