@@ -68,12 +68,12 @@
 
                     if (type == 'gemeente') {
                       zoom = 7;
-                    }
-                    if (type == 'woonplaats') {
+                    } else if (type == 'woonplaats') {
                       zoom = 9;
-                    }
-                    if (type == 'weg') {
+                    } else if (type == 'weg' || type == 'postcode') {
                       zoom = 11;
+                    } else if (type == 'adres' || type == 'hectometerpaal' || type == 'perceel') {
+                      zoom = 13;
                     }
 
                     zoomTo(geom, map, zoom);
