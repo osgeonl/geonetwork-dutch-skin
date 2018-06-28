@@ -13,9 +13,20 @@
       <a class="gn-md-edit-btn" ng-href="catalog.edit#/metadata/{{md['geonet:info'].id}}" data-ng-show="isAdmin"
          class="btn btn-link pull-right">
         <i class="fa fa-pencil"></i>
-      </a><div><img data-ng-src="../..{{md.logo}}" alt="{{md.getContacts().metadata}}" style="max-width:100px;max-height:60px;" onerror="$(this).hide()"/></div>
-      <!--div class="gn-md-thumbnail" data-ng-if="md.getThumbnails().small" style="background-image:url({{md.getThumbnails().small}})" >
-      </div-->
+      </a>
+      
+      <div class="gn-md-thumbnail"
+            data-ng-class="{'gn-md-no-thumbnail': !md.getThumbnails().list[0].url}">
+        <img class="gn-img-thumbnail"
+             data-ng-src="{{md.getThumbnails().list[0].url}}"
+             data-ng-if="md.getThumbnails().list[0].url"/>
+
+        <!-- Display the first metadata status (apply to ISO19139 record) -->
+        <div data-ng-if="md.status_text.length > 0"
+             title="{{md.status_text[0]}}"
+             class="gn-status gn-status-{{md.status[0]}}">{{md.status_text[0]}}
+        </div>
+      </div>      
 	  </div>
     <div data-ng-click="openRecord($index, md, searchResults.records)">
       <h4>
