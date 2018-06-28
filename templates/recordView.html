@@ -274,7 +274,7 @@
                 <div class="row" data-ng-if="mdView.current.record.crs">
                   <div class="col-md-5 dutch-md-label" data-translate="">crs</div>
                   <div class="col-md-7">
-                    <span data-ng-repeat="crs in mdView.current.record.crs track by $index">
+                    <span data-ng-repeat="crs in mdView.current.record.crs track by $index | limitTo: 10">
                       {{crs|empty}}<br>
                     </span>
                   </div>
@@ -441,7 +441,7 @@
                                  mdView.current.record.inspirethemewithac.length > 0" class="row dutch-margin-top">
                   <div class="col-md-4 dutch-md-label" data-translate="">inspireThemes</div>
                   <div class="col-md-8">
-          				<span data-ng-repeat="cat in mdView.current.record.inspirethemewithac track by $index"
+                  <span data-ng-repeat="cat in mdView.current.record.inspirethemewithac track by $index"
                         title="{{cat|split:'|':1}}">{{cat|split:'|':1}}<br/></span>
                   </div>
                 </div>
@@ -456,11 +456,11 @@
                          style="padding-top:10px">
                       <b>{{'Specification'|translate}}:</b> {{conf}}
                       <span data-ng-if="(mdView.current.record.specificationDate|asArray)[$index]"></br>
-					  <b>{{'Date'|translate}}:</b>({{(mdView.current.record.specificationDate|asArray)[$index]}})</span>
+            <b>{{'Date'|translate}}:</b>({{(mdView.current.record.specificationDate|asArray)[$index]}})</span>
                       <span data-ng-if="(mdView.current.record.degree|asArray)[$index]"></br>
-					  <b>{{'Degree'|translate}}:</b> {{(mdView.current.record.degree|asArray)[$index]|translate}}</span>
+            <b>{{'Degree'|translate}}:</b> {{(mdView.current.record.degree|asArray)[$index]|translate}}</span>
                       <span data-ng-if="(mdView.current.record.specificationExplanation|asArray)[$index]"><br/>
-					  <b>{{'Explanation'|translate}}:</b> {{(mdView.current.record.specificationExplanation|asArray)[$index]}}</span>
+            <b>{{'Explanation'|translate}}:</b> {{(mdView.current.record.specificationExplanation|asArray)[$index]}}</span>
                     </div>
                   </div>
                 </div>
@@ -516,14 +516,15 @@
 
         <div class="col-md-3 gn-md-side">
 
-          <section data-ng-repeat="i in (
-            mdView.current.record.getThumbnails()|asArray)"
-            data-ng-if="i.indexOf('http')==0">
+          <section data-ng-repeat="i in
+            mdView.current.record.overviews track by $index"
+            data-ng-if="i.url&&i.url.indexOf('http')==0"
+            >
             <!-- todo: show only the small thumbnail and link to the large thumbnail -->
-            <a href="{{i}}" target="_blank">
-            <img class="img-thumbnail" title="{{i}}"
+            <a href="{{i.url}}" target="_blank">
+            <img class="img-thumbnail" title="{{i.label||i.url}}"
                  onerror="$(this).attr('src','../../catalog/views/dutch/images/no-thumbnail.png')"
-                 data-ng-src="{{i}}"
+                 data-ng-src="{{i.url}}"
             /></a>
           </section>
 
