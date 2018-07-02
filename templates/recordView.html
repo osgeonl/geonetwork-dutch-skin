@@ -521,11 +521,9 @@
             data-ng-if="i.url&&i.url.indexOf('http')==0"
             >
             <!-- todo: show only the small thumbnail and link to the large thumbnail -->
-            <a href="{{i.url}}" target="_blank">
-            <img class="img-thumbnail" title="{{i.label||i.url}}"
-                 onerror="$(this).attr('src','../../catalog/views/dutch/images/no-thumbnail.png')"
-                 data-ng-src="{{i.url}}"
-            /></a>
+            <a href="{{i.url}}" title="{{i.label||i.url}}" target="_blank">
+            <div class="gn-md-thumbnail" data-ng-if="md.getThumbnails().small" style="background-size:cover;background-image:url({{i.url}})">
+      </div></a>
           </section>
 
           <section data-ng-if="mdView.current.record.geoBox.length > 0">
