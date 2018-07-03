@@ -43,7 +43,9 @@ Some additional settings on the main project
 
 - On 'Admin > Settings' and 'Admin > Settings > User Interface' configure things such as catalog title, logo, url, map extent, etc
 
-- On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at ../../catalog/views/dutch/config.xml
+- On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at ../../catalog/views/dutch/config-nl-viewer.xml
+
+- set the thesurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in admin > classification (from local file > place)
 
 ## Finally
 
