@@ -9,18 +9,25 @@
 @border-radius-base: 2px;
 @border-radius-small: 2px;
 
+// background
+@body-bg: #f3f3f3;
+// navbar
+@navbar-margin-bottom: 0px;
+@navbar-border-radius: 0px;
+@navbar-default-link-color: #535353;
+
 // ----------------------------------------------------------------------
 // logo (left side the same as the left of the text on the first tab)
 // ----------------------------------------------------------------------
 
 .branding {
-  padding-left: 3px;
+  padding-left: 50%;
   min-height: 80px;
   background-color:white;
   .gn-logo {
-    margin: 5px;
     min-height: 70px;
-    max-height: auto;
+    max-height: none;
+    margin-left: -25px;
   }
 }
 
@@ -37,7 +44,7 @@
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 // ----- font regular
@@ -47,6 +54,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 body,p,div,span,a,blockquote,.btn {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
+  font-weight: normal;
 }
 
 .fa, .fa span, .fa div, .fa a {
@@ -291,7 +299,7 @@ body,p,div,span,a,blockquote,.btn {
       font-size: 14px;
     }
     .gn-icon-count {
-      color: #999;
+      color: #707070;
     }
   }
 }

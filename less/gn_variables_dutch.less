@@ -4,22 +4,23 @@
 
 // body background (image & color)
 //
-// picture from https://unsplash.com/
-//
 // when there is an empty string, no background image is used.
 @gn-background-image: '../catalog/views/dutch/images/bg.jpg';
-@gn-background-color: @body-bg;
+@gn-background-color: #fff; // @body-bg;
 
 // menu bar
-@gn-menubar-background: #5396d0; // @navbar-default-bg;
-@gn-menubar-background-active: #92bbde; // @navbar-default-link-active-bg;
-@gn-menubar-color: #fff; // @navbar-default-link-color;
-@gn-menubar-color-hover: @gray-base; // @navbar-default-link-hover-color;
+//
+// colors from 'kleurstaal donkerblauw' (https://www.rijkshuisstijl.nl/basiselementen/kleur/online-kleuren) 
+@gn-menubar-background: #01689b;
+@gn-menubar-background-active: #cce0f1;
+@gn-menubar-color: #fff;
+
+@gn-menubar-color-hover: @gray-base;
 @gn-menubar-border-color: @navbar-default-border;
 
 // bottombar
-@gn-bottombar-background: @navbar-default-bg;
-@gn-bottombar-border-color: @navbar-default-border;
+@gn-bottombar-background: @body-bg; // @navbar-default-bg;
+@gn-bottombar-border-color: @body-bg; // @navbar-default-border;
 @gn-bottombar-color: @navbar-default-link-color;
 @gn-bottombar-color-hover: @navbar-default-link-hover-color;
 

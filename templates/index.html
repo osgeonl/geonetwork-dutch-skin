@@ -1,18 +1,21 @@
 <!-- Powered by: {{info.site.platform.name}}, version: {{info.site.platform.version}} -->
 <div class="container">
-  <div class="pull-right contact-links">
-    <a id="changeLangLink" data-ng-show="lang=='dut'"
-       href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
-       title="{{'English'|translate}}">
-      {{'English' | translate}}
-    </a>
-    <a id="changeLangLink" data-ng-show="lang=='eng'"
-       href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
-       title="{{'Nederlands'|translate}}">
-      {{'Nederlands' | translate}}
-    </a>
-    <!--<span data-translate="">header-right</span>-->
+  <div class="navbar navbar-default gn-upper-bar"
+       role="navigation">
+    <div class="pull-right">
+      <a data-ng-show="lang=='dut'"
+          href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
+         title="{{'English'|translate}}">
+        {{'English' | translate}}
+      </a>
+      <a data-ng-show="lang=='eng'"
+         href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
+         title="{{'Nederlands'|translate}}">
+        {{'Nederlands' | translate}}
+      </a>
+    </div>
   </div>
+  
   <div class="branding">
     <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
       <img class="gn-logo"
@@ -26,39 +29,44 @@
   </div>
 
   <div data-gn-alert-manager="" id="alerts"></div>
-  <div class="gn-search-page" data-ng-controller="DutchSearchController">
-  <div class="gn-divider-bar"></div>
-  <div class="" data-ng-controller="gnsDutch">
+  <div class="gn-search-page"
+       data-ng-controller="DutchSearchController"
+       role="main">
+    <div class="gn-divider-bar"></div>
 
-    <div class="container intro-text" data-ng-show="activeTab == '/home'">
-      <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
-      <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
-    </div>
+    <div class="" data-ng-controller="gnsDutch">
 
-    <div class="page" data-ng-class="{mappage: activeTab === '/map'}">
-      <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
-           data-ng-show="activeTab == '/home'"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
-           data-ng-show="activeTab == '/search'"/>
-      <div data-ng-if="isMapViewerEnabled"
-           data-ng-include="'../../catalog/views/dutch/templates/map.html'"
-           data-ng-show="activeTab == '/map'"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
-           data-ng-show="activeTab == '/metadata'"/>
+      <div class="container intro-text" data-ng-show="activeTab == '/home'">
+        <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
+        <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
+      </div>
+
+      <div class="page" data-ng-class="{mappage: activeTab === '/map'}">
+        <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
+            data-ng-show="activeTab == '/home'"/>
+        <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
+            data-ng-show="activeTab == '/search'"/>
+        <div data-ng-if="isMapViewerEnabled"
+            data-ng-include="'../../catalog/views/dutch/templates/map.html'"
+            data-ng-show="activeTab == '/map'"/>
+        <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
+            data-ng-show="activeTab == '/metadata'"/>
+      </div>
     </div>
   </div>
-</div>
+  <!-- /.gn-search-page -->
 
-<div id="footer" class="footer clearfix">
-  <div class="pull-left">
-    <a href="http://geonetwork-opensource.org/">
-    <i class="fa fa-fw"></i>
-    <span data-translate="">about</span></a>
-    <span data-translate=""
-          data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: ''}">versionDetails</span>
+  <div id="footer" class="footer clearfix">
+    <div class="pull-left"
+         role="navigation">
+      <a href="http://geonetwork-opensource.org/">
+      <i class="fa fa-fw"></i>
+      <span data-translate="">about</span></a>
+      <span data-translate=""
+            data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: ''}">versionDetails</span>
+    </div>
   </div>
-  <!--<div class="pull-right" data-translate="">footer-right</div>-->
-</div>  
+  <!-- /#footer -->
 </div>
 </div>
 </html>

@@ -13,34 +13,38 @@
 }
 
 // menubars
-.navbar {
-  margin-bottom: 0px;
-  .navbar-brand {
-    padding-top: 0;
-    padding-bottom: 0;
-    line-height: 50px;
-    font-size: 16px;
-  }
-  .navbar-form {
-    margin-top: 3px;
-  }
-}
 .navbar .container-fluid, .navbar-collapse {
     padding-left: 0px;
     padding-right: 0px;
 }
-// last tab of the right navbar
+// ----- last tab of the right navbar
 @media (min-width: 768px) {
   .navbar-nav.navbar-right:last-child {
     margin-right: 0px;
   }
 }
-div.navbar {
+// ----- upper bar (for language, contact, etc)
+.gn-upper-bar {
+  background-color: @body-bg;
+  padding: 5px 15px;
+  margin-bottom: @navbar-margin-bottom;
+  min-height: auto;
+  a {
+    text-decoration: underline;
+  }
+}
+// ----- top bar (menubar)
+.gn-top-bar {
   background-color: @gn-menubar-background;
   min-height: 56px;
   padding-top: 8px;
+  margin-bottom: @navbar-margin-bottom;
   border: 0px;
-  border-radius: 0;
+}
+// ----- divider
+.gn-divider-bar {
+  height: 5px;
+  background-color: @gn-menubar-background-active;
 }
 // ----- tablets
 @media (max-width: 768px) {
@@ -69,9 +73,6 @@ div.navbar {
   padding: 0.8em 0.9091em 0.6em !important;
   margin: 0 !important;
   color: @gn-menubar-color !important;
-  font-family: Sans, Arial, Verdana, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
 }
 .navbar-default li {
   a:hover,a:active {
@@ -80,22 +81,13 @@ div.navbar {
     padding-bottom: 1.2em !important;
   }
 }
-.dutch-subbar li {
-  a:hover,a:active {
-    background-color: transparent !important;
-  }
-}
-
 
 // dropdown in navigation menu
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
+  // color: @gray-base !important;
   background-color: @gn-menubar-background-active;
   padding-bottom: 1.2em !important;
-}
-.dutch-subbar .navbar-nav > .open > a, .dutch-subbar .navbar-nav > .open > a:hover,
-.dutch-subbar .navbar-nav > .open > a:focus {
-  background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
@@ -103,13 +95,13 @@ div.navbar {
   background-color: @gn-menubar-background-active;
   padding-bottom: 1.2em !important;
 }
-.navbar .dropdown-menu {
-  padding: 0;
-  border-radius: 0;
-  border: 0;
-  text-align: left;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-}
+// .navbar .dropdown-menu {
+//   padding: 0;
+//   border-radius: 0;
+//   border: 0;
+//   text-align: left;
+//   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+// }
 .navbar .dropdown-menu li a, .navbar .dropdown-menu li a:hover {
   padding: 10px 16px !important;
   &:hover {
