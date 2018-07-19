@@ -2,6 +2,21 @@
 //
 // this file must be first on the list of @import
 
+// colors from 'kleurstaal donkerblauw' (https://www.rijkshuisstijl.nl/basiselementen/kleur/online-kleuren)
+//
+// blues
+@ro-darkblue-full: #01689b;
+@ro-darkblue-light: #cce0f1;
+@ro-darkblue-lightest: #e5f0f9;
+// grays
+@ro-gray-1: #f3f3f3;
+@ro-gray-2: #e6e6e6;
+@ro-gray-3: #cccccc;
+@ro-gray-4: #b4b4b4;
+@ro-gray-5: #999999;
+@ro-gray-6: #696969;
+@ro-gray-7: #535353;
+
 // body background (image & color)
 //
 // when there is an empty string, no background image is used.
@@ -9,10 +24,8 @@
 @gn-background-color: #fff; // @body-bg;
 
 // menu bar
-//
-// colors from 'kleurstaal donkerblauw' (https://www.rijkshuisstijl.nl/basiselementen/kleur/online-kleuren) 
-@gn-menubar-background: #01689b;
-@gn-menubar-background-active: #cce0f1;
+@gn-menubar-background: @ro-darkblue-full;
+@gn-menubar-background-active: @ro-darkblue-light;
 @gn-menubar-color: #fff;
 
 @gn-menubar-color-hover: @gray-base;

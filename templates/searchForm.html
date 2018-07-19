@@ -111,9 +111,11 @@
               <!-- <label class="dutch-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.metadataDateFrom" lang="lang">
-
-                <input id="creationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
-
+                <input id="creationDateFrom"
+                       class="form-control"
+                       type="text"
+                       placeholder="{{'from' | translate}}"
+                       aria-label="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -123,9 +125,11 @@
               <!-- <label class="dutch-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.metadataDateTo" lang="lang">
-
-                <input id="creationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
-
+                <input id="creationDateTo"
+                       class="form-control"
+                       type="text"
+                       placeholder="{{'to' | translate}}"
+                       aria-label="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -143,9 +147,11 @@
               <!-- <label class="dutch-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.extFrom" lang="lang">
-
-                <input id="validityDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
-
+                <input id="validityDateFrom"
+                       class="form-control"
+                       type="text"
+                       placeholder="{{'from' | translate}}"
+                       aria-label="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -155,9 +161,11 @@
               <!-- <label class="dutch-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.extTo" lang="lang">
-
-                <input id="validityDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
-
+                <input id="validityDateTo"
+                       class="form-control"
+                       type="text"
+                       placeholder="{{'to' | translate}}"
+                       aria-label="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -175,6 +183,7 @@
               <label for="inspireThemeF" data-translate="">INSPIREtheme</label>
               <input type="text" id="inspireThemeF" value=""
                      class="form-control"
+                     aria-label="{{'INSPIREtheme' | translate}}"
                      gn-values="searchObj.params['inspiretheme']"
                      gn-sortby="name"
                      gn-typeahead="inspirethemeOptions"/>
@@ -188,6 +197,7 @@
                      data-translate="">orgName</label>
               <input type="text" id="orgNameF" value=""
                      class="form-control"
+                     aria-label="{{'orgName' | translate}}"
                      gn-values="searchObj.params.orgName"
                      gn-sortby="name"
                      gn-typeahead="orgNameOptions"/>

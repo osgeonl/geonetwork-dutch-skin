@@ -67,9 +67,9 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <div class="navbar-text hidden-xs" data-ng-show="authenticated">
+      <li class="navbar-text hidden-xs" data-ng-show="authenticated">
         {{user.name}} {{user.surname}} 
-      </div>
+      </li>
 
       <li data-ng-show="authenticated">
         <a id="signOfflink" href="{{gnCfg.mods.signout.appUrl}}"

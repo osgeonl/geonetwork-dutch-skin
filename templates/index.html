@@ -16,7 +16,7 @@
     </div>
   </div>
   
-  <div class="branding">
+  <div class="branding" role="banner">
     <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
       <img class="gn-logo"
            data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}" 
@@ -56,9 +56,10 @@
   </div>
   <!-- /.gn-search-page -->
 
-  <div id="footer" class="footer clearfix">
-    <div class="pull-left"
-         role="navigation">
+  <div id="footer"
+       class="footer clearfix"
+       role="navigation">
+    <div class="pull-left">
       <a href="http://geonetwork-opensource.org/">
       <i class="fa fa-fw"></i>
       <span data-translate="">about</span></a>
