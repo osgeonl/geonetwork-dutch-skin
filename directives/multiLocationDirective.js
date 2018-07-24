@@ -61,7 +61,7 @@
                         });
                         internalInput.on('blur', function() {
                             container.removeClass('focused');
-                        })
+                        });
                     }
 
                     internalInput.typeahead({
