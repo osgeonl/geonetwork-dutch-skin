@@ -22,25 +22,21 @@
                 data-ng-src="{{md.getThumbnails().list[0].url}}"
                 data-ng-if="md.getThumbnails().list[0].url"/>
           </div>
-          <!-- Display the first metadata status (apply to ISO19139 record) -->
-          <div data-ng-if="md.status_text.length > 0"
-            title="{{md.status_text[0]}}"
-            class="gn-status gn-status-{{md.status[0]}}">{{md.status_text[0]}}
-          </div>  
         </div>
         <div data-ng-click="openRecord($index, md, searchResults.records)">
           <h4>
-              <input gn-selection-md type="checkbox" ng-model="md['geonet:info'].selected" ng-change="change()" data-ng-show="isAdmin"/>
-          <a data-ng-href="#/metadata/{{md.getUuid()}}"
-              title="{{md.title || md.defaultTitle}}">
-          <!-- Icon for types <span class="fa gn-icon-{{md.type[0]}}"></span>-->
-              {{md.title || md.defaultTitle}}</a>
+            <input gn-selection-md type="checkbox" ng-model="md['geonet:info'].selected" ng-change="change()" data-ng-show="isAdmin"/>
+            <a data-ng-href="#/metadata/{{md.getUuid()}}"
+               title="{{md.title || md.defaultTitle}}">
+              {{md.title || md.defaultTitle}}
+            </a>
           </h4>
         </div>
         
-        <div ng-if="md.getContacts().metadata"><b>Organisatie</b>: {{md.getContacts().metadata}}<br/></div>
-		
-        <div data-ng-show="md.revisionDate">
+        <div ng-if="md.getContacts().metadata">
+          <b data-translate="">organisation</b>: {{md.getContacts().metadata}}
+        </div>
+		    <div data-ng-show="md.revisionDate">
           <b data-translate="">revisionDate</b>: <span data-gn-humanize-time="{{md.revisionDate|empty}}" data-from-now="" data-format="YYYY-MM-DD"></span>
         </div>
         <div data-ng-show="!md.revisionDate&&md.creationDate">
@@ -52,9 +48,9 @@
 
         <div data-ng-if="md.topicCat.length > 0">
           <b data-translate="">topiccat</b>:
-            <a class="btn btn-link"
-              data-ng-repeat="t in md.topicCat"
-              data-ng-href="#/search?topicCat={{t}}">{{t | translate}}</a>
+          <a class="btn btn-link"
+            data-ng-repeat="t in md.topicCat"
+            data-ng-href="#/search?topicCat={{t}}">{{t | translate}}</a>
         </div>
 		    <p class="text-justify" dd-text-collapse dd-text-collapse-max-length="350" dd-text-collapse-text="{{md.abstract || md.defaultAbstract}}"></p>
       </div>
