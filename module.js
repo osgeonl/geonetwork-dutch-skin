@@ -313,7 +313,7 @@ module.controller('gnsSearchTopEntriesController', [
           match(/^(\/[a-zA-Z0-9]*)($|\/.*)/)[1];
       } catch (e){}
 
-      var availableTabs = ['general', 'contact', 'relations', 'inspire'];
+      var availableTabs = ['general', 'contact', 'relations', 'catalog', 'inspire'];
       $scope.changeTabMdView =function(newTab) {
         if (availableTabs.indexOf(newTab) == -1) {
           newTab = availableTabs[0];

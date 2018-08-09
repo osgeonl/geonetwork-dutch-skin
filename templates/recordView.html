@@ -124,6 +124,12 @@
                   <span data-translate="">mdTabRelations</span>
                 </a>
               </li>
+              <li data-ng-class="{active: currentTabMdView === 'catalog'}">
+                  <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=catalog"
+                     aria-controls="catalog">
+                    <span data-translate="">mdTabCatalog</span>
+                  </a>
+              </li>
               <li data-ng-class="{active: currentTabMdView === 'inspire'}"
                   data-ng-show="mdView.current.record.category.indexOf('inspire')>-1">
                 <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=inspire"
@@ -421,13 +427,19 @@
                      data-types="parent|children|services|datasets|siblings|associated|related"
                      data-title="{{'associatedResources' | translate}}">
                 </div>
+              </div>
+              <!-- /.tab-pane -->
+
+              <!-- feature catalog -->
+              <div role="tabpanel" class="tab-pane" id="catalog"
+                   data-ng-class="{active: currentTabMdView === 'catalog'}"
+                   data-ng-show="currentTabMdView === 'catalog'">
 
                 <div data-gn-related="mdView.current.record"
                      data-user="user"
                      data-types="fcats|related"
                      data-title="{{'featureCatalog' | translate}}">
                 </div>
-
               </div>
               <!-- /.tab-pane -->
 
