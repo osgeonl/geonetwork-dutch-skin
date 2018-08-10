@@ -78,7 +78,7 @@
 "selectStyle":"Selecteer een stijl",
 "setOpacity":"Wijzig transparantie",
 "loginTitle":"Inloggen",
-"loginText":"Om de mogelijkheid te krijgen datasets te registreren dient u in te loggen. U kunt een account aanvragen bij het PDOK Klant Contact Centrum.",
+"loginText":"Om de mogelijkheid te krijgen datasets te registreren dient u in te loggen.",
   "selection.indexing.count": "Indexing started for the {{count}} record(s) selected.",
   "selection.indexing.error": "Error during selection indexing.",
   "showLegend": "Toon legenda",

@@ -12,18 +12,6 @@
 @import "gn_footer_dutch.less";
 @import "gn_variables_dutch.less";
 
-/* Hide the tabset selector because tab
-   switch is available in the top tool bar */
-#main-tabset > ul:nth-child(1) {
-  display: none;
-}
-
-.jumbotron {
-  h1 {
-    font-size: 36px;
-  }
-}
-
 // ----------------------------------------------------------------------
 // sort options
 // ----------------------------------------------------------------------
@@ -34,7 +22,7 @@
 }
 @media (max-width: 767px) {
   .dutch-sort .hidden-xs {
-      display: inline-block !important;
+    display: inline-block !important;
   }
 }
 
@@ -56,6 +44,37 @@
     .badge {
       margin-right: 5px;
     }
+  }
+  .gn-status {
+    border: 2px solid darken(@brand-info, 25%);
+    color: darken(@brand-info, 25%);
+    top: 12px;
+    left: auto;
+    right: 90px;
+    border-radius: 2px;
+    padding: 2px;
+    background: #fff;
+  }
+  .gn-status-mdview {
+    font-size: 110%;
+    position: relative;
+    float: right;
+    top: -52px;
+    margin-right: -20px;
+  }
+  /* Decide here which status should be displayed
+  or not and with which colors */
+  .gn-status-completed {
+    border-color: darken(@brand-success, 20%);
+    color: darken(@brand-success, 20%);
+  }
+  .gn-status-historicalArchive {
+    border-color: darken(@brand-warning, 30%);
+    color: darken(@brand-warning, 30%);
+  }
+  .gn-status-obsolete {
+    border-color: darken(@brand-danger, 5%);
+    color: darken(@brand-danger, 5%);
   }
 }
 
@@ -300,7 +319,7 @@
 }
 
 .dutch-search {
-  // ----- orange border NOT on all pages
+  // ----- border NOT on all pages
   .form-control, .form-control:focus, .form-control:active {
     border: 1px solid @gn-menubar-background;
     outline: 0;
@@ -455,7 +474,6 @@
   background-color: #fff;
   max-width: 100%;
   max-height: 350px;
-  // height: 100px;
   overflow: auto;
 }
 .dropdown-menu {

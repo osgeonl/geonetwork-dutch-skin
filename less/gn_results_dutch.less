@@ -55,8 +55,14 @@ ul.gn-resultview {
       margin-left: 8px;
       margin-right:0px;
       margin-bottom: 8px;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      min-width: 140px;
+      min-height: 140px;
+      background-size: contain;
       .gn-img-thumbnail {
-        max-width: @thumbnail-width;
+        max-width: 140px;
         max-height: 140px;
         min-height: 40px;
         height: auto;
@@ -191,14 +197,6 @@ ul.gn-resultview {
 
   ul.gn-resultview li.gn-grid {
     width: calc(~"50% - 15px");
-  }
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-
-  ul.gn-resultview li.gn-grid {
-    //width: calc(~"33% - 15px");
   }
 }
 

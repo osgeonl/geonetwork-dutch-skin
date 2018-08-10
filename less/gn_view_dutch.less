@@ -9,18 +9,24 @@
 @border-radius-base: 2px;
 @border-radius-small: 2px;
 
+// background
+@body-bg: #f3f3f3;
+// navbar
+@navbar-margin-bottom: 0px;
+@navbar-border-radius: 0px;
+@navbar-default-link-color: #535353;
+
 // ----------------------------------------------------------------------
 // logo (left side the same as the left of the text on the first tab)
 // ----------------------------------------------------------------------
 
 .branding {
-  padding-left: 3px;
+  text-align: center;
   min-height: 80px;
   background-color:white;
   .gn-logo {
-    margin: 5px;
     min-height: 70px;
-    max-height: auto;
+    max-height: none;
   }
 }
 
@@ -37,7 +43,7 @@
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 // ----- font regular
@@ -47,6 +53,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 body,p,div,span,a,blockquote,.btn {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
+  font-weight: normal;
 }
 
 .fa, .fa span, .fa div, .fa a {
@@ -56,6 +63,11 @@ body,p,div,span,a,blockquote,.btn {
   margin-right: .3em;
   margin-top: 7px;
 }
+
+a {
+  color: @ro-darkblue-full;
+}
+
 
 // ----- alerts
 .alert {
@@ -119,10 +131,12 @@ body,p,div,span,a,blockquote,.btn {
 
 // ----- toggle option
 .collapse-text-toggle {
+  color: @ro-gray-6;
   cursor: pointer;
-}
-.collapse-text-toggle:hover {
-  text-decoration: underline;
+  &:hover {
+    color: @ro-gray-7;
+    text-decoration: underline;
+  }
 }
 
 // ----- keywords
@@ -130,15 +144,15 @@ body,p,div,span,a,blockquote,.btn {
   margin-right: 3px;
   color: #333;
   text-decoration: underline;
-}
-.dutch-keyword:hover {
-  color: #000;
-}
-.dutch-keyword:after {
-  content: ","
-}
-.dutch-keyword:last-child:after {
-  content: ""
+  &:hover {
+    color: #000;
+  }
+  &:after {
+    content: ","
+  }
+  &:last-child:after {
+    content: ""
+  }
 }
 // ----- sort label
 .dutch-sort-label {
@@ -202,6 +216,7 @@ body,p,div,span,a,blockquote,.btn {
   li.disabled {
     a {
       pointer-events: none;
+      color: #707070;
     }
   }
   // remove the double toggle buttons
@@ -270,9 +285,10 @@ body,p,div,span,a,blockquote,.btn {
 // ----- list of categories
 .dutch-categories {
   text-align: center;
-}
-.dutch-categories h3 {
-  margin-bottom: 50px;
+  h1, h3 {
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
 }
 // ----- single category
 .dutch-category {
@@ -291,7 +307,7 @@ body,p,div,span,a,blockquote,.btn {
       font-size: 14px;
     }
     .gn-icon-count {
-      color: #999;
+      color: #707070;
     }
   }
 }

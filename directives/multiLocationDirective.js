@@ -6,8 +6,8 @@
     var module = angular.module('dutch_multi_location_directive', ['gn_thesaurus_service']);
 
     module.directive('dutchMultiLocation', ['gnGlobalSettings', 'gnThesaurusService', '$location',
-      '$q', '$cacheFactory', '$browser',
-        function(gnGlobalSettings, gnThesaurusService, $location, $q, $cacheFactory, $browser) {
+      '$q', '$cacheFactory', '$browser', '$translate',
+        function(gnGlobalSettings, gnThesaurusService, $location, $q, $cacheFactory, $browser, $translate) {
             var cache = $cacheFactory('locations');
             var prefix = 'region:';
             return {
@@ -51,13 +51,17 @@
                     // init typeahead
                     var internalInput =  tagsinput[0].input();
                     var container = tagsinput[0].$container;
+
+                    // add accessibility label
+                    internalInput.attr("aria-label", $translate.instant('AtLocation'));
+
                     if (container) {
                         internalInput.on('focus', function() {
                             container.addClass('focused');
                         });
                         internalInput.on('blur', function() {
                             container.removeClass('focused');
-                        })
+                        });
                     }
 
                     internalInput.typeahead({

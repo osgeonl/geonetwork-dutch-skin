@@ -2,24 +2,38 @@
 //
 // this file must be first on the list of @import
 
-// body background (image & color)
+// colors from 'kleurstaal donkerblauw' (https://www.rijkshuisstijl.nl/basiselementen/kleur/online-kleuren)
 //
-// picture from https://unsplash.com/
+// blues
+@ro-darkblue-full: #01689b;
+@ro-darkblue-light: #cce0f1;
+@ro-darkblue-lightest: #e5f0f9;
+// grays
+@ro-gray-1: #f3f3f3;
+@ro-gray-2: #e6e6e6;
+@ro-gray-3: #cccccc;
+@ro-gray-4: #b4b4b4;
+@ro-gray-5: #999999;
+@ro-gray-6: #696969;
+@ro-gray-7: #535353;
+
+// body background (image & color)
 //
 // when there is an empty string, no background image is used.
 @gn-background-image: '../catalog/views/dutch/images/bg.jpg';
-@gn-background-color: @body-bg;
+@gn-background-color: #fff; // @body-bg;
 
 // menu bar
-@gn-menubar-background: #5396d0; // @navbar-default-bg;
-@gn-menubar-background-active: #92bbde; // @navbar-default-link-active-bg;
-@gn-menubar-color: #fff; // @navbar-default-link-color;
-@gn-menubar-color-hover: @gray-base; // @navbar-default-link-hover-color;
+@gn-menubar-background: @ro-darkblue-full;
+@gn-menubar-background-active: @ro-darkblue-light;
+@gn-menubar-color: #fff;
+
+@gn-menubar-color-hover: @gray-base;
 @gn-menubar-border-color: @navbar-default-border;
 
 // bottombar
-@gn-bottombar-background: @navbar-default-bg;
-@gn-bottombar-border-color: @navbar-default-border;
+@gn-bottombar-background: @body-bg; // @navbar-default-bg;
+@gn-bottombar-border-color: @body-bg; // @navbar-default-border;
 @gn-bottombar-color: @navbar-default-link-color;
 @gn-bottombar-color-hover: @navbar-default-link-hover-color;
 
