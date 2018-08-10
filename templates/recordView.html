@@ -509,12 +509,22 @@
         <div class="col-md-3 gn-md-side">
 
           <section data-ng-if="mdView.current.record.getThumbnails().small">
-            <!-- todo: show only the small thumbnail and link to the large thumbnail -->
-            <img class="img-thumbnail"
-                 onerror="$(this).attr('src','../../catalog/views/dutch/images/no-thumbnail.png')"
-                 data-ng-src="{{mdView.current.record.getThumbnails().small}}"
-            />
-          </section>
+            <h4>
+            <i class="fa fa-fw fa-image"></i>
+            <span data-translate="">overview</span>
+          </h4>
+
+          <div data-ng-repeat="img in mdView.current.record.overviews">
+            <img data-gn-img-modal="img"
+                 class="gn-img-thumbnail img-thumbnail"
+                 alt="{{img.label}}"
+                 data-ng-src="{{img.url}}"/>
+
+            <div class="gn-img-thumbnail-caption"
+                 data-ng-show="img.label">{{img.label}}
+            </div>
+          </div>
+        </section>
 
           <section data-ng-if="mdView.current.record.geoBox.length > 0">
 
