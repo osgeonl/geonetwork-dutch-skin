@@ -9,7 +9,7 @@
          class="btn btn-link pull-right">
         <i class="fa fa-pencil"></i>
       </a>
-      <div class="gn-md-thumbnail" data-ng-if="md.getThumbnails().small" style="background-size:cover;background-image:url({{md.getThumbnails().small}})">
+      <div title="{{'thumbnail'|translate}}" class="gn-md-thumbnail" data-ng-if="md.getThumbnails().small.indexOf('http')===0" style="background-size:cover;background-image:url({{md.getThumbnails().small}})">
       </div>
     </div>
         <h4 data-ng-click="openRecord($index, md, searchResults.records)">

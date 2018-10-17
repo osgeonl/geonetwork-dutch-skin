@@ -11,10 +11,10 @@
        data-translate-values="{uuid: '{{recordIdentifierRequested  | htmlToPlaintext}}'}">
     recordNotFound
   </div>
-  <div class="row"
+  <!--<div class="row"
        data-ng-show="!mdView.loadDetailsFinished">
     <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-  </div>
+  </div>-->
 
   <div class="row gn-md-view"
        data-ng-show="mdView.current.record">
@@ -521,11 +521,9 @@
             data-ng-if="i.url&&i.url.indexOf('http')==0"
             >
             <!-- todo: show only the small thumbnail and link to the large thumbnail -->
-            <a href="{{i.url}}" target="_blank">
-            <img class="img-thumbnail" title="{{i.label||i.url}}"
-                 onerror="$(this).attr('src','../../catalog/views/dutch/images/no-thumbnail.png')"
-                 data-ng-src="{{i.url}}"
-            /></a>
+            <a href="{{i.url}}" title="{{i.label||i.url}}" target="_blank">
+            <div class="gn-md-thumbnail" data-ng-if="md.getThumbnails().small" style="background-size:cover;background-image:url({{i.url}})">
+      </div></a>
           </section>
 
           <section data-ng-if="mdView.current.record.geoBox.length > 0">
