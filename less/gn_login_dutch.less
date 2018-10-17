@@ -27,6 +27,7 @@
     }
   }
   .gn-top-bar {
+    margin-bottom: 0;
     // remove text
     .gn-logo + span {
       display: none;
@@ -39,6 +40,26 @@
   .navbar {
     i {
       display: none;
+    }
+  }
+  // restyle the panels
+  .panel {
+    border: 0;
+    box-shadow: none;
+    .panel-heading {
+      border: 0;
+      background: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .panel-body {
+      border: 0;
+      padding-left: 0;
+      padding-right: 0;
+      .form-group {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
   }
 }
