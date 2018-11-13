@@ -37,13 +37,13 @@
           <b data-translate="">organisation</b>: {{md.getContacts().metadata}}
         </div>
 		    <div data-ng-show="md.revisionDate">
-          <b data-translate="">revisionDate</b>: <span data-gn-humanize-time="{{md.revisionDate|empty}}" data-from-now="" data-format="YYYY-MM-DD"></span>
+          <b data-translate="">revisionDate</b>: <span>{{md.revisionDate|empty}}</span>
         </div>
         <div data-ng-show="!md.revisionDate&&md.creationDate">
-          <b data-translate="">creationDate</b>: <span data-gn-humanize-time="{{md.creationDate|empty}}" data-from-now="" data-format="YYYY-MM-DD"></span>
+          <b data-translate="">creationDate</b>: <span>{{md.creationDate|empty}}</span>
         </div>
         <div data-ng-show="!md.revisionDate&&!md.creationDate&&md.publicationDate">
-          <b data-translate="">publicationDate</b>: <span data-gn-humanize-time="{{md.publicationDate|empty}}" data-from-now="" data-format="YYYY-MM-DD"></span>
+          <b data-translate="">publicationDate</b>: <span>{{md.publicationDate|empty}}</span>
         </div>
 
         <div data-ng-if="md.topicCat.length > 0">
