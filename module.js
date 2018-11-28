@@ -186,6 +186,11 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.goToSearch = function (any) {
         $location.path('/search').search({'any_OR__title': any});
       };
+
+      $scope.backToSearch = function() {
+        gnSearchLocation.restoreSearch();
+      };
+
       $scope.canEdit = function(record) {
         // TODO: take catalog config for harvested records
         if (record && record['geonet:info'] &&

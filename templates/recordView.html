@@ -1,6 +1,6 @@
 <div data-ng-controller="GnMdViewController" class="dutch-md-view">
 
-  <div class="crumb"><a href="#/home">Home</a> / <a href data-ng-click="closeRecord(mdView.current.record)" data-translate="">search</a> /
+  <div class="crumb"><a href="#/home" data-translate="">Home</a> / <a href data-ng-click="backToSearch()" data-translate="">search</a> /
     {{mdView.current.record.title || mdView.current.record.defaultTitle}}
   </div>
 
