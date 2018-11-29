@@ -420,6 +420,13 @@
   .date .form-control {
     border-right: 0;
   }
+  //removes some artifacts on the datepicker
+  .datepicker-dropdown.datepicker-orient-bottom,
+  .datepicker-dropdown.datepicker-orient-top {
+    &:before, &:after {
+      display:none;
+    }
+  }
   .date .input-group-addon {
     background-color: @input-bg;
     border-color: @gn-menubar-background;
