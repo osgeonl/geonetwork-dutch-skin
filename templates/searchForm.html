@@ -98,7 +98,7 @@
         </div>
       </div>
 
-      <div class="col-md-5">
+     <div class="col-md-5">
         <div class="row">
           <div class="col-md-12">
             <label data-translate="">ByDate</label>
@@ -106,73 +106,133 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-6 col-md-6">
-            <div class="form-group">
-              <!-- <label class="dutch-date-label" data-translate="">from</label> -->
-              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.metadataDateFrom" lang="lang">
-                <input id="creationDateFrom"
-                       class="form-control"
-                       type="text"
-                       placeholder="{{'from' | translate}}"
-                       aria-label="{{'from' | translate}}">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-6">
-            <div class="form-group">
-              <!-- <label class="dutch-date-label" data-translate="">to</label> -->
-              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.metadataDateTo" lang="lang">
-                <input id="creationDateTo"
-                       class="form-control"
-                       type="text"
-                       placeholder="{{'to' | translate}}"
-                       aria-label="{{'to' | translate}}">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              </div>
-            </div>
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group">
+            <select name="date-type" data-ng-model="dateType" class="form-control">
+              <option value="creation">{{'dateCreation' | translate}}</option>
+              <option value="revision">{{'dateRevision' | translate}}</option>
+              <option value="publication">{{'datePublication' | translate}}</option>
+              <option value="extent">{{'dateExtent' | translate}}</option>
+              <option value="metadata">{{'dateMetadata' | translate}}</option>
+            </select>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <label data_translate="">ByDateExtent</label>
+      </div>
+
+      <div class="row" data-ng-show="dateType=='metadata'">
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.dateFrom" lang="lang">
+                <input id="dateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.dateTo" lang="lang">
+                <input id="dateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" data-ng-show="dateType=='creation'">
           <div class="col-sm-6 col-md-6">
             <div class="form-group">
-              <!-- <label class="dutch-date-label" data-translate="">from</label> -->
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.creationDateFrom" lang="lang">
+                <input id="creationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.creationDateTo" lang="lang">
+                <input id="creationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" data-ng-show="dateType=='revision'">
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.revisionDateFrom" lang="lang">
+                <input id="revisionDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.revisionDateTo" lang="lang">
+                <input id="revisionDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" data-ng-show="dateType=='publication'">
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.publicationDateFrom" lang="lang">
+                <input id="publicationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
+              <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
+                   gn-bootstrap-datepicker="searchObj.params.publicationDateTo" lang="lang">
+                <input id="publicationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" data-ng-show="dateType=='extent'">
+          <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+              <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.extFrom" lang="lang">
-                <input id="validityDateFrom"
-                       class="form-control"
-                       type="text"
-                       placeholder="{{'from' | translate}}"
-                       aria-label="{{'from' | translate}}">
+                <input id="validityDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-md-6">
             <div class="form-group">
-              <!-- <label class="dutch-date-label" data-translate="">to</label> -->
+              <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.extTo" lang="lang">
-                <input id="validityDateTo"
-                       class="form-control"
-                       type="text"
-                       placeholder="{{'to' | translate}}"
-                       aria-label="{{'to' | translate}}">
+                <input id="validityDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- todo: add here the search on temporal extent -->
 
       </div>
 
