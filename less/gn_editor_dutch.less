@@ -423,9 +423,9 @@ form.gn-editor div.gn-extra-field > label {
     }
   }
   // panels in right column
-  .gn-editor-tools-container {
-    margin-top: 30px;
-  }
+  // .gn-editor-tools-container {
+  //   margin-top: 30px;
+  // }
   // special: draw map
   .gn-drawmap-panel {
     .col-md-9, .col-md-3 {
@@ -708,6 +708,7 @@ form.gn-editor fieldset {
   border-top: 0;
   margin-bottom: 15px;
   border-radius: 0;
+  margin-top: 0;
   &:hover, &:active, &:focus {
     background: 0;
   }
@@ -793,6 +794,7 @@ form.gn-editor fieldset {
   .field-bg {
     background: transparent;
   }
+
   // hide transformation list dropdown
   [data-gn-keyword-selector] {
     .col-sm-1 {
@@ -1203,8 +1205,7 @@ div.gn-scroll-spy ul li.active > a {
     }
   }
 }
-.gn-table :not(.gn-table-label) div.gn-field label {
-  display: block;
+.gn-table:not(.gn-table-label) div.gn-field label {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
   width: auto;
   padding-top: 0;
