@@ -13,15 +13,12 @@
           <a ng-href="catalog.edit#/metadata/{{md['geonet:info'].id}}" data-ng-show="isAdmin"
              class="btn btn-link pull-right">
             <i class="fa fa-pencil"></i>
-          </a>
-      
-          <div class="gn-md-thumbnail"
-                data-ng-class="{'gn-md-no-thumbnail': !md.getThumbnails().list[0].url}">
-            <img class="gn-img-thumbnail"
-                aria-label="{{md.title || md.defaultTitle}}"
-                data-ng-src="{{md.getThumbnails().list[0].url}}"
-                data-ng-if="md.getThumbnails().list[0].url"/>
-          </div>
+           </a>
+           <div>
+            <img data-ng-src="../..{{md.logo}}" 
+              alt="{{md.getContacts().metadata}}" 
+              style="max-width:100px;max-height:60px;" onerror="$(this).hide()"/>
+           </div>
         </div>
         <div data-ng-click="openRecord($index, md, searchResults.records)">
           <h4>
