@@ -70,5 +70,11 @@ body {
   }
 }
 
-@import "gn_view_dutch.less";
+// hide basket in user management
+[data-ng-controller="GnAdminController"] {
+  [data-gn-saved-selections] {
+    display: none;
+  }  
+}
 
+@import "gn_view_dutch.less";
