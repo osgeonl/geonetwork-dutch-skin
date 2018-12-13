@@ -14,11 +14,16 @@
              class="btn btn-link pull-right">
             <i class="fa fa-pencil"></i>
            </a>
-           <div>
-            <img data-ng-src="../..{{md.logo}}" 
-              alt="{{md.getContacts().metadata}}" 
-              style="max-width:100px;max-height:60px;" onerror="$(this).hide()"/>
-           </div>
+          <!-- Thumbnail -->
+          <div class="gn-md-thumbnail"
+                data-ng-class="{'gn-md-no-thumbnail': !md.getThumbnails().list[0].url}">
+            <img class="gn-img-thumbnail"
+                alt="{{md.title || md.defaultTitle}}"
+                title="{{md.title || md.defaultTitle}}"
+                data-ng-src="{{md.getThumbnails().list[0].url}}"
+                data-ng-if="md.getThumbnails().list[0].url"
+                onerror="$(this).hide().parent().addClass('gn-md-no-thumbnail')"/>
+          </div>
         </div>
         <div data-ng-click="openRecord($index, md, searchResults.records)">
           <h4>

@@ -519,27 +519,42 @@
 
         <div class="col-md-3 gn-md-side">
 
-          <section data-ng-repeat="i in
-            mdView.current.record.overviews track by $index"
-            data-ng-if="i.url&&i.url.indexOf('http')==0"
-            >
-            <!-- todo: show only the small thumbnail and link to the large thumbnail -->
-            <a href="{{i.url}}" title="{{i.label||i.url}}" target="_blank">
-            <div class="gn-md-thumbnail" data-ng-if="md.getThumbnails().small" style="background-size:cover;background-image:url({{i.url}})">
-      </div></a>
+          <!-- thumbnail -->
+          <section class="gn-md-side-overview" data-ng-if="mdView.current.record.overviews.length > 0">
+            <h2>
+              <i class="fa fa-fw fa-image"></i>
+              <span data-translate="">overview</span>
+            </h2>
+
+            <div data-ng-repeat="img in mdView.current.record.overviews">
+              <img data-gn-img-modal="img"
+                  class="gn-img-thumbnail img-thumbnail"
+                  alt="{{img.label}}"
+                  data-ng-src="{{img.url}}"/>
+
+              <div class="gn-img-thumbnail-caption"
+                  data-ng-show="img.label">{{img.label}}
+              </div>
+            </div>
           </section>
 
-          <section data-ng-if="mdView.current.record.geoBox.length > 0">
-
-            <!--<p data-ng-if="mdView.current.record.geoDesc">
-              <b data-ng-repeat="d in mdView.current.record.geoDesc">{{d}} </b>-->
-
-              <!-- TODO: add a dynamic map -->
-          <p data-ng-repeat="bbox in mdView.current.record.geoBox">
-            <img class="gn-img-thumbnail img-thumbnail gn-img-extent"
-                 alt="{{'extent' | translate}}"
-                 data-ng-src="{{gnUrl}}/{{lang}}/region.getmap.png?mapsrs=EPSG:3857&width=250&background=osm&geomsrs=EPSG:4326&geom={{mdView.current.record.getBoxAsPolygon($index)}}"/>
-          </p>
+          <!-- extent -->
+          <section class="gn-md-side-extent" data-ng-if="mdView.current.record.geoBox.length > 0">
+            <h2>
+              <i class="fa fa-fw fa-map-marker"></i>
+              <span data-translate="">extent</span>
+            </h2>
+            <p data-ng-if="mdView.current.record.geoDesc">
+              <ul>
+                <li data-ng-repeat="d in mdView.current.record.geoDesc">{{d}}</li>
+              </ul>
+            </p>
+            <p data-ng-repeat="bbox in mdView.current.record.geoBox">
+              <img class="gn-img-thumbnail img-thumbnail gn-img-extent"
+                  alt="{{'extent' | translate}}"
+                  aria-label="{{'extent' | translate}}"
+                  data-ng-src="{{gnUrl}}/{{lang}}/region.getmap.png?mapsrs=EPSG:3857&width=250&background=settings&geomsrs=EPSG:4326&geom={{mdView.current.record.getBoxAsPolygon($index)}}"/>
+            </p>
           </section>
 
           <!-- rating & comment -->
