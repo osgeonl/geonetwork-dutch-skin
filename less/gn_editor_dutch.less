@@ -45,7 +45,7 @@ h4 {
   }
   .gn-top-bar {
     display: block !important;
-    z-index: 102;
+    z-index: 502;
     position: fixed;
     top: 0;
     left: 0;
@@ -55,7 +55,7 @@ h4 {
     .navbar-fixed-top.gn-top-bar {
       top: 56px;
       height: 56px;
-      z-index: 101;
+      z-index: 501;
       padding-top: 0;
       border-top: 6px solid @gn-menubar-background-active;
       background-color: #fff;
@@ -151,7 +151,7 @@ h4 {
 legend .field-tooltip {
   padding-top: 0;
   position: absolute;
-  right: calc(~"8.3% + 4px");
+  right: calc(~"8.3% - 5px");
   margin-top: 3px;
 }
 // ----- no padding-top in middle column
@@ -172,7 +172,7 @@ legend .field-tooltip {
 }
 .onlinesrc-remove {
   i.btn.fa-times.text-danger {
-    visibility: visible;
+    visibility: visible !important;
   }
 }
 // popover
@@ -201,38 +201,11 @@ legend .field-tooltip {
   // delete icon/button
   [data-gn-field-highlight-remove] {
     visibility: visible !important;
+    padding: 6px;
   }
-  // ----- positioning
-  fieldset {
+  legend {
     [data-gn-field-highlight-remove] {
-      margin-right: 6px;
-    }
-    legend {
-      [data-gn-field-highlight-remove] {
-        margin-right: 7px;
-      }
-    }
-    fieldset {
-      [data-gn-field-highlight-remove] {
-        margin-right: 0px;
-      }
-      legend {
-        [data-gn-field-highlight-remove] {
-          margin-right: 3px;
-        }
-      }
-      fieldset {
-        legend {
-          [data-gn-field-highlight-remove] {
-            margin-right: -2px;
-          }
-        }
-      }
-    }
-    .gn-table {
-      [data-gn-field-highlight-remove] {
-        padding: 6px 5px;
-      }
+      margin-top: -2px;
     }
   }
   // columns in columns
@@ -242,6 +215,13 @@ legend .field-tooltip {
       padding-right: 0;
     }
   }
+  [data-gn-editor-helper] {
+    .col-xs-8, .col-xs-4 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   // tooltip
   // 
   // ----- icon to open
@@ -257,31 +237,69 @@ legend .field-tooltip {
   // ----- column for tooltips
   .gn-control {
     padding-left: 0px;
-    padding-right: 5px;
+    padding-right: 0px;
     .clearfix();
     .btn {
       padding: 6px;
     }
     @media (max-width: 1200px) {
       .btn {
-        padding: 6px 3px;
+        padding: 6px;
       }
     }
     .field-tooltip {
       float: left;
     }
   }
+
+.gn-control {
+
+  .field-tooltip {
+    position: absolute;
+    right: 30px;
+    &:nth-child(2) {
+      margin-top: 60px;
+    }
+    &:nth-child(3) {
+      margin-top: 120px;
+    }
+    &:nth-child(4) {
+      margin-top: 180px;
+    }
+    &:nth-child(5) {
+      margin-top: 240px;
+    }
+    &:nth-child(6) {
+      margin-top: 300px;
+    }
+  }
+  [data-gn-field-highlight-remove] ~ .field-tooltip {
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+    &:nth-child(3) {
+      margin-top: 60px;
+    }
+    &:nth-child(4) {
+      margin-top: 120px;
+    }
+    &:nth-child(5) {
+      margin-top: 180px;
+    }
+    &:nth-child(6) {
+      margin-top: 240px;
+    }
+    &:nth-child(7) {
+      margin-top: 300px;
+    }
+  }
+
+}
+
   // when there are more of the same tooltip icons in the column (.gn-control),
   // hide all but the first one
   [data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
     display: none;
-  }
-  fieldset {
-    fieldset {
-      .field-tooltip {
-        margin-left: 5px;
-      }
-    }
   }
   .gn-multilingual-field {
     .label {
@@ -349,23 +367,16 @@ form.gn-editor .gn-field .gn-move {
 form.gn-editor .gn-field {
   padding-top: 0;
 }
-form.gn-editor fieldset > div.form-group.gn-field, form.gn-editor fieldset > div.row.gn-field {
-    padding-top: 10px;
-    .pull-right {
-      margin-top: -2px;
-    }
-}
+// form.gn-editor fieldset > div.form-group.gn-field, form.gn-editor fieldset > div.row.gn-field {
+//     padding-top: 10px;
+//     .pull-right {
+//       margin-top: -2px;
+//     }
+// }
 form.gn-editor fieldset > div.form-group.gn-field:last-child, form.gn-editor fieldset > div.row.gn-field:last-child {
     padding-bottom: 10px;
 }
 
-form.gn-editor fieldset legend, .gn-field .gn-control {
-  .pull-right {
-    visibility: visible !important;
-    margin-top: -5px;
-    padding: 7px 8px;
-  }
-}
 
 // labels before 'add' buttons
 form.gn-editor div.gn-extra-field > label {
@@ -423,9 +434,9 @@ form.gn-editor div.gn-extra-field > label {
     }
   }
   // panels in right column
-  .gn-editor-tools-container {
-    margin-top: 30px;
-  }
+  // .gn-editor-tools-container {
+  //   margin-top: 30px;
+  // }
   // special: draw map
   .gn-drawmap-panel {
     .col-md-9, .col-md-3 {
@@ -708,6 +719,7 @@ form.gn-editor fieldset {
   border-top: 0;
   margin-bottom: 15px;
   border-radius: 0;
+  margin-top: 0;
   &:hover, &:active, &:focus {
     background: 0;
   }
@@ -779,7 +791,7 @@ form.gn-editor fieldset {
       background: #f5f5f5;
       border-top: 1px solid #ddd;
       .field-tooltip {
-        right: calc(~"8.3% + 12px");
+        right: calc(~"8.3% + 3px");
       }
     }
     // do not show the add button, there is already an add button
@@ -793,6 +805,7 @@ form.gn-editor fieldset {
   .field-bg {
     background: transparent;
   }
+
   // hide transformation list dropdown
   [data-gn-keyword-selector] {
     .col-sm-1 {
@@ -853,6 +866,14 @@ form.gn-editor .gn-field .col-sm-12 {
 }
 .gn-date-picker {
   width: 100%;
+}
+.gn-date {
+  .col-sm-3.gn-value {
+    padding-right: 0;
+  }
+  .col-sm-6.gn-value {
+    padding-left: 0;
+  }
 }
 
 // edit fields in table
@@ -1185,6 +1206,14 @@ div.gn-scroll-spy ul li.active > a {
     }
   }
 }
+#gn-editor-validation-panel {
+  &.gn-fixed-scroll {
+    width: 325px;
+    top: 135px;
+    right: 15px;
+    z-index: 10;
+  }
+}
 
 // parameter form (within a table)
 //
@@ -1203,8 +1232,7 @@ div.gn-scroll-spy ul li.active > a {
     }
   }
 }
-.gn-table :not(.gn-table-label) div.gn-field label {
-  display: block;
+.gn-table:not(.gn-table-label) div.gn-field label {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
   width: auto;
   padding-top: 0;

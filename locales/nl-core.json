@@ -1,8 +1,5 @@
 {
 "menu_search":"Zoeken",
-"menu_about":"Over NGR",
-"menu_latest":"Laatste nieuws",
-"menu_developers":"Voor ontwikkelaars",
 "header-right":"",
 "footer-left":"<a href='http://geonetwork-opensource.org'  target='_blank'>Powered by GeoNetwork</a>",
 "footer-right":"",
@@ -79,13 +76,14 @@
 "setOpacity":"Wijzig transparantie",
 "loginTitle":"Inloggen",
 "loginText":"Om de mogelijkheid te krijgen datasets te registreren dient u in te loggen.",
-  "selection.indexing.count": "Indexing started for the {{count}} record(s) selected.",
-  "selection.indexing.error": "Error during selection indexing.",
-  "showLegend": "Toon legenda",
-  "hideLegend": "Verberg legenda",
-  "mdActions": "Available actions",
-  "mdActions-view": "Viewable",
-  "mdActions-download": "Downloadable",
-  "mdActions-process": "Processable",
-  "addServiceLayersToMaponlinesrc": "Add service layer to map"
+"selection.indexing.count": "Indexing started for the {{count}} record(s) selected.",
+"selection.indexing.error": "Error during selection indexing.",
+"showLegend": "Toon legenda",
+"hideLegend": "Verberg legenda",
+"mdActions": "Available actions",
+"mdActions-view": "Viewable",
+"mdActions-download": "Downloadable",
+"mdActions-process": "Processable",
+"addServiceLayersToMaponlinesrc": "Add service layer to map",
+"feedback":"Terugmelden"
 }

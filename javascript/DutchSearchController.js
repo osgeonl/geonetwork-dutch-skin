@@ -41,6 +41,9 @@
                 hitsperpageValues: gnSearchSettings.hitsperpageValues
             };
 
+            /** Default date query */
+            $scope.dateType = "creation";
+
             /** Facets configuration */
             $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
 
