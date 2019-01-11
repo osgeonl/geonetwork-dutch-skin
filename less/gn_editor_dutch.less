@@ -201,11 +201,38 @@ legend .field-tooltip {
   // delete icon/button
   [data-gn-field-highlight-remove] {
     visibility: visible !important;
-    padding: 6px;
   }
-  legend {
+  // ----- positioning
+  fieldset {
     [data-gn-field-highlight-remove] {
-      margin-top: -2px;
+      margin-right: 6px;
+    }
+    legend {
+      [data-gn-field-highlight-remove] {
+        margin-right: 7px;
+      }
+    }
+    fieldset {
+      [data-gn-field-highlight-remove] {
+        margin-right: 0px;
+      }
+      legend {
+        [data-gn-field-highlight-remove] {
+          margin-right: 3px;
+        }
+      }
+      fieldset {
+        legend {
+          [data-gn-field-highlight-remove] {
+            margin-right: -2px;
+          }
+        }
+      }
+    }
+    .gn-table {
+      [data-gn-field-highlight-remove] {
+        padding: 6px 5px;
+      }
     }
   }
   // columns in columns
@@ -244,7 +271,7 @@ legend .field-tooltip {
     }
     @media (max-width: 1200px) {
       .btn {
-        padding: 6px;
+        padding: 6px 3px;
       }
     }
     .field-tooltip {
@@ -300,6 +327,13 @@ legend .field-tooltip {
   // hide all but the first one
   [data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
     display: none;
+  }
+  fieldset {
+    fieldset {
+      .field-tooltip {
+        margin-left: 5px;
+      }
+    }
   }
   .gn-multilingual-field {
     .label {

@@ -124,6 +124,12 @@
                   <span data-translate="">mdTabRelations</span>
                 </a>
               </li>
+              <li data-ng-class="{active: currentTabMdView === 'catalog'}" data-ng-show="fcatsFound">
+                  <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=catalog"
+                     aria-controls="catalog">
+                    <span data-translate="">mdTabCatalog</span>
+                  </a>
+              </li>
               <li data-ng-class="{active: currentTabMdView === 'inspire'}"
                   data-ng-show="mdView.current.record.category.indexOf('inspire')>-1">
                 <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=inspire"
@@ -255,9 +261,9 @@
                 - Code referentie systeem
                 - Algemene beschrijving herkomst
                 -->
-                <div data-ng-if="mdView.current.record.attributeTable"
+                <!-- <div data-ng-if="mdView.current.record.attributeTable"
                      data-gn-attribute-table-renderer="mdView.current.record.attributeTable">
-                </div>
+                </div> -->
 
                 <!-- identifier -->
                 <div class="row" data-ng-if="mdView.current.record.identifier">
@@ -421,13 +427,26 @@
                      data-types="parent|children|services|datasets|siblings|associated|related"
                      data-title="{{'associatedResources' | translate}}">
                 </div>
+              </div>
+              <!-- /.tab-pane -->
 
+              <!-- feature catalog -->
+              <div role="tabpanel" class="tab-pane" id="catalog"
+                   data-ng-class="{active: currentTabMdView === 'catalog'}"
+                   data-ng-show="currentTabMdView === 'catalog'">
+
+                <!-- id is needed for show or hiding the tab -->
                 <div data-gn-related="mdView.current.record"
+                     id="fcats"                
                      data-user="user"
-                     data-types="fcats|related"
+                     data-types="fcats"
                      data-title="{{'featureCatalog' | translate}}">
                 </div>
 
+                <div data-ng-if="mdView.current.record.attributeTable"
+                     class="gn-margin-top"
+                     data-gn-attribute-table-renderer="mdView.current.record.attributeTable">
+                </div>
               </div>
               <!-- /.tab-pane -->
 
