@@ -1,0 +1,183 @@
+@import "../../../style/gn_search.less";
+// variables for manipulating the theme
+@import "gn_variables_dutch.less"; // must be last
+
+// styling for a single result: metadata view
+.gn-md-view {
+  padding: 15px 20px;
+  background-color: @gn-background-color;
+  .gn-md-side {
+    h2 {
+      margin-top: 0;
+    }
+    .gn-img-thumbnail,
+    .gn-img-extent {
+      width: 100%;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+  }
+  .view-header {
+    border-bottom: 2px solid #e5e5e5;
+  }
+  .entry {
+    margin-left: 1em;
+    border-left: 2px solid #eeeeee;
+    padding-left: 5px;
+    dl {
+      padding-bottom: 5px;
+    }
+  }
+  input[readonly] {
+    background:#fff;
+  }
+  .extent{
+    display:inline-block;position:relative;margin:2em 0 0 90px;
+  }
+  .coord{
+    position:absolute;width:100px;
+  }
+  .coord-north{
+    top:-1.25em;
+    left:50%;
+    margin-left:-75px;
+  }
+  .coord-south{
+    bottom:-1.25em;
+    left:50%;
+    margin-left:-75px;
+  }
+  .coord-east{
+    right:-75px;
+    top:50%;
+    margin-top:-1.25em;
+  }
+  .coord-west{
+    left:-75px;
+    top:50%;
+    margin-top:-1.25em;
+  }
+  // related
+  .gn-related-resources {
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    h4 {
+      margin-bottom: 15px;
+    }
+    .table-striped {
+      td {
+        padding-left: 8px;
+      }
+    }
+  }
+  // catalog tab
+  .gn-metadata-display {
+    #catalog {
+      .table-striped {
+        td {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+// dutch settings
+.dutch-md-view {
+  .md-title-header {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .rate-control {
+    font-size: 24px;
+    .text-muted {
+      color: #333 !important;
+    }
+  }
+  .abstract {
+    margin-bottom: 32px;
+    white-space: pre-line !important;
+  }
+  .gn-record {
+    h1 {
+      font-size:20px;
+    }
+    h2, h2 span {
+      font-family: rijksoverheidsanstext-bold, sans, arial !important;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 0;
+    }
+    .row {
+      padding-bottom: 3px;
+      .col-md-12 {
+        padding-left: 0 !important;
+      }
+    }
+    .tab-content {
+      h2 {
+        padding-left: 15px;
+        margin-top: 25px;
+      }
+      .dutch-info {
+        padding-left: 15px;
+        margin-top: 25px;
+      }
+    }
+    .dutch-message {
+      margin: 20px 15px;
+    }
+  }
+  .gn-related-item {
+    border: none;
+    margin-bottom: 0px;
+    .col-xs-1 {
+      .fa {
+        font-size: 2em;
+      }
+      .fa-stack-1x {
+        font-size: 1em;
+      }
+      .fa-stack {
+        i {
+          opacity: 1 !important;
+        }
+        strong {
+          font-family: arial;
+          display: block;
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+  .share-banner {
+    color: #fff;
+    background-color: #0075A3;
+    margin: 20px 0px;
+    font-size:12px;
+    a {
+      color:white;
+      :hover {
+        color:#eef;
+      }
+      @media (max-width: 767px) {
+        font-size: 20px
+      }
+    }
+    .share-banner-title {
+      color: white;
+      font-weight: bold;
+    }
+
+  }
+}

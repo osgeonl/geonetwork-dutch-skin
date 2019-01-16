@@ -1,0 +1,80 @@
+@import "gn_search_dutch.less";
+@import "../../../style/gn_admin";
+
+body {
+  background-image: none;
+}
+[ng-app="gn_admin"] {
+  .gn-top-bar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    .gn-top-bar {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .gn-top-bar {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .gn-top-bar {
+      width: 1170px;
+    }
+  }
+}
+.gn-info, .gn-alerts .alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  max-width: none;
+  border-width: 0 0 1px 0;
+}
+
+.gn-btn-admin {
+  margin-top: 0px !important;
+  padding-top: 25px;
+  color: #333;
+  font-size: 16px;
+  background-color: #fff !important;
+  border-color: #ccc !important;
+  &:hover {
+    background-color: #e5e5e5 !important;
+    color: #000 !important;
+  }
+  p {
+    margin-top: 5px;
+  }
+}
+
+.gn-top-bar {
+  margin-bottom: 10px;
+}
+
+// harvester
+[data-ng-controller="GnHarvestSettingsController"] {
+  // do not show logo picker
+  [gn-logo-picker="harvester.site.icon"] {
+    display: none;
+  }
+  // input full width
+  [data-gn-harvester-identification="harvesterSelected"] {
+    .input-group {
+      width: 100%;
+    }
+  }
+}
+
+// hide basket in user management
+[data-ng-controller="GnAdminController"] {
+  [data-gn-saved-selections] {
+    display: none;
+  }  
+}
+
+@import "gn_view_dutch.less";

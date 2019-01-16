@@ -1,0 +1,164 @@
+<div>
+  <div class="navbar-header">
+    <button type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            title="{{'toggleNavigation' | translate}}"
+            aria-expanded="false"
+            aria-controls="navbar">
+      <span class="sr-only" data-translate>toggleNavigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+    <!-- <ul class="nav navbar-nav"> -->
+      <li>
+        <a data-gn-active-tb-item="catalog.search#/home"
+           title="{{'Home' | translate}}">
+          <span data-translate="">Home</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/search"
+           title="{{'search' | translate}}">
+          <span data-translate="">search</span>
+        </a>
+      </li>
+      <li data-ng-show="!layout.isEditMode">
+        <a data-gn-active-tb-item="catalog.search#/map"
+           title="{{'makeYourMap' | translate}}">
+          <span data-translate="">makeYourMap</span>
+        </a>
+      </li>
+      <li data-ng-show="authenticated && user.isEditorOrMore()">
+        <a data-gn-active-tb-item="catalog.edit"
+           title="{{'contribute' | translate}}">
+          <span data-translate="">contribute</span>
+        </a>
+      </li>
+      <li data-ng-show="user.isUserAdminOrMore()">
+        <a data-gn-active-tb-item="admin.console"
+           title="{{'adminConsole' | translate}}">
+          <span data-translate="">adminConsole</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li data-ng-show="lang=='dut'">
+        <a href="javascript:void(location.href=window.location.href.replace('dut','eng'))"
+           title="{{'English'|translate}}">
+          {{'English' | translate}}
+        </a>
+      </li>
+      <li data-ng-show="lang=='eng'">
+        <a href="javascript:void(location.href=window.location.href.replace('eng','dut'))"
+          title="{{'Nederlands'|translate}}">
+          {{'Nederlands' | translate}}
+        </a>
+      </li>
+    </ul>
+    
+    <ul data-ng-if="gnCfg.mods.signin.enabled"
+        class="nav navbar-nav navbar-right username-dropdown">
+      <li class="dropdown dropdown-hover open" data-ng-show="authenticated">
+        <a data-gn-active-tb-item="{{gnCfg.mods.admin.appUrl}}#/organization/users?userOrGroup={{user.username}}"
+          title="{{'userDetails' | translate}}"
+          class="dropdown-toggle"
+          role="button" aria-expanded="false">
+          <img class="img-circle"
+            alt="{{'avatar' | translate}}"
+            data-ng-src="//gravatar.com/avatar/{{user.email | md5}}?s=18"/>
+          <div class="gn-user-info hidden-sm">
+            &nbsp;{{user.name}} {{user.surname}}<br>
+            <span class="gn-user-role">{{user.profile | lowercase | translate}}</span>
+          </div>
+          <span class="alert alert-danger ng-hide"
+                data-ng-show="session.remainingTime > 0 &&
+                    session.remainingTime < session.alertInTitleWhen"
+                translate
+                data-translate-values="{remainingTime: '{{session.remainingTime}}'}">
+            sessionWillExpireIn
+          </span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li class="text-center hidden-xs">
+            <img class="img-circle"
+                 alt="{{'avatar' | translate}}"
+                 data-ng-src="//gravatar.com/avatar/{{user.email | md5}}?s=56"/>
+          </li>
+          <li role="separator" class="divider hidden-xs"></li>
+          <li class="dropdown-header hidden-xs" translate>username</li>
+          <li class="hidden-xs">
+            <a data-gn-active-tb-item="{{gnCfg.mods.admin.appUrl}}#/organization/users?userOrGroup={{user.username}}">{{user.name}} {{user.surname}}</a>
+          </li>
+          <li class="dropdown-header hidden-xs" translate>profile</li>
+          <li class="hidden-xs">
+            <a data-gn-active-tb-item="{{gnCfg.mods.admin.appUrl}}#/organization/users?userOrGroup={{user.username}}">{{user.profile | lowercase | translate}}</a>
+          </li>
+          <li role="separator" class="divider hidden-xs"></li>
+          <li role="menuitem">
+            <a href="{{gnCfg.mods.signout.appUrl}}"
+               title="{{'signout' | translate}}">
+              <i class="fa fa-sign-out"></i>&nbsp;
+              {{'signout' | translate}}
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown dropdown-hover open signin-dropdown"
+        data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && !shibbolethEnabled">
+        <a href="{{gnCfg.mods.signin.appUrl | signInLink}}"
+           title="{{'signIn'|translate}}"
+           class="dropdown-toggle"
+           data-ng-keypress="$event"
+           data-ng-mouseover="focusLoginPopup()">
+          <i class="fa fa-sign-in hidden-sm"></i>&nbsp;
+          {{'signIn' | translate}}
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li role="menuitem">
+            <form name="gnSigninForm" class="navbar-form flex-row"
+              action="{{signInFormAction}}" method="post" role="form">
+              <input type="hidden" name="_csrf" value="{{csrf}}"/>
+              <div class="form-group form-group-sm">
+                <label class="sr-only" for="inputUsername" translate>username</label>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </span>
+                  <input type="text" class="form-control" id="inputUsername" name="username" autofocus=""
+                         placeholder="{{'username' | translate}}" data-ng-model="signinUsername"
+                         required=""/>
+                </div>
+              </div>
+              <div class="flex-spacer"></div>
+              <div class="form-group form-group-sm">
+                <label class="sr-only" for="inputPassword" translate>password</label>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                  <input type="password" class="form-control" id="inputPassword" name="password"
+                    autocomplete="off"
+                    data-ng-model="signinPassword" placeholder="{{'password' | translate}}"
+                    required=""/>
+                </div>
+              </div>
+              <div class="flex-spacer"></div>
+              <button type="submit" class="btn btn-primary btn-sm pull-right"
+                      aria-label="{{'signIn' | translate}}"
+                      data-ng-disabled="!gnSigninForm.$valid">
+                <i class="fa fa-sign-in"></i>
+              </button>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

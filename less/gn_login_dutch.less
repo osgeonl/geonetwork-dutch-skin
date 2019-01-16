@@ -1,0 +1,65 @@
+@import "../../../style/gn_login";
+@import "gn_view_dutch.less";
+
+.page {
+	padding-top: 0;
+  padding-right: 0;
+}
+
+[ng-app="gn_login"] {
+  body, .gn-top-bar, .gn-sub-bar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    body, .gn-top-bar, .gn-sub-bar {
+      width: 1170px;
+    }
+  }
+  .gn-top-bar {
+    margin-bottom: 0;
+    // remove text
+    .gn-logo + span {
+      display: none;
+    }
+  }
+  [data-ng-controller="GnLoginController"] {
+    background-color: #fff;
+    padding: 20px;
+  }
+  .navbar {
+    i {
+      display: none;
+    }
+  }
+  // restyle the panels
+  .panel {
+    border: 0;
+    box-shadow: none;
+    .panel-heading {
+      border: 0;
+      background: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .panel-body {
+      border: 0;
+      padding-left: 0;
+      padding-right: 0;
+      .form-group {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}

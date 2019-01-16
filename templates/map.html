@@ -1,0 +1,16 @@
+<div class="map-border">
+  <div class="crumb" data-ng-controller="GnMdViewController">
+	  <!-- todo: insert last viewed dataset title here -->
+		<b><a href="#/home" data-translate="">Home</a> 
+		<span data-ng-show="mdView.records[0]">
+			/ <a href data-ng-click="backToSearch()" data-translate="">search</a>
+			/ <a href="#/metadata/{{mdView.records[0]['geonet:info'].uuid}}" alt="{{(mdView.records[0].title||mdView.records[0].defaultTitle)}}">{{(mdView.records[0].title||mdView.records[0].defaultTitle) | characters:25}}</a>
+		</span>
+		/ <span data-translate="">makeYourMap</span></b>
+
+  </div>
+  
+  <div gn-main-viewer=""
+       data-map="searchObj.viewerMap">
+  </div>
+</div>

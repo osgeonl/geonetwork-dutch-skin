@@ -1,0 +1,531 @@
+/* Defined here any custom style for the view
+   which has to be applied for all apps
+   (ie. admin, search, login, editor). */
+
+@import "gn_variables_dutch.less"; // must be last
+
+@gnSpacing: 10px;
+@border-radius-large: 2px;
+@border-radius-base: 2px;
+@border-radius-small: 2px;
+
+// background
+@body-bg: #f3f3f3;
+// navbar
+@navbar-margin-bottom: 0px;
+@navbar-border-radius: 0px;
+@navbar-default-link-color: #535353;
+
+// ----------------------------------------------------------------------
+// logo (left side the same as the left of the text on the first tab)
+// ----------------------------------------------------------------------
+
+.branding {
+  text-align: center;
+  min-height: 80px;
+  background-color:white;
+  .gn-logo {
+    min-height: 70px;
+    max-height: none; // reset height
+  }
+}
+
+// ----------------------------------------------------------------------
+// typography
+//
+// general text styling
+// ----------------------------------------------------------------------
+
+// ----- font bold
+@font-face {
+  font-family: rijksoverheidsanstext-bold;
+  src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: rijksoverheidsanstext-bold, sans, arial !important;
+  font-weight: 500;
+}
+
+// ----- font regular
+@font-face {
+  font-family: rijksoverheidsanstext-regular;
+  src: url(../catalog/views/dutch/images/rijksoverheidsanstext-regular.woff);
+}
+body,p,div,span,a,blockquote,.btn {
+  font-family: rijksoverheidsanstext-regular, sans, arial !important;
+  font-weight: normal;
+}
+
+.fa, .fa span, .fa div, .fa a {
+  font-family: FontAwesome !important;
+}
+.fa.pull-left {
+  margin-right: .3em;
+  margin-top: 7px;
+}
+
+a {
+  color: @ro-darkblue-full;
+}
+
+// ----- alerts
+.alert {
+  line-height: 1.6em;
+  max-width: 1000px;
+}
+.gn-info, .gn-alerts .alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  max-width: none;
+  text-align: left;
+  border-width: 0 0 1px 0;
+}
+
+// ----- about, for developers, etc
+.plain-text {
+  width: 80%;
+  padding: 20px;
+  margin: 0;
+  h1 {
+    margin: 30px 0 30px 0;
+  }
+  h4 {
+    margin: 30px 0 20px 0;
+  }
+  p {
+    line-height: 1.7em;
+  }
+  li a {
+    display: block;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+@media (max-width: 767px) {
+  .plain-text {
+    width: 100%;
+    h1 {
+      margin: 20px 0 20px 0;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------
+// custom text styles
+// ----------------------------------------------------------------------
+
+// ----- general
+.dutch-hierarchy {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.dutch-md-label, .dutch-md-label span {
+  font-family: rijksoverheidsanstext-bold, sans, arial !important;
+  color: #333;
+}
+
+// ----- toggle option
+.collapse-text-toggle {
+  color: @ro-gray-6;
+  cursor: pointer;
+  &:hover {
+    color: @ro-gray-7;
+    text-decoration: underline;
+  }
+}
+
+// ----- keywords
+.dutch-keyword {
+  margin-right: 3px;
+  color: #333;
+  text-decoration: underline;
+  &:hover {
+    color: #000;
+  }
+  &:after {
+    content: ","
+  }
+  &:last-child:after {
+    content: ""
+  }
+}
+// ----- sort label
+.dutch-sort-label {
+  margin-top: 6px;
+}
+
+// ----------------------------------------------------------------------
+// tab styling
+// ----------------------------------------------------------------------
+
+@media (max-width: 450px) {
+  .nav-tabs > li {
+    width: 100%;
+    border: 0;
+    float: none;
+  }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      color: #333;
+      background-color: #efefef;
+      border: 0;
+      border-bottom-color: transparent;
+  }
+}
+
+// ----------------------------------------------------------------------
+// Dropdowns
+// ----------------------------------------------------------------------
+
+// -----general dropdown
+.dutch-search-form, .navbar {
+  .dropdown-menu {
+    max-height: 400px;
+    overflow: auto;
+    .divider {
+      margin: 0;
+    }
+  }
+  .dropdown-menu > li > a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.dropdown img.img-circle, .dropdown span.gn-user-role {
+  display:none !important;
+}
+.navbar .dropdown-hover .dropdown-menu {
+  display: none;
+}
+
+// ----- dropdown higher than footer
+.dropdown-menu {
+  z-index: 1001;
+
+  // sometimes a dropdown is used within a class 'text-right', this to align elements
+  // to the right, but in a dropdown text should always be on the left
+  li {
+    text-align: left;
+  }
+  // disable click function on disabled items
+  li.disabled {
+    a {
+      pointer-events: none;
+      color: #707070;
+    }
+  }
+  // remove the double toggle buttons
+  i.fa-sort {
+    display: none;
+  }
+  // more whitespace in the dropdown
+  .caret {
+    margin-left: 5px;
+  }
+}
+// handle hover dropdowns for editor and admin menu (only if not on mobile)
+@media (min-width: @screen-sm-min) {
+  li.dropdown-hover {
+    & > .dropdown-toggle {
+      position: relative;
+      &:after {
+        font-family: FontAwesome;
+        content: "\f0d7";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 0.9em;
+      }
+    }
+    &.open:not(.active) > .dropdown-toggle {
+      background: none;
+    }
+    ul {
+      display: none;
+    }
+    &:hover ul, & > a:focus + ul, & > a:active + ul {
+      display: block !important;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------
+// inspire styles for Dutch Skin
+// ----------------------------------------------------------------------
+
+// ----- used for search results & detail view
+.dutch-inspire-list {
+  margin-top: 10px;
+  list-style: none;
+  li {
+    margin-bottom: 10px;
+  }
+  li:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    position: absolute;
+    margin-left: -14px;
+    font-size: 16px;
+  }
+}
+
+// ----------------------------------------------------------------------
+// categories
+// ----------------------------------------------------------------------
+
+// ----- list of categories
+.dutch-categories {
+  text-align: center;
+  h1, h3 {
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
+}
+// ----- single category
+.dutch-category {
+  text-transform: lowercase;
+  float: left;
+  padding: 5px 0px;
+  a {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.5em;
+    .gn-icon {
+      font-size: 1.5em;
+    }
+    .gn-icon-label {
+      font-family: rijksoverheidsanstext-bold, sans, arial !important;
+      font-size: 14px;
+    }
+    .gn-icon-count {
+      color: #707070;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------
+// buttons en custom links
+// ----------------------------------------------------------------------
+
+// ----- override default .btn settings
+.btn:active {
+  box-shadow: none;
+}
+
+// ----- styling for primary buttons
+@btn-primary-bg: darken(@gn-menubar-background, 5%);
+
+.btn-group > .btn-primary + .dropdown-toggle {
+  border-left: 1px solid #fff;
+}
+
+// ----- button with conflicting font-families, i.e. when a button has both class .btn and .fa
+.btn.fa:before {
+  font-family: FontAwesome !important;
+  margin-right: 5px;
+}
+
+// ----- caret in button
+.btn span + .caret {
+  margin-left: 5px;
+}
+
+.btn-round {
+  border-radius: 50%;
+  padding: 11px 16px;
+}
+
+// ----------------------------------------------------------------------
+// custom radio
+// ----------------------------------------------------------------------
+
+// ----- custom colored radio
+input[type=radio].dutch-radio {
+  display: none;
+}
+input[type=radio].dutch-radio + span.dutch-radio-label {
+  padding-left: 30px;
+  display: inline-block;
+  line-height: 26px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: 0 4px;
+}
+span.dutch-radio-label {
+  background-image: url("../catalog/views/dutch/images/dutch-radio-unchecked.png");
+}
+input[type=radio].dutch-radio:checked + span.dutch-radio-label {
+  background-image: url("../catalog/views/dutch/images/dutch-radio-checked.png");
+}
+
+// ----- special for import screen
+#gn-import .radio-inline {
+  padding-left: 0;
+}
+
+// ----------------------------------------------------------------------
+// custom checkboxes
+// ----------------------------------------------------------------------
+
+// ----- general
+.checkbox, .checkbox-inline {
+  padding-left: 0;
+}
+
+// ----- custom colored checkbox
+input[type=checkbox].dutch-checkbox {
+  display: none;
+}
+input[type=checkbox].dutch-checkbox + span.dutch-checkbox-label {
+  padding-left: 30px;
+  display: inline-block;
+  line-height: 26px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: 0 4px;
+}
+input[type=checkbox].dutch-checkbox:checked + span.dutch-checkbox-label {
+  background-position: 0 -26px;
+}
+span.dutch-checkbox-label {
+  background-image: url("../catalog/views/dutch/images/dutch-checkbox.png");
+}
+
+// ----------------------------------------------------------------------
+// modal
+// ----------------------------------------------------------------------
+
+.modal h3 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+// ----- image popup modal
+.gn-img-modal {
+  background-color: #fff;
+  .gn-btn-modal-img {
+    top: -18px;
+    right: -18px;
+    background: #fff;
+    border-radius: 18px;
+    height: 34px;
+    width: 34px;
+    border: 2px solid @gn-menubar-background;
+    padding: 0px;
+    font-size: 20px;
+  }
+}
+
+// ----------------------------------------------------------------------
+// general styles
+// ----------------------------------------------------------------------
+
+// ----- padding
+.dutch-padding-top, .gn-padding-top {
+  padding-top: @gnSpacing;
+}
+.dutch-padding-right, .gn-padding-right {
+  padding-right: @gnSpacing;
+}
+.dutch-padding-bottom, .gn-padding-bottom {
+  padding-bottom: @gnSpacing;
+}
+.dutch-padding-left, .gn-padding-left {
+  padding-left: @gnSpacing;
+}
+// ----- no padding
+.dutch-nopadding, .gn-nopadding {
+  padding: 0;
+}
+.dutch-nopadding-tablet {
+  @media (min-width: 800px) and (max-width: 1024px) {
+    padding: 0;
+  }
+}
+.dutch-nopadding-top, .gn-nopadding-top {
+  padding-top: 0;
+}
+.dutch-nopadding-right, .gn-nopadding-right {
+  padding-right: 0;
+}
+.dutch-nopadding-bottom, .gn-nopadding-bottom {
+  padding-bottom: 0;
+}
+.dutch-nopadding-left, .gn-nopadding-left {
+  padding-left: 0;
+}
+
+// ----- extra padding for columns
+@media (min-width: @screen-sm-max) {
+  .gn-padding-left-extra {
+    padding-left: 25px;
+  }
+}
+
+// ----- margin
+.dutch-margin-all, .gn-margin-all {
+  margin: @gnSpacing;
+}
+.dutch-margin-top, .gn-margin-top {
+  margin-top: @gnSpacing;
+}
+.dutch-margin-right, .gn-margin-right {
+  margin-right: @gnSpacing;
+}
+.dutch-margin-bottom, .gn-margin-bottom {
+  margin-bottom: @gnSpacing;
+}
+.dutch-margin-left, .gn-margin-left {
+  margin-left: @gnSpacing;
+}
+
+// ----- margin for small devices
+@media (max-width: 750px) {
+  .dutch-xs-margin-bottom, .gn-xs-margin-bottom {
+    margin-bottom: @gnSpacing;
+  }
+}
+
+// ----- widths
+.dutch-width-80, .gn-width-80 {
+  width: 80%;
+}
+.dutch-width-60, .gn-width-60 {
+  width: 60%;
+}
+.dutch-width-90, .gn-width-90 {
+  width: 90%;
+}
+.dutch-width-10, .gn-width-10 {
+  width: 10%;
+}
+.dutch-width-full, .gn-width-full {
+  width: 100%;
+}
+
+img.gfi-image {
+max-width:200px;
+max-height:150px;
+}
+
+// ----- text
+.text-preline {
+  white-space: pre-line;
+}
+.text-scroll {
+  overflow: auto;
+}
+
+//nojs interface
+.gn-metadata-display {
+  background-color:white;
+  // padding-top:20px;
+}

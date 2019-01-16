@@ -1,0 +1,34 @@
+<ows-context:OWSContext
+    xmlns:ows-context="http://www.opengis.net/ows-context" 
+    xmlns:ows="http://www.opengis.net/ows"
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    version="0.3.1" id="ows-context-ex-1-v3">
+    <ows-context:General>
+        <ows:BoundingBox crs="EPSG:28992">
+            <ows:LowerCorner>0 300000</ows:LowerCorner>
+            <ows:UpperCorner>300000 630000</ows:UpperCorner>
+        </ows:BoundingBox>
+    </ows-context:General>
+    <ows-context:ResourceList>
+        <ows-context:Layer 
+        	name="{type=wmts,name=brtachtergrondkaartgrijs}" hidden="false" opacity="1" group="Background layers">
+            <ows:Title>BRT Achtergrond</ows:Title>
+            <ows-context:Server service="urn:ogc:serviceType:WMS">
+                <ows-context:OnlineResource 
+                		xlink:href="https://geodata.nationaalgeoregister.nl/tiles/service/wmts?"/>
+            </ows-context:Server>
+        </ows-context:Layer>
+        <ows-context:Layer 
+			name="{type=wmts,name=2016_ortho25}" hidden="false" opacity="1" group="Background layers">
+			<ows:Title>Luchtfoto</ows:Title>
+			<ows-context:Server service="urn:ogc:serviceType:WMS">
+				<ows-context:OnlineResource 
+					xlink:href="https://geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts"/>
+			</ows-context:Server>
+		</ows-context:Layer>
+    </ows-context:ResourceList>
+</ows-context:OWSContext>
+
+
+
+
