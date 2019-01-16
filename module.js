@@ -55,11 +55,12 @@
     function($scope, gnSearchSettings) {
       $scope.searchObj = {
         permalink: false,
+	internal: true,
         filters: gnSearchSettings.filters,
         params: {
           sortBy: 'popularity',
           from: 1,
-          to: 9
+          to: 12
         }
       };
     }]);
@@ -70,11 +71,12 @@
     function($scope, gnSearchSettings) {
       $scope.searchObj = {
         permalink: false,
+	internal: true,
         filters: gnSearchSettings.filters,
         params: {
           sortBy: 'changeDate',
           from: 1,
-          to: 9
+          to: 12
         }
       };
     }]);
@@ -85,6 +87,7 @@ module.controller('gnsSearchTopEntriesController', [
         'search/resultsview/partials/viewtemplates/grid4maps.html';
       $scope.searchObj = {
         permalink: false,
+	internal: true,
         filters: {
           'type': 'interactiveMap'
         },
@@ -98,10 +101,10 @@ module.controller('gnsSearchTopEntriesController', [
   module.controller('gnsDutch', [
     '$scope',
     '$location',
+    '$filter',
     'suggestService',
     '$http',
     '$translate',
-    '$filter',
     'gnUtilityService',
     'gnSearchSettings',
     'gnViewerSettings',
@@ -113,11 +116,13 @@ module.controller('gnsSearchTopEntriesController', [
     'gnOwsContextService',
     'hotkeys',
     'gnGlobalSettings',
-    function($scope, $location, suggestService, $http, $translate,$filter,
+    'gnExternalViewer',
+    function($scope, $location, $filter,
+	     suggestService, $http, $translate,
              gnUtilityService, gnSearchSettings, gnViewerSettings,
              gnMap, gnMdView, mdView, gnWmsQueue,
              gnSearchLocation, gnOwsContextService,
-             hotkeys, gnGlobalSettings) {
+             hotkeys, gnGlobalSettings, gnExternalViewer) {
 
       var viewerMap = gnSearchSettings.viewerMap;
       var searchMap = gnSearchSettings.searchMap;
@@ -129,7 +134,9 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.$location = $location;
       $scope.activeTab = '/home';
       $scope.currentTabMdView = 'relations';
+      $scope.listOfResultTemplate = gnGlobalSettings.gnCfg.mods.search.resultViewTpls;
       $scope.resultTemplate = gnSearchSettings.resultTemplate;
+      $scope.advandedSearchTemplate = gnSearchSettings.advancedSearchTemplate;
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;
@@ -184,7 +191,7 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.mdView = mdView;
       gnMdView.initMdView();
       $scope.goToSearch = function (any) {
-        $location.path('/search').search({'any_OR__title': any});
+        $location.path('/search').search({'any': any});
       };
 
       $scope.backToSearch = function() {
@@ -228,6 +235,14 @@ module.controller('gnsSearchTopEntriesController', [
         }
       };
 
+       /**
+       * Toggle the list types on the homepage
+       * @param  {String} type Type of list selected
+       */
+      $scope.toggleListType = function(type) {
+        $scope.type = type;
+      };      
+
       $scope.infoTabs = {
         lastRecords: {
           title: 'lastRecords',
@@ -268,6 +283,13 @@ module.controller('gnsSearchTopEntriesController', [
              type: link.protocol.indexOf('WMTS') > -1 ? 'wmts' : 'wms',
              url: $filter('gnLocalized')(link.url) || link.url
            };
+
+          if (angular.isObject(link.title)) {
+            link.title = $filter('gnLocalized')(link.title);
+          }
+          if (angular.isObject(link.name)) {
+            link.name = $filter('gnLocalized')(link.name);
+          }
  
           if (link.name && link.name !== '') {
             config.name = link.name;
@@ -275,6 +297,20 @@ module.controller('gnsSearchTopEntriesController', [
             // Related service return a property title for the name
           } else if (link.title) {
             config.name = $filter('gnLocalized')(link.title) || link.title;
+          }
+
+          // if an external viewer is defined, use it here
+          if (gnExternalViewer.isEnabled()) {
+            gnExternalViewer.viewService({
+              id: md ? md.getId() : null,
+              uuid: config.uuid
+            }, {
+              type: config.type,
+              url: config.url,
+              name: config.name,
+              title: link.title
+            });
+            return;
           }
 
           // This is probably only a service
@@ -311,12 +347,13 @@ module.controller('gnsSearchTopEntriesController', [
       if (!$location.path()) {
         $location.path('/home');
       }
-      try {
-      if ($location.path().indexOf("|")==1) location.href="catalog.search#/metadata/"+$location.path().substring($location.path().indexOf("|")+1);
+      var setActiveTab = function() {
+        $scope.activeTab = $location.path().
+        match(/^(\/[a-zA-Z0-9]*)($|\/.*)/)[1];
+      };
 
-      $scope.activeTab = $location.path().
-          match(/^(\/[a-zA-Z0-9]*)($|\/.*)/)[1];
-      } catch (e){}
+      setActiveTab();
+      $scope.$on('$locationChangeSuccess', setActiveTab);
 
       var availableTabs = ['general', 'contact', 'relations', 'catalog', 'inspire'];
       $scope.changeTabMdView =function(newTab) {
