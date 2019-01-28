@@ -80,10 +80,11 @@
 "selection.indexing.error": "Error during selection indexing.",
 "showLegend": "Toon legenda",
 "hideLegend": "Verberg legenda",
-"mdActions": "Available actions",
-"mdActions-view": "Viewable",
-"mdActions-download": "Downloadable",
-"mdActions-process": "Processable",
-"addServiceLayersToMaponlinesrc": "Add service layer to map",
-"feedback":"Terugmelden"
+"mdActions": "Beschikbare functies",
+"mdActions-view": "Bekijken",
+"mdActions-download": "Downloadbaar",
+"mdActions-process": "Bewerkbaar",
+"addServiceLayersToMaponlinesrc": "Voeg een service aan de kaart toe",
+"feedback":"Terugmelden",
+"ValidationStatus": "Status validatie"
 }
