@@ -1,5 +1,8 @@
 @import "../../../style/gn_search.less";
 @import "../../../style/gn_editor";
+
+@import "../../default/less/gn_editor_default";
+
 @import "gn_facets_dutch.less";
 @import "gn_pagination_dutch.less";
 @import "gn_onlinesrc_popup_dutch.less";
@@ -14,31 +17,19 @@
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
-.page {
-  padding-bottom: 60px;
-}
-
-h4 {
-  font-size: 20px;
-  a {
-    color: #333;
-    font-weight: normal;
-  }
-}
-
-// button bar
-[data-ng-search-form] {
-  .gn-top-search {
-    // hide links
-    a[href*="directory"], a[href*="batchedit"] {
-      display: none;
-    }
-  }
-}
-// fix the toolbars and show them all the time
 [ng-app="gn_editor"] {
+  .gn-editor-container {
+
+  }
+  .gn-batch-editor,  #gn-directory-container,  #gn-new-metadata-container,  #gn-import-container {
+    padding-top: 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-top: 5px solid #cce0f1;
+  }
+  // Header and Footer
   body {
-    padding-top: 65px;
+    padding-top: 56px;
     padding-left: 15px;
     padding-right: 15px;
     background-color: #fff;
@@ -75,177 +66,34 @@ h4 {
   .gn-editor-board {
     padding-top: 70px;
   }
+
+  // Fixed width layout
   body, .gn-top-bar, .gn-sub-bar {
     margin-right: auto;
     margin-left: auto;
   }
-  @media (min-width: 768px) {
+  @media (min-width: @screen-sm) {
     body, .gn-top-bar, .gn-sub-bar {
-      width: 750px;
+      width: @container-tablet;
     }
   }
-  @media (min-width: 992px) {
+  @media (min-width: @screen-md) {
     body, .gn-top-bar, .gn-sub-bar {
-      width: 970px;
+      width: @container-desktop;
     }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: @screen-lg) {
     body, .gn-top-bar, .gn-sub-bar {
-      width: 1170px;
+      width: @container-large-desktop;
     }
   }
-  .gn-editor-container {
-    padding-top: 70px;
-  }
+
   // xml editor
   #xmleditor {
     position: relative;
     min-height: 700px;
     * {
       font-family: monospace !important;
-    }
-  }
-}
-
-// used to be only visibility hidden, but visibility hidden still takes
-// some pixels on the webpage, display:none doesn't
-.invisible {
-  display: none;
-}
-
-.page {
-  padding-right: 0 !important;
-  padding-top: 0 !important;
-}
-// topbar
-.gn-view-menu-button {
-  color: #333;
-    li a, a {
-    padding: 0.8em 0.9091em 0.6em !important;
-    color: #333;
-    background: #fff;
-    &:hover, &:focus, &:active {
-      padding: 0.8em 0.9091em 0.6em !important;
-    }
-    .fa, .caret {
-      color: #333;
-    }
-  }
-}
-.navbar-default .gn-view-menu-button.navbar-nav > .open > a {
-  padding: 0.8em 0.9091em 0.6em !important;
-}
-
-.text-danger {
-  color: #DF0808;
-}
-
-
-// tooltip and remove icon
-//
-// ----- general
-.field-tooltip {
-  padding: 5px 0 0 4px;
-}
-// ----- in header
-legend .field-tooltip {
-  padding-top: 0;
-  position: absolute;
-  right: calc(~"8.3% - 5px");
-  margin-top: 3px;
-}
-// ----- no padding-top in middle column
-.gn-field .col-sm-8 .field-tooltip {
-  padding-top: 5px;
-  float: right;
-  margin-right: -32px;
-}
-// ----- in right column
-.gn-control {
-  padding-left: 0;
-  padding-right: 0;
-  .field-tooltip {
-    float: none;
-    position: relative;
-  }
-
-}
-.onlinesrc-remove {
-  i.btn.fa-times.text-danger {
-    visibility: visible !important;
-  }
-}
-// popover
-.gn-popover {
-  max-width: 500px;
-  .title {
-    text-transform: uppercase;
-  }
-}
-
-// for icons that also get the `gn-control` class
-.fa-remove:before, .fa-close:before, .fa-times:before {
-  content: "\f00d" !important;
-}
-// and question marks
-.fa-question-circle-o:before {
-  content: "\f29c" !important;
-}
-
-.gn-editor {
-  // required
-  label.gn-required::after, .gn-required > label::after {
-    font-size: 1.5em !important;
-    position: inherit !important;
-  }
-  // delete icon/button
-  [data-gn-field-highlight-remove] {
-    visibility: visible !important;
-  }
-  // ----- positioning
-  fieldset {
-    [data-gn-field-highlight-remove] {
-      margin-right: 6px;
-    }
-    legend {
-      [data-gn-field-highlight-remove] {
-        margin-right: 7px;
-      }
-    }
-    fieldset {
-      [data-gn-field-highlight-remove] {
-        margin-right: 0px;
-      }
-      legend {
-        [data-gn-field-highlight-remove] {
-          margin-right: 3px;
-        }
-      }
-      fieldset {
-        legend {
-          [data-gn-field-highlight-remove] {
-            margin-right: -2px;
-          }
-        }
-      }
-    }
-    .gn-table {
-      [data-gn-field-highlight-remove] {
-        padding: 6px 5px;
-      }
-    }
-  }
-  // columns in columns
-  .col-sm-9 {
-    .col-sm-11 {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-  [data-gn-editor-helper] {
-    .col-xs-8, .col-xs-4 {
-      padding-left: 0;
-      padding-right: 0;
     }
   }
 
@@ -278,62 +126,21 @@ legend .field-tooltip {
       float: left;
     }
   }
-
-.gn-control {
-
-  .field-tooltip {
-    position: absolute;
-    right: 30px;
-    &:nth-child(2) {
-      margin-top: 60px;
+  .gn-multi-field {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .col-sm-11 {
+      padding-left: 0;
     }
-    &:nth-child(3) {
-      margin-top: 120px;
-    }
-    &:nth-child(4) {
-      margin-top: 180px;
-    }
-    &:nth-child(5) {
-      margin-top: 240px;
-    }
-    &:nth-child(6) {
-      margin-top: 300px;
+    .col-sm-1 {
+      padding-right: 0;
     }
   }
-  [data-gn-field-highlight-remove] ~ .field-tooltip {
-    &:nth-child(2) {
-      margin-top: 0;
-    }
-    &:nth-child(3) {
-      margin-top: 60px;
-    }
-    &:nth-child(4) {
-      margin-top: 120px;
-    }
-    &:nth-child(5) {
-      margin-top: 180px;
-    }
-    &:nth-child(6) {
-      margin-top: 240px;
-    }
-    &:nth-child(7) {
-      margin-top: 300px;
-    }
-  }
-
-}
 
   // when there are more of the same tooltip icons in the column (.gn-control),
   // hide all but the first one
   [data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
     display: none;
-  }
-  fieldset {
-    fieldset {
-      .field-tooltip {
-        margin-left: 5px;
-      }
-    }
   }
   .gn-multilingual-field {
     .label {
@@ -342,7 +149,121 @@ legend .field-tooltip {
     .nav > li > a {
       font-size: 10px;
     }
+    // required
+    label.gn-required::after, .gn-required > label::after {
+      font-size: 1.5em !important;
+      position: inherit !important;
+    }
+    // delete icon/button
+    [data-gn-field-highlight-remove] {
+      visibility: visible !important;
+    }
   }
+
+  // delete icon/button
+  [data-gn-field-highlight-remove] {
+    visibility: visible !important;
+    margin-right: 5px;
+  }
+  // remove icon
+  .fa-times:before {
+    content: "\f00d";
+    color: #a94442;
+  }
+  // popover
+  .gn-popover {
+    max-width: 500px;
+    .title {
+      text-transform: uppercase;
+    }
+  }
+  .onlinesrc-remove {
+    i.btn.fa-times.text-danger {
+      visibility: visible !important;
+    }
+  }
+
+  // No indent
+  form.gn-editor.gn-indent-none {
+    .panel-default {
+      margin-top: 15px;
+    }
+    fieldset {
+      padding: 0;
+      border: 1px solid @panel-default-border;
+      border-top: 0;
+      margin-bottom: 15px;
+      border-radius: 0;
+      margin-top: 0;
+      &:hover, &:active, &:focus {
+        background: 0;
+      }
+      label {
+        padding-top: 5px;
+      }
+      .well {
+        background-color: #f9f9f9;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        label {
+          padding-left: 15px;
+        }
+      }
+      legend {
+        padding: 10px 10px 10px 30px;
+        font-size: 18px;
+        background-color: @panel-default-heading-bg;
+        margin: -1px -1px 5px -1px;
+        border: 1px solid @panel-default-border;
+        width: calc(~"100% + 2px");
+        min-height: 3em;
+        [data-gn-field-highlight-remove] {
+          margin-right: -11px;
+        }
+      }
+      fieldset {
+        padding: 0;
+        margin-top: 25px;
+        border: 0;
+        margin: 10px 0;
+        legend {
+          font-size: 16px;
+          background: #fff;
+          border-top: 0;
+        }
+      }
+      .table {
+        margin: 10px;
+        width: calc(~"100% - 20px");
+      }
+      &.gn-descriptiveKeywords {
+        background: @panel-default-heading-bg;
+        margin: 10px;
+        border: 1px solid @panel-default-border;
+        legend {
+          background: @panel-default-heading-bg;
+          border-top: 1px solid @panel-default-border;
+        }
+        .gn-thesaurusName, .gn-CI_Citation, .gn-MD_Identifier {
+          background: @panel-default-heading-bg;
+        }
+      }
+    }
+  }
+
+}
+
+form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
+form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after {
+  font-size: 1.8em;
+  margin-top: 0;
+}
+
+// when there are more of the same tooltip icons in the column (.gn-control),
+// hide all but the first one
+[data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
+  display: none;
 }
 
 // popup
@@ -375,166 +296,17 @@ legend .field-tooltip {
   }
 }
 
-// label in addon
-.input-group-addon label {
-  margin-bottom: 0;
-}
-// move icons
-@media (min-width: 769px) {
-  form.gn-editor legend > div.gn-move {
-    margin-left: -42px;
-    margin-top: -24px;
-  }
-}
-form.gn-editor legend > div.gn-move a {
-  font-size: 22px;
-}
-form.gn-editor legend > div.gn-move a:hover {
-  text-decoration: none;
-}
-
-// move icons for individual inputs
-form.gn-editor .gn-field .gn-move {
-  display: none;
-}
-
-form.gn-editor .gn-field {
-  padding-top: 0;
-}
-// form.gn-editor fieldset > div.form-group.gn-field, form.gn-editor fieldset > div.row.gn-field {
-//     padding-top: 10px;
-//     .pull-right {
-//       margin-top: -2px;
-//     }
-// }
-form.gn-editor fieldset > div.form-group.gn-field:last-child, form.gn-editor fieldset > div.row.gn-field:last-child {
-    padding-bottom: 10px;
-}
-
-
-// labels before 'add' buttons
-form.gn-editor div.gn-extra-field > label {
-  visibility: hidden;
-  white-space: normal;
-}
-
-.gn-editor-container {
-
-  .nav-tabs {
-    border: 0;
-  }
-  form {
-    background-color: white;
-    // padding-top: 20px;
-  }
-  .tag {
-    padding: 5px;
-    text-align: left;
-    line-height: 1.5em;
-  }
-  .panel {
-    // border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    button .fa {
-      display: inline-block;
+// online resources panel
+.col-md-8 {
+  [data-gn-onlinesrc-list] {
+    margin-top: 20px;
+    .gn-onlinesrc-panel {
+      margin-top: 10px;
     }
-  }
-  .panel-heading {
-    border: 0;
-    border-radius: 0;
-    font-size: 16px;
-    .btn {
-      padding: 3px 6px;
+    // make it pull to the left
+    .dropdown-menu.pull-right {
+      right: auto !important;
     }
-  }
-  .panel-body {
-    border: 0;
-    h4 {
-      font-size: 14px;
-    }
-  }
-  // online resources panel
-  .col-md-8 {
-    [data-gn-onlinesrc-list] {
-      margin-top: 20px;
-      .gn-onlinesrc-panel {
-        margin-top: 10px;
-      }
-      // make it pull to the left
-      .dropdown-menu.pull-right {
-        right: auto !important;
-      }
-    }
-  }
-  // panels in right column
-  // .gn-editor-tools-container {
-  //   margin-top: 30px;
-  // }
-  // special: draw map
-  .gn-drawmap-panel {
-    .col-md-9, .col-md-3 {
-      padding-left: 0;
-      padding-right: 0;
-      margin-bottom: 10px;
-    }
-    .panel {
-      border: 0;
-      margin-top: 0;
-    }
-    .panel-body {
-      padding-left: 0;
-      .input-group {
-        margin-bottom: 15px;
-      }
-      .draw-map-box {
-        position: relative;
-        display: inline-block;
-        margin: 30px 0 30px 0;
-        padding: 0 75px 0 75px;
-        width: 100%;
-        .input-group {
-          margin-bottom: 0;
-          z-index: 100;
-        }
-      }
-      .coord {
-        position: absolute;
-        width: 150px;
-      }
-      .coord-north {
-        top: -1.25em;
-        margin-left: -75px;
-        left: 50%;
-      }
-      .coord-east {
-        right: 0;
-        top: 50%;
-        margin-top: -1.25em;
-      }
-      .coord-west {
-        left: 0;
-        top: 50%;
-        margin-top: -1.25em;
-      }
-      .coord-south {
-        left: 50%;
-        margin-left: -75px;
-        bottom: -1.25em;
-      }
-      .map {
-        border: 1px solid #ccc;
-        width: 100%;
-        .ol-rotate, .ol-attribution {
-          display: none;
-        }
-      }
-    }
-  }
-  // remove icon
-  .fa-times:before {
-    content: "\f014";
-    color: #a94442;
   }
 }
 
@@ -542,12 +314,13 @@ form.gn-editor div.gn-extra-field > label {
 #gn-new-metadata-container {
   background-color: #fff;
   padding-top: 20px;
-}
-#gn-new-metadata-container.new-metadata-vertical {
-  padding-bottom: 15px;
   h2 {
     margin-left: 15px;
   }
+}
+#gn-new-metadata-container.new-metadata-vertical {
+  padding-bottom: 15px;
+  
   .gn-record-type > a.list-group-item {
     text-align: left;
   }
@@ -682,164 +455,6 @@ form.gn-editor div.gn-extra-field > label {
     }
   }
 
-}
-
-// editor screen
-//
-// ----- hide TOC (scroll spy)
-.gn-scroll-spy {
-  display: none !important;
-}
-// ----- add metadata
-
-form.gn-editor label.gn-required:after {
-  content: "*";
-  margin: 7px 0 0 7px;
-  position: absolute;
-  color: #a94442;
-  font-weight: normal;
-}
-form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
-form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after {
-  font-size: 20px;
-  margin-top: 0;
-}
-
-[data-gn-slide-toggle]:before {
-  content: "\f078";
-  font-size: 14px;
-  position: absolute;
-  float: right;
-  margin-left: inherit;
-  right: calc(~"8.3% + 35px");
-}
-.panel [data-gn-slide-toggle] {
-  padding-left: 15px;
-}
-.panel [data-gn-slide-toggle]:before {
-  right: calc(~"8.3% + 40px");
-}
-[data-gn-slide-toggle].collapsed:before {
-  content: "\f054";
-}
-form.gn-editor div[data-gn-toggle] {
-  display: none;
-}
-@media (max-width: 767px) {
-  [data-gn-slide-toggle]:before {
-    right: calc(~"2.3% + 30px");
-  }
-}
-
-// editor tools
-.gn-editor-tools-container {
-  .panel [data-gn-slide-toggle]:before {
-    right: calc(8.3% + 14px);
-  }
-  .panel-heading {
-    padding-left: 10px;
-  }
-}
-// ----- suggestions
-[data-gn-suggestion-list] {
-  .panel-body {
-    padding: 10px;
-  }
-}
-
-form.gn-editor fieldset {
-  padding: 0 10px;
-	border: 1px solid #ddd;
-  border-top: 0;
-  margin-bottom: 15px;
-  border-radius: 0;
-  margin-top: 0;
-  &:hover, &:active, &:focus {
-    background: 0;
-  }
-  label {
-    padding-left: 0px;
-    padding-top: 5px;
-  }
-  .well {
-    background-color: #f9f9f9;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    label {
-      padding-left: 15px;
-    }
-  }
-  td .well {
-    padding-left: 0;
-    padding-right: 0;
-    .col-sm-4 {
-      width: 100%;
-    }
-    .col-sm-7 {
-      width: 80%;
-    }
-    .col-sm-1 {
-      width: 20%;
-    }
-  }
-  legend {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #f5f5f5;
-    margin-left: -11px;
-    border: 1px solid #ddd;
-    border-bottom: 0;
-    width: calc(~"100% + 22px");
-    margin-bottom: 0;
-    min-height: 3em;
-  }
-  fieldset {
-    padding: 0;
-    margin-top: 25px;
-    // margin-bottom: 20px;
-    border: 0;
-    legend {
-      font-size: 18px;
-      // padding-top: 5px;
-      font-family: rijksoverheidsanstext-regular, sans, arial !important;
-      background: #fff;
-      border-top: 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .table {
-      margin-bottom: 0;
-    }
-    .table > thead > tr > th {
-      border-bottom: 0;
-    }
-  }
-
-  // keyword/thesaurus section
-  .gn-descriptiveKeywords {
-    background: #f5f5f5;
-    padding: 10px;
-    border: 1px solid #ddd;
-    legend {
-      background: #f5f5f5;
-      border-top: 1px solid #ddd;
-      .field-tooltip {
-        right: calc(~"8.3% + 3px");
-      }
-    }
-    // do not show the add button, there is already an add button
-    .form-group.gn-field.gn-add-field {
-      display: none;
-    }
-    .form-group.gn-field.gn-extra-field.gn-add-field {
-      display: block;
-    }
-  }
-  .field-bg {
-    background: transparent;
-  }
-
   // hide transformation list dropdown
   [data-gn-keyword-selector] {
     .col-sm-1 {
@@ -864,56 +479,10 @@ form.gn-editor fieldset {
   }
 }
 
-form.gn-editor .control-label {
-  font-family: rijksoverheidsanstext-bold, sans, arial !important;
-  color: #333;
-  text-align: left;
-  padding-top: 5px;
-}
-@media (min-width: 768px) {
-  .form-horizontal .control-label {
-      text-align: left;
-  }
-}
-
-form.gn-editor {
-  // columns in columns
-  .col-sm-9 {
-    .col-sm-11 {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-
-}
-
-// special case for date fields
-form.gn-editor .gn-field .col-sm-12 {
-  padding-left: 0;
-  padding-right: 0;
-}
-@media (max-width: 768px) {
-  .gn-value {
-    padding-left: 5px;
-    padding-top: 3px;
-  }
-}
-.gn-date-picker {
+// date fields (no time picker)
+[ng-app="gn_editor"] form.gn-editor .gn-date-picker > input[type=date], 
+[ng-app="gn_editor"] form.gn-editor .gn-date-picker > input[type=time] {
   width: 100%;
-}
-.gn-date {
-  .col-sm-3.gn-value {
-    padding-right: 0;
-  }
-  .col-sm-6.gn-value {
-    padding-left: 0;
-  }
-}
-
-// edit fields in table
-.gn-table div.gn-field .col-sm-8 {
-  width: 100%;
-  padding: 0;
 }
 
 // online resource panel
@@ -954,6 +523,19 @@ form.gn-editor .gn-field .col-sm-12 {
 [data-gn-onlinesrc-list] {
   .panel-heading {
     padding: 10px;
+    padding-left: 28px;
+    &:before {
+      content: "\f107";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      position: absolute;
+      margin-left: -16px;
+      font-size: 16px;
+      margin-top: -2px;
+
+    }
   }
   .panel-body {
     padding: 10px 10px 0 10px;
@@ -964,33 +546,22 @@ form.gn-editor .gn-field .col-sm-12 {
   display: none;
 }
 
-// styling for the editor search results
-.gn-editor-board {
-  .table.gn-results-editor td {
-    .col-lg-8, .col-md-8, .col-lg-4, .col-md-4 {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @media (min-width: @screen-md-min) {
-      .btn-group {
-        float: right;
-      }
-    }
-  }
-}
-
 // user/group edit
-//
-// ----- user
 .gn-user-edit {
   select[multiple], select[size] {
     min-height: 110px;
   }
 }
-// ----- group
 
 // batch editor
 .gn-batch-editor {
+  .panel-default {
+    margin-top: -1.5em;
+    .col-sm-12 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
   .gn-search-facet {
     margin-top: 10px;
   }
@@ -1052,203 +623,22 @@ form.gn-editor .gn-field .col-sm-12 {
     padding-left: 15px;
     padding-right: 15px;
   }
-}
-
-// ----- dropdown menu
-//
-// ----- default
-.dropdown-menu {
-  max-width: auto !important;
-  .dropdown-header {
-    padding: 8px 12px;
-  }
-}
-@media (min-width: @screen-sm-min) {
-  .dropdown-menu {
-    max-width: auto !important;
-  }
-}
-
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > li > a {
-  color: #333;
-  padding-left: 20px !important;
-}
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > li > a:before,
-.navbar .dropdown-menu-radiolist .dropdown-menu > li > a:before {
-  width: 22px;
-  height: 20px;
-  margin-right: 4px;
-  content: " ";
-  display: block;
-  float: left;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  background-position: 0 -28px;
-  background-image: url("../catalog/views/dutch/images/dutch-checkbox.png");
-}
-.navbar .dropdown-menu-radiolist .dropdown-menu > li > a:before {
-  background-image: url("../catalog/views/dutch/images/dutch-radio.png");
-}
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > .disabled > a:before,
-.navbar .dropdown-menu-radiolist .dropdown-menu > .disabled > a:before,
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > .notselected > a:before,
-.navbar .dropdown-menu-radiolist .dropdown-menu > .notselected > a:before {
-  background-position: 0 2px;
-}
-
-
-// ----- typeahead
-.tt-dropdown-menu, .tt-menu {
-  margin-left: -7px;
-  padding: 9px 0;
-  border: 1px solid #ccc;
-  width: calc(~"100% + 14px");
-  box-shadow: none;
-  border-radius: 3px;
-  background-color: #fff;
-  max-height: 350px;
-  overflow: auto;
-}
-.tt-dropdown-menu *, .tt-menu * {
-  font-size: 14px;
-}
-// ----- the active or hovered item in the dropdown
-.tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {
-  background: @gn-menubar-background-active;
-  color: #333;
-}
-[data-gn-region-picker] {
-  .twitter-typeahead {
-    z-index: 120;
-  }
-  .tt-menu {
-    margin-top: 36px;
-    margin-left: 0;
-    width: 100%;
-    z-index: 120;
-  }
-}
-
-div.gn-scroll-spy {
-  bottom: auto;
-  right: auto;
-  opacity: 1;
-  font-size: 100%;
-  width: 18%;
-  margin-left: -22%;
-  z-index: 999;
-  max-height: auto;
-  overflow: auto;
-  background-color: #fff;
-  border: 0;
-  border-right: 1px solid #ccc;
-  padding: 0;
-  text-align: right;
-  // height: 100%;
-  .btn-toolbar {
-    display: none;
-  }
-  ul {
-    li {
-      font-size: 16px;
-      padding: 0;
-      a {
-        padding: 4px 12px 4px 0;
-        color: #333;
-        border-radius: 0;
-      }
-      ul {
-        li {
-          padding: 0;
-          a {
-            font-size: 12px;
-            padding: 4px 12px;
-          }
-        }
+  #gn-batch-changes {
+    .well {
+      .form-group {
+        margin-left: 0;
+        margin-right: 0;
       }
     }
   }
 }
-div.gn-scroll-spy ul li ul li.active > a {
-  font-weight: bold;
-}
-div.gn-scroll-spy ul li.active > a {
-  font-weight: bold;
-  color: #333;
-  background-color: transparent;
-}
-.affix-top {
-  // position: fixed;
-  // top: 136px;
-}
-.affix {
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 900;
-}
 
-// validation report
-.gn-validation-report {
-  .panel {
-    margin-bottom: 0;
-    border-bottom: 0;
-    border-width: 1px 0 0 0;
-  }
-  .panel-title, h4 {
-    font-size: 14px;
-    a {
-      cursor: pointer;
-    }
-    .label {
-      font-size: 11px;
-    }
-  }
-  .panel-body {
-    padding: 0;
-    max-height: 300px;
-    overflow: auto;
-    .list-group {
-      margin-bottom: 0;
-    }
-    .list-group-item {
-      border: 0;
-      border-top: 1px solid #ddd;
-      border-radius: 0;
-      margin: 0;
-      font-size: 13px;
-      div.pull-left {
-        width: 10%;
-        .fa {
-          color: @brand-success;
-        }
-      }
-      div.pull-left + div.pull-left {
-        width: 90%
-      }
-      p {
-        margin: 10px 0 0 0;
-        overflow: auto;
-      }
-    }
-    .list-group-item.text-danger {
-      div.pull-left {
-        .fa {
-          color: @brand-danger;
-        }
-      }
-    }
+.progress-bar-container {
+  margin-top: 0;
+  .progress-bar-container-fixed {
+    background-color: #fff;
   }
 }
-#gn-editor-validation-panel {
-  &.gn-fixed-scroll {
-    width: 325px;
-    top: 135px;
-    right: 15px;
-    z-index: 10;
-  }
-}
-
 // parameter form (within a table)
 //
 // ----- table
@@ -1317,7 +707,6 @@ td {
 }
 
 // search filter boxes
-// search terms
 .searchterm {
   margin: 0 5px 5px 0;
   max-width: 100%;
@@ -1333,7 +722,7 @@ td {
   }
 }
 
-//hack to hide suggest list for first other constraints element
+// hack to hide suggest list for first other constraints element
 .gn-otherConstraints:not(.gn-extra-field) select {
 	display:none;
 }
@@ -1356,16 +745,15 @@ div[data-gn-directory-entry-selector] {
 }
 
 // trashbin
-// .gn-tab-dutch-default, .gn-tab-default, .gn-tab-identificationInfo {
 form[class*="gn-tab-"] {
 
   div[data-gn-directory-entry-selector] button.dropdown-toggle {
     display: none;
   }
-  /* Status is not mandatory in XSD, but flagged as mandatory
-  in labels.xml. Jose added the * to make it mandatory but no
-  changes made to handle this on the remove action. This is a hack
-  to hide the remove button. */
+  // Status is not mandatory in XSD, but flagged as mandatory
+  // in labels.xml. Jose added the * to make it mandatory but no
+  // changes made to handle this on the remove action. This is a hack
+  // to hide the remove button.
   .gn-status.gn-required .gn-control [data-gn-click-and-spin],
   .gn-valueType.gn-required .gn-control [data-gn-click-and-spin],
   .gn-language.gn-required .gn-control [data-gn-click-and-spin],
@@ -1400,7 +788,6 @@ form[class*="gn-tab-"] {
   .gn-protocol.gn-mandatory .gn-control [data-gn-click-and-spin] {
     display: none !important;
   }
-
   .gn-otherConstraints.gn-required.gn-extra-field .gn-control [data-gn-click-and-spin] {
     display: block !important;
   }
