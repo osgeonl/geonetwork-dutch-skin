@@ -85,5 +85,6 @@
 "mdActions-download": "Downloadable",
 "mdActions-process": "Processable",
 "addServiceLayersToMaponlinesrc": "Add service layer to map",
-"feedback":"Terugmelden"
+"feedback":"Terugmelden",
+"dateType": "Datum type"
 }
