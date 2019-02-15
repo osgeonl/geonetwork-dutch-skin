@@ -123,7 +123,10 @@
         <div class="row">
         <div class="col-sm-12 col-md-12">
           <div class="form-group">
-            <select name="date-type" data-ng-model="dateType" class="form-control">
+            <select name="date-type"
+                    data-ng-model="dateType"
+                    class="form-control"
+                    aria-label="{{'dateType' | translate}}">
               <option value="creation">{{'dateCreation' | translate}}</option>
               <option value="revision">{{'dateRevision' | translate}}</option>
               <option value="publication">{{'datePublication' | translate}}</option>
@@ -140,7 +143,11 @@
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.dateFrom" lang="lang">
-                <input id="dateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                <input id="dateFrom"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'from' | translate}}"
+                       placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -150,7 +157,11 @@
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.dateTo" lang="lang">
-                <input id="dateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                <input id="dateTo"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'to' | translate}}"
+                       placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -163,7 +174,11 @@
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.creationDateFrom" lang="lang">
-                <input id="creationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                <input id="creationDateFrom"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'from' | translate}}"
+                       placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -173,7 +188,11 @@
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
                    gn-bootstrap-datepicker="searchObj.params.creationDateTo" lang="lang">
-                <input id="creationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                <input id="creationDateTo"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'to' | translate}}"
+                       placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>

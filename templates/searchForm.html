@@ -75,20 +75,20 @@
             <div class="form-group">
               <label data-translate="">DataAvailability</label>
               <div class="checkbox">
-                <label>
+                <label class="label-inline">
                   <input id="chk-visualisation" type="checkbox" value="true" checked="{searchObj.params.dynamic}"
                          data-ng-model="searchObj.params.dynamic">
                   {{'Visualisation'|translate}}
                 </label>
               </div>
-              <div class="checkbox ">
-                <label>
+              <div class="checkbox">
+                <label class="label-inline">
                   <input id="chk-download" type="checkbox" value="true" data-ng-model="searchObj.params.download"/>
                   {{'DownloadData'|translate}}
                 </label>
               </div>
-              <div class="checkbox ">
-                <label>
+              <div class="checkbox">
+                <label class="label-inline">
                   <input id="chk-data-request" type="checkbox" value="true"
                          data-ng-model="searchObj.params.nodynamicdownload"/>
                   {{'DataOnRequest'|translate}}
@@ -109,7 +109,10 @@
         <div class="row">
         <div class="col-sm-12 col-md-12">
           <div class="form-group">
-            <select name="date-type" data-ng-model="dateType" class="form-control">
+            <select name="date-type"
+                    data-ng-model="dateType"
+                    class="form-control"
+                    aria-label="{{'dateType' | translate}}">
               <option value="creation">{{'dateCreation' | translate}}</option>
               <option value="revision">{{'dateRevision' | translate}}</option>
               <option value="publication">{{'datePublication' | translate}}</option>
@@ -125,8 +128,8 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.creationDateFrom" lang="lang">
-                <input id="creationDateFrom"
+                   gn-bootstrap-datepicker="searchObj.params.creationDateFrom">
+                <input id="creationDateFromMetadata"
                        class="form-control"
                        type="text"
                        placeholder="{{'from' | translate}}"
@@ -139,8 +142,8 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.creationDateTo" lang="lang">
-                <input id="creationDateTo"
+                   gn-bootstrap-datepicker="searchObj.params.creationDateTo">
+                <input id="creationDateToMetadata"
                        class="form-control"
                        type="text"
                        placeholder="{{'to' | translate}}"
@@ -156,8 +159,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.creationDateFrom" lang="lang">
-                <input id="creationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.creationDateFrom">
+                <input id="creationDateFrom"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'from' | translate}}"
+                       placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -166,8 +173,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.creationDateTo" lang="lang">
-                <input id="creationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.creationDateTo">
+                <input id="creationDateTo"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'to' | translate}}"
+                       placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -179,8 +190,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.revisionDateFrom" lang="lang">
-                <input id="revisionDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.revisionDateFrom">
+                <input id="revisionDateFrom"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'from' | translate}}"
+                       placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -189,8 +204,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.revisionDateTo" lang="lang">
-                <input id="revisionDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.revisionDateTo">
+                <input id="revisionDateTo"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'to' | translate}}"
+                       placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -202,8 +221,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.publicationDateFrom" lang="lang">
-                <input id="publicationDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.publicationDateFrom">
+                <input id="publicationDateFrom"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'from' | translate}}"
+                       placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -212,8 +235,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.publicationDateTo" lang="lang">
-                <input id="publicationDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.publicationDateTo">
+                <input id="publicationDateTo"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'to' | translate}}"
+                       placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -225,8 +252,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">from</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.extFrom" lang="lang">
-                <input id="validityDateFrom" class="form-control" type="text" placeholder="{{'from' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.extFrom">
+                <input id="validityDateFrom"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'from' | translate}}"
+                       placeholder="{{'from' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -235,8 +266,12 @@
             <div class="form-group">
               <!-- <label class="ngr-date-label" data-translate="">to</label> -->
               <div class="input-group date" data-date="" data-date-format="yyyy-mm-dd"
-                   gn-bootstrap-datepicker="searchObj.params.extTo" lang="lang">
-                <input id="validityDateTo" class="form-control" type="text" placeholder="{{'to' | translate}}">
+                   gn-bootstrap-datepicker="searchObj.params.extTo">
+                <input id="validityDateTo"
+                       class="form-control"
+                       type="text"
+                       aria-label="{{'to' | translate}}"
+                       placeholder="{{'to' | translate}}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -249,27 +284,30 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="inspireThemeF" data-translate="">INSPIREtheme</label>
-              <input type="text" id="inspireThemeF" value=""
-                     class="form-control"
-                     aria-label="{{'INSPIREtheme' | translate}}"
-                     gn-values="searchObj.params['inspiretheme']"
-                     gn-sortby="name"
-                     gn-typeahead="inspirethemeOptions"/>
+              <label for="inspireThemeF" class="label-inline">
+                <span data-translate="" class="label-span">INSPIREtheme</span>
+                <input type="text" id="inspireThemeF" value=""
+                      class="form-control"
+                      aria-label="{{'INSPIREtheme' | translate}}"
+                      gn-values="searchObj.params['inspiretheme']"
+                      gn-sortby="name"
+                      gn-typeahead="inspirethemeOptions"/>
+              </label>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="orgNameF"
-                     data-translate="">orgName</label>
-              <input type="text" id="orgNameF" value=""
-                     class="form-control"
-                     aria-label="{{'orgName' | translate}}"
-                     gn-values="searchObj.params.orgName"
-                     gn-sortby="name"
-                     gn-typeahead="orgNameOptions"/>
+              <label for="orgNameF" class="label-inline">
+                <span data-translate="" class="label-span">orgName</span>
+                <input type="text" id="orgNameF" value=""
+                      class="form-control"
+                      aria-label="{{'orgName' | translate}}"
+                      gn-values="searchObj.params.orgName"
+                      gn-sortby="name"
+                      gn-typeahead="orgNameOptions"/>
+              </label>
             </div>
           </div>
         </div>
