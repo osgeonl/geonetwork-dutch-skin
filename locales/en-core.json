@@ -59,7 +59,7 @@
 "skipFromArchive":"Skip archived sources",
 "notobsolete":"Hide archived sources",
 "isPublishedToAll": "Published",
-"linkToXmlTab": "Errors in metadata can be solved in the <a href=\"#/metadata/{{metadataId}}/tab/xml\">XML editor</a>.",
+"linkToXmlTab": "Errors in metadata can be solved in the <a href=\"#/metadata/{{metadataId}}?tab=xml\">XML editor</a>.",
 "updateLinkAnyway":"Update link anyway",
 "AdvancedSearch":"Advanced search",
 "resultsFound":"results found",

@@ -35,23 +35,20 @@
             data-ng-show="activeTab == '/map'"/>
         <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
             data-ng-show="activeTab == '/metadata'"/>
+        <div data-ng-include="'../../catalog/views/default/templates/page.html'"
+           data-ng-if="activeTab == '/page'"/>
       </div>
     </div>
   </div>
   <!-- /.gn-search-page -->
 
-  <div id="footer"
-       class="footer clearfix"
-       role="navigation">
-    <div class="pull-left">
-      <a href="http://geonetwork-opensource.org/">
-      <i class="fa fa-fw"></i>
-      <span data-translate="">about</span></a>
+<div id="footer" class="footer clearfix">
+  <div class="pull-left">
+    <a href="https://geocat.net/enterprise">
       <span data-translate=""
-            data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: ''}">versionDetails</span>
-    </div>
-  </div>
-  <!-- /#footer -->
+          data-translate-values="{platform: 'GeoNetwork Enterprise', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}">
+        versionDetails</span></a>
+</div>  
 </div>
 </div>
 </html>

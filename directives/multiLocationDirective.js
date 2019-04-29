@@ -13,7 +13,8 @@
             return {
                 restrict: 'A',
                 scope: {
-                    uriString: "="
+                    uriString: "=",
+                    limit: '@'
                 },
                 link: function (scope, element, attrs) {
 
@@ -71,6 +72,7 @@
                     }, {
                         name: 'keyword',
                         displayKey: 'label',
+                        limit: scope.limit || 5,
                         source: source
                     }).bind('typeahead:selected typeahead:autocompleted', $.proxy(function(obj, datum) {
                         this.tagsinput('add', datum);

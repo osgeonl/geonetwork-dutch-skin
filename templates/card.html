@@ -13,24 +13,22 @@
           <a ng-href="catalog.edit#/metadata/{{md['geonet:info'].id}}" data-ng-show="isAdmin"
              class="btn btn-link pull-right">
             <i class="fa fa-pencil"></i>
-           </a>
-          <!-- Thumbnail -->
-          <div class="gn-md-thumbnail"
+          </a>
+          <div><img data-ng-src="../..{{md.logo}}" alt="logo {{md.getContacts().metadata}}" style="max-width:100px;max-height:60px;" onerror="$(this).hide()"/></div>
+          <!--<div class="gn-md-thumbnail"
                 data-ng-class="{'gn-md-no-thumbnail': !md.getThumbnails().list[0].url}">
             <img class="gn-img-thumbnail"
-                alt="{{md.title || md.defaultTitle}}"
-                title="{{md.title || md.defaultTitle}}"
+                aria-label="{{md.title || md.defaultTitle}}"
                 data-ng-src="{{md.getThumbnails().list[0].url}}"
-                data-ng-if="md.getThumbnails().list[0].url"
-                onerror="$(this).hide().parent().addClass('gn-md-no-thumbnail')"/>
-          </div>
+                data-ng-if="md.getThumbnails().list[0].url"/>
+          </div>-->
         </div>
         <div data-ng-click="openRecord($index, md, searchResults.records)">
           <h4>
             <input gn-selection-md type="checkbox" ng-model="md['geonet:info'].selected" ng-change="change()" data-ng-show="isAdmin"/>
             <a data-ng-href="#/metadata/{{md.getUuid()}}"
                title="{{md.title || md.defaultTitle}}">
-              {{md.title || md.defaultTitle}}
+              {{(md.title || md.defaultTitle || md.link[0].split('|')[0] || md.getUuid()) | characters:120}}
             </a>
           </h4>
         </div>
@@ -60,7 +58,7 @@
             data-ng-repeat="t in md.topicCat"
             data-ng-href="#/search?topicCat={{t}}">{{t | translate}}</a>
         </div>
-		    <p class="text-justify" dd-text-collapse dd-text-collapse-max-length="350" dd-text-collapse-text="{{md.abstract || md.defaultAbstract}}"></p>
+		    <p class="text-justify" dd-text-collapse dd-text-collapse-max-length="350" dd-text-collapse-text="{{(md.abstract || md.defaultAbstract) | characters:250}}"></p>
       </div>
     </div>
   </li>
