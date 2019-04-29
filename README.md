@@ -4,11 +4,10 @@ This project contains a skin for the GeoNetwork Opensource project at https://gi
 
 ## Features:
 - Design slightly follows [dutch rijkshuisstijl](https://www.rijkshuisstijl.nl/)
-- RD-new projection is made available
 - PDOK background layers as map backgrounds
-- PDOK locationserver as gazeteer
+- PDOK locationserver as gazetteer
 
-This work has been started by Kadaster Netherlands and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
+This work has been started by PDOK and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
 
 A preconfigured skin is available as docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
 
@@ -20,13 +19,13 @@ The license of the project is GPLv2.
 
 - Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
 
-`git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x
+`git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch master
 git submodule init`
 
 ## If at run time (war)
 
 - Deploy the latest geonetwork 3.4.x war from sourceforge
-- grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.4.x
+- grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/master
 - unzip it in /geonetwork/catalog/views/dutch
 
 ## Then

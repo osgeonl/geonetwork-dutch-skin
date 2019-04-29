@@ -25,10 +25,9 @@
 
   goog.provide('gn_search_dutch_config');
 
-  goog.require('ol.proj.EPSG28992');
   goog.require('gn_dutch_gazetteer_factory');
 
-  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992', 'gn_dutch_gazetteer_factory']);
+  var module = angular.module('gn_search_dutch_config', ['gn_dutch_gazetteer_factory']);
 
   module.value('gnTplResultlistLinksbtn',
       '../../catalog/views/default/directives/partials/linksbtn.html');
@@ -100,6 +99,8 @@
 
           };
 
+          gnMapsManager.initProjections(viewerSettings.mapConfig.switcherProjectionList);
+          
           var searchMap = gnMapsManager.createMap(gnMapsManager.SEARCH_MAP);
           var viewerMap = gnMapsManager.createMap(gnMapsManager.VIEWER_MAP);
 
