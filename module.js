@@ -372,7 +372,7 @@ module.controller('gnsSearchTopEntriesController', [
         if (newTab && availableTabs.indexOf(newTab) != -1) {
           $scope.currentTabMdView = newTab;
         } else {
-          $scope.currentTabMdView = 'relations';
+          $scope.currentTabMdView = 'genreal';
         }
       };
 
@@ -386,7 +386,7 @@ module.controller('gnsSearchTopEntriesController', [
         if (search.tab && availableTabs.indexOf(search.tab) != -1) {
           $scope.currentTabMdView = search.tab;
         } else {
-          $scope.currentTabMdView = 'relations';
+          $scope.currentTabMdView = 'general';
         }
 
         if (gnSearchLocation.isSearch() && (!angular.isArray(
