@@ -3,7 +3,7 @@
 // breadcrumbs (in second toolbar/navbar)
 .crumb {
   background-color: @gn-menubar-background-active;
-  padding: 1.0em 21px 1.3em 21px;
+  padding: 1.0em 30px 1.3em 30px;
   font-size: 12px;
   margin-bottom: 10px;
   color: @gray-base;
@@ -40,6 +40,10 @@
   padding-top: 8px;
   margin-bottom: @navbar-margin-bottom;
   border: 0px;
+  @media (max-width: @screen-sm-min) {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 // ----- divider
 .gn-divider-bar {
@@ -47,7 +51,7 @@
   background-color: @gn-menubar-background-active;
 }
 // ----- tablets
-@media (max-width: 768px) {
+@media (max-width: @screen-sm-min) {
   div.navbar {
     border: 0px;
     right: 0;
@@ -56,18 +60,16 @@
   }
 }
 // ----- phones (max-width is from iPhone 6 plus)
-@media (max-width: 736px) {
+@media (max-width: @screen-sm-min) {
   div.navbar {
-    background-color: transparent;
     border: 0px;
     right: 0;
     left: 0;
-    margin-top: -60px;
+  }
+  .navbar-collapse.collapse.in {
+    background: #fff;
   }
 }
-
-
-
 
 .navbar-default .nav > li > a {
   padding: 0.8em 0.9091em 0.6em !important;
@@ -95,25 +97,19 @@
   background-color: @gn-menubar-background-active;
   padding-bottom: 1.2em !important;
 }
-// .navbar .dropdown-menu {
-//   padding: 0;
-//   border-radius: 0;
-//   border: 0;
-//   text-align: left;
-//   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-// }
 .navbar .dropdown-menu li a, .navbar .dropdown-menu li a:hover {
   padding: 10px 16px !important;
   &:hover {
     background-color: #f5f5f5 !important;
   }
 }
-
 .navbar-right .dropdown-menu {
-    left: auto;
-    right: 0;
+  left: auto;
+  right: 0;
 }
-
+.dropdown-header {
+  padding: 3px 15px;
+}
 // navigation for smaller devices
 .navbar-nav {
   margin: 0px;
@@ -122,10 +118,10 @@
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-  margin-right: -8px;
-  margin-left: -8px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
-@media (min-width: 768px) {
+@media (min-width: @screen-sm-min) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
@@ -138,6 +134,7 @@
 // toggle button for the navigation bar
 .navbar-default .navbar-toggle {
   border: 0;
+  background-color: @gn-menubar-color;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
@@ -148,8 +145,8 @@
 }
 @media (max-width: 768px) {
   .navbar-default .navbar-toggle {
-    margin-bottom: 10px;
-    margin-top: -3px;
+    margin-bottom: 7px;
+    margin-top: 3px;
   }
   .navbar-default .navbar-toggle:hover,
   .navbar-default .navbar-toggle:focus {
