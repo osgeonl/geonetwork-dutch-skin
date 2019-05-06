@@ -1,12 +1,19 @@
 <!-- Powered by: {{info.site.platform.name}}, version: {{info.site.platform.version}} -->
 <div class="container">
-  <div class="branding" role="banner">
-    <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-      <img class="gn-logo"
-           data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}" 
-           title="{{'home'|translate}}"/>
-    </a>
-  </div>
+  <header class="gn-header"
+          data-ng-show="gnCfg.mods.header.enabled && gnCfg.mods.header.isLogoInHeader">
+    <div class="container">
+      <div class=row>
+        <div class="col-md-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
+          <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+            <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                alt="{{'siteLogo' | translate}}"
+                data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+            </a>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <div class="navbar navbar-default gn-top-bar" role="navigation"
        data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'">
