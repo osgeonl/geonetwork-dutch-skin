@@ -92,7 +92,7 @@
                     },
                     url: gnUrlUtils.append('../api/registries/vocabularies/search',
                         gnUrlUtils.toKeyValue({
-                          thesaurus: 'external.theme.inspire-theme',
+                          thesaurus: 'external.theme.httpinspireeceuropaeutheme-theme',
                           maxResults: 50,
                           pLang: ['dut','eng'],
                           q: 'KEYWORD*'
