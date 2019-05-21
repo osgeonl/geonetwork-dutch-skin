@@ -201,7 +201,11 @@
 
                 <div class="row" data-ng-if="mdView.current.record.licenseLink">
                   <div class="col-md-5 dutch-md-label" data-translate="">license</div>
-                  <div class="col-md-7"><a href="{{mdView.current.record.licenseLink|empty}}" target="_blank">{{mdView.current.record.licenseLink|empty}}</a>
+                  <div class="col-md-7">
+                    <span data-ng-repeat="licLink in (mdView.current.record.licenseLink|asArray) track by $index">
+                      <span data-ng-bind-html="licLink | striptags | linky:'_blank'"></span><br/>
+                    </span>
+                    <!--<a href="{{mdView.current.record.licenseLink|empty}}" target="_blank">{{mdView.current.record.licenseLink|empty}}</a>-->
                   </div>
                 </div>
 
