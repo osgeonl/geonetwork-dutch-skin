@@ -184,7 +184,7 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.mdView = mdView;
       gnMdView.initMdView();
       $scope.goToSearch = function (any) {
-        $location.path('/search').search({'any_OR__title': any});
+        $location.path('/search').search({'any': any});
       };
 
       $scope.backToSearch = function() {
