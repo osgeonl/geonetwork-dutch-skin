@@ -42,7 +42,7 @@
         <i class="fa fa-eye"></i> {{'chooseAView'|translate}}
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" role="menu">
+      <ul class="dropdown-menu" role="list">
         <li data-ng-class="currentFormatter === undefined ? 'disabled' : ''">
           <a href="" data-ng-click="format()" data-translate="">defaultView</a>
         </li>
@@ -199,9 +199,23 @@
                   </div>
                 </div>
 
+                <!-- legal constraints -->
+                <div class="row" data-ng-if="mdView.current.record.legalConstraints">
+                  <div class="col-md-5 dutch-md-label" data-translate="">license</div>
+                  <div class="col-md-7">
+                    <span data-ng-repeat="c in (mdView.current.record.license|asArray) track by $index">
+                      <span data-ng-bind-html="c | striptags | linky"></span><br/>
+                    </span>
+                  </div>
+                </div>
+
                 <div class="row" data-ng-if="mdView.current.record.licenseLink">
                   <div class="col-md-5 dutch-md-label" data-translate="">license</div>
-                  <div class="col-md-7"><a href="{{mdView.current.record.licenseLink|empty}}" target="_blank">{{mdView.current.record.licenseLink|empty}}</a>
+                  <div class="col-md-7">
+                    <span data-ng-repeat="licLink in (mdView.current.record.licenseLink|asArray) track by $index">
+                      <span data-ng-bind-html="licLink | striptags | linky:'_blank'"></span><br/>
+                    </span>
+                    <!--<a href="{{mdView.current.record.licenseLink|empty}}" target="_blank">{{mdView.current.record.licenseLink|empty}}</a>-->
                   </div>
                 </div>
 
