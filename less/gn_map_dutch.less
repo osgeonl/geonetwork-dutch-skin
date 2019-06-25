@@ -11,6 +11,11 @@
   width: 250px !important;
   height: 250px !important;
   margin: 10px 5px;
+  .ol-attribution {
+    button {
+      background-color: @btn-primary-bg;
+    }
+  }
 }
 
 [gn-main-viewer] [ngeo-map], .gn-main-viewer [ngeo-map] {
@@ -19,6 +24,11 @@
   margin: 20px;
   @media (max-width: 767px) {
     margin-top: 55px;
+  }
+  .ol-attribution {
+    button {
+      background-color: @btn-primary-bg;
+    }
   }
 }
 [gn-main-viewer] {
@@ -126,7 +136,7 @@
       margin-top: 0;
       border-radius: 0;
     }
-    @media (max-width: 750px) {
+    @media (max-width: @screen-sm-min) {
       [role=tooltip] {
         display: none;
       }

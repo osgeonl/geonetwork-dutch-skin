@@ -692,7 +692,7 @@ form.gn-editor div.gn-extra-field > label {
 }
 // ----- add metadata
 
-form.gn-editor label.gn-required:after {
+form.gn-editor label.gn-required:after, form.gn-editor legend.gn-required:after {
   content: "*";
   margin: 7px 0 0 7px;
   position: absolute;
@@ -700,7 +700,8 @@ form.gn-editor label.gn-required:after {
   font-weight: normal;
 }
 form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
-form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after {
+form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after,
+form.gn-editor legend.gn-required:after {
   font-size: 20px;
   margin-top: 0;
 }
@@ -918,6 +919,7 @@ form.gn-editor .gn-field .col-sm-12 {
 
 // online resource panel
 .gn-onlinesrc-panel {
+  padding-top: 10px;
   .list-group {
     margin-bottom: 10px;
   }
@@ -938,9 +940,13 @@ form.gn-editor .gn-field .col-sm-12 {
       margin-left: -3px;
     }
   }
+  .list-inline {
+    .clearfix();
+  }
   .gn-list-thumb {
     margin: 0 0 4px 4px;
     border-radius: 0;
+    float: left;
     .btn-group {
       position: absolute;
       top: -1px;
@@ -1109,6 +1115,9 @@ form.gn-editor .gn-field .col-sm-12 {
   max-height: 350px;
   overflow: auto;
 }
+.tt-dropdown-menu {
+  margin-left: 0;
+}
 .tt-dropdown-menu *, .tt-menu * {
   font-size: 14px;
 }
@@ -1122,8 +1131,8 @@ form.gn-editor .gn-field .col-sm-12 {
     z-index: 120;
   }
   .tt-menu {
-    margin-top: 36px;
-    margin-left: 0;
+    margin-top: 2px;
+    margin-left: -8px;
     width: 100%;
     z-index: 120;
   }
@@ -1258,14 +1267,14 @@ div.gn-scroll-spy ul li.active > a {
   }
 }
 // ----- special case
-.gn-containsOperations {
-  .gn-table {
-    margin-top: 10px;
-    thead {
-      display: none;
-    }
-  }
-}
+// .gn-containsOperations {
+//   .gn-table {
+//     margin-top: 10px;
+//     thead {
+//       display: none;
+//     }
+//   }
+// }
 .gn-table:not(.gn-table-label) div.gn-field label {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
   width: auto;
@@ -1310,6 +1319,10 @@ td {
       padding:  15px 0 10px 0 !important;
     }
     .col-sm-8 {
+      padding:  10px 0 10px 0 !important;
+      width: 65% !important;
+    }
+    .col-sm-9 {
       padding:  10px 0 10px 0 !important;
       width: 65% !important;
     }
