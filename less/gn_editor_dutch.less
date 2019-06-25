@@ -692,7 +692,7 @@ form.gn-editor div.gn-extra-field > label {
 }
 // ----- add metadata
 
-form.gn-editor label.gn-required:after {
+form.gn-editor label.gn-required:after, form.gn-editor legend.gn-required:after {
   content: "*";
   margin: 7px 0 0 7px;
   position: absolute;
@@ -700,7 +700,8 @@ form.gn-editor label.gn-required:after {
   font-weight: normal;
 }
 form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
-form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after {
+form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after,
+form.gn-editor legend.gn-required:after {
   font-size: 20px;
   margin-top: 0;
 }

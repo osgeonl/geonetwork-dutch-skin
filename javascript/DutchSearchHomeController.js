@@ -8,7 +8,7 @@
 
       $scope.resetHomeParams = function () {
         $scope.searchHomeParams = {
-          any_OR__title: null,
+          any: null,
           geometry: null,
           fast: 'index'
         };

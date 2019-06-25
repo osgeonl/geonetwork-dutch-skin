@@ -28,7 +28,8 @@
   goog.require('ol.proj.EPSG28992');
   goog.require('gn_dutch_gazetteer_factory');
 
-  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992', 'gn_dutch_gazetteer_factory']);
+  var module = angular.module('gn_search_dutch_config', ['ol.proj.EPSG28992', 'gn_dutch_gazetteer_factory',
+    'gn_relatedresources_service']);
 
   module.value('gnTplResultlistLinksbtn',
       '../../catalog/views/default/directives/partials/linksbtn.html');
@@ -115,8 +116,9 @@
 
           // Mapping for md links in search result list.
           searchSettings.linkTypes = {
-            links: ['LINK', 'kml', 'pdf', 'docx', 'gml', 'geojson'],
-            downloads: ['DOWNLOAD','Inspire atom'],
+            links: ['LINK', 'pdf', 'docx'],
+            downloads: ['DOWNLOAD','gml', 'kml', 'geojson', 'gpkg', 'x-sqlite3', 'json', 'jsonld', 'json-ld', 'rdf-xml', 'xml', 'zip', 'jp2',
+              'tiff', 'csv', 'OGC:WFS', 'OGC:WCS', 'OGC:SOS', 'INSPIRE Atom', 'OASIS:OData', 'OGC:SensorThings', 'W3C:SPARQL', 'OAS'],
             //layers:['OGC', 'kml'],
             layers:['OGC'],
             maps: ['OGC:OWC']
@@ -131,9 +133,7 @@
               'OGC:WMTS',
               'TMS',
               'KML',
-              'GML',
-              'geojson'
-              ],
+              'GML'],
             services: [
               'OGC:WMS-1.3.0-http-get-capabilities',
               'OGC:WMS-1.1.1-http-get-capabilities',
