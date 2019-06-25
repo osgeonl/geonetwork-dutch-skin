@@ -199,6 +199,16 @@
                   </div>
                 </div>
 
+                <!-- legal constraints -->
+                <div class="row" data-ng-if="mdView.current.record.legalConstraints">
+                  <div class="col-md-5 dutch-md-label" data-translate="">license</div>
+                  <div class="col-md-7">
+                    <span data-ng-repeat="c in (mdView.current.record.license|asArray) track by $index">
+                      <span data-ng-bind-html="c | striptags | linky"></span><br/>
+                    </span>
+                  </div>
+                </div>
+
                 <div class="row" data-ng-if="mdView.current.record.licenseLink">
                   <div class="col-md-5 dutch-md-label" data-translate="">license</div>
                   <div class="col-md-7">
