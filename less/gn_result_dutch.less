@@ -5,7 +5,11 @@
 // styling for a single result: metadata view
 .gn-md-view {
   padding: 15px 20px;
+  margin: auto 0px;
   background-color: @gn-background-color;
+  .row {
+    margin: auto 0px;
+  }
   .gn-md-side {
     h2 {
       margin-top: 0;
@@ -13,6 +17,12 @@
     .gn-img-thumbnail,
     .gn-img-extent {
       width: 100%;
+      margin-bottom: 5px;
+    }
+    .gn-img-thumbnail-caption {
+      margin-bottom: 5px;
+      text-align: left;
+      font-style: normal;
     }
     section {
       margin-bottom: 20px;
@@ -126,6 +136,9 @@
       .col-md-12 {
         padding-left: 0 !important;
       }
+    }
+    .share-banner {
+      padding-top: 3px;
     }
     .tab-content {
       h2 {

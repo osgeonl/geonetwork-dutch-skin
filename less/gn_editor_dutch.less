@@ -15,17 +15,26 @@
 // dutch style overrides
 @import "gn_view_dutch.less";
 // variables for manipulating the theme
+
+
+@import "../../default/less/gn_editor_default.less";
+
 @import "gn_variables_dutch.less"; // must be last
 
 [ng-app="gn_editor"] {
-  .gn-editor-container {
-
-  }
   .gn-batch-editor,  #gn-directory-container,  #gn-new-metadata-container,  #gn-import-container {
     padding-top: 10px;
     margin-left: -15px;
     margin-right: -15px;
     border-top: 5px solid #cce0f1;
+  }
+  .gn-editor-container {
+    margin-left: -15px;
+    margin-right: -15px;
+    .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   // Header and Footer
   body {
@@ -41,6 +50,13 @@
     top: 0;
     left: 0;
     right: 0;
+    .username-dropdown {
+      .dropdown-menu {
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+    }
   }
   [data-ng-view] {
     .navbar-fixed-top.gn-top-bar {
@@ -62,9 +78,20 @@
     border-top: 6px solid @gn-menubar-background-active;
     background-color: #fff;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    // buttons already in the dropdown menu
+    a[href="#/batchedit"], a[href="#/directory"], a[href="#/accessManager"] {
+      display: none;
+    }
   }
   .gn-editor-board {
     padding-top: 70px;
+  }
+  .gn-editor-sidebar {
+    position: relative;
+    .gn-list-thumb {
+      float: left;
+      width: 30%;
+    }
   }
 
   // Fixed width layout
@@ -170,34 +197,14 @@
     content: "\f00d";
     color: #a94442;
   }
-  // popover
-  .gn-popover {
-    max-width: 500px;
-    .title {
-      text-transform: uppercase;
-    }
-  }
-  .onlinesrc-remove {
-    i.btn.fa-times.text-danger {
-      visibility: visible !important;
-    }
-  }
-
-  // Draw map panel
-  .gn-drawmap-panel {
-    .tt-menu {
-      margin-top: 2px;
-      margin-left: -8px;
-    }
-  }
 
   // No indent
-  form.gn-editor.gn-indent-none {
+  form.gn-editor {
     .panel-default {
       margin-top: 15px;
     }
     fieldset {
-      padding: 0;
+      padding: 0 0 10px 0;
       border: 1px solid @panel-default-border;
       border-top: 0;
       margin-bottom: 15px;
@@ -231,14 +238,17 @@
         }
       }
       fieldset {
-        padding: 0;
+        padding: 0 0 10px 0;
         margin-top: 25px;
-        border: 0;
-        margin: 10px 0;
+        border-width: 0 0 1px 0;
+        margin: 10px 0 5px 0;
         legend {
           font-size: 16px;
           background: #fff;
           border-top: 0;
+        }
+        .table {
+          margin-bottom: 0;
         }
       }
       .table {
@@ -262,26 +272,6 @@
 
 }
 
-form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
-form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after {
-  font-size: 1.8em;
-  margin-top: 0;
-}
-
-// when there are more of the same tooltip icons in the column (.gn-control),
-// hide all but the first one
-[data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
-  display: none;
-}
-
-// popup
-//
-// ----- general
-@media (min-width: 769px) {
-  [gn-popup] {
-    max-width: 800px;
-  }
-}
 // ----- draggable
 //
 // make the popup fixed so it won't open out of sight at the top of the page
@@ -465,260 +455,6 @@ form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:af
 
 }
 
-// editor screen
-//
-// ----- hide TOC (scroll spy)
-.gn-scroll-spy {
-  display: none !important;
-}
-// ----- add metadata
-
-form.gn-editor label.gn-required:after, form.gn-editor legend.gn-required:after {
-  content: "*";
-  margin: 7px 0 0 7px;
-  position: absolute;
-  color: #a94442;
-  font-weight: normal;
-}
-form.gn-editor label.gn-required:after, form.gn-editor .gn-required > label:after,
-form.gn-editor label.gn-mandatory:after, form.gn-editor .gn-mandatory > label:after,
-form.gn-editor legend.gn-required:after {
-  font-size: 20px;
-  margin-top: 0;
-}
-
-[data-gn-slide-toggle]:before {
-  content: "\f078";
-  font-size: 14px;
-  position: absolute;
-  float: right;
-  margin-left: inherit;
-  right: calc(~"8.3% + 35px");
-}
-.panel [data-gn-slide-toggle] {
-  padding-left: 15px;
-}
-.panel [data-gn-slide-toggle]:before {
-  right: calc(~"8.3% + 40px");
-}
-[data-gn-slide-toggle].collapsed:before {
-  content: "\f054";
-}
-form.gn-editor div[data-gn-toggle] {
-  display: none;
-}
-@media (max-width: 767px) {
-  [data-gn-slide-toggle]:before {
-    right: calc(~"2.3% + 30px");
-  }
-}
-
-// editor tools
-.gn-editor-tools-container {
-  .panel [data-gn-slide-toggle]:before {
-    right: calc(8.3% + 14px);
-  }
-  .panel-heading {
-    padding-left: 10px;
-  }
-}
-// ----- suggestions
-[data-gn-suggestion-list] {
-  .panel-body {
-    padding: 10px;
-  }
-}
-
-form.gn-editor fieldset {
-  padding: 0 10px;
-	border: 1px solid #ddd;
-  border-top: 0;
-  margin-bottom: 15px;
-  border-radius: 0;
-  margin-top: 0;
-  &:hover, &:active, &:focus {
-    background: 0;
-  }
-  label {
-    padding-left: 0px;
-    padding-top: 5px;
-  }
-  .well {
-    background-color: #f9f9f9;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    label {
-      padding-left: 15px;
-    }
-  }
-  td .well {
-    padding-left: 0;
-    padding-right: 0;
-    .col-sm-4 {
-      width: 100%;
-    }
-    .col-sm-7 {
-      width: 80%;
-    }
-    .col-sm-1 {
-      width: 20%;
-    }
-  }
-  legend {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #f5f5f5;
-    margin-left: -11px;
-    border: 1px solid #ddd;
-    border-bottom: 0;
-    width: calc(~"100% + 22px");
-    margin-bottom: 0;
-    min-height: 3em;
-  }
-  fieldset {
-    padding: 0;
-    margin-top: 25px;
-    // margin-bottom: 20px;
-    border: 0;
-    legend {
-      font-size: 18px;
-      // padding-top: 5px;
-      font-family: rijksoverheidsanstext-regular, sans, arial !important;
-      background: #fff;
-      border-top: 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .table {
-      margin-bottom: 0;
-    }
-    .table > thead > tr > th {
-      border-bottom: 0;
-    }
-  }
-
-  // keyword/thesaurus section
-  .gn-descriptiveKeywords {
-    background: #f5f5f5;
-    padding: 10px;
-    border: 1px solid #ddd;
-    legend {
-      background: #f5f5f5;
-      border-top: 1px solid #ddd;
-      .field-tooltip {
-        right: calc(~"8.3% + 3px");
-      }
-    }
-    // do not show the add button, there is already an add button
-    .form-group.gn-field.gn-add-field {
-      display: none;
-    }
-    .form-group.gn-field.gn-extra-field.gn-add-field {
-      display: block;
-    }
-  }
-  .field-bg {
-    background: transparent;
-  }
-
-  // hide transformation list dropdown
-  [data-gn-keyword-selector] {
-    .col-sm-1 {
-      .dropdown-toggle {
-        display: none;
-      }
-    }
-  }
-}
-
-// DCP should also be required (show asterisk)
-.gn-containsOperations {
-  table {
-    .gn-DCP > label:after {
-      content: "*";
-      font-size: 20px;
-      margin: 0 0 0 7px;
-      position: absolute;
-      color: #a94442;
-      font-weight: normal;
-    }
-  }
-}
-
-// online resource panel
-.gn-onlinesrc-panel {
-  padding-top: 10px;
-  .list-group {
-    margin-bottom: 10px;
-  }
-  .list-group-item {
-    padding: 10px 0 0 0;
-    border-radius: 0;
-    border: 0;
-    .row > div {
-      padding-left: 0;
-      padding-right: 1px;
-    }
-    .onlinesrc-link {
-      display: block;
-      color: #333;
-      padding-bottom: 6px;
-    }
-    .btn-group {
-      margin-left: -3px;
-    }
-  }
-  .list-inline {
-    .clearfix();
-  }
-  .gn-list-thumb {
-    margin: 0 0 4px 4px;
-    border-radius: 0;
-    float: left;
-    .btn-group {
-      position: absolute;
-      top: -1px;
-      right: -1px;
-    }
-    img.thumb-small {
-      min-height: auto;
-    }
-  }
-}
-[data-gn-onlinesrc-list] {
-  .panel-heading {
-    padding: 10px;
-    padding-left: 28px;
-    &:before {
-      content: "\f107";
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      text-decoration: inherit;
-      position: absolute;
-      margin-left: -16px;
-      font-size: 16px;
-      margin-top: -2px;
-
-    }
-  }
-  .panel-body {
-    padding: 10px 10px 0 10px;
-  }
-}
-// no thumbnail maker
-[data-ng-show="params.linkType.sources.thumbnailMaker"] {
-  display: none;
-}
-
-// user/group edit
-.gn-user-edit {
-  select[multiple], select[size] {
-    min-height: 110px;
-  }
-}
-
 // batch editor
 .gn-batch-editor {
   .panel-default {
@@ -749,9 +485,6 @@ form.gn-editor fieldset {
     li.list-group-item:first-child {
       border-top: 1px solid #ddd;
     }
-  }
-  [data-gn-slide-toggle] {
-      padding-left: 0px;
   }
   .input-group-addon {
     background-color: #fff;
@@ -799,304 +532,11 @@ form.gn-editor fieldset {
   }
 }
 
-// ----- dropdown menu
-//
-// ----- default
-.dropdown-menu {
-  max-width: auto !important;
-  .dropdown-header {
-    padding: 8px 12px;
-  }
-}
-@media (min-width: @screen-sm-min) {
-  .dropdown-menu {
-    max-width: auto !important;
-  }
-}
-
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > li > a {
-  color: #333;
-  padding-left: 20px !important;
-}
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > li > a:before,
-.navbar .dropdown-menu-radiolist .dropdown-menu > li > a:before {
-  width: 22px;
-  height: 20px;
-  margin-right: 4px;
-  content: " ";
-  display: block;
-  float: left;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  background-position: 0 -28px;
-  background-image: url("../catalog/views/dutch/images/dutch-checkbox.png");
-}
-.navbar .dropdown-menu-radiolist .dropdown-menu > li > a:before {
-  background-image: url("../catalog/views/dutch/images/dutch-radio.png");
-}
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > .disabled > a:before,
-.navbar .dropdown-menu-radiolist .dropdown-menu > .disabled > a:before,
-.navbar .dropdown-menu-checkboxlist .dropdown-menu > .notselected > a:before,
-.navbar .dropdown-menu-radiolist .dropdown-menu > .notselected > a:before {
-  background-position: 0 2px;
-}
-
-
-// ----- typeahead
-.tt-dropdown-menu, .tt-menu {
-  margin-left: -7px;
-  padding: 9px 0;
-  border: 1px solid #ccc;
-  width: calc(~"100% + 14px");
-  box-shadow: none;
-  border-radius: 3px;
-  background-color: #fff;
-  max-height: 350px;
-  overflow: auto;
-}
-.tt-dropdown-menu {
-  margin-left: 0;
-}
-.tt-dropdown-menu *, .tt-menu * {
-  font-size: 14px;
-}
-// ----- the active or hovered item in the dropdown
-.tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {
-  background: @gn-menubar-background-active;
-  color: #333;
-}
-[data-gn-region-picker] {
-  .twitter-typeahead {
-    z-index: 120;
-  }
-  .tt-menu {
-    margin-top: 2px;
-    margin-left: -8px;
-    width: 100%;
-    z-index: 120;
-  }
-}
-
-div.gn-scroll-spy {
-  bottom: auto;
-  right: auto;
-  opacity: 1;
-  font-size: 100%;
-  width: 18%;
-  margin-left: -22%;
-  z-index: 999;
-  max-height: auto;
-  overflow: auto;
-  background-color: #fff;
-  border: 0;
-  border-right: 1px solid #ccc;
-  padding: 0;
-  text-align: right;
-  // height: 100%;
-  .btn-toolbar {
-    display: none;
-  }
-  ul {
-    li {
-      font-size: 16px;
-      padding: 0;
-      a {
-        padding: 4px 12px 4px 0;
-        color: #333;
-        border-radius: 0;
-      }
-      ul {
-        li {
-          padding: 0;
-          a {
-            font-size: 12px;
-            padding: 4px 12px;
-          }
-        }
-      }
-    }
-  }
-}
-div.gn-scroll-spy ul li ul li.active > a {
-  font-weight: bold;
-}
-div.gn-scroll-spy ul li.active > a {
-  font-weight: bold;
-  color: #333;
-  background-color: transparent;
-}
-.affix-top {
-  // position: fixed;
-  // top: 136px;
-}
-.affix {
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 900;
-}
-
 // validation report
 .gn-validation-report {
-  .panel {
-    margin-bottom: 0;
-    border-bottom: 0;
-    border-width: 1px 0 0 0;
+  .label {
+    padding: 0.3em 0.6em;
   }
-  .panel-title, h4 {
-    font-size: 14px;
-    a {
-      cursor: pointer;
-    }
-    .label {
-      font-size: 11px;
-    }
-  }
-  .panel-body {
-    padding: 0;
-    max-height: 300px;
-    overflow: auto;
-    .list-group {
-      margin-bottom: 0;
-    }
-    .list-group-item {
-      border: 0;
-      border-top: 1px solid #ddd;
-      border-radius: 0;
-      margin: 0;
-      font-size: 13px;
-      div.pull-left {
-        width: 10%;
-        .fa {
-          color: @brand-success;
-        }
-      }
-      div.pull-left + div.pull-left {
-        width: 90%
-      }
-      p {
-        margin: 10px 0 0 0;
-        overflow: auto;
-      }
-    }
-    .list-group-item.text-danger {
-      div.pull-left {
-        .fa {
-          color: @brand-danger;
-        }
-      }
-    }
-  }
-}
-#gn-editor-validation-panel {
-  &.gn-fixed-scroll {
-    width: 325px;
-    top: 135px;
-    right: 15px;
-    z-index: 10;
-  }
-}
-
-// parameter form (within a table)
-//
-// ----- table
-.gn-table {
-  [data-gn-field-highlight-remove] {
-    display: block !important;
-  }
-}
-// ----- special case
-// .gn-containsOperations {
-//   .gn-table {
-//     margin-top: 10px;
-//     thead {
-//       display: none;
-//     }
-//   }
-// }
-.gn-table:not(.gn-table-label) div.gn-field label {
-  font-family: rijksoverheidsanstext-regular, sans, arial !important;
-  width: auto;
-  padding-top: 0;
-}
-.gn-table .gn-table-label {
-  padding-right: 0;
-  div.gn-field {
-    label {
-      padding-top: 5px;
-      width: 25%;
-    }
-  }
-}
-.gn-table-label {
-  .col-sm-8 {
-    width: 66.66666666666666% !important;
-  }
-}
-td {
-  .gn-parameters {
-    margin-top: -5px !important;
-    border-bottom: 1px solid #ddd;
-    width: calc(~"100% - 16px");
-    margin-left: 5px;
-    legend {
-      font-size: 14px !important;
-      font-family: rijksoverheidsanstext-bold, sans, arial !important;
-      color: #333;
-      font-weight: 200;
-      border-right: 0 !important;
-      border-left: 0 !important;
-      .field-tooltip {
-        right: calc(~"8.3% + 12px");
-      }
-    }
-    .col-sm-1 {
-      width: 10% !important;
-      padding:  10px 0px 10px 8px !important;
-    }
-    .col-sm-3 {
-      padding:  15px 0 10px 0 !important;
-    }
-    .col-sm-8 {
-      padding:  10px 0 10px 0 !important;
-      width: 65% !important;
-    }
-    .col-sm-9 {
-      padding:  10px 0 10px 0 !important;
-      width: 65% !important;
-    }
-  }
-}
-
-// search filter boxes
-.searchterm {
-  margin: 0 5px 5px 0;
-  max-width: 100%;
-  span {
-    max-width: 15em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    float: left;
-  }
-  i {
-    margin-top: -15px;
-    margin-left: 5px;
-  }
-}
-
-// hack to hide suggest list for first other constraints element
-.gn-otherConstraints:not(.gn-extra-field) select {
-	display:none;
-}
-
-// webkit HTML5 date
-::-webkit-calendar-picker-indicator {
-  font-size: 10px;
-  opacity: 0.8;
-  margin-top: 8px;
-}
-::-webkit-calendar-picker-indicator:hover {
-  background-color: #fff;
 }
 
 // conformance

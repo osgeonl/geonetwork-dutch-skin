@@ -1,7 +1,7 @@
 /* Defined here any custom style for the view
    which has to be applied for all apps
    (ie. admin, search, login, editor). */
-
+@import "../../default/less/gn_view.less";
 @import "gn_variables_dutch.less"; // must be last
 
 @gnSpacing: 10px;
@@ -13,7 +13,7 @@
 @body-bg: #f3f3f3;
 // navbar
 @navbar-margin-bottom: 0px;
-@navbar-border-radius: 0px;
+@navbar-border-radius: 3px;
 @navbar-default-link-color: #535353;
 
 // ----------------------------------------------------------------------
@@ -185,9 +185,6 @@ a {
   .dropdown-menu {
     max-height: 400px;
     overflow: auto;
-    .divider {
-      margin: 0;
-    }
   }
   .dropdown-menu > li > a {
     white-space: nowrap;
@@ -319,20 +316,14 @@ a {
 .btn:active {
   box-shadow: none;
 }
-
-// ----- styling for primary buttons
-@btn-primary-bg: darken(@gn-menubar-background, 5%);
-
 .btn-group > .btn-primary + .dropdown-toggle {
   border-left: 1px solid #fff;
 }
-
 // ----- button with conflicting font-families, i.e. when a button has both class .btn and .fa
 .btn.fa:before {
   font-family: FontAwesome !important;
   margin-right: 5px;
 }
-
 // ----- caret in button
 .btn span + .caret {
   margin-left: 5px;
@@ -340,7 +331,7 @@ a {
 
 .btn-round {
   border-radius: 50%;
-  padding: 14px 12px 14px 18px;
+  padding: 14px 12px 14px 18px !important;
 }
 
 // ----------------------------------------------------------------------
@@ -428,65 +419,12 @@ span.dutch-checkbox-label {
 // general styles
 // ----------------------------------------------------------------------
 
-// ----- padding
-.dutch-padding-top, .gn-padding-top {
-  padding-top: @gnSpacing;
-}
-.dutch-padding-right, .gn-padding-right {
-  padding-right: @gnSpacing;
-}
-.dutch-padding-bottom, .gn-padding-bottom {
-  padding-bottom: @gnSpacing;
-}
-.dutch-padding-left, .gn-padding-left {
-  padding-left: @gnSpacing;
-}
-// ----- no padding
-.dutch-nopadding, .gn-nopadding {
-  padding: 0;
-}
-.dutch-nopadding-tablet {
-  @media (min-width: 800px) and (max-width: 1024px) {
-    padding: 0;
-  }
-}
-.dutch-nopadding-top, .gn-nopadding-top {
-  padding-top: 0;
-}
-.dutch-nopadding-right, .gn-nopadding-right {
-  padding-right: 0;
-}
-.dutch-nopadding-bottom, .gn-nopadding-bottom {
-  padding-bottom: 0;
-}
-.dutch-nopadding-left, .gn-nopadding-left {
-  padding-left: 0;
-}
-
 // ----- extra padding for columns
 @media (min-width: @screen-sm-max) {
   .gn-padding-left-extra {
     padding-left: 25px;
   }
 }
-
-// ----- margin
-.dutch-margin-all, .gn-margin-all {
-  margin: @gnSpacing;
-}
-.dutch-margin-top, .gn-margin-top {
-  margin-top: @gnSpacing;
-}
-.dutch-margin-right, .gn-margin-right {
-  margin-right: @gnSpacing;
-}
-.dutch-margin-bottom, .gn-margin-bottom {
-  margin-bottom: @gnSpacing;
-}
-.dutch-margin-left, .gn-margin-left {
-  margin-left: @gnSpacing;
-}
-
 // ----- margin for small devices
 @media (max-width: 750px) {
   .dutch-xs-margin-bottom, .gn-xs-margin-bottom {
@@ -494,38 +432,12 @@ span.dutch-checkbox-label {
   }
 }
 
-// ----- widths
-.dutch-width-80, .gn-width-80 {
-  width: 80%;
-}
-.dutch-width-60, .gn-width-60 {
-  width: 60%;
-}
-.dutch-width-90, .gn-width-90 {
-  width: 90%;
-}
-.dutch-width-10, .gn-width-10 {
-  width: 10%;
-}
-.dutch-width-full, .gn-width-full {
-  width: 100%;
-}
-
 img.gfi-image {
 max-width:200px;
 max-height:150px;
 }
 
-// ----- text
-.text-preline {
-  white-space: pre-line;
-}
-.text-scroll {
-  overflow: auto;
-}
-
 //nojs interface
 .gn-metadata-display {
   background-color:white;
-  // padding-top:20px;
 }

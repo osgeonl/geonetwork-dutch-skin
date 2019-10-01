@@ -29,8 +29,12 @@
 .gn-search-page {
   clear: both;
   .badge {
-      margin-right: 5px;
-    }
+    margin-right: 5px;
+  }
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .nav-pills {
     margin-bottom: 1em;
     text-align: center;
@@ -266,7 +270,7 @@
 .dutch-search-home {
   padding-bottom: 20px;
   padding-top: 20px;
-  margin: -25px -15px 25px -15px;
+  margin: -25px -15px 25px -15px !important;
   background-color: @gn-menubar-background-active;
 }
 .dutch-search-home-nojs {
@@ -303,7 +307,7 @@
 // ----- dropdown
 #dutch-search-form .dropdown-menu {
   border-color: @gn-menubar-background;
-  border-radius: 3px;
+  border-radius: @gn-border-radius;
   max-height: 350px;
   overflow: auto;
   overflow-x: hidden;
@@ -357,7 +361,7 @@
     font-size: 18px;
     line-height: 1.33;
     min-height: 46px;
-    border-radius: @border-radius-large;
+    border-radius: @gn-border-radius;
     border: 1px solid @gn-menubar-background;
     margin-bottom: 0;
     .tag {
@@ -456,7 +460,7 @@
     .bootstrap-tagsinput {
       padding: 7px 12px 7px 6px;
       font-size: 14px;
-      border-radius: @border-radius-large;
+      border-radius: @gn-border-radius;
       min-height: 32px;
       .tag {
         width: 200px;
@@ -486,7 +490,7 @@
   border: 1px solid @gn-menubar-background;
   width: calc(~"100% + 20px");
   box-shadow: none;
-  border-radius: 3px;
+  border-radius: @gn-border-radius;
   background-color: #fff;
   max-width: 100%;
   max-height: 350px;
@@ -522,6 +526,9 @@
 // ----- all the text should be like this (hence the *)
 .tt-dropdown-menu *, .tt-menu *, .dropdown-menu * {
   font-size: 14px;
+}
+.dropdown-header {
+  font-size: 12px;
 }
 // ----- the active or hovered item in the dropdown
 .tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {

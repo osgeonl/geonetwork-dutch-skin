@@ -1,3 +1,4 @@
+
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
@@ -18,16 +19,13 @@
   text-decoration: none;
 }
 
-/*
-  Place bottom-bar at the bottom of page; approach is based on http://matthewjamestaylor.com/blog/bottom-footer-demo.htm
-*/
-.bottom-bar {
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
-  background: @gn-bottombar-background;
-  text-align: right;
-  left: 0;
-  bottom: 0;
-  z-index: 1000;
+.gn-bottom-bar {
+  .gn-footer-text {
+    padding: 15px;
+  }
+  .nav > li > a {
+    color: @gn-bottombar-color !important;
+    float: left;
+    padding: 15px !important;
+  }
 }
