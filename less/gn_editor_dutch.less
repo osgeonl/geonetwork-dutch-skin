@@ -306,19 +306,12 @@
     .gn-date-picker > input[type=date].hidden, .gn-date-picker > input[type=time].hidden {
       width: 0%;
     }
+    // Datepicker only (no time picker)
     [data-element-name="gco:Date"] {
       .gn-date-picker > input[type=date] {
         width: 100%;
       }
     }
-    // .gn-date-picker.gn-time-with-ind-position {
-    //   input[type=month], input[type=number] {
-    //     width: 80%;
-    //   }
-    //   &> input[type=date], &> input[type=time] {
-    //     width: 40%;
-    //   }
-    // }
   }
 
 }
@@ -405,11 +398,7 @@
     padding-left: 0;
   }
   .panel {
-    border: 0;
     .panel-heading {
-      padding-top: 20px;
-      background: 0;
-      border: 0;
       span {
         font-family: rijksoverheidsanstext-bold, sans, arial !important;
         font-weight: bold;
@@ -417,11 +406,22 @@
       }
     }
     .panel-body {
-      border: 0;
       .control-label {
         font-family: rijksoverheidsanstext-bold, sans, arial !important;
         font-weight: bold;
       }
+    }
+  }
+  .panel-default:not(.panel-success) {
+    border: 0;
+    box-shadow: none;
+    .panel-heading {
+      padding-top: 0;
+      background: 0;
+      border: 0;
+    }
+    .panel-body {
+      border: 0;
     }
     .panel {
       border: 1px solid #ccc;
@@ -504,6 +504,14 @@
     }
   }
 
+}
+
+// progress bar
+.progress-bar-container {
+  margin-top: 0;
+  .progress-bar-container-fixed {
+    background-color: @gn-background-color;
+  }
 }
 
 // batch editor
