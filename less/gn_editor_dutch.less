@@ -58,6 +58,15 @@
       }
     }
   }
+  .gn-editor-board {
+    .gn-top-search {
+      .input-group-addon {
+        label {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
   [data-ng-view] {
     .navbar-fixed-top.gn-top-bar {
       top: 56px;
@@ -93,7 +102,25 @@
       width: 30%;
     }
   }
-
+  // panel
+  [data-gn-onlinesrc-list] {
+    .panel {
+      .panel-heading {
+        padding-left: 30px;
+      }
+      [data-gn-slide-toggle]:before {
+        content: "\f107";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: absolute;
+        margin-left: -18px;
+        font-size: 16px;
+        margin-top: -2px;
+      }
+    } 
+  }
   // Fixed width layout
   body, .gn-top-bar, .gn-sub-bar {
     margin-right: auto;
@@ -276,6 +303,22 @@
         }
       }
     }
+    .gn-date-picker > input[type=date].hidden, .gn-date-picker > input[type=time].hidden {
+      width: 0%;
+    }
+    [data-element-name="gco:Date"] {
+      .gn-date-picker > input[type=date] {
+        width: 100%;
+      }
+    }
+    // .gn-date-picker.gn-time-with-ind-position {
+    //   input[type=month], input[type=number] {
+    //     width: 80%;
+    //   }
+    //   &> input[type=date], &> input[type=time] {
+    //     width: 40%;
+    //   }
+    // }
   }
 
 }
