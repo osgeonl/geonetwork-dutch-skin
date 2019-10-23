@@ -1,5 +1,8 @@
 @import "gn_variables_dutch.less"; // must be last
 
+@gn-tools-right: 35px;
+@gn-tools-width: 160px;
+
 // map for search results
 [data-gn-map-field] > [ngeo-map] {
   border: 1px solid #ccc;
@@ -85,7 +88,9 @@
     border: 1px solid #ccc;
     background: rgba(255, 255, 255, 1);
     border-radius: 3px;
-    margin-right: 160px;
+    margin-right: @gn-tools-width;
+    right: @gn-tools-right;
+    width: @gn-tools-width;
     button {
       border: none;
       border-bottom: 1px solid #ccc;
@@ -108,8 +113,8 @@
 
   // ----- tools on the right side: e.g. add layer
   .map-tools, [gi-btn-group] {
-    width: 160px;
-    right: 35px;
+    width: @gn-tools-width;
+    right: @gn-tools-right;
     border-bottom: 0;
     margin-right: 0;
     @media (max-width: 767px) {
@@ -125,7 +130,7 @@
       text-overflow: ellipsis;
     }
     button {
-      width: 158px;
+      width: calc(~"@{gn-tools-width} - 2px");
       text-align: left;
       @media (max-width: 767px) {
         width: 36px;
@@ -139,6 +144,9 @@
       text-shadow: none;
       margin-top: 0;
       border-radius: 0;
+    }
+    button.active [role=tooltip], button:active [role=tooltip] {
+      display: inline-block;
     }
     @media (max-width: @screen-sm-min) {
       [role=tooltip] {
@@ -195,7 +203,7 @@
 
   // individual map tools, e.g. add layer
   .panel-tools {
-    right: 35px;
+    right: calc(~"@{gn-tools-right} + @{gn-tools-width}");
     width: 30em;
     background: #fff;
     max-height: none;
@@ -255,10 +263,11 @@
     .panel-heading h3 {
       font-size: 16px;
     }
-    .panel-body {
+    .panel-body, .panel-carousel {
       max-height: calc(~"100vh - 180px");
       overflow: auto;
       min-height: 85px;
+      padding: @panel-body-padding;
     }
     [gn-baselayerswitcher] {
       .baselayer {
