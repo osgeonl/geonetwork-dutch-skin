@@ -1,5 +1,10 @@
 <div>
   <div class="navbar-header">
+    <a class="hidden-sm hidden-md hidden-lg pull-left gn-logo-link" data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}" data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}">
+      <img class="gn-logo"
+            alt="{{'siteLogo' | translate}}"
+            data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+    </a>
     <button type="button"
             class="navbar-toggle collapsed"
             data-toggle="collapse"
@@ -15,7 +20,13 @@
   </div>
   <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-    <!-- <ul class="nav navbar-nav"> -->
+      <li class="clearfix hidden-xs" data-ng-if="gnCfg.mods.home.enabled">
+        <a class="pull-left gn-logo-link" data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}" data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}">
+          <img class="gn-logo"
+                alt="{{'siteLogo' | translate}}"
+                data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+        </a>
+      </li>
       <li>
         <a data-gn-active-tb-item="catalog.search#/home"
            title="{{'Home' | translate}}">
