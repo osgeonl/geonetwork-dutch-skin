@@ -155,9 +155,7 @@
             title="{{'userDetails' | translate}}"
             class="dropdown-toggle gn-menuitem-xs"
             role="button" aria-expanded="false">
-            <img class="img-circle"
-              alt="{{'avatar' | translate}}"
-              data-ng-src="//gravatar.com/avatar/{{user.email | md5}}?s=18"/>
+            <i class="fa fa-fw fa-user"></i>
             <div class="gn-user-info hidden-sm hidden-md">
               {{user.name}} {{user.surname}}<br>
               <span class="gn-user-role">{{user.profile | lowercase | translate}}</span>
@@ -171,12 +169,6 @@
             </span>
           </a>
           <ul class="dropdown-menu gn-menuitem-xs" role="menu">
-            <li class="text-center hidden-xs" role="menuitem">
-              <img class="img-circle"
-                   alt="{{'avatar' | translate}}"
-                   data-ng-src="//gravatar.com/avatar/{{user.email | md5}}?s=56"/>
-            </li>
-            <li role="separator" class="divider hidden-xs"></li>
             <li class="dropdown-header hidden-xs" role="menuitem" translate>username</li>
             <li class="hidden-xs" role="menuitem">
               <a data-gn-active-tb-item="{{gnCfg.mods.admin.appUrl}}#/organization/users?userOrGroup={{user.username}}">{{user.name}} {{user.surname}}</a>

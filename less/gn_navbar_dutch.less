@@ -239,7 +239,14 @@
   }
 
 }
-
+.username-dropdown {
+  > li > a i, > .open > a i {
+    display: inline-block !important;
+    @media (min-width: @screen-lg-min) {
+      display: none !important;
+    }
+  }
+}
 @media (max-width: @grid-float-breakpoint) {
   .navbar-nav {
     margin: 0;
