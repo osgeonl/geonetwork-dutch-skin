@@ -50,6 +50,7 @@
     top: 0;
     left: 0;
     right: 0;
+    height: 57px;
     .username-dropdown {
       .dropdown-menu {
         li:nth-child(2) {
@@ -310,6 +311,12 @@
     [data-element-name="gco:Date"] {
       .gn-date-picker > input[type=date] {
         width: 100%;
+      }
+    }
+    // override the default 'show delete on hover'
+    [data-gn-onlinesrc-list] {
+      i.btn.fa-times.text-danger {
+        visibility: visible;
       }
     }
   }
