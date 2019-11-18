@@ -3,15 +3,48 @@
 
   <header class="gn-header"
           data-ng-show="gnCfg.mods.header.enabled && gnCfg.mods.header.isLogoInHeader">
-      <div class="container">
-      <div class=row>
-        <div class="col-md-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
+    <!-- logo left -->
+    <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'left'">
+      <div class="col-md-6 col-sm-6">
           <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-            <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-                 alt="{{'siteLogo' | translate}}"
-                 data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+              <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                    alt="{{'siteLogo' | translate}}"
+                    data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
             </a>
-        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 hidden-xs text-right">
+        <ul class="gn-static-pages">
+          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+        </ul>
+      </div>
+    </div>
+    <!-- logo center -->
+    <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'center'">
+      <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center">
+        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+          <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                alt="{{'siteLogo' | translate}}"
+                data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+        </a></div>
+      <div class="col-md-4 col-sm-4 hidden-xs text-right">
+        <ul class="gn-static-pages">
+          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+        </ul>
+      </div>
+    </div>
+      <!-- logo right -->
+    <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'right'">
+      <div class="col-md-6 col-sm-6 hidden-xs">
+        <ul class="gn-static-pages">
+          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6 text-right">
+        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+          <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                alt="{{'siteLogo' | translate}}"
+                data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+        </a>
       </div>
     </div>
   </header>
@@ -21,18 +54,6 @@
        data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'"
        xmlns="http://www.w3.org/1999/html">
   </div>
-
-  <!-- <div class="branding" role="banner">
-    <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-      <img class="gn-logo"
-           data-ng-src="{{gnUrl}}../images/logos/{{info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}" 
-           title="{{'home'|translate}}"/>
-    </a>
-  </div>
-
-  <div class="navbar navbar-default gn-top-bar" role="navigation"
-       data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'">
-  </div> -->
 
   <div data-gn-alert-manager="" id="alerts"></div>
   <div class="gn-search-page"

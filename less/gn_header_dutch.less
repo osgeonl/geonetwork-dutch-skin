@@ -1,10 +1,20 @@
+
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
 header {
   margin-top: 0px;
-  padding-top: 10px;
   background-color: white;
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  // static pages
+  .gn-static-pages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
 }
 [ng-app="gn_editor"], [ng-app="gn_admin"] {
   .gn-top-bar {

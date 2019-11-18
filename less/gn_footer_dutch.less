@@ -1,31 +1,20 @@
-
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
 // ----- footer
-.footer {
-  background: @gn-bottombar-background;
-  border-top: 10px solid @gn-bottombar-border-color;
-  padding: 10px;
-  color: @gn-bottombar-color;
-}
-#footer a {
-  color: @gn-bottombar-color;
-  font-weight: bold;
-  padding-right: 12px;
-}
-.footer a {
-  color: white;
-  text-decoration: none;
-}
-
 .gn-bottom-bar {
+  border-bottom: 0;
   .gn-footer-text {
     padding: 15px;
+    color: @gn-bottombar-color;
   }
   .nav > li > a {
-    color: @gn-bottombar-color !important;
+    color: @gn-bottombar-color;
     float: left;
     padding: 15px !important;
+    &:hover {
+      color: @gn-bottombar-color-hover;
+      text-decoration: none;
+    }
   }
 }
