@@ -25,7 +25,7 @@
   width: calc(~"100% - 40px");
   height: 70vh;
   margin: 20px;
-  @media (max-width: 767px) {
+  @media (max-width: @screen-sm-min) {
     margin-top: 55px;
   }
   .ol-attribution {
@@ -117,7 +117,7 @@
     right: @gn-tools-right;
     border-bottom: 0;
     margin-right: 0;
-    @media (max-width: 767px) {
+    @media (max-width: @screen-sm-min) {
       width: 38px;
     }
     [role=tooltip] {
@@ -132,7 +132,7 @@
     button {
       width: calc(~"@{gn-tools-width} - 2px");
       text-align: left;
-      @media (max-width: 767px) {
+      @media (max-width: @screen-sm-min) {
         width: 36px;
       }
     }
@@ -189,7 +189,7 @@
     left: auto;
     width: 20em;
   }
-  @media (max-width: 767px) {
+  @media (max-width: @screen-sm-min) {
     .search-container {
       top: -45px;
       right: auto;
@@ -209,7 +209,7 @@
     background: #fff;
     max-height: none;
     z-index: 70;
-    @media (max-width: 767px) {
+    @media (max-width: @screen-sm-min) {
       right: 28px;
     }
     [gn-layermanager] {
@@ -386,7 +386,7 @@
   }
 
   // responsive width
-  @media (max-width: 768px) {
+  @media (max-width: @screen-sm-min) {
     .panel-tools {
       width: 30em;
     }
