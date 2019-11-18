@@ -34,11 +34,12 @@
           </a>
         </li>
         <li class="gn-menuitem-xs" data-ng-if="gnCfg.mods.home.enabled">
-            <a data-gn-active-tb-item="catalog.search#/home"
-               title="{{'Home' | translate}}">
-              <span data-translate="">Home</span>
-            </a>
-          </li>
+          <a data-gn-active-tb-item="catalog.search#/home"
+              title="{{'Home' | translate}}">
+            <i class="fa fa-fw fa-home hidden-sm"></i>
+            <span data-translate="">Home</span>
+          </a>
+        </li>
         <li class="gn-menuitem-xs" data-ng-if="gnCfg.mods.search.enabled">
           <a data-gn-active-tb-item="{{gnCfg.mods.search.appUrl}}"
             title="{{'search' | translate}}">
@@ -153,7 +154,7 @@
         <li class="dropdown dropdown-hover open" data-ng-show="authenticated">
           <a data-gn-active-tb-item="{{gnCfg.mods.admin.appUrl}}#/organization/users?userOrGroup={{user.username}}"
             title="{{'userDetails' | translate}}"
-            class="dropdown-toggle gn-menuitem-xs"
+            class="dropdown-toggle gn-menuitem-xs hidden-xs"
             role="button" aria-expanded="false">
             <i class="fa fa-fw fa-user"></i>
             <div class="gn-user-info hidden-sm hidden-md">
