@@ -108,6 +108,25 @@
       button.btn-lg, input[type="text"].input-lg {
         height: 46px;
       }
+      input[type="text"].input-lg {
+        &:focus {
+          border-color: @gn-search-outline-color;
+          box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(@gn-search-outline-color-red, @gn-search-outline-color-green, @gn-search-outline-color-blue, 0.6) 0px 0px 8px;
+        }
+      }
+      button.btn-primary.btn-lg {
+        background-color: @gn-search-button-background-color;
+        border-color: darken(@gn-search-button-background-color, 5%);
+        color: @gn-search-button-color;
+        &:hover {
+          background-color: darken(@gn-search-button-background-color, 10%);
+          border-color: darken(@gn-search-button-background-color, 15%);
+        }
+      }
+      .dropdown-menu > .active > a {
+        background-color: @gn-search-button-background-color;
+        color: @gn-search-button-color;
+      }
     }
   }
   .loading {
@@ -324,10 +343,18 @@
 
 .dutch-search {
   // ----- border NOT on all pages
-  .form-control, .form-control:focus, .form-control:active {
-    border: 1px solid @gn-menubar-background;
-    outline: 0;
-    box-shadow: none;
+  .form-control:focus {
+    border: 1px solid @gn-search-outline-color;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(@gn-search-outline-color-red, @gn-search-outline-color-green, @gn-search-outline-color-blue, 0.6) 0px 0px 8px;
+  }
+  .btn-primary.btn-lg {
+    background-color: @gn-search-button-background-color;
+    border-color: darken(@gn-search-button-background-color, 5%);
+    color: @gn-search-button-color;
+    &:hover {
+      background-color: darken(@gn-search-button-background-color, 10%);
+      border-color: darken(@gn-search-button-background-color, 15%);
+    }
   }
   // ----- more space around the label
   label {
@@ -362,7 +389,6 @@
     line-height: 1.33;
     min-height: 46px;
     border-radius: @gn-border-radius;
-    border: 1px solid @gn-menubar-background;
     margin-bottom: 0;
     .tag {
       display: inline-block;
@@ -379,12 +405,16 @@
         margin-top: -1px;
       }
     }
+    &:focus {
+      border: 1px solid @gn-search-outline-color;
+      box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(@gn-search-outline-color-red, @gn-search-outline-color-green, @gn-search-outline-color-blue, 0.6) 0px 0px 8px;
+    }
   }
 
   .bootstrap-tagsinput.focused {
-      border-color: @gn-menubar-background;
+      border-color: @gn-search-outline-color;
       outline: 0;
-      @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@gn-menubar-background, 20%);
+      @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@gn-search-outline-color, 20%);
       .box-shadow(@shadow);
   }
   // ----- trigger button
@@ -442,8 +472,10 @@
   }
   .date .input-group-addon {
     background-color: @input-bg;
-    border-color: @gn-menubar-background;
     color: #333;
+    &:focus {
+      border-color: @gn-menubar-background;
+    }
   }
   #btn-advanced-search.active {
     box-shadow: none;
@@ -487,7 +519,6 @@
   margin-top: 10px;
   margin-left: -7px;
   padding: 9px 0;
-  border: 1px solid @gn-menubar-background;
   width: calc(~"100% + 20px");
   box-shadow: none;
   border-radius: @gn-border-radius;
@@ -495,6 +526,10 @@
   max-width: 100%;
   max-height: 350px;
   overflow: auto;
+  z-index: 101 !important;
+  &:focus {
+    border: 1px solid @gn-search-outline-color;
+  }
 }
 .dropdown-menu {
   margin-top: 2px;
@@ -505,7 +540,7 @@
 }
 .dutch-search-home {
   .dropdown-menu {
-    border-color: @gn-menubar-background;
+    border-color: @gn-search-outline-color;
     li a {
     &:hover {
       background-color: @gn-menubar-background-active;
