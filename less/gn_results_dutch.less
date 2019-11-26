@@ -40,7 +40,7 @@ ul.gn-resultview {
     border-radius: @gn-border-radius;
     border: none;
     padding-left: 0px;
-    padding-right:0px;
+    padding-right: 0px;
     border-bottom: 1px solid #ccc;
     &:hover {
       background-color: transparent;
@@ -49,7 +49,6 @@ ul.gn-resultview {
     .row:first-of-type {
       padding-left: 3px;
     }
-
     .gn-md-thumbnail {
       margin-left: 8px;
       margin-right:0px;
@@ -105,6 +104,54 @@ ul.gn-resultview {
       p {
         line-height: 1.8em;
         text-align: left;
+      }
+    }
+    // default list template
+    &.gn-list {
+      padding-top: 5px;
+      border-bottom: 0;
+      .col-md-1 {
+        padding: 0;
+      }
+      .col-md-2 {
+        padding: 0;
+      }
+      .gn-md-title {
+        [gn-selection-md] {
+          display: none;
+        }
+        h1 {
+          font-size: 18px;
+          margin-top: 0;
+          margin-bottom: 15px;
+          line-height: 1.3em;
+        }
+      }
+      .gn-md-abstract {
+        p {
+          text-align: left !important;
+        }
+        address {
+          font-family: rijksoverheidsanstext-bold, sans, arial !important;
+        }
+      }
+      .gn-md-thumbnail {
+        min-width: auto;
+        .gn-img-thumbnail {
+          border-color: #ccc;
+          max-width: 100px;
+          max-height: 100px;
+        }
+      }
+      .gn-md-links {
+        line-height: normal;
+        background: none;
+        .btn {
+          float: none !important;
+        }
+        .gn-status {
+          display: none;
+        }
       }
     }
   }
