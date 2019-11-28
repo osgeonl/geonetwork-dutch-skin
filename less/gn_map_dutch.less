@@ -15,8 +15,12 @@
   height: 250px !important;
   margin: 10px 5px;
   .ol-attribution {
+    max-width: 93%;
     button {
       background-color: @btn-primary-bg;
+    }
+    li {
+      font-size: 12px;
     }
   }
 }
@@ -31,6 +35,9 @@
   .ol-attribution {
     button {
       background-color: @btn-primary-bg;
+    }
+    li {
+      font-size: 12px;
     }
   }
 }
@@ -82,7 +89,7 @@
   padding-bottom: 1px;
 }
 [gn-main-viewer], .gn-main-viewer {
-
+  height: auto;
   // ----- all the tools on the map
   .tools {
     border: 1px solid #ccc;
@@ -419,9 +426,5 @@
 // hide featureinfo
 #feature-info {
   display: none;
-}
-
-.ol-dragzoom {
-  border: 2px solid blue;
 }
 
