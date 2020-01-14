@@ -27,9 +27,6 @@
 
   goog.require('gn_dutch_gazetteer_factory');
 
-
-  var module = angular.module('gn_search_dutch_config', ['gn_dutch_gazetteer_factory']);
-
   var module = angular.module('gn_search_dutch_config', ['gn_dutch_gazetteer_factory',
     'gn_relatedresources_service']);
 
