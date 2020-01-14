@@ -39,13 +39,15 @@
       <div data-gn-user-searches-panel="user"></div>
 
       <!-- Hierachical facet mode -->
-      <div data-ng-show="searchResults.records.length > 0"
-            data-gn-facet-dimension-list="searchResults.dimension"
-            data-params="searchObj.params"
-            data-facet-type="facetsSummaryType"
-            data-facet-list="facetConfig"
-            data-current-facets="currentFacets"
-            data-tab-field="facetTabField">
+      <div data-ng-show="searchResults.records.length > 0">
+        <div>
+          <div data-gn-facet-dimension-list="searchResults.dimension"
+              data-params="searchObj.params"
+              data-facet-type="facetsSummaryType"
+              data-facet-list="facetConfig"
+              data-current-facets="currentFacets">
+          </div>
+        </div>
       </div>
     </div>
 
