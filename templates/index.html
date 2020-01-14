@@ -32,7 +32,7 @@
         </ul>
       </div>
     </div>
-      <!-- logo right -->
+    <!-- logo right -->
     <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'right'">
       <div class="col-md-6 col-sm-6 hidden-xs">
         <ul class="gn-static-pages">
@@ -56,33 +56,38 @@
   </div>
 
   <div data-gn-alert-manager="" id="alerts"></div>
+
   <div class="gn-search-page"
        data-ng-controller="DutchSearchController" role="main">
     <div class="gn-divider-bar"></div>
 
     <div class="" 
-	data-ng-controller="gnsDutch">
+         data-ng-controller="gnsDutch">
       <gn-extend-mainctrl></gn-extend-mainctrl>
       
-      <div class="container intro-text" data-ng-show="activeTab == '/home'">
-        <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
-        <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
-      </div>
+      <div data-gn-saved-selections="">
 
-      <div class="page" data-ng-class="{mappage: activeTab === '/map'}">
-        <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
-            data-ng-show="activeTab == '/home'"/>
-        <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
-            data-ng-show="activeTab == '/search'"/>
-        <div data-ng-if="isMapViewerEnabled && !isExternalViewerEnabled"
-            data-ng-include="'../../catalog/views/dutch/templates/map.html'"
-            data-ng-show="activeTab == '/map'"/>
-        <div data-ng-include="'../../catalog/views/default/templates/recordView.html'"
-           data-ng-show="activeTab == '/metadata'" class="gn-view-approved"/>
-        <div data-ng-include="'../../catalog/views/default/templates/recordView.html'"
-           data-ng-show="activeTab == '/metadraf'" class="gn-view-not-approved"/>
-        <div data-ng-include="'../../catalog/views/default/templates/page.html'"
-           data-ng-if="activeTab == '/page'"/>      </div>
+        <div class="container intro-text" data-ng-show="activeTab == '/home'">
+          <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
+          <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
+        </div>
+
+        <div class="page" data-ng-class="{mappage: activeTab === '/map'}">
+          <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
+              data-ng-show="activeTab == '/home'"/>
+          <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
+              data-ng-show="activeTab == '/search'"/>
+          <div data-ng-if="isMapViewerEnabled && !isExternalViewerEnabled"
+              data-ng-include="'../../catalog/views/dutch/templates/map.html'"
+              data-ng-show="activeTab == '/map'"/>
+          <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
+            data-ng-show="activeTab == '/metadata'" class="gn-view-approved"/>
+          <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
+            data-ng-show="activeTab == '/metadraf'" class="gn-view-not-approved"/>
+          <div data-ng-include="'../../catalog/views/dutch/templates/page.html'"
+            data-ng-if="activeTab == '/page'"/>
+        </div>
+      </div>
     </div>
   </div>
   <!-- /.gn-search-page -->
