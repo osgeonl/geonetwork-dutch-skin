@@ -672,6 +672,8 @@
             </div>
           </div>
 
+          <div data-ng-show="isRecordHistoryEnabled && user.isEditorOrMore() && mdView.current.record.draft != 'y'"
+               data-gn-record-history="mdView.current.record"></div>
 
         </div>
 
