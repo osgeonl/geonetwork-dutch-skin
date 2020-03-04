@@ -129,6 +129,7 @@
           searchSettings.mapProtocols = {
             layers: [
               'OGC:WMS',
+              'OGC:WFS',
               'OGC:WMS-1.1.1-http-get-map',
               'OGC:WMS-1.3.0-http-get-map',
               'OGC:WMTS-1.1.0-http-get-tile',
