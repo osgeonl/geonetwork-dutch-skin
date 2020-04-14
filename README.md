@@ -44,7 +44,9 @@ Some additional settings on the main project
 
 - On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at ../../catalog/views/dutch/config-nl-viewer.xml
 
-- set the thesurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in admin > classification (from local file > place)
+- Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in admin > classification (from local file > place)
+
+- Change the default template for the search results in 'Admin > Settings > User Interface > Default template used for search results' to `../../catalog/views/dutch/templates/card.html`
 
 ## Finally
 
