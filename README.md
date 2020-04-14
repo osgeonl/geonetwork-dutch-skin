@@ -24,7 +24,7 @@ git submodule init`
 
 ## If at run time (war)
 
-- Deploy the latest geonetwork 3.4.x war from sourceforge
+- Deploy the latest geonetwork 3.10.x war from sourceforge
 - grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/master
 - unzip it in /geonetwork/catalog/views/dutch
 
