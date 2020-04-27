@@ -15,44 +15,41 @@ The license of the project is GPLv2.
 
 # Installation instructions
 
-## If at build time (mvn install)
+## If at build time (`mvn install`)
 
-- Initialise the skin as a git submodule in `web-ui/src/main/resources/catalog/views`
+- Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
 
-```
-git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.10.x
+```bash
+git submodule add -b 3.10.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
-## If at run time (war)
+## If at run time (WAR)
 
-- Deploy the latest geonetwork 3.10.x war from sourceforge
-- grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.10.x
-- unzip it in `/geonetwork/catalog/views/dutch`
+- Deploy the latest geonetwork `3.10.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
+- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.10.x
+- Unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Then
 
-Some additional settings on the main project
+Some additional settings on the main project:
 
-- In /catalog/js/gnLocale.js, reference the skin language override file /catalog/views/dutch/locales/nl-core.json (line 90)
+- In `/catalog/js/gnLocale.js`, reference the skin language override file `/catalog/views/dutch/locales/nl-core.json` (line 90)
 
-`options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');`
+```javascript
+options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
+```
 
-- In pom.xml, configure the database type and connection details, Language.default, Language.forcedefault.
-
+- In pom.xml, configure the database type and connection details, `Language.default`, `Language.forcedefault`.
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
-
-- On 'Admin > Settings' and 'Admin > Settings > User Interface' configure things such as catalog title, logo, url, map extent, etc
-
-- On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at ../../catalog/views/dutch/config-nl-viewer.xml
-
+- On 'Admin > Settings' and 'Admin > Settings > User Interface' configure things such as catalog title, logo, URL, map extent, etc.
+- On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at `../../catalog/views/dutch/config-nl-viewer.xml`
 - Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in admin > classification (from local file > place)
-
 - Change the default template for the search results in 'Admin > Settings > User Interface > Default template used for search results' to `../../catalog/views/dutch/templates/card.html`
 
 ## Finally
 
 - (re)start the service
-- Verify the view by browsing to catalog.search?view=dutch. 
-- If ok, then alter the setting "view" to "dutch" in admin > settings
+- Verify the view by browsing to `catalog.search?view=dutch`. 
+- If ok, then alter the setting "view" to "dutch" in 'Admin > Settings'
 
