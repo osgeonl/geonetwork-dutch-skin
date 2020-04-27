@@ -7,28 +7,28 @@ This project contains a skin for the GeoNetwork Opensource project at https://gi
 - PDOK background layers as map backgrounds
 - PDOK locationserver as gazetteer
 
-This work has been started by PDOK and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
+This work has been started by PDOK and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the Github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
 
-A preconfigured skin is available as docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
+A preconfigured skin is available as Docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
 
 The license of the project is GPLv2.
 
 # Installation instructions
 
-## If at build time (mvn install)
+## If at build time (`mvn install`)
 
-- Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
+- Initialise the skin as a git submodule in `/web-ui/src/main/resources/catalog/views`
 
 ```bash
-git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.6.x
+git submodule add -b 3.6.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
-## If at run time (war)
+## If at run time (WAR)
 
 - Deploy the latest geonetwork `3.6.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
 - Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.6.x
-- Unzip it in /geonetwork/catalog/views/dutch
+- Unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Then
 
@@ -40,7 +40,7 @@ Some additional settings on the main project
 options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
 ```
 
-- In pom.xml, configure the database type and connection details, `Language.default`, `Language.forcedefault`.
+- In `pom.xml`, configure the database type and connection details, `language.default`, `language.forcedefault`.
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
 - On 'Admin > Settings' and 'Admin > Settings > User Interface' configure things such as catalog title, logo, url, map extent, etc.
 - On 'Admin > Settings' and 'Admin > Settings > User Interface' set the default map to load to use the thematic map with pdok-backgrounds at `../../catalog/views/dutch/config-nl-viewer.xml`
@@ -50,5 +50,5 @@ options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
 
 - (re)start the service
 - Verify the view by browsing to catalog.search?view=dutch. 
-- If ok, then alter the setting "view" to "dutch" in admin > settings
+- If ok, then alter the setting "view" to "dutch" in 'Admin > Settings`
 
