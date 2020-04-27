@@ -17,16 +17,18 @@ The license of the project is GPLv2.
 
 ## If at build time (mvn install)
 
-- Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
+- Initialise the skin as a git submodule in `web-ui/src/main/resources/catalog/views`
 
-`git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch master
-git submodule init`
+```
+git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.10.x
+git submodule init
+```
 
 ## If at run time (war)
 
 - Deploy the latest geonetwork 3.10.x war from sourceforge
-- grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/master
-- unzip it in /geonetwork/catalog/views/dutch
+- grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.10.x
+- unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Then
 
