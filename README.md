@@ -1,6 +1,6 @@
 # A custom view for GeoNetwork: 'Dutch Government Skin'
 
-This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build war.
+This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
 
 ## Features:
 - Design slightly follows [dutch rijkshuisstijl](https://www.rijkshuisstijl.nl/)
@@ -10,7 +10,7 @@ This project contains a skin for the GeoNetwork Opensource project at https://gi
 
 This work has been started by Kadaster Netherlands and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
 
-A preconfigured skin is available as docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
+A preconfigured skin is available as Docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
 
 The license of the project is GPLv2.
 
@@ -21,11 +21,11 @@ The license of the project is GPLv2.
 - Initialise the skin as a git submodule in /web-ui/src/main/resources/catalog/views
 
 ```bash
-git submodule add https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch 3.4.x
+git submodule add -b 3.4.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
-## If at run time (war)
+## If at run time (WAR)
 
 - Deploy the latest geonetwork `3.4.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
 - Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.4.x
