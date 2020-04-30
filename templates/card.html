@@ -14,15 +14,18 @@
              class="btn btn-link pull-right">
             <i class="fa fa-pencil"></i>
            </a>
-          <!-- Thumbnail -->
-          <div class="gn-md-thumbnail"
-                data-ng-class="{'gn-md-no-thumbnail': !md.getThumbnails().list[0].url}">
-            <img class="gn-img-thumbnail"
-                alt="{{md.title || md.defaultTitle}}"
-                title="{{md.title || md.defaultTitle}}"
-                data-ng-src="{{md.getThumbnails().list[0].url}}"
-                data-ng-if="md.getThumbnails().list[0].url"
-                onerror="$(this).hide().parent().addClass('gn-md-no-thumbnail')"/>
+          <!--Catalog or group Logo-->
+          <div class="gn-md-logo">
+            <a class="pull-left" ng-if="md.groupWebsite" href="{{md.groupWebsite}}" target="_blank">
+              <img ng-src="../..{{md.logo}}"
+                  alt="{{'siteLogo' | translate}}"
+                  class="media-object"/>
+            </a>
+            <a class="pull-left" ng-if="!md.groupWebsite">
+              <img ng-src="../..{{md.logo}}"
+                  alt="{{'siteLogo' | translate}}"
+                  class="media-object"/>
+            </a>
           </div>
         </div>
         <div data-ng-click="openRecord($index, md, searchResults.records)">
