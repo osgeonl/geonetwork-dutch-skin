@@ -47,7 +47,7 @@ options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
 - Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in admin > classification (from local file > place)
 - Change the default template for the search results in 'Admin > Settings > User Interface > Default template used for search results' to `../../catalog/views/dutch/templates/card.html`
 
-### How ta add facets on top of the search results?
+### How to add facets on top of the search results?
 Go to 'Admin > Settings > User Interface > Display filter tags in the search results' and select the option, and unselect the optiopn if you don't want the facets on the search results.
 
 ## Finally
