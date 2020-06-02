@@ -151,4 +151,8 @@
           });
 
         }]);
+  
+        module.config(['$LOCALES', function($LOCALES) {
+          $LOCALES.push('../../catalog/views/dutch/locales/|core');
+        }]);
 })();

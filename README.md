@@ -34,12 +34,6 @@ git submodule init
 
 Some additional settings on the main project:
 
-- In `/catalog/js/gnLocale.js`, reference the skin language override file `/catalog/views/dutch/locales/nl-core.json` (line 90)
-
-```javascript
-options.locales.push('/../../catalog/views/dutch/locales/{{lang}}-core.json');
-```
-
 - In `pom.xml`, configure the database type and connection details, `Language.default`, `Language.forcedefault`.
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
 - On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` configure things such as catalog title, logo, URL, map extent, etc.
