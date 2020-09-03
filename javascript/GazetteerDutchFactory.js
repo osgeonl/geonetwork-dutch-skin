@@ -66,14 +66,15 @@
                   var type = response.response.docs[0].type;
 
                   if (type == 'gemeente') {
-                    zoom = 10;
+                    zoom = 8;
                   } else if (type == 'woonplaats') {
-                    zoom = 13;
+                    zoom = 9;
                   } else if (type == 'weg' || type == 'postcode') {
-                    zoom = 18;
+                    zoom = 12;
                   } else if (type == 'adres' || type == 'hectometerpaal' || type == 'perceel') {
-                    zoom = 20;
+                    zoom = 13;
                   }
+
                   // fit the geometry and zoom
                   zoomTo(geom, map, zoom);
                   scope.query = loc.name;
