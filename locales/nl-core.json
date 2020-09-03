@@ -27,6 +27,7 @@
 "mdContactName": "Naam contactpersoon",
 "mdContactSource": "Verantwoordelijke organisatie",
 "mdContactRole": "Rol contactpersoon",
+"positionName": "Functie",
 "mdPhone": "Telefoon",
 "mdProvince": "Provincie",
 "mdPostalcode": "Postcode",
