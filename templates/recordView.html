@@ -1,5 +1,9 @@
 <div data-ng-controller="GnMdViewController" class="dutch-md-view">
-
+  
+  <div class="crumb"><a href="#/home" data-translate="">Home</a> / <a href data-ng-click="backToSearch()" data-translate="">search</a> /
+    {{mdView.current.record.title || mdView.current.record.defaultTitle}}
+  </div>
+  
   <div data-ng-if="mdView.current.record.draft == 'e' || mdView.current.record.draft == 'y'"
        data-ng-show="user.canEditRecord(mdView.current.record)"
        class="bg-info see-draft-alert">
@@ -20,10 +24,6 @@
       data-ng-show="user.canEditRecord(mdView.current.record)">
       {{'seeNoDraft' | translate}}
     </a>
-  </div>
-
-  <div class="crumb"><a href="#/home" data-translate="">Home</a> / <a href data-ng-click="backToSearch()" data-translate="">search</a> /
-    {{mdView.current.record.title || mdView.current.record.defaultTitle}}
   </div>
 
   <!-- todo: should be changed to data-ng-show, only when record retrieval fails -->
