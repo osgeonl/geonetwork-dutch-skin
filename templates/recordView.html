@@ -88,13 +88,18 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
+          <li role="menuitem" data-ng-class="currentFormatter == undefined ? 'disabled' : ''">
+            <a href="" data-ng-click="format()">
+              <span data-translate="">defaultView</span>
+            </a>
+          </li>
           <li role="menuitem"
               data-ng-repeat="f in formatter.list"
-              data-ng-class="currentFormatter === f.url ? 'disabled' : ''">
-            <a href=""
-               gn-metadata-open="mdView.current.record"
-               gn-records="mdView.records"
-               gn-formatter="f && f.url">
+              data-ng-class="f === currentFormatter ? 'disabled' : ''">
+            <a href="" 
+                 gn-metadata-open="mdView.current.record"
+                 gn-records="mdView.records"
+                 gn-formatter="f && f.url">
               {{f.label | translate}}
             </a>
           </li>
@@ -570,20 +575,34 @@
             <div class="col-xs-12 clearfix">
               <span class="share-banner-title hidden-xs" data-translate="">shareOn</span>
               <span class="hidden-xs">:</span>
-              <a
-                data-ng-href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F{{$location.host()}}%2Fgeonetwork%2Fsrv%2Fmetadata%2F{{mdView.current.record['geonet:info'].uuid}}"
-                target="_blank"
-                class="btn btn-link btn-sm"><i class="fa fa-fw fa-linkedin"></i><span class="hidden-xs"> LinkedIn</span></a>
-              <a
-                data-ng-href="https://twitter.com/share?url=https%3A%2F%2F{{$location.host()}}%2Fgeonetwork%2Fsrv%2Fmetadata%2F{{mdView.current.record['geonet:info'].uuid}}"
-                target="_blank"
-                class="btn btn-link btn-sm"><i class="fa fa-fw fa-twitter"></i><span
-                class="hidden-xs"> Twitter</span></a>
-              <a
-                data-ng-href="https://www.facebook.com/sharer/sharer.php?u=http://{{$location.host()}}/geonetwork/srv/metadata/{{mdView.current.record['geonet:info'].uuid}}"
-                target="_blank"
-                class="btn btn-link btn-sm"><i class="fa fa-fw fa-facebook"></i><span class="hidden-xs"> Facebook</span></a>
-
+              <a data-ng-href="https://twitter.com/share?url={{socialMediaLink | encodeURIComponent}}"
+                 title="{{'shareOnTwitter' | translate}}"
+                 target="_blank"
+                 class="btn btn-link btn-sm">
+                <i class="fa fa-fw fa-twitter"></i>
+                <span class="hidden-xs">Twitter</span>
+              </a>
+              <a data-ng-href="https://www.facebook.com/sharer.php?u={{socialMediaLink | encodeURIComponent}}"
+                 title="{{'shareOnFacebook' | translate}}"
+                 target="_blank"
+                 class="btn btn-link btn-sm">
+                <i class="fa fa-fw fa-facebook"></i>
+                <span class="hidden-xs">Facebook</span>
+              </a>
+              <a data-ng-href="http://www.linkedin.com/shareArticle?mini=true&amp;summary={{mdView.current.record.title || mdView.current.record.defaultTitle}}&amp;url={{socialMediaLink | encodeURIComponent}}"
+                 title="{{'shareOnLinkedIn' | translate}}"
+                 target="_blank"
+                 class="btn btn-link btn-sm">
+                <i class="fa fa-fw fa-linkedin"></i>
+                <span class="hidden-xs">LinkedIn</span>
+              </a>
+              <a data-ng-href="mailto:?subject={{mdView.current.record.title || mdView.current.record.defaultTitle}}&amp;body={{socialMediaLink | encodeURIComponent}}"
+                 title="{{'shareByEmail' | translate}}"
+                 target="_blank"
+                 class="btn btn-link btn-sm">
+                <i class="fa fa-fw fa-envelope-o"></i>
+                <span class="hidden-xs">Email</span>
+              </a>
               <a data-ng-href="./rss.search?sortBy=changeDate&uuid={{mdView.current.record['geonet:info'].uuid}}"
                  target="_blank"
                  class="btn btn-link btn-sm">
@@ -593,7 +612,8 @@
               <!-- feedback -->
               <div class="pull-right" 
                 data-gn-md-feedback="mdView.current.record"
-                data-show-label="feedback"></div>
+                data-show-label="feedback">
+              </div>
             </div>
           </div>
 
