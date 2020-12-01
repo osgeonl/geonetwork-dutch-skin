@@ -6,7 +6,8 @@
 
   <div class="row dutch-sort"
        data-ng-show="searchResults.records.length > 0">
-    <div class="col-md-offset-3 col-md-6 relative">
+    <div class="relative"
+         data-ng-class="fixedMiniMap ? 'col-md-offset-4 col-md-5' : 'col-md-offset-3 col-md-6'">
 
       <h4>{{searchResults.count}} <span data-translate="">resultsFound</span></h4>
 
@@ -22,7 +23,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-offset-3 col-md-9 relative gn-margin-bottom">
+    <div class="relative gn-margin-bottom"
+         data-ng-class="fixedMiniMap ? 'col-md-offset-4 col-md-8' : 'col-md-offset-3 col-md-9'">
       <div data-search-filter-tags
            data-dimensions="searchResults.dimension"
            data-use-location-parameters="true"
@@ -33,7 +35,8 @@
 
   <div class="row gn-row-results">
 
-    <div class="col-md-3 gn-search-facet hidden-sm hidden-xs">
+    <div class="gn-search-facet hidden-sm hidden-xs"
+         data-ng-class="fixedMiniMap ? 'col-md-4' : 'col-md-3'">
       
       <div data-gn-user-searches-panel="user"></div>
 
@@ -55,7 +58,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div data-ng-class="fixedMiniMap ? 'col-md-8' : 'col-md-6'">
       
       <span class="loading fa fa-spinner fa-spin"
             data-ng-show="searching"></span>
@@ -80,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div data-ng-class="fixedMiniMap ? 'gn-fixed-map' : 'col-md-3'"">
       <div data-gn-map-field="searchObj.searchMap"
            data-gn-map-field-geom="searchObj.params.geometry"
            data-gn-map-field-opt="searchObj.mapfieldOption"
