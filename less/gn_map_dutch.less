@@ -14,9 +14,15 @@
   float: right;
   z-index: 500;
 }
+.gn-minimap-button {
+  display: none;
+}
 .gn-fixed-map {
   [data-gn-map-field] > [ol-map] {
     position: fixed !important;
+  }
+  .gn-minimap-button {
+    display: block;
   }
 }
 // map view
