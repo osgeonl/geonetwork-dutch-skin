@@ -386,8 +386,11 @@
   }
   // ----- more space means another top for the location icon
   .has-feedback .form-control-feedback {
-    top: 41px;
+    top: 72px;
     right: auto;
+    @media (min-width: @screen-md-min) {
+      top: 41px;
+    }
   }
 
   // search and tags
