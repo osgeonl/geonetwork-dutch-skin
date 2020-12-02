@@ -88,18 +88,13 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li role="menuitem" data-ng-class="currentFormatter == undefined ? 'disabled' : ''">
-            <a href="" data-ng-click="format()">
-              <span data-translate="">defaultView</span>
-            </a>
-          </li>
           <li role="menuitem"
               data-ng-repeat="f in formatter.list"
-              data-ng-class="f === currentFormatter ? 'disabled' : ''">
-            <a href="" 
-                 gn-metadata-open="mdView.current.record"
-                 gn-records="mdView.records"
-                 gn-formatter="f && f.url">
+              data-ng-class="currentFormatter === f.url ? 'disabled' : ''">
+            <a href=""
+               gn-metadata-open="mdView.current.record"
+               gn-records="mdView.records"
+               gn-formatter="f && f.url">
               {{f.label | translate}}
             </a>
           </li>
