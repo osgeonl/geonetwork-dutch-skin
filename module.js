@@ -382,9 +382,16 @@ module.controller('gnsSearchTopEntriesController', [
         $location.search('tab', newTab);
       };
 
+      // Event issued when the relations are not available.
+      // Instead of using the requestedTab (fixed value) always, check if the user selected another tab.
       $scope.$on('tabChangeRequested', function(event, requestedTab) {
-        //$scope.changeTabMdView(requestedTab);
-        $scope.changeTabWithoutModifyingUrl(requestedTab);
+        var search = $location.search();
+
+        if (angular.isDefined(search.tab) && (search.tab != 'relations')) {
+          $scope.changeTabWithoutModifyingUrl(search.tab);
+        } else {
+          $scope.changeTabWithoutModifyingUrl(requestedTab);
+        }
       });
 
       $scope.changeTabWithoutModifyingUrl = function (newTab) {
