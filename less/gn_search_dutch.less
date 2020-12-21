@@ -80,6 +80,9 @@
     border-color: darken(@brand-danger, 5%);
     color: darken(@brand-danger, 5%);
   }
+  .dropdown-menu {
+    z-index: 1001 !important;
+  }
 }
 
 [data-ng-search-form] {
@@ -319,6 +322,9 @@
   border-color: #ccc;
   color: #333;
   text-decoration: none;
+}
+.gn-sort-by .btn.dropdown-toggle span {
+  background: transparent;
 }
 // ----- closed advanced search
 #dutch-search-form .btn-link {
