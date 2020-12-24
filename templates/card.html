@@ -1,3 +1,4 @@
+<!-- dutch change: custom list view -->
 <ul class="list-group gn-resultview">
   <li class="list-group-item" 
       data-ng-repeat="md in searchResults.records"
@@ -28,14 +29,20 @@
             </a>
           </div>
         </div>
+        <input gn-selection-md type="checkbox" 
+               data-ng-show="isAdmin"
+               class="gn-select-record"
+               ng-model="md['geonet:info'].selected"
+               aria-label="{{'clickToSelect' | translate}}"
+               ng-change="change()"/>
         <div data-ng-click="openRecord($index, md, searchResults.records)">
-          <h4>
+          <h1>
             <input gn-selection-md type="checkbox" ng-model="md['geonet:info'].selected" ng-change="change()" data-ng-show="isAdmin"/>
             <a data-ng-href="#/metadata/{{md.getUuid()}}"
                title="{{md.title || md.defaultTitle}}">
               {{md.title || md.defaultTitle}}
             </a>
-          </h4>
+          </h14>
         </div>
         
         <div ng-if="md.getContacts().metadata">
@@ -59,11 +66,11 @@
 
         <div data-ng-if="md.topicCat.length > 0">
           <b data-translate="">topiccat</b>:
-          <a class="btn btn-link"
+          <a class="btn btn-link btn-badge"
             data-ng-repeat="t in md.topicCat"
             data-ng-href="#/search?topicCat={{t}}">{{t | translate}}</a>
         </div>
-		    <p class="text-justify" dd-text-collapse dd-text-collapse-max-length="350" dd-text-collapse-text="{{md.abstract || md.defaultAbstract}}"></p>
+		    <p dd-text-collapse dd-text-collapse-max-length="350" dd-text-collapse-text="{{md.abstract || md.defaultAbstract}}"></p>
       </div>
     </div>
   </li>

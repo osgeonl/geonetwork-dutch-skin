@@ -1,66 +1,91 @@
+@import "../../../style/gn_search.less";
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
 .gn-full {
   min-height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
+
 html, body {
-  height: 100%;
+  height:100%;
+}
+// header
+.gn-header {
+  background-color: @gn-header-background;
 }
 
 // background image and color
-[ng-app^="gn_search_"] body, [ng-app="gn_login"] body {
-  background-image: url(@gn-background-image);
+[ng-app^="gn_search_"] body, [ng-app="gn_login"] body, .gn-background {
   background-color: @gn-background-color;
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-// container
-@media (max-width: 768px) {
-  .container {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-}
-// layout
-@media (min-width: 1200px) {
-  #gn-directory-container {
-    width: 1100px;
-  }
-}
-// extra wide screens
-.gn-extra-wide-container {
-  @media (min-width: 1440px) {
-    .container {
-      width: 1400px;
-    }
-    #gn-directory-container {
-      width: 1340px;
+  //background-attachment: fixed;
+  &.gn-header-fixed {
+    padding-top: @gn-menubar-height;
+    &.gn-logo-in-header {
+      padding-top: calc(~"@{gn-header-height} + @{gn-menubar-height}");
+      .gn-header {
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        z-index: 1030;
+        height: @gn-header-height;
+      }
     }
   }
 }
-
-[gn-main-viewer] .search-container, .gn-main-viewer .search-container {
-  right: 20px;
+// check if the variable is a not an empty string, if not, then set the background image
+//
+// if the background image is an empty string it will be substitued with the name of the css file,
+// see: https://stackoverflow.com/questions/20727262/css-file-considered-as-being-an-image-resource
+[ng-app^="gn_search_"] body when (isstring(@gn-background-image)) {
+  background-image: url(@gn-background-image);
+}
+.gn-background when (isstring(@gn-background-image)) {
+  background-image: url(@gn-background-image);
+}
+[ng-app^="gn_login"] body when (isstring(@gn-background-image)) {
+  background-image: url(@gn-background-image);
 }
 
-.gn-sort-by {
-  .btn-group > button {
-    .btn-link();
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.gn-row-main {
+  margin: 2em 0 4em;
+  .gn-form-any {
+    .input-lg {
+      &:focus {
+        border-color: @gn-search-outline-color;
+        box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(@gn-search-outline-color-red, @gn-search-outline-color-green, @gn-search-outline-color-blue, 0.6) 0px 0px 8px;
+      }
+    }
+    .btn {
+      background-color: @gn-search-button-background-color;
+      border-color: darken(@gn-search-button-background-color, 5%);
+      color: @gn-search-button-color;
+      &:hover {
+        background-color: darken(@gn-search-button-background-color, 10%);
+        border-color: darken(@gn-search-button-background-color, 15%);
+      }
+    }
   }
 }
 
-.page {
-  background: @gn-background-color;
-  padding-bottom: 60px;
+.gn-row-info {
+  padding-top: 20px;
+  background-color: @gn-info-background-color;
 }
-
 
 .cookie-warning {
   .alert;
   .alert-info;
+  position: absolute;
+  z-index: 100;
 }

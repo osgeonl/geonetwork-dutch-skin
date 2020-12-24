@@ -1,6 +1,8 @@
-# A custom view for GeoNetwork: 'Dutch Government Skin'
+# A custom view for GeoNetwork: 'Dutch Government Skin' - Version 2
 
 This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
+
+Version 2 is rebuilt from the ground up. It's closely matched with the latest version of GeoNetwork OpenSource.
 
 ## Features:
 - Design slightly follows [dutch rijkshuisstijl](https://www.rijkshuisstijl.nl/)

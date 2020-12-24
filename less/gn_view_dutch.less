@@ -1,33 +1,88 @@
 /* Defined here any custom style for the view
    which has to be applied for all apps
    (ie. admin, search, login, editor). */
-// @import "../../default/less/gn_view.less";
+
+@import "../../../style/gn_search.less";
+// variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
-@gnSpacing: 10px;
-@border-radius-large: 4px;
-@border-radius-base: 3px;
-@border-radius-small: 3px;
+@gn-spacing: 10px;
 
-// background
-@body-bg: #f3f3f3;
-// navbar
-@navbar-margin-bottom: 0px;
-@navbar-border-radius: 3px;
-@navbar-default-link-color: #535353;
+//  padding
+.gn-padding-top {
+  padding-top: @gn-spacing !important;
+}
+.gn-padding-right {
+  padding-right: @gn-spacing !important;
+}
+.gn-padding-bottom {
+  padding-bottom: @gn-spacing !important;
+}
+.gn-padding-left {
+  padding-left: @gn-spacing !important;
+}
+// no padding
+.gn-nopadding-top {
+  padding-top: 0 !important;
+}
+.gn-nopadding-right {
+  padding-right: 0 !important;
+}
+.gn-nopadding-bottom {
+  padding-bottom: 0 !important;
+}
+.gn-nopadding-left {
+  padding-left: 0 !important;
+}
+// margin
+.gn-margin-top {
+  margin-top: @gn-spacing !important;
+}
+.gn-margin-right {
+  margin-right: @gn-spacing !important;
+}
+.gn-margin-bottom {
+  margin-bottom: @gn-spacing !important;
+}
+.gn-margin-left {
+  margin-left: @gn-spacing !important;
+}
+//border
+.gn-noborder-top {
+  border-top-width: 0 !important;
+}
+.gn-noborder-right {
+  border-right-width: 0 !important;
+}
+.gn-noborder-bottom {
+  border-bottom-width: 0 !important;
+}
+.gn-noborder-left {
+  border-left-width: 0 !important;
+}
 
-// ----------------------------------------------------------------------
-// typography
-//
-// general text styling
-// ----------------------------------------------------------------------
+.btn-round {
+  border-radius: 50%;
+  padding: 11px 15px;
+}
+.btn-truncate {
+  span {
+    display: inline-block;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 150px;
+  }
+}
+
+// Dutch overrides
 
 // ----- font bold
 @font-face {
   font-family: rijksoverheidsanstext-bold;
   src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
 }
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,strong,b {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
   font-weight: 500;
 }
@@ -42,419 +97,875 @@ body,p,div,span,a,blockquote,.btn {
   font-weight: normal;
 }
 
-.fa, .fa span, .fa div, .fa a {
+// ----- font awesome (in case it's overwritten with the above font)
+.fa {
   font-family: FontAwesome !important;
 }
-.fa.pull-left {
-  margin-right: .3em;
-  margin-top: 7px;
+
+// body
+body {
+  background-attachment: fixed;
+}
+// websiet scroll
+::-webkit-scrollbar {
+  background-color: @gn-background-color;
 }
 
-a {
-  color: @ro-darkblue-full;
-}
-
-// ----- alerts
-.alert {
-  line-height: 1.6em;
-  max-width: 1000px;
-}
-.gn-info, .gn-alerts .alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  border-radius: 0;
-  max-width: none;
-  text-align: left;
-  border-width: 0 0 1px 0;
-}
-
-// ----- about, for developers, etc
-.plain-text {
-  width: 80%;
-  padding: 20px;
-  margin: 0;
-  h1 {
-    margin: 30px 0 30px 0;
-  }
-  h4 {
-    margin: 30px 0 20px 0;
-  }
-  p {
-    line-height: 1.7em;
-  }
-  li a {
-    display: block;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-}
-@media (max-width: 767px) {
-  .plain-text {
-    width: 100%;
-    h1 {
-      margin: 20px 0 20px 0;
-    }
+// header {
+.gn-header {
+  background: none;
+  .container {
+    background-color: #fff;
   }
 }
 
-// ----------------------------------------------------------------------
-// custom text styles
-// ----------------------------------------------------------------------
-
-// ----- general
-.dutch-hierarchy {
-  font-size: 16px;
-  margin-bottom: 25px;
-}
-.dutch-md-label, .dutch-md-label span {
-  font-family: rijksoverheidsanstext-bold, sans, arial !important;
-  color: #333;
-}
-
-// ----- toggle option
-.collapse-text-toggle {
-  color: @ro-gray-6;
-  cursor: pointer;
-  &:hover {
-    color: @ro-gray-7;
-    text-decoration: underline;
-  }
-}
-
-// ----- keywords
-.dutch-keyword {
-  margin-right: 3px;
-  color: #333;
-  text-decoration: underline;
-  &:hover {
-    color: #000;
-  }
-  &:after {
-    content: ","
-  }
-  &:last-child:after {
-    content: ""
-  }
-}
-// ----- sort label
-.dutch-sort-label {
-  margin-top: 6px;
-}
-
-// ----------------------------------------------------------------------
-// tab styling
-// ----------------------------------------------------------------------
-
-@media (max-width: 450px) {
-  .nav-tabs > li {
-    width: 100%;
-    border: 0;
-    float: none;
-  }
-  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-      color: #333;
-      background-color: #efefef;
-      border: 0;
-      border-bottom-color: transparent;
-  }
-}
-
-// ----------------------------------------------------------------------
-// Dropdowns
-// ----------------------------------------------------------------------
-
-// -----general dropdown
-.dutch-search-form, .navbar {
-  .dropdown-menu {
-    max-height: 400px;
-    overflow: auto;
-  }
-  .dropdown-menu > li > a {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-.dropdown-menu img.img-circle {
-  display:none !important;
-}
-.navbar .dropdown-hover .dropdown-menu {
-  display: none;
-}
-
-// ----- dropdown higher than footer
-.dropdown-menu {
-  z-index: 1001;
-
-  // sometimes a dropdown is used within a class 'text-right', this to align elements
-  // to the right, but in a dropdown text should always be on the left
-  li {
-    text-align: left;
-    a {
-      min-width: max-content;
-    }
-  }
-  // disable click function on disabled items
-  li.disabled {
-    a {
-      pointer-events: none;
-      color: #707070;
-    }
-  }
-  // remove the double toggle buttons
-  i.fa-sort {
-    display: none;
-  }
-  // more whitespace in the dropdown
-  .caret {
-    margin-left: 5px;
-  }
-}
-// handle hover dropdowns for editor and admin menu (only if not on mobile)
-@media (min-width: @screen-sm-min) {
-  li.dropdown-hover {
-    & > .dropdown-toggle {
-      position: relative;
-      &:after {
-        font-family: FontAwesome;
-        content: "\f0d7";
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        font-size: 0.9em;
+// top bar
+.gn-top-bar {
+  background: none;
+  border: none;
+  .container {
+    background-color: @gn-menubar-background;
+    padding-top: 10px;
+    border-bottom: 5px solid @gn-menubar-border-color;
+    .gn-logo-link {
+      .gn-name {
+        display: block;
+        margin-left: 0 !important;
       }
     }
-    &.open:not(.active) > .dropdown-toggle {
-      background: none;
-    }
-    ul {
-      display: none;
-    }
-    &:hover ul, & > a:focus + ul, & > a:active + ul {
-      display: block !important;
+  }
+}
+
+// breadcrumbs (in second toolbar/navbar)
+.crumb {
+  background-color: @gn-crumbpath-background;
+  line-height: calc(~"@{gn-crumbpath-height} - 8px");
+  height: @gn-crumbpath-height;
+  color: @gn-crumbpath-color;
+  a {
+    color: @gn-crumbpath-color;
+  }
+}
+
+// footer
+.gn-bottom-bar {
+  background: @gn-bottombar-background;
+  border: 0;
+  position: relative;
+  .container();
+}
+
+// home page
+
+// intro
+.gn-row-intro {
+  .container {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    background: none;
+    color: white;
+    text-align: center;
+    h1 {
+      width: 60%;
+      font-size: 3em;
+      line-height: 1.3em;
+      margin: 0 auto;
+      text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
     }
   }
 }
 
-// ----------------------------------------------------------------------
-// inspire styles for Dutch Skin
-// ----------------------------------------------------------------------
-
-// ----- used for search results & detail view
-.dutch-inspire-list {
-  margin-top: 10px;
-  list-style: none;
-  li {
-    margin-bottom: 10px;
+// main
+.gn-row-main {
+  margin: 0;
+  padding: 0;
+  .container {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: #98C8F6;
   }
-  li:before {
-    content: "\f105";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
+  .gn-form-any {
+    display: block;
+  }
+  .form-control, .bootstrap-tagsinput {
+    height: 40px !important;
+    width: 100%;
+    border-radius: @gn-border-radius;
+  }
+  .bootstrap-tagsinput {
+    font-size: 18px;
+    padding: 7px 16px;
+  }
+  .form-control-feedback {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    top: 28px !important;
+  }
+  .btn-primary {
+    width: 100%;
+    height: 38px;
+    margin-top: 26px;
+    border-radius: @gn-border-radius;
+  }
+}
+
+// topics
+.gn-row-topics {
+  background: none;
+  margin: 0;
+  padding: 0;
+  .container {
+    background-color: #fff;
+    padding-bottom: 60px;
+    h1 {
+      margin-bottom: 50px;
+      margin-top: 50px;
+      font-size: 24px;
+    }
+  }
+  .chips-card {
+    padding-top: 0;
+    .badge-result-topic {
+      margin-bottom: 0;
+      width: 100%;
+      a {
+        background: none;
+        width: 100%;
+        .badge-icon {
+          color: @gn-color;
+          background: none;
+          width: 25px;
+        }
+        .badge-text {
+          color: @gn-color;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 120%;
+          max-width: 100%;
+          text-align: left;
+        }
+        .gn-icon-count {
+          color: #707070;
+        }
+      }
+    }
+  }
+}
+
+// search page
+.gn-search-page {
+  background: none;
+  padding-bottom: 0;
+  [data-ng-search-form] .gn-top-search {
+    background: none;
+    margin: 0;
+    padding: 0;
+    .container {
+      background-color: @navbar-default-link-active-bg;
+      padding: 30px 20px 35px 20px;
+      border-bottom: 10px solid darken(@navbar-default-link-active-bg, 5%);
+    }
+    .form-control, .bootstrap-tagsinput {
+      height: 40px !important;
+      width: 100%;
+      border-radius: @gn-border-radius;
+    }
+    .bootstrap-tagsinput {
+      font-size: 18px;
+      padding: 7px 16px;
+    }
+    .btn-primary {
+      width: 49%;
+      height: 38px;
+      margin-top: 26px;
+      border-radius: @gn-border-radius;
+    }
+    .dutch-search-topic {
+      .input-group {
+        display: block;
+      }
+    }
+    .dutch-search-location {
+      .form-control-feedback {
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        top: 28px;
+      }
+    }
+    // advanced search
+
+    // toggle button
+    #btn-advanced-search {
+      padding: 15px;
+      border-radius: 0;
+      border-color: darken(@navbar-default-link-active-bg, 5%);
+      background-color: darken(@navbar-default-link-active-bg, 5%);
+      &.active {
+        box-shadow: none;
+        i {
+          &:before {
+            content: "\f062"; // up arrow 
+          }
+        }
+      }
+    }
+    // advanced panel
+    .gn-search-filter {
+      .clearfix();
+      margin: 0 -20px;
+      padding: 20px 20px 10px 20px;
+      background-color: darken(@navbar-default-link-active-bg, 5%);
+      .bootstrap-tagsinput {
+        line-height: 28px;
+        .tagsinput-trigger {
+          top: 38px;
+          right: 15px;
+        }
+      }
+    }
+  }
+  .gn-row-results {
+    background: none;
+    padding: 0 10px;
+    .container {
+      background-color: @gn-results-background-color;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    // tools
+    .gn-row-tools {
+      border-bottom: 1px solid @panel-default-border;
+      padding: 0 0 5px 0;
+      margin-bottom: 15px;
+      margin-left: 15px;
+    }
+    // facets
+    .gn-search-facet {
+      margin-top: 20px;
+      .panel-default {
+        border: 0;
+        box-shadow: none;
+        background: none;
+        .panel-heading {
+          background: none;
+          padding-left: 0;
+        }
+        .panel-body {
+          padding-left: 0;
+          .gn-facet {
+            .gn-facet-toggle {
+              width: 1px;
+            }
+            .list-group-item {
+              padding-top: 3px;
+              padding-bottom: 3px;
+            }
+          }
+        }
+      }
+      .panel {
+        [data-gn-slide-toggle] {
+          &.panel-heading {
+            &:before {
+              display: none;
+            }
+            &:after {
+              content: "\f107";
+              font-family: FontAwesome;
+              font-style: normal;
+              font-weight: normal;
+              text-decoration: inherit;
+              position: absolute;
+              right: 20px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    // results
+    ul.gn-resultview {
+      li.list-group-item {
+        padding-left: 0;
+        border-bottom: 1px solid @panel-default-border;
+        [class*=col-md] {
+          padding-left: 0;
+        }
+        h1 {
+          font-size: 16px;
+          margin: 5px 50px 15px 0;
+
+          font-weight: 700;
+        }
+        p {
+          line-height: 1.8em;
+          margin-top: 5px;
+        }
+        .gn-md-logo {
+          img {
+            max-width: 100px;
+            max-height: 60px;
+          }
+        }
+        &:hover {
+          background: none;
+        }
+        .btn-badge {
+          border: 1px solid lighten(@brand-primary, 30%);
+          padding: 2px 10px;
+          border-radius: 20px;
+          margin: 2px;
+        }
+      }
+    } 
+  }
+  // mini map
+  [data-gn-map-field] > [ol-map] {
+    position: relative !important;
+    z-index: 99;
+    width: 190px !important;
+    height: 300px !important;
+    margin: 10px 0;
+  }
+}
+
+// typeahead search boxes
+//
+// ----- tag search inputs
+.tt-dropdown-menu, .tt-menu, .dropdown-menu {
+  margin-top: 6px;
+  margin-left: -16px;
+  padding: 9px 0;
+  width: calc(~"100% + 32px");
+  box-shadow: none;
+  border-radius: @gn-border-radius;
+  background-color: #fff;
+  max-width: 100%;
+  max-height: 350px;
+  overflow: auto;
+  z-index: 101 !important;
+  &:focus {
+    border: 1px solid @gn-search-outline-color;
+  }
+}
+.dropdown-menu {
+  margin-top: 2px;
+  margin-left: 0;
+  width: 100% !important;
+  max-width: none;
+  border-color: #ccc;
+}
+.dutch-search-home {
+  .dropdown-menu {
+    border-color: @gn-search-outline-color;
+    li a {
+      &:hover {
+        background-color: @gn-menubar-background-active;
+        color: @gn-color;
+      }
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .tt-dropdown-menu, .tt-menu {
+    max-width: 200%;
+  }
+}
+// ----- all the text should be like this (hence the *)
+.tt-dropdown-menu *, .tt-menu *, .dropdown-menu * {
+  font-size: 14px;
+}
+.dropdown-header {
+  font-size: 12px;
+}
+// ----- the active or hovered item in the dropdown
+.tt-suggestion:hover, .tt-suggestion.tt-is-under-cursor, .tt-suggestion.tt-cursor  {
+  background: @gn-menubar-background-active;
+  color: @gn-color;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  color: @gn-color;
+  background-color: @gn-menubar-background-active;
+}
+// ----- tag search input for location
+.dutch-search-location .tt-dropdown-menu {
+  margin-top: 13px;
+  margin-left: -35px;
+  width: calc(~"100% + 50px");
+}
+
+// detail/metadata page
+[data-ng-controller="GnMdViewController"] {
+  .container:not(.crumb) {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: @gn-background-color;
+  }
+}
+
+// map page
+[gn-main-viewer] {
+  height: auto;
+  margin-top: @gn-crumbpath-height;
+  [ol-map] {
+    height: 100%;
+    // height: calc(~"100vh - @{gn-header-height} - @{gn-menubar-height} -  @{gn-crumbpath-height} - @{gn-bottombar-height}");
+  }
+  .container();
+  background-color: @gn-background-color;
+  padding-left: 0;
+  padding-right: 0;
+  .control-tools {
+    bottom: 1em;
     position: absolute;
-    margin-left: -14px;
+  }
+}
+
+// login
+[ng-app="gn_login"] {
+  body {
+    background-image: url(@gn-background-image);
+    background-color: @gn-background-color;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .gn-top-bar {
+    background: none;
+    border: none;
+    margin-bottom: 0;
+  }
+  .container {
+    background-color: @gn-background-color;
+    .panel {
+      margin-top: 30px;
+    }
+  }
+}
+
+// editor
+[ng-app="gn_editor"] {
+  .gn-top-bar {
+    display: block !important;
+    z-index: 502 !important;
+  }
+  .gn-sub-bar {
+    .container();
+    top: 65px;
+  }
+  .gn-editor-board {
+    padding-top: 135px;
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .gn-facet .gn-facet-toggle {
+      width: 1px;
+    }
+  }
+  .gn-editor-board {
+    .gn-top-search {
+      .input-group-addon {
+        label {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  // import metadata
+  #gn-import-container {
+    .panel-default:not(.panel-success) {
+      border: 0;
+      .panel-body {
+        padding: 15px 0;
+      }
+    }
+  }
+
+  // batch editor
+  .gn-batch-editor {
+    .gn-top-search {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      background-color: #fff;
+      border-bottom-color: #fff;
+    }
+    li.gn-batch-editor-info {
+      margin-left: 20px;
+    }
+    .panel-default {
+      margin-top: -1.5em;
+      .col-sm-12 {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .gn-search-facet {
+      margin-top: 10px;
+      padding-top: 0;
+      .gn-facet-toggle {
+        width: 1px;
+      }
+    }
+    // ----- list items
+    .gn-resultview {
+      margin-top: 10px;
+      li.list-group-item {
+        border-radius: 0;
+        border-bottom: 1px solid #ddd;
+        padding: 8px 4px;
+        &:hover {
+          background-color: #eee;
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+      li.list-group-item:first-child {
+        border-top: 1px solid #ddd;
+      }
+    }
+    .input-group-addon {
+      background-color: @btn-default-bg;
+      &:focus {
+        border-color: #adadad;
+      }
+    }
+    .input-group-btn {
+      .btn-link {
+        border-color: @btn-default-border;
+        background-color: @btn-default-bg;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    // ----- alert
+    .alert-info {
+      border: 1px solid transparent;
+      background: 0;
+      color: #707070;
+    }
+    // ----- filters
+    [data-search-filter-tags] {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    #gn-batch-changes {
+      .well {
+        .form-group {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  [data-ng-view] {
+    .navbar-fixed-top.gn-top-bar {
+      top: 65px;
+      .container();
+      border-top: none;
+      background-color: #fff;
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+      z-index: 501 !important;
+      .navbar-text {
+        display: none;
+      }
+    }
+  }
+  .gn-editor-container {
+    padding-top: 140px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .gn-editor-sidebar {
+    position: relative;
+    .gn-list-thumb {
+      float: left;
+      width: 30%;
+    }
+  }
+  // panel
+  [data-gn-onlinesrc-list] {
+    .panel {
+      .panel-heading {
+        padding-left: 30px;
+      }
+      [data-gn-slide-toggle]:before {
+        content: "\f107";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: absolute;
+        margin-left: -18px;
+        font-size: 16px;
+        margin-top: -2px;
+      }
+    } 
+  }
+
+  // xml editor
+  #xmleditor {
+    position: relative;
+    min-height: 700px;
+    * {
+      font-family: monospace !important;
+    }
+  }
+  // tooltip
+  // 
+  // ----- icon to open
+  .field-tooltip {
+    padding: 6px;
+    color: #428bca;
+    margin-top: -3px;
     font-size: 16px;
   }
-}
-
-// ----------------------------------------------------------------------
-// categories
-// ----------------------------------------------------------------------
-
-// ----- list of categories
-.dutch-categories {
-  text-align: center;
-  h1, h3 {
-    margin-bottom: 50px;
-    font-size: 24px;
+  .field-tooltip:active {
+    box-shadow: none;
   }
-}
-// ----- single category
-.dutch-category {
-  text-transform: lowercase;
-  float: left;
-  padding: 5px 0px;
-  a {
-    color: #000;
-    font-size: 14px;
-    line-height: 1.5em;
-    .gn-icon {
-      font-size: 1.5em;
+  // ----- column for tooltips
+  .gn-control {
+    padding-left: 0px;
+    padding-right: 0px;
+    .clearfix();
+    .btn {
+      padding: 6px;
     }
-    .gn-icon-label {
-      font-family: rijksoverheidsanstext-bold, sans, arial !important;
-      font-size: 14px;
+    @media (max-width: 1200px) {
+      .btn {
+        padding: 6px 3px;
+      }
     }
-    .gn-icon-count {
-      color: #707070;
+    .field-tooltip {
+      float: left;
     }
   }
-}
-
-// ----------------------------------------------------------------------
-// buttons en custom links
-// ----------------------------------------------------------------------
-
-// ----- override default .btn settings
-.btn:active {
-  box-shadow: none;
-}
-.btn-group > .btn-primary + .dropdown-toggle {
-  border-left: 1px solid #fff;
-}
-// ----- button with conflicting font-families, i.e. when a button has both class .btn and .fa
-.btn.fa:before {
-  font-family: FontAwesome !important;
-  margin-right: 5px;
-}
-// ----- caret in button
-.btn span + .caret {
-  margin-left: 5px;
-}
-
-.btn-round {
-  border-radius: 50%;
-  padding: 14px 12px 14px 18px !important;
-}
-
-// ----------------------------------------------------------------------
-// custom radio
-// ----------------------------------------------------------------------
-
-// ----- custom colored radio
-input[type=radio].dutch-radio {
-  display: none;
-}
-input[type=radio].dutch-radio + span.dutch-radio-label {
-  padding-left: 30px;
-  display: inline-block;
-  line-height: 26px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  background-position: 0 4px;
-}
-span.dutch-radio-label {
-  background-image: url("../catalog/views/dutch/images/dutch-radio-unchecked.png");
-}
-input[type=radio].dutch-radio:checked + span.dutch-radio-label {
-  background-image: url("../catalog/views/dutch/images/dutch-radio-checked.png");
-}
-
-// ----- special for import screen
-#gn-import .radio-inline {
-  padding-left: 0;
-}
-
-// ----------------------------------------------------------------------
-// custom checkboxes
-// ----------------------------------------------------------------------
-
-// ----- general
-.checkbox, .checkbox-inline {
-  padding-left: 0;
-}
-
-// ----- custom colored checkbox
-input[type=checkbox].dutch-checkbox {
-  display: none;
-}
-input[type=checkbox].dutch-checkbox + span.dutch-checkbox-label {
-  padding-left: 30px;
-  display: inline-block;
-  line-height: 26px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  background-position: 0 4px;
-}
-input[type=checkbox].dutch-checkbox:checked + span.dutch-checkbox-label {
-  background-position: 0 -26px;
-}
-span.dutch-checkbox-label {
-  background-image: url("../catalog/views/dutch/images/dutch-checkbox.png");
-}
-
-// ----------------------------------------------------------------------
-// modal
-// ----------------------------------------------------------------------
-
-.modal h3 {
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-// ----- image popup modal
-.gn-img-modal {
-  background-color: #fff;
-  .gn-btn-modal-img {
-    top: -18px;
-    right: -18px;
-    background: #fff;
-    border-radius: 18px;
-    height: 34px;
-    width: 34px;
-    border: 2px solid @gn-menubar-background;
-    padding: 0px;
-    font-size: 20px;
+  .gn-multi-field {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .col-sm-11 {
+      padding-left: 0;
+    }
+    .col-sm-1 {
+      padding-right: 0;
+    }
   }
-}
-@media (min-width: @screen-sm-min) {
-  .modal-dialog {
-    width: 700px;
+
+  // when there are more of the same tooltip icons in the column (.gn-control),
+  // hide all but the first one
+  [data-gn-multilingual-field] + .gn-control > .field-tooltip ~ .field-tooltip {
+    display: none;
   }
-}
+  .gn-multilingual-field {
+    .label {
+      font-size: 10px;
+    }
+    .nav > li > a {
+      font-size: 10px;
+    }
+    // required
+    label.gn-required::after, .gn-required > label::after {
+      font-size: 1.5em !important;
+      position: inherit !important;
+    }
+    // delete icon/button
+    [data-gn-field-highlight-remove] {
+      visibility: visible !important;
+    }
+  }
 
-// ----------------------------------------------------------------------
-// panel
-// ----------------------------------------------------------------------
+  // delete icon/button
+  [data-gn-field-highlight-remove] {
+    visibility: visible !important;
+    margin-right: 5px;
+  }
+  // remove icon
+  .fa-times:before {
+    content: "\f00d";
+    color: #a94442;
+  }
 
-.panel {
-  .panel-heading {
-    [data-gn-need-help] {
-      font-size: 12px !important;
-      span {
-        font-size: 12px !important;
+  // No indent
+  form.gn-editor {
+    .panel-default {
+      margin-top: 15px;
+    }
+    fieldset {
+      padding: 0 0 10px 0 !important;
+      border: 1px solid @panel-default-border !important;
+      border-top: 0 !important;
+      border-radius: 0;
+      margin: 0 !important;
+      &:hover, &:active, &:focus {
+        background: 0;
+      }
+      label {
+        padding-top: 5px;
+      }
+      .well {
+        background-color: #f9f9f9;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        label {
+          padding-left: 15px;
+        }
+      }
+      legend {
+        padding: 10px 10px 10px 30px;
+        font-size: 18px !important;
+        background-color: @panel-default-heading-bg;
+        margin: -1px -1px 5px -1px !important;
+        border: 1px solid @panel-default-border;
+        width: calc(~"100% + 2px") !important;
+        min-height: 3em;
+        [data-gn-field-highlight-remove] {
+          margin-right: -11px;
+        }
+      }
+      fieldset {
+        padding: 0 0 10px 0 !important;
+        border-width: 0 !important;
+        margin: 10px 0 5px 0 !important;
+        legend {
+          font-size: 16px !important;
+          background: #fff;
+          border-top: 0 !important;
+        }
+        .table {
+          margin-bottom: 0;
+        }
+      }
+      .table {
+        margin: 10px;
+        width: calc(~"100% - 20px");
+      }
+      &.gn-descriptiveKeywords {
+        background: @panel-default-heading-bg;
+        margin: 10px;
+        border: 1px solid @panel-default-border;
+        legend {
+          background: @panel-default-heading-bg;
+          border-top: 1px solid @panel-default-border;
+        }
+        .gn-thesaurusName, .gn-CI_Citation, .gn-MD_Identifier {
+          background: @panel-default-heading-bg;
+        }
+      }
+    }
+    div[class*="col-sm-"] {
+      .gn-validation-report {
+        .list-group-item {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+    input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, 
+    input[type="month"].form-control {
+      line-height: normal;
+    }
+    .gn-date-picker > input[type=date].hidden, .gn-date-picker > input[type=time].hidden {
+      width: 0%;
+    }
+    // Datepicker only (no time picker)
+    [data-hide-time="true"] {
+      .gn-date-picker > input[type=date] {
+        width: 100%;
+      }
+    }
+    // override the default 'show delete on hover'
+    [data-gn-onlinesrc-list] {
+      i.btn.fa-times.text-danger {
+        visibility: visible;
       }
     }
   }
 }
 
-
-// ----------------------------------------------------------------------
-// general styles
-// ----------------------------------------------------------------------
-
-// ----- extra padding for columns
-@media (min-width: @screen-sm-max) {
-  .gn-padding-left-extra {
-    padding-left: 25px;
+// admin
+[ng-app="gn_admin"] {
+  .gn-top-bar {
+    padding: 0;
+    .container {
+      width: 100%;
+      padding-top: 0;
+      padding-right: 10px;
+      margin-bottom: 0;
+      min-height: auto;
+      background-color: @gn-background-color;
+      border-bottom: 1px solid @gn-menubar-border-color;
+      .gn-logo-link {
+        .gn-name {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .navbar-default .nav > li > a {
+    padding: 15px !important;
+  }
+  .username-dropdown {
+    .dropdown-menu {
+      li:nth-child(2) {
+        display: none;
+      }
+    }
   }
 }
-// ----- margin for small devices
-@media (max-width: 750px) {
-  .dutch-xs-margin-bottom, .gn-xs-margin-bottom {
-    margin-bottom: @gnSpacing;
+
+// NGR Specifiek
+
+.ngr {
+
+  // results
+
+  // map
+  [gn-main-viewer] {
+    padding: 15px;
+    .control-tools {
+      bottom: calc(~"@{gn-bottombar-height} + 3em");
+      position: absolute;
+      right: 2em;
+    }
+    .tools {
+      top: 2em;
+      right: 2em;
+    }
+    .search-container {
+      top: 2em;
+      left: 2em;
+    }
   }
-}
 
-img.gfi-image {
-max-width:200px;
-max-height:150px;
-}
+  // editor
+  [ng-app="gn_editor"] {
+    .gn-sub-bar {
+      a[href="#/batchedit"], a[href="#/directory"], a[href="#/accessManager"] {
+        display: none;
+      }
+    }
+  }
+  // ----- import
+  #gn-import-container {
+    #gn-import-mode-copypaste-row, #gn-import-mode-folder-row, #gn-import-xslt-row, #gn-import-publish-row {
+      display: none;
+    }
+  }
 
-//nojs interface
-.gn-metadata-display {
-  background-color:white;
-}
-
-// styling for the scrollbar
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background-color: #fff;
+  // admin
+  [data-ng-switch-when="savedSelection"] {
+    display: none;
+  }
 }

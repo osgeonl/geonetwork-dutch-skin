@@ -110,21 +110,21 @@
           viewerSettings.gazetteerProvider = gnDutchGazetteer;
 
           /* Custom templates for search result views */
-          searchSettings.resultViewTpls = [{
-            tplUrl: '../../catalog/views/dutch/templates/card.html',
-            tooltip: 'Grid',
-            icon: 'fa-th'
-          }];
+          // searchSettings.resultViewTpls = [{
+          //   tplUrl: '../../catalog/views/dutch/templates/card.html',
+          //   tooltip: 'Grid',
+          //   icon: 'fa-th'
+          // }];
 
           // Mapping for md links in search result list.
-          searchSettings.linkTypes = {
-            links: ['LINK', 'pdf', 'docx'],
-            downloads: ['DOWNLOAD','gml', 'kml', 'geojson', 'gpkg', 'x-sqlite3', 'json', 'jsonld', 'json-ld', 'rdf-xml', 'xml', 'zip', 'jp2',
-              'tiff', 'csv', 'OGC:WFS', 'OGC:WCS', 'OGC:SOS', 'INSPIRE Atom', 'OASIS:OData', 'OGC:SensorThings', 'W3C:SPARQL', 'OAS'],
-            //layers:['OGC', 'kml'],
-            layers:['OGC'],
-            maps: ['OGC:OWC']
-          };
+          // searchSettings.linkTypes = {
+          //   links: ['LINK', 'pdf', 'docx'],
+          //   downloads: ['DOWNLOAD','gml', 'kml', 'geojson', 'gpkg', 'x-sqlite3', 'json', 'jsonld', 'json-ld', 'rdf-xml', 'xml', 'zip', 'jp2',
+          //     'tiff', 'csv', 'OGC:WFS', 'OGC:WCS', 'OGC:SOS', 'INSPIRE Atom', 'OASIS:OData', 'OGC:SensorThings', 'W3C:SPARQL', 'OAS'],
+          //   //layers:['OGC', 'kml'],
+          //   layers:['OGC'],
+          //   maps: ['OGC:OWC']
+          // };
           // Map protocols used to load layers/services in the map viewer
           searchSettings.mapProtocols = {
             layers: [

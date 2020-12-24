@@ -2,46 +2,55 @@
 //
 // this file must be first on the list of @import
 
-// colors from 'kleurstaal donkerblauw' (https://www.rijkshuisstijl.nl/basiselementen/kleur/online-kleuren)
-//
-// blues
-@ro-darkblue-full: #01689b;
-@ro-darkblue-light: #cce0f1;
-@ro-darkblue-lightest: #e5f0f9;
-// grays
-@ro-gray-1: #f3f3f3;
-@ro-gray-2: #e6e6e6;
-@ro-gray-3: #cccccc;
-@ro-gray-4: #b4b4b4;
-@ro-gray-5: #999999;
-@ro-gray-6: #696969;
-@ro-gray-7: #535353;
-
 // general
 @gn-border-radius: 3px;
 
+// override bootstrap variables
+@badge-bg: @gray;
+
 // body background (image & color)
 //
-// when there is an empty string, no background image is used.
+// change the variable to a string pointing towards an image, like 'www.dummy.net/image.png'. When no
+// background image is needed, leave as is (none).
 @gn-background-image: '../catalog/views/dutch/images/bg.jpg';
-@gn-background-color: #fff; 
+@gn-background-color: @body-bg;
+@gn-color: #333;
 
+// overwrite color for accessibility
+@navbar-default-link-color: @gray;
+@navbar-default-link-hover-color: @gray-dark;
+@text-muted: #707070;
+// width of modal dialog
+@modal-md: 700px;
+@navbar-default-color: @gn-color;
+// slightly darker primary color, now color contrast on light gray backgrounds is high enough
+@brand-primary: #3277B3;
+@dropdown-border: @navbar-default-border;
+
+// header
+@gn-header-background: #fff;
+@gn-header-height: 50px;
 // menu bar
 @gn-menubar-height: 50px;
-@gn-menubar-background: @ro-darkblue-full;
-@gn-menubar-background-active: @ro-darkblue-light;
-@gn-menubar-color-active: #333;
-@gn-menubar-color: #fff;
-@gn-menubar-color-hover: @gray-base;
+@gn-menubar-background: @navbar-default-bg;
+@gn-menubar-background-active: @navbar-default-link-active-bg;
+@gn-menubar-color-active: @navbar-default-link-color;
+@gn-menubar-color: @navbar-default-link-color;
+@gn-menubar-color-hover: @navbar-default-link-hover-color;
 @gn-menubar-background-hover: @navbar-default-link-hover-bg;
 @gn-menubar-border-color: @navbar-default-border;
 
+// crumb path
+@gn-crumbpath-height: 50px;
+@gn-crumbpath-background: @gn-menubar-background-active;
+@gn-crumbpath-color: @gn-menubar-color-active;
+
 // bottombar
 @gn-bottombar-height: 50px;
-@gn-bottombar-background: @ro-darkblue-full;
-@gn-bottombar-border-color: @ro-darkblue-full;
-@gn-bottombar-color: @gn-menubar-color;
-@gn-bottombar-color-hover: @gn-menubar-color-hover;
+@gn-bottombar-background: @navbar-default-bg;
+@gn-bottombar-border-color: @navbar-default-border;
+@gn-bottombar-color: @navbar-default-link-color;
+@gn-bottombar-color-hover: @navbar-default-link-hover-color;
 
 // home page
 //
@@ -59,7 +68,10 @@
 @gn-info-background-color: @body-bg;
 // ----- resultcards
 @gn-resultcard-background-color: @body-bg;
-@gn-resultcard-title-background-color: @gray-light;
+@gn-resultcard-title-background-color: #505050;
+@gn-resultcard-title-background-color-hover: #333;
+@gn-resultcard-title-color: #fff; // @navbar-default-link-color;
+@gn-resultcard-title-border: 0px solid @navbar-default-border;
 
 // search results page
 @gn-results-background-color: @body-bg;

@@ -1,99 +1,52 @@
-<!-- Powered by: {{info.site.platform.name}}, version: {{info.site.platform.version}} -->
-<div class="container">
-
-  <header class="gn-header"
-          data-ng-show="gnCfg.mods.header.enabled && gnCfg.mods.header.isLogoInHeader">
-    <!-- logo left -->
-    <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'left'">
-      <div class="col-md-6 col-sm-6">
-          <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-              <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-                    alt="{{'siteLogo' | translate}}"
-                    data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
-            </a>
-      </div>
-      <div class="col-md-6 col-sm-6 hidden-xs text-right">
-        <ul class="gn-static-pages">
-          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
-        </ul>
-      </div>
-    </div>
-    <!-- logo center -->
-    <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'center'">
-      <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center">
+<header class="gn-header"
+        data-ng-show="gnCfg.mods.header.enabled && gnCfg.mods.header.isLogoInHeader">
+  <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
+    <div class=row>
+      <div class="col-md-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
         <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
           <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-                alt="{{'siteLogo' | translate}}"
-                data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
-        </a></div>
-      <div class="col-md-4 col-sm-4 hidden-xs text-right">
-        <ul class="gn-static-pages">
-          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
-        </ul>
-      </div>
-    </div>
-    <!-- logo right -->
-    <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'right'">
-      <div class="col-md-6 col-sm-6 hidden-xs">
-        <ul class="gn-static-pages">
-          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
-        </ul>
-      </div>
-      <div class="col-md-6 col-sm-6 text-right">
-        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-          <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-                alt="{{'siteLogo' | translate}}"
-                data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
-        </a>
-      </div>
-    </div>
-  </header>
-  <div class="navbar navbar-default gn-top-bar"
-       role="navigation"
-       data-ng-show="gnCfg.mods.header.enabled"
-       data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'"
-       xmlns="http://www.w3.org/1999/html">
-  </div>
-
-  <div data-gn-alert-manager="" id="alerts"></div>
-
-  <div class="gn-search-page"
-       data-ng-controller="DutchSearchController" role="main">
-    <div class="gn-divider-bar"></div>
-
-    <div class="" 
-         data-ng-controller="gnsDutch">
-      <gn-extend-mainctrl></gn-extend-mainctrl>
-      
-      <div data-gn-saved-selections="">
-
-        <div class="container intro-text" data-ng-show="activeTab == '/home'">
-          <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
-          <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
-        </div>
-
-        <div class="page" data-ng-class="{mappage: activeTab === '/map'}">
-          <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
-              data-ng-show="activeTab == '/home'"/>
-          <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
-              data-ng-show="activeTab == '/search'"/>
-          <div data-ng-if="isMapViewerEnabled && !isExternalViewerEnabled"
-              data-ng-include="'../../catalog/views/dutch/templates/map.html'"
-              data-ng-show="activeTab == '/map'"/>
-          <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
-            data-ng-show="activeTab == '/metadata'" class="gn-view-approved"/>
-          <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
-            data-ng-show="activeTab == '/metadraf'" class="gn-view-not-approved"/>
-          <div data-ng-include="'../../catalog/views/dutch/templates/page.html'"
-            data-ng-if="activeTab == '/page'"/>
-        </div>
+               alt="{{'siteLogo' | translate}}"
+               data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+          </a>
       </div>
     </div>
   </div>
-  <!-- /.gn-search-page -->
-  <div class="navbar navbar-default gn-bottom-bar" role="navigation"
-     data-ng-show="gnCfg.mods.footer.enabled"
-     data-ng-include="'../../catalog/views/dutch/templates/footer.html'">
+</header>
+<div class="navbar navbar-default gn-top-bar"
+     role="navigation"
+     data-ng-show="gnCfg.mods.header.enabled"
+     data-ng-include="'../../catalog/templates/top-toolbar.html'"
+     xmlns="http://www.w3.org/1999/html">
+</div>
+
+<div class="gn-search-page"
+     role="main"
+     data-ng-controller="GnSearchController">
+  <cookiewarning></cookiewarning>
+  <div class=""
+       data-ng-controller="gnsDutch">
+    <gn-extend-mainctrl></gn-extend-mainctrl>
+
+    <div data-gn-saved-selections="">
+      <div data-ng-include="'../../catalog/views/dutch/templates/home.html'"
+           data-ng-show="activeTab == '/home'"/>
+      <div data-ng-include="'../../catalog/views/dutch/templates/results.html'"
+           data-ng-show="activeTab == '/search'"/>
+      <div data-ng-if="isMapViewerEnabled && !isExternalViewerEnabled"
+           data-ng-include="'../../catalog/views/dutch/templates/map.html'"
+           data-ng-show="activeTab == '/map'"/>
+      <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
+           data-ng-show="activeTab == '/metadata'" class="gn-view-approved"/>
+      <div data-ng-include="'../../catalog/views/dutch/templates/recordView.html'"
+           data-ng-show="activeTab == '/metadraf'" class="gn-view-not-approved"/>
+      <div data-ng-include="'../../catalog/views/dutch/templates/page.html'"
+           data-ng-if="activeTab == '/page'"/>
+    </div>
   </div>
 </div>
-</html>
+
+
+<div class="navbar navbar-default gn-bottom-bar" role="navigation"
+     data-ng-show="gnCfg.mods.footer.enabled"
+     data-ng-include="'../../catalog/views/dutch/templates/footer.html'">
+</div>

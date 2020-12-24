@@ -1,8 +1,22 @@
-<div class="container-fluid dutch-search" data-ng-controller="DutchSearchHomeController">
-  <div class="row dutch-search-home">
+<div class="row gn-row-intro" role="row">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
+        <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
+      </div>
+    </div>
 
+  </div>
+</div>
+
+<!-- search -->
+<div class="row gn-row-main">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+
+    <!-- search any -->
     <div class="col-md-4 col-md-offset-1">
-      <div class="form-group" class="text-align:left">
+      <div class="input-group gn-form-any">
         <label for="anyHome" data-translate="">SearchAny</label>
         <input type="text"
                id="anyHome"
@@ -19,8 +33,8 @@
                data-ng-keyup="$event.keyCode == 13 && performSearchHome()"
         />
       </div>
-
     </div>
+    <!-- search location -->
     <div class="col-md-4">
       <div class="form-group has-feedback">
         <label id="searchLocationLbl" for="loc" data-translate="">AtLocation</label>
@@ -36,41 +50,82 @@
         </span>
       </div>
     </div>
+    <!-- search button -->
+
+    <!-- dutch change: remove .btn-lg -->
     <div class="col-md-2">
-      <div class="form-group" style="margin-top:40px">
-        <a id="searchBtn" class="btn btn-primary btn-lg"
-           type="button" data-ng-click="performSearchHome()">
-          <i class="fa fa-search"></i> {{'search'|translate}}
+        <a class="btn btn-primary" 
+            type="button" 
+            data-ng-click="performSearchHome()">
+          <i class="fa fa-search"></i>
+          <span data-translate="">search</span>
         </a>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10 col-md-offset-1 dutch-categories">
-      <h1>{{'byCategory'|translate}}</h1>
-    </div>
-  </div>
-  <div class="row">
 
-    <div class="col-md-12 gn-nopadding">
+  </div>
+</div>
+<!-- /.gn-row-main -->
+
+<!-- no data message -->
+<div class="row gn-margin-top" data-ng-show="searchInfo.count == 0">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+    <div data-ng-show="searchInfo.count == 0"
+        class="col-md-offset-2 col-md-8 alert alert-warning">
+      <span data-translate="">noDataInCatalog</span>
+      <div data-gn-need-help="user-guide/quick-start/index.html"></div>
+    </div>
+  </div>
+</div>
+
+<!-- user saved maps -->
+<form class="form-horizontal"
+      role="form"
+      data-ng-controller="gnsSearchTopEntriesController"
+      data-ng-search-form=""
+      data-runSearch="true"
+      data-ng-show="searchResults.records.length > 0">
+  <div class="row gn-top-records" role="row">
+    <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+      <h4 data-translate="">topMaps</h4>
+
+      <input type="hidden" name="_csrf" value="{{csrf}}"/>
+
+      <div data-ng-show="searchResults.records.length > 0"
+            data-gn-results-container=""
+            data-search-results="searchResults"
+            data-template-url="resultTemplate"></div>
+    </div>
+  </div>
+  <!-- /.gn-top-records -->
+</form>
+
+<!-- topics -->
+<div class="row gn-row-topics" data-ng-show="searchInfo.count > 0">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+    <div class="col-md-12" data-ng-show="browse !== ''">
+      <h1 class="text-center">{{'byCategory'|translate}}</h1>
+
       <div class="row">
-
-        <div data-ng-repeat="facet in searchInfo.facet['topicCats']"
-             class="col-xs-12 col-sm-6 col-md-4 col-lg-4 gn-nopadding-tablet" data-ng-show="facet['@label'].length>0">
-          <div class="dutch-category clearfix">
-            <a data-ng-href="#/search?topicCat={{facet['@name']}}">
-              <div class="pull-left">
-                <i class="fa gn-icon gn-icon-{{facet['@name']}} fa-2x fa-fw"></i>
-              </div>
-              <span class="gn-icon-label">{{facet['@label']}}</span>
-              <span class="gn-icon-count">({{facet['@count']}})</span>
+        <span data-ng-repeat="(key, facet) in searchInfo.facet['topicCats']"
+              data-ng-show="browse === 'topics'"
+              class="col-xs-12 col-sm-6 col-md-4 col-lg-4 chips-card">
+          <div class="badge-result badge-result-topic clearfix">
+            <a class="pull-left clearfix"
+              title="{{facet['@label']}}"
+              role="link"
+              data-ng-href="#/search?facet.q=topicCat%2F{{facet['@name']}}">
+              <span class="badge-icon badge-result-topic pull-left">
+                <i class="fa fa-3x fa-table gn-icon gn-icon-{{facet['@name']}}"></i>
+              </span>
+              <!-- Dutch change: counter with badge -->
+              <span class="badge-text pull-left">
+                <span class="gn-icon-label">{{facet['@label']}}</span>
+                <span class="gn-icon-count">({{facet['@count']}})</span>
+              </span>
             </a>
           </div>
-          <!-- /.dutch-category -->
-        </div>
+        </span>
       </div>
-      <!-- /.row -->
-    </div>
   </div>
-  <!-- /.row -->
 </div>
+<!-- /.gn-row-topics -->

@@ -1,101 +1,117 @@
-<div class="container-fluid"
-     data-ng-search-form=""
+<div data-ng-search-form=""
      data-runSearch="true">
-  <div data-ng-include="'../../catalog/views/dutch/templates/searchForm.html'"></div>
+  <div data-ng-include="'../../catalog/views/dutch/templates/dutchSearchForm.html'"></div>
+
   <div gn-grid-related-query="searchResults.records"></div>
-
-  <div class="row dutch-sort"
-       data-ng-show="searchResults.records.length > 0">
-    <div class="relative"
-         data-ng-class="fixedMiniMap ? 'col-md-offset-4 col-md-5' : 'col-md-offset-3 col-md-6'">
-
-      <h4>{{searchResults.count}} <span data-translate="">resultsFound</span></h4>
-
-      <div data-gn-selection-widget="" data-ng-show="isAdmin"
-           data-results="searchResults"></div>
-    </div>
-    <div class="col-md-3 text-right">
-      <div class="pull-right"
-           data-sortby-combo=""
-           data-params="searchObj.params"
-           data-gn-sortby-values="searchObj.sortbyValues"></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="relative gn-margin-bottom"
-         data-ng-class="fixedMiniMap ? 'col-md-offset-4 col-md-8' : 'col-md-offset-3 col-md-9'">
-      <div data-search-filter-tags
-           data-dimensions="searchResults.dimension"
-           data-use-location-parameters="true"
-           ng-if="isFilterTagsDisplayedInSearch && searchResults.dimension">
-      </div>
-    </div>
-  </div>
-
   <div class="row gn-row-results">
+    <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
 
-    <div class="gn-search-facet hidden-sm hidden-xs"
-         data-ng-class="fixedMiniMap ? 'col-md-4' : 'col-md-3'">
-      
-      <div data-gn-user-searches-panel="user"></div>
+      <div class="col-md-3 gn-search-facet">
 
-      <!-- Hierachical facet mode -->
-      <div class="panel panel-default"
-          data-ng-show="searchResults.records.length > 0">
-        <div class="panel-heading" data-gn-slide-toggle="">
-          <i class="fa fa-search"/>&nbsp;
-          <span data-translate="">filter</span>
+        <div data-ng-show="searchResults.records.length > 0"
+            data-gn-saved-selections-panel="user"></div>
+
+        <div data-gn-user-searches-panel="user"
+             data-ng-if="isUserSearchesEnabled && user.isConnected()"></div>
+
+        <div data-search-filter-tags
+             data-dimensions="searchResults.dimension"
+             data-use-location-parameters="true"
+             ng-if="isFilterTagsDisplayedInSearch && searchResults.dimension">
         </div>
-        <div class="panel-body">
-          <div data-gn-facet-dimension-list="searchResults.dimension"
-              data-params="searchObj.params"
-              data-facet-type="facetsSummaryType"
-              data-facet-list="facetConfig"
-              data-current-facets="currentFacets">
+
+        <!-- Hierachical facet mode -->
+        <div class="panel panel-default"
+            data-ng-show="searchResults.records.length > 0">
+          <div class="panel-heading" data-gn-slide-toggle="">
+            <i class="fa fa-search"/>&nbsp;
+            <span data-translate="">filter</span>
+          </div>
+          <div class="panel-body">
+            <div data-gn-facet-dimension-list="searchResults.dimension"
+                data-params="searchObj.params"
+                data-facet-type="facetsSummaryType"
+                data-facet-list="facetConfig"
+                data-current-facets="currentFacets">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div data-ng-class="fixedMiniMap ? 'col-md-8' : 'col-md-6'">
-      
-      <span class="loading fa fa-spinner fa-spin"
-            data-ng-show="searching"></span>
+      <!-- tools -->
+      <div class="col-md-9 container-fluid">
+        <!-- dutch change: remove pagination -->
+        <div class="row gn-row-tools">
+          <div class="col-xs-12 col-md-12"
+               data-gn-facet-dimension-list="searchResults.dimension"
+               data-params="searchObj.params"
+               data-facet-type="facetsSummaryType"
+               data-facet-list="facetConfig"
+               data-current-facets="currentFacets"
+               data-tab-field="facetTabField"></div>
 
-      <div class="alert alert-warning gn-margin-top gn-nopadding" role="alert"
-           ng-if="!searching && searchResults.count == 0">
-        <i class="fa fa-exclamation-triangle"></i>
-        <span data-translate="">zarooResult</span>
-      </div>
+          <div class="col-md-6 gn-nopadding-left"
+               data-ng-show="searchResults.records.length > 0">
 
-      <div data-ng-show="searchResults.records.length > 0"
-           data-gn-results-container=""
-           data-search-results="searchResults"
-           data-template-url="resultTemplate"
-           data-map="searchObj.searchMap"></div>
+            <!-- dutch change: added `<h4>` -->
+            <h4>{{searchResults.count}} <span data-translate="">resultsFound</span></h4>
 
-      <div class="row" data-ng-show="searchResults.records.length > 0">
-        <div data-gn-pagination="paginationInfo"
-             data-hits-values="searchObj.hitsperpageValues"
-             data-enable-hot-keys=""
-             data-enable-events="">
+            <!-- dutch change: added `data-ng-show` -->
+            <div data-gn-selection-widget=""
+                 data-ng-show="isAdmin"
+                 data-results="searchResults"></div>
+          </div>
+
+          <div class="col-md-6 gn-nopadding-right"
+               data-ng-show="searchResults.records.length > 0">
+            <div data-gn-results-tpl-switcher="" class="pull-right"></div>
+            <div data-sortby-combo=""
+                 class="pull-right"
+                 data-params="searchObj.params"
+                 data-gn-sortby-values="searchObj.sortbyValues"></div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div data-ng-class="fixedMiniMap ? 'gn-fixed-map' : 'col-md-3'"">
-      <div data-gn-map-field="searchObj.searchMap"
-           data-gn-map-field-geom="searchObj.params.geometry"
-           data-gn-map-field-opt="searchObj.mapfieldOption"
-           class="gn-search-map"></div>
+        <!-- /.gn-row-tools -->
 
-      <button data-ng-click="toggleMap()"
-              title="{{'toggleMiniMap' | translate}}"
-              class="gn-toggle gn-minimap-toggle btn btn-primary gn-minimap-button hidden-xs">
-        <i class="fa fa-angle-double-right" ></i>
-        <strong class="gn-minimap-toggle gn-minimap-text" data-translate="">map</strong>
-      </button>
+        <div class="row">
+          <div class="col-xs-12 col-md-9">
+            <span class="loading fa fa-spinner fa-spin"
+                  data-ng-show="searching"></span>
+
+            <div class="alert alert-warning" role="alert"
+                ng-if="!searching && searchResults.count == 0">
+              <i class="fa fa-frown-o"></i>
+              <span data-translate="">zarooResult</span>
+            </div>
+
+            <div data-ng-show="searchResults.records.length > 0"
+                data-gn-results-container=""
+                data-search-results="searchResults"
+                data-template-url="resultTemplate"
+                data-map="searchObj.searchMap"></div>
+          </div>
+          <!-- dutch change: column for mini map, mini map toggle button is removed -->
+          <div class="col-md-3">
+            <div data-gn-map-field="searchObj.searchMap"
+                 data-gn-map-field-geom="searchObj.params.geometry"
+                 data-gn-map-field-opt="searchObj.mapfieldOption"
+                 class="gn-search-map hidden-xs">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-9 text-center"
+               data-ng-show="searchResults.records.length > 0">
+            <div class=""
+                 data-gn-pagination="paginationInfo"
+                 data-hits-values="searchObj.hitsperpageValues"
+                 data-enable-hot-keys=""
+                 data-enable-events=""></div>
+          </div>
+        </div>
     </div>
   </div>
+
 
 </div>

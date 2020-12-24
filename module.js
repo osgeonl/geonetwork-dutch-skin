@@ -296,24 +296,28 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.resultviewFns = {
         addMdLayerToMap: function (link, md) {
           var config = {
-             uuid: md?md.getUuid():null,
-             type: link.protocol.indexOf('WMTS') > -1 ? 'wmts' : 'wms',
-             url: $filter('gnLocalized')(link.url) || link.url
-           };
+            uuid: md ? md.getUuid() : null,
+            type:
+              link.protocol.indexOf('WMTS') > -1 ? 'wmts' :
+                ((link.protocol == 'ESRI:REST') || (link.protocol.startsWith('ESRI REST')) ? 'esrirest' : 'wms'),
+            url: $filter('gnLocalized')(link.url) || link.url
+          };
 
+          var title = link.title;
+          var name = link.name;
           if (angular.isObject(link.title)) {
-            link.title = $filter('gnLocalized')(link.title);
+            title = $filter('gnLocalized')(link.title);
           }
           if (angular.isObject(link.name)) {
-            link.name = $filter('gnLocalized')(link.name);
+            name = $filter('gnLocalized')(link.name);
           }
- 
-          if (link.name && link.name !== '') {
-            config.name = link.name;
+
+          if (name && name !== '') {
+            config.name = name;
             config.group = link.group;
             // Related service return a property title for the name
-          } else if (link.title) {
-            config.name = $filter('gnLocalized')(link.title) || link.title;
+          } else if (title) {
+            config.name = title;
           }
 
           // if an external viewer is defined, use it here
@@ -325,7 +329,7 @@ module.controller('gnsSearchTopEntriesController', [
               type: config.type,
               url: config.url,
               name: config.name,
-              title: link.title
+              title: title
             });
             return;
           }
@@ -457,7 +461,8 @@ module.controller('gnsSearchTopEntriesController', [
         viewerMap: viewerMap,
         searchMap: searchMap,
         mapfieldOption: {
-          relations: ['within_bbox']
+          relations: ['within_bbox'],
+          autoTriggerSearch: true
         },
         hitsperpageValues: gnSearchSettings.hitsperpageValues,
         filters: gnSearchSettings.filters,
