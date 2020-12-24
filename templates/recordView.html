@@ -67,7 +67,6 @@
              data-ng-class="{'disabled': searchObj.params.from == (mdView.current.index + 1)}"
              data-ng-show="mdView.records.length > 1">
             <i class="fa fa-fw fa-angle-left"></i>
-<!--            <span data-ng-show="mdView.current.index === 0" data-translate="">previousPage</span>-->
             <span data-translate="">previous</span>
           </a>
           <a class="btn btn-default"
@@ -79,7 +78,6 @@
                             searchObj.params.to > searchInfo.count &&
                             searchInfo.count > searchObj.params.from}"
              data-ng-show="mdView.records.length > 1">
-<!--            <span data-ng-show="mdView.current.index === mdView.records.length - 1" data-translate="">nextPage</span>-->
             <span data-translate="">next</span>
             <i class="fa fa-fw fa-angle-right"></i>
           </a>
@@ -160,8 +158,8 @@
 
       <div class="col-md-9 gn-record">
 
-        <div class="gn-margin-bottom"
-            data-ng-bind-html="(mdView.current.record.abstract || mdView.current.record.defaultAbstract) | linky | newlines"/>
+        <div class="gn-margin-bottom gn-abstract"
+             data-ng-bind-html="(mdView.current.record.abstract || mdView.current.record.defaultAbstract) | linky | newlines"/>
 
           <!-- Display the first metadata status (apply to ISO19139 record) -->
           <div data-ng-if="mdView.current.record.status_text.length > 0"

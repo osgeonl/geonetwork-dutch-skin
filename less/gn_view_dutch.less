@@ -82,7 +82,7 @@
   font-family: rijksoverheidsanstext-bold;
   src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
 }
-h1,h2,h3,h4,h5,h6,strong,b {
+h1,h2,h3,h4,h5,h6,strong,b, dt, .table-striped th {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
   font-weight: 500;
 }
@@ -456,6 +456,9 @@ body {
   width: 100% !important;
   max-width: none;
   border-color: #ccc;
+  &.datepicker-dropdown {
+    width: auto !important;
+  }
 }
 .dutch-search-home {
   .dropdown-menu {
@@ -508,6 +511,29 @@ body {
     background-color: @gn-background-color;
   }
 }
+.gn-md-view {
+  .gn-metadata-display {
+    h1 {
+      font-size: 24px;
+    }
+    .gn-record {
+      .gn-abstract {
+        max-width: 800px;
+        white-space: pre-wrap;
+      }
+    }
+  }
+  .gn-md-side {
+    section {
+      h2 {
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
 
 // map page
 [gn-main-viewer] {
