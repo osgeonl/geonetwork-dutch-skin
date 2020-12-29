@@ -1,13 +1,54 @@
 <header class="gn-header"
         data-ng-show="gnCfg.mods.header.enabled && gnCfg.mods.header.isLogoInHeader">
   <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
-    <div class=row>
-      <div class="col-md-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
-        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-          <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-               alt="{{'siteLogo' | translate}}"
-               data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+    <div class="row">
+      <!-- dutch change: added static pages -->
+
+      <!-- logo left -->
+      <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'left'">
+        <div class="col-md-6 col-sm-6">
+          <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+            <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                 alt="{{'siteLogo' | translate}}"
+                 data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
           </a>
+        </div>
+        <div class="col-md-6 col-sm-6 hidden-xs text-right">
+          <ul class="gn-static-pages">
+            <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+          </ul>
+
+        </div>
+      </div>
+      <!-- logo center -->
+      <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'center'">
+        <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center">
+          <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+            <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                 alt="{{'siteLogo' | translate}}"
+                 data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-4 hidden-xs text-right">
+          <ul class="gn-static-pages">
+            <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+          </ul>
+        </div>
+      </div>
+      <!-- logo right -->
+      <div class="row" data-ng-if="gnCfg.mods.header.logoInHeaderPosition === 'right'">
+        <div class="col-md-6 col-sm-6 hidden-xs">
+          <ul class="gn-static-pages">
+            <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+          </ul>
+        </div>
+        <div class="col-md-6 col-sm-6 text-right">
+          <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+            <img class="{{gnCfg.mods.header.logoInHeaderPosition}}"
+                 alt="{{'siteLogo' | translate}}"
+                 data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"/>
+          </a>
+        </div>
       </div>
     </div>
   </div>

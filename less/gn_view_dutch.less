@@ -82,7 +82,7 @@
   font-family: rijksoverheidsanstext-bold;
   src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
 }
-h1,h2,h3,h4,h5,h6,strong,b, dt, .table-striped th {
+h1, h2, h3, h4, h5, h6, strong, b, dt, .table-striped th, .share-banner-title {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
   font-weight: 500;
 }
@@ -92,7 +92,7 @@ h1,h2,h3,h4,h5,h6,strong,b, dt, .table-striped th {
   font-family: rijksoverheidsanstext-regular;
   src: url(../catalog/views/dutch/images/rijksoverheidsanstext-regular.woff);
 }
-body,p,div,span,a,blockquote,.btn {
+body, p, div, span, a, blockquote, .btn {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
   font-weight: normal;
 }
@@ -117,6 +117,14 @@ body {
   .container {
     background-color: #fff;
   }
+  .gn-static-pages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    .fa {
+      display: none;
+    }
+  }
 }
 
 // top bar
@@ -131,6 +139,18 @@ body {
       .gn-name {
         display: block;
         margin-left: 0 !important;
+      }
+    }
+  }
+  // no icons
+  @media (min-width: @screen-lg-min) {
+    .fa {
+      display: none;
+    }
+    // but icons for the login
+    .dropdown-menu, .signin-dropdown .dropdown-menu, .gn-view-menu-button {
+      .fa {
+        display: inline-block;
       }
     }
   }
@@ -153,6 +173,13 @@ body {
   border: 0;
   position: relative;
   .container();
+  .gn-static-pages {
+    li {
+      .fa {
+        display: none;
+      }
+    }
+  }
 }
 
 // home page
@@ -181,7 +208,7 @@ body {
   padding: 0;
   .container {
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
     background-color: #98C8F6;
   }
   .gn-form-any {
@@ -244,6 +271,11 @@ body {
           line-height: 120%;
           max-width: 100%;
           text-align: left;
+        }
+        &:hover {
+          .badge-text {
+            text-decoration: underline;
+          }
         }
         .gn-icon-count {
           color: #707070;
@@ -434,42 +466,49 @@ body {
 // typeahead search boxes
 //
 // ----- tag search inputs
-.tt-dropdown-menu, .tt-menu, .dropdown-menu {
-  margin-top: 6px;
-  margin-left: -16px;
-  padding: 9px 0;
-  width: calc(~"100% + 32px");
-  box-shadow: none;
-  border-radius: @gn-border-radius;
-  background-color: #fff;
-  max-width: 100%;
-  max-height: 350px;
-  overflow: auto;
-  z-index: 101 !important;
-  &:focus {
-    border: 1px solid @gn-search-outline-color;
+#dutch-search-form {
+  .tt-dropdown-menu, .tt-menu, .dropdown-menu {
+    margin-top: 6px;
+    margin-left: -16px;
+    padding: 9px 0;
+    width: calc(~"100% + 32px");
+    box-shadow: none;
+    border-radius: @gn-border-radius;
+    background-color: #fff;
+    max-width: calc(~"100% + 32px");
+    max-height: 350px;
+    overflow: auto;
+    z-index: 101 !important;
+    &:focus {
+      border: 1px solid @gn-search-outline-color;
+    }
   }
-}
-.dropdown-menu {
-  margin-top: 2px;
-  margin-left: 0;
-  width: 100% !important;
-  max-width: none;
-  border-color: #ccc;
-  &.datepicker-dropdown {
-    width: auto !important;
-  }
-}
-.dutch-search-home {
   .dropdown-menu {
-    border-color: @gn-search-outline-color;
-    li a {
-      &:hover {
-        background-color: @gn-menubar-background-active;
-        color: @gn-color;
-      }
-      &:first-letter {
-        text-transform: uppercase;
+    margin-top: 2px;
+    margin-left: 0;
+    width: 100% !important;
+    max-width: none;
+    border-color: #ccc;
+    &.datepicker-dropdown {
+      width: auto !important;
+    }
+  }
+  .dutch-search-location {
+    .tt-menu {
+      margin-top: 12px;
+    }
+  }
+  .dutch-search-home {
+    .dropdown-menu {
+      border-color: @gn-search-outline-color;
+      li a {
+        &:hover {
+          background-color: @gn-menubar-background-active;
+          color: @gn-color;
+        }
+        &:first-letter {
+          text-transform: uppercase;
+        }
       }
     }
   }
@@ -522,14 +561,80 @@ body {
         white-space: pre-wrap;
       }
     }
-  }
-  .gn-md-side {
-    section {
-      h2 {
-        &:first-of-type {
-          margin-top: 0;
+    .gn-md-side {
+      section {
+        h2 {
+          &:first-of-type {
+            margin-top: 0;
+          }
         }
       }
+    }
+    // full view
+    .gn-metadata-display {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: -15px;
+      margin-right: -15px;
+      .gn-abstract {
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      dl {
+        dt, dd {
+          padding-top: 2px;
+          padding-bottom: 2px;
+        }
+      }
+      .gn-md-side {
+        padding-top: 50px;
+        .gn-md-side-access {
+          display: none;
+        }
+        .gn-md-side-social {
+          .badge {
+            border: 1px solid lighten(@brand-primary, 30%);
+            background: @gn-background-color;
+            color: @brand-primary;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin: 2px;
+          }
+          hr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    //  XML
+    pre {
+      margin-top: 15px;
+      margin-left: -5px;
+    }
+  }
+}
+.share-banner {
+  color: @gn-socialbar-color;
+  background-color: @gn-socialbar-background;
+  margin: 20px 0px;
+  padding: 5px;
+  a {
+    color: @gn-socialbar-color;
+    :hover {
+      color: @gn-socialbar-color;
+    }
+    @media (max-width: 767px) {
+      font-size: 20px;
+    }
+  }
+  .md-feedback {
+    .btn {
+      font-size: 12px;
+      padding: 5px 10px;
+      background: none;
+      border: 0;
     }
   }
 }
@@ -539,17 +644,22 @@ body {
 [gn-main-viewer] {
   height: auto;
   margin-top: @gn-crumbpath-height;
-  [ol-map] {
-    height: 100%;
-    // height: calc(~"100vh - @{gn-header-height} - @{gn-menubar-height} -  @{gn-crumbpath-height} - @{gn-bottombar-height}");
-  }
   .container();
   background-color: @gn-background-color;
   padding-left: 0;
   padding-right: 0;
+  [ol-map] {
+    height: 100%;
+    // height: calc(~"100vh - @{gn-header-height} - @{gn-menubar-height} -  @{gn-crumbpath-height} - @{gn-bottombar-height}");
+  }
   .control-tools {
     bottom: 1em;
     position: absolute;
+  }
+  [gn-localisation-input] {
+    .dropdown-menu {
+      min-width: 100%;
+    }
   }
 }
 
@@ -594,12 +704,17 @@ body {
     .gn-facet .gn-facet-toggle {
       width: 1px;
     }
-  }
-  .gn-editor-board {
     .gn-top-search {
       .input-group-addon {
         label {
           margin-bottom: 0;
+        }
+      }
+      a {
+        &.btn {
+          .fa {
+            display: none;
+          }
         }
       }
     }
@@ -952,10 +1067,7 @@ body {
 }
 
 // NGR Specifiek
-
 .ngr {
-
-  // results
 
   // map
   [gn-main-viewer] {
@@ -987,6 +1099,63 @@ body {
   #gn-import-container {
     #gn-import-mode-copypaste-row, #gn-import-mode-folder-row, #gn-import-xslt-row, #gn-import-publish-row {
       display: none;
+    }
+  }
+  // ----- conformance
+  div[data-gn-directory-entry-selector] {
+    button.dropdown-toggle {
+      display: none;
+    }
+  }
+  // ----- trashbin
+  form[class*="gn-tab-"] {
+
+    div[data-gn-directory-entry-selector] button.dropdown-toggle {
+      display: none;
+    }
+    // Status is not mandatory in XSD, but flagged as mandatory
+    // in labels.xml. Jose added the * to make it mandatory but no
+    // changes made to handle this on the remove action. This is a hack
+    // to hide the remove button.
+    .gn-status.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-valueType.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-language.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-hierarchyLevel.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-useLimitation.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-metadataStandardName.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-metadataStandardVersion.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-characterSet.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-accessConstraints.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-otherConstraints.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-organisationName.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-electronicMailAddress.gn-required .gn-control [data-gn-click-and-spin],
+    .gn-codeSpace.gn-required .gn-control [data-gn-click-and-spin] {
+      display: none !important;
+    }
+    // with mandatory class
+    .gn-status.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-valueType.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-language.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-hierarchyLevel.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-useLimitation.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-metadataStandardName.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-metadataStandardVersion.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-characterSet.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-accessConstraints.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-otherConstraints.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-organisationName.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-electronicMailAddress.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-codeSpace.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-MD_TopicCategoryCode.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-statement.gn-mandatory .gn-control [data-gn-click-and-spin],
+    .gn-protocol.gn-mandatory .gn-control [data-gn-click-and-spin] {
+      display: none !important;
+    }
+    .gn-otherConstraints.gn-required.gn-extra-field .gn-control [data-gn-click-and-spin] {
+      display: block !important;
+    }
+      .gn-otherConstraints.gn-mandatory.gn-extra-field .gn-control [data-gn-click-and-spin] {
+      display: block !important;
     }
   }
 
