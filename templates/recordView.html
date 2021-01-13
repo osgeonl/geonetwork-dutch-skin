@@ -185,7 +185,7 @@
                   <span data-translate="">mdTabRelations</span>
                 </a>
               </li>
-              <li data-ng-class="{active: currentTabMdView === 'catalog'}" data-ng-show="fcatsFound">
+              <li data-ng-class="{active: currentTabMdView === 'catalog'}" data-ng-show="fcatsFound||mdView.current.record.featureTypes.length>0">
                   <a data-ng-href="#/metadata/{{mdView.current.record['geonet:info'].uuid}}?tab=catalog"
                      aria-controls="catalog">
                     <span data-translate="">mdTabCatalog</span>
@@ -522,10 +522,53 @@
                      data-title="{{'featureCatalog' | translate}}">
                 </div>
 
-                <div data-ng-if="mdView.current.record.attributeTable"
-                     class="gn-margin-top"
-                     data-gn-attribute-table-renderer="mdView.current.record.attributeTable">
+                <div data-ng-if="mdView.current.record.featureTypes"
+                  data-ng-repeat="featureType in mdView.current.record.featureTypes">
+
+                  <h3><span data-translate="">featureType</span>&nbsp;'{{featureType.typeName}}'</h3>
+
+                  <table class="table table-striped" >
+                    <tbody>
+                    <tr data-ng-if="featureType.typeName">
+                      <th data-translate="">featureTypeName</th>
+                      <td>{{featureType.typeName}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.definition">
+                      <th data-translate="">featureDefinition</th>
+                      <td>{{featureType.definition}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.code">
+                      <th data-translate="">featureCode</th>
+                      <td>{{featureType.code}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.isAbstract">
+                      <th data-translate="">featureIsAbstract</th>
+                      <td>{{featureType.isAbstract}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.aliases">
+                      <th data-translate="">featureAliases</th>
+                      <td>{{featureType.aliases}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.attributeTable">
+                      <th data-translate="">featureAttributeTable</th>
+                      <td></td>
+                    </tr>
+                    <tr data-ng-if="featureType.attributeTable">
+                      <td colspan="2" class="gn-noborder-top gn-nopadding-top gn-nopadding-bottom"/>
+                    </tr>
+                    <tr data-ng-if="featureType.attributeTable">
+                      <td colspan="2" class="gn-noborder-top gn-table-attribute">
+                        <div data-ng-if="featureType.attributeTable"
+                            data-gn-attribute-table-renderer="featureType.attributeTable">
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
+
+
+
               </div>
               <!-- /.tab-pane -->
 
