@@ -7,6 +7,10 @@
   .gn-status {
     font-weight: 500;
   }
+  tr:hover {
+    background-color: @panel-footer-bg;
+    transition: background-color ease 0.5s;
+  }
 }
 
 [ng-app="gn_editor"] {
@@ -72,10 +76,10 @@
     .gn-top-search {
       padding-top: 0;
       padding-bottom: 0;
+      background-color: #fff;
     }
   }
   .gn-search-facet {
-    padding-top: 55px;
     padding-bottom: 15px;
   }
   // modal dialog (wider for for multilingual)
@@ -229,17 +233,6 @@
         @media (max-width: @screen-xs-max) {
           padding-left: 15px !important;
         }
-      }
-    }
-    .gn-date-picker > input[type=date], .gn-date-picker > input[type=time] {
-      width: 50%;
-    }
-    .gn-date-picker.gn-time-with-ind-position {
-      input[type=month], input[type=number] {
-        width: 80%;
-      }
-      &> input[type=date], &> input[type=time] {
-        width: 40%;
       }
     }
     // default switch

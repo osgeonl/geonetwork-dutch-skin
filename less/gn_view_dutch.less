@@ -2,10 +2,6 @@
    which has to be applied for all apps
    (ie. admin, search, login, editor). */
 
-@import "../../../style/gn_search.less";
-// variables for manipulating the theme
-@import "gn_variables_dutch.less"; // must be last
-
 @gn-spacing: 10px;
 
 //  padding
@@ -74,6 +70,13 @@
     max-width: 150px;
   }
 }
+.btn, .dropdown-toggle {
+  &:focus {
+    outline: 2px auto -webkit-focus-ring-color;
+    outline-offset: 0;
+  }
+}
+
 
 // Dutch overrides
 
@@ -102,11 +105,22 @@ body, p, div, span, a, blockquote, .btn {
   font-family: FontAwesome !important;
 }
 
+// ----- fix for icons (no camelcase)
+
+/* topiccats */
+.gn-icon-climatologymeteorologyatmosphere:before { content: @fa-var-cloud }
+.gn-icon-geoscientificinformation:before { content: @fa-var-bullseye }
+.gn-icon-imagerybasemapsearthcover:before { content: @fa-var-globe }
+.gn-icon-intelligencemilitary:before { content: @fa-var-fighter-jet }
+.gn-icon-inlandwaters:before { content: @fa-var-tint }
+.gn-icon-planningcadastre:before { content: @fa-var-home }
+.gn-icon-utilitiescommunication:before { content: @fa-var-phone }
+
 // body
 body {
   background-attachment: fixed;
 }
-// websiet scroll
+// website scroll
 ::-webkit-scrollbar {
   background-color: @gn-background-color;
 }
@@ -137,7 +151,7 @@ body {
     border-bottom: 5px solid @gn-menubar-border-color;
     .gn-logo-link {
       .gn-name {
-        display: block;
+        display: inline-block;
         margin-left: 0 !important;
       }
     }
@@ -171,6 +185,7 @@ body {
 .gn-bottom-bar {
   background: @gn-bottombar-background;
   border: 0;
+  border-top: 1px solid @gn-bottombar-border-color;
   position: relative;
   .container();
   .gn-static-pages {
@@ -206,13 +221,36 @@ body {
 .gn-row-main {
   margin: 0;
   padding: 0;
-  .container {
-    padding-bottom: 20px;
+  background: none;
+  .container, .container-fluid {
+    padding-bottom: 30px;
     padding-top: 30px;
-    background-color: #98C8F6;
+    background-color: @gn-search-background-color;
   }
   .gn-form-any {
     display: block;
+    .dropdown-menu {
+      border-radius: 0;
+      border-top: 0;
+      max-width: 600px;
+      width: auto;
+      li {
+        a {
+          padding: 8px 20px;
+        }
+        label {
+          margin-bottom: 0;
+          font-size: 14px;
+        }
+      }
+      > .active {
+        > a {
+          background-color: @dropdown-link-hover-bg !important;
+          color: @dropdown-link-hover-color !important;
+        }
+      }
+    }
+
   }
   .form-control, .bootstrap-tagsinput {
     height: 40px !important;
@@ -221,7 +259,11 @@ body {
   }
   .bootstrap-tagsinput {
     font-size: 18px;
-    padding: 7px 16px;
+    padding: 8px 16px;
+    &:focus {
+      outline: 2px auto -webkit-focus-ring-color;
+      outline-offset: 0;
+    }
   }
   .form-control-feedback {
     width: 42px;
@@ -234,6 +276,7 @@ body {
     height: 38px;
     margin-top: 26px;
     border-radius: @gn-border-radius;
+    padding-top: 7px;
   }
 }
 
@@ -304,10 +347,12 @@ body {
     }
     .bootstrap-tagsinput {
       font-size: 18px;
-      padding: 7px 16px;
+      padding: 8px 16px;
+    }
+    .input-lg {
+      height: 40px;
     }
     .btn-primary {
-      width: 49%;
       height: 38px;
       margin-top: 26px;
       border-radius: @gn-border-radius;
@@ -325,10 +370,18 @@ body {
         top: 28px;
       }
     }
+    .dutch-search-btn-group, .dutch-reset-button {
+      width: 48%;
+    }
+    .dutch-search-button {
+      width: 80%;
+    }
+
     // advanced search
 
     // toggle button
     #btn-advanced-search {
+      margin-top: 30px;
       padding: 15px;
       border-radius: 0;
       border-color: darken(@navbar-default-link-active-bg, 5%);
@@ -346,7 +399,8 @@ body {
     .gn-search-filter {
       .clearfix();
       margin: 0 -20px;
-      padding: 20px 20px 10px 20px;
+      width: calc(~"100% + 40px");
+      padding: 20px 35px;
       background-color: darken(@navbar-default-link-active-bg, 5%);
       .bootstrap-tagsinput {
         line-height: 28px;
@@ -354,6 +408,9 @@ body {
           top: 38px;
           right: 15px;
         }
+      }
+      .col-md-5 {
+        padding-left: 0;
       }
     }
   }
@@ -368,13 +425,13 @@ body {
     // tools
     .gn-row-tools {
       border-bottom: 1px solid @panel-default-border;
-      padding: 0 0 5px 0;
+      // padding: 0 0 5px 0;
       margin-bottom: 15px;
       margin-left: 15px;
     }
     // facets
     .gn-search-facet {
-      margin-top: 20px;
+      margin-top: 2px;
       .panel-default {
         border: 0;
         box-shadow: none;
@@ -420,14 +477,16 @@ body {
     ul.gn-resultview {
       li.list-group-item {
         padding-left: 0;
+        border: 0;
         border-bottom: 1px solid @panel-default-border;
+        margin-bottom: 10px;
+        line-height: 1.8em;
         [class*=col-md] {
           padding-left: 0;
         }
         h1 {
           font-size: 16px;
           margin: 5px 50px 15px 0;
-
           font-weight: 700;
         }
         p {
@@ -445,6 +504,7 @@ body {
         }
         .btn-badge {
           border: 1px solid lighten(@brand-primary, 30%);
+          color: @brand-primary;
           padding: 2px 10px;
           border-radius: 20px;
           margin: 2px;
@@ -558,6 +618,30 @@ body {
       .gn-abstract {
         max-width: 800px;
         white-space: pre-wrap;
+        margin-bottom: 20px !important;
+      }
+    }
+    .nav-tabs {
+      margin-top: 20px;
+    }
+    .tab-pane {
+      ul, p {
+        margin-bottom: 0;
+      }
+    }
+    .table {
+      tr {
+        background: none;
+      }
+      th, td {
+        border: 0;
+        padding-left: 0;
+      }
+      address {
+        ul {
+          margin-top: 10px;
+          list-style: none;
+        }
       }
     }
     .gn-md-side {
@@ -566,6 +650,11 @@ body {
           &:first-of-type {
             margin-top: 0;
           }
+        }
+      }
+      .gn-md-side-overview {
+        img {
+          margin-bottom: 10px;
         }
       }
     }
@@ -584,6 +673,12 @@ body {
         dt, dd {
           padding-top: 2px;
           padding-bottom: 2px;
+          line-height: 1.8em;
+        }
+      }
+      .gn-contact {
+        address {
+          padding: 15px 0;
         }
       }
       .gn-md-side {
@@ -596,14 +691,17 @@ body {
             border: 1px solid lighten(@brand-primary, 30%);
             background: @gn-background-color;
             color: @brand-primary;
-            padding: 4px 10px;
+            padding: 5px 10px;
             border-radius: 20px;
-            margin: 2px;
+            margin: 4px 2px;
           }
           hr {
             margin-top: 10px;
             margin-bottom: 10px;
           }
+        }
+        .gn-img-thumbnail-caption {
+          display: none;
         }
       }
     }
@@ -717,6 +815,15 @@ body {
         }
       }
     }
+    .gn-sub-bar {
+      padding-left: 0;
+      padding-right: 0;
+      .btn-truncate {
+        span {
+          max-width: 120px;
+        }
+      } 
+    }
   }
   // import metadata
   #gn-import-container {
@@ -733,6 +840,7 @@ body {
     .gn-top-search {
       padding-top: 0;
       padding-bottom: 0;
+      background: none;
     }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
       background-color: #fff;
@@ -1062,6 +1170,10 @@ body {
         display: none;
       }
     }
+  }
+  // ----- hide search template options
+  div[data-ng-switch-when="resultViewTpls"] {
+    display: none;
   }
 }
 

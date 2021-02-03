@@ -25,6 +25,9 @@
 
   goog.provide('gn_search_dutch');
 
+
+
+
   goog.require('cookie_warning');
   goog.require('gn_mdactions_directive');
   goog.require('gn_related_directive');
@@ -32,32 +35,22 @@
   goog.require('gn_gridrelated_directive');
   goog.require('gn_search_dutch_config');
   goog.require('gn_search_default_directive');
-  goog.require('dutch_search_controller');
-  goog.require('dutch_multi_location_directive');
-  goog.require('dutch_pdok_load_controller');
-  goog.require('gn_cors_interceptor');
 
   var module = angular.module('gn_search_dutch',
       ['gn_search', 'gn_search_dutch_config',
        'gn_search_default_directive', 'gn_related_directive',
-       'cookie_warning', 'gn_mdactions_directive', 'gn_gridrelated_directive', 'dutch_search_controller',
-       'dutch_multi_location_directive', 'dutch_search_home_controller',
-       'dutch_pdok_load_controller',
-       'gn_cors_interceptor']);
+       'cookie_warning', 'gn_mdactions_directive', 'gn_gridrelated_directive']);
 
-
-  module.filter('escape', function() {
-    return window.encodeURIComponent;
-  });
 
   module.controller('gnsSearchPopularController', [
     '$scope', 'gnSearchSettings',
     function($scope, gnSearchSettings) {
       $scope.searchObj = {
         permalink: false,
-	internal: true,
+        internal: true,
         filters: gnSearchSettings.filters,
         params: {
+          isTemplate: 'n',
           sortBy: 'popularity',
           from: 1,
           to: 12
@@ -71,33 +64,47 @@
     function($scope, gnSearchSettings) {
       $scope.searchObj = {
         permalink: false,
-	internal: true,
+        internal: true,
         filters: gnSearchSettings.filters,
         params: {
-          sortBy: 'changeDate',
+          isTemplate: 'n',
+          sortBy: 'createDate',
+          sortOrder: 'desc',
           from: 1,
           to: 12
         }
       };
     }]);
-module.controller('gnsSearchTopEntriesController', [
-    '$scope', 'gnGlobalSettings',
-    function($scope, gnGlobalSettings) {
+
+
+  module.controller('gnsSearchTopEntriesController', [
+    '$scope', 'gnRelatedResources',
+    function($scope, gnRelatedResources) {
       $scope.resultTemplate = '../../catalog/components/' +
         'search/resultsview/partials/viewtemplates/grid4maps.html';
       $scope.searchObj = {
         permalink: false,
-	internal: true,
-        filters: {
-          'type': 'interactiveMap'
-        },
+        internal: true,
+        filters: [{
+          "query_string": {
+            "query": "+resourceType:\"map/interactive\""
+          }
+        }],
         params: {
+          isTemplate: 'n',
           sortBy: 'changeDate',
+          sortOrder: 'desc',
           from: 1,
           to: 30
         }
       };
+
+      $scope.loadMap = function(map, md) {
+        gnRelatedResources.getAction('MAP')(map, md);
+      };
     }]);
+
+
   module.controller('gnsDutch', [
     '$scope',
     '$location',
@@ -116,28 +123,34 @@ module.controller('gnsSearchTopEntriesController', [
     'gnOwsContextService',
     'hotkeys',
     'gnGlobalSettings',
+    'gnESClient',
+    'gnESFacet',
     'gnExternalViewer',
     function($scope, $location, $filter,
-	     suggestService, $http, $translate,
+             suggestService, $http, $translate,
              gnUtilityService, gnSearchSettings, gnViewerSettings,
              gnMap, gnMdView, mdView, gnWmsQueue,
              gnSearchLocation, gnOwsContextService,
-             hotkeys, gnGlobalSettings, gnExternalViewer) {
+             hotkeys, gnGlobalSettings, gnESClient, gnESFacet, gnExternalViewer) {
+
 
       var viewerMap = gnSearchSettings.viewerMap;
       var searchMap = gnSearchSettings.searchMap;
 
+
       $scope.modelOptions = angular.copy(gnGlobalSettings.modelOptions);
       $scope.modelOptionsForm = angular.copy(gnGlobalSettings.modelOptions);
       $scope.isFilterTagsDisplayedInSearch = gnGlobalSettings.gnCfg.mods.search.isFilterTagsDisplayedInSearch;
+      $scope.exactMatchToggle = gnGlobalSettings.gnCfg.mods.search.exactMatchToggle;
       $scope.gnWmsQueue = gnWmsQueue;
       $scope.$location = $location;
       $scope.activeTab = '/home';
       $scope.formatter = gnGlobalSettings.gnCfg.mods.search.formatter;
-      $scope.currentTabMdView = 'relations';
       $scope.listOfResultTemplate = gnGlobalSettings.gnCfg.mods.search.resultViewTpls;
       $scope.resultTemplate = gnSearchSettings.resultTemplate;
-      $scope.advandedSearchTemplate = gnSearchSettings.advancedSearchTemplate;
+      /* Default advanced search form template */
+      $scope.advancedSearchTemplate = gnSearchSettings.advancedSearchTemplate ||
+        '../../catalog/views/dutch/templates/advancedSearchForm/dutchAdvancedSearchForm.html';
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;
@@ -201,49 +214,41 @@ module.controller('gnsSearchTopEntriesController', [
       // TODO: Previous record should be stored on the client side
       $scope.mdView = mdView;
       gnMdView.initMdView();
+
+
       $scope.goToSearch = function (any) {
         $location.path('/search').search({'any': any});
       };
-
-      $scope.backToSearch = function() {
-        gnSearchLocation.restoreSearch();
-      };
-
       $scope.canEdit = function(record) {
         // TODO: take catalog config for harvested records
-        if (record && record['geonet:info'] &&
-            record['geonet:info'].edit == 'true') {
+        // TODOES: this property does not exist yet; makes sure it is
+        // replaced by a correct one eventually
+        if (record && record.edit == 'true') {
           return true;
         }
         return false;
       };
-      $scope.openRecord = function(index, md, records) {
-        gnMdView.feedMd(index, md, records);
+
+      $scope.buildOverviewUrl = function(md) {
+        if (md.overview) {
+          return md.overview[0].url;
+        } else if (md.resourceType && md.resourceType[0] === 'feature') {
+          // Build a getmap request on the feature
+          var t = decodeURIComponent(md.featureTypeId).split('#');
+
+          var getMapRequest = t[0].replace(/SERVICE=WFS/i, '') + (t[0].indexOf('?' !== -1) ? '&' : '?')
+            + "SERVICE=WMS&VERSION=1.1.0&REQUEST=GetMap&FORMAT=image/png&LAYERS=" + t[1]
+            + "&CRS=EPSG:4326&BBOX=" + md.bbox_xmin + ","+ md.bbox_ymin + ","+ md.bbox_xmax + ","+ md.bbox_ymax
+            + "&WIDTH=100&HEIGHT=100";
+
+          return getMapRequest;
+        } else {
+          return '../../catalog/views/dutch/images/no-thumbnail.png';
+        }
       };
 
       $scope.closeRecord = function() {
         gnMdView.removeLocationUuid();
-        $location.search('tab', null);
-
-      };
-      $scope.nextRecord = function() {
-        var nextRecordId = mdView.current.index + 1;
-        if (nextRecordId === mdView.records.length) {
-          // When last record of page reached, go to next page...
-          // Not the most elegant way to do it, but it will
-          // be easier using index search components
-          $scope.$broadcast('nextPage');
-        } else {
-          $scope.openRecord(nextRecordId);
-        }
-      };
-      $scope.previousRecord = function() {
-        var prevRecordId = mdView.current.index - 1;
-        if (prevRecordId === -1) {
-          $scope.$broadcast('previousPage');
-        } else {
-          $scope.openRecord(prevRecordId);
-        }
       };
       $scope.nextPage = function() {
         $scope.$broadcast('nextPage');
@@ -252,7 +257,7 @@ module.controller('gnsSearchTopEntriesController', [
         $scope.$broadcast('previousPage');
       };
 
-       /**
+      /**
        * Toggle the list types on the homepage
        * @param  {String} type Type of list selected
        */
@@ -296,7 +301,7 @@ module.controller('gnsSearchTopEntriesController', [
       $scope.resultviewFns = {
         addMdLayerToMap: function (link, md) {
           var config = {
-            uuid: md ? md.getUuid() : null,
+            uuid: md ? md.uuid : null,
             type:
               link.protocol.indexOf('WMTS') > -1 ? 'wmts' :
                 ((link.protocol == 'ESRI:REST') || (link.protocol.startsWith('ESRI REST')) ? 'esrirest' : 'wms'),
@@ -339,7 +344,7 @@ module.controller('gnsSearchTopEntriesController', [
           $location.path('map').search({
             add: encodeURIComponent(angular.toJson([config]))});
           return;
-        },
+      },
         addAllMdLayersToMap: function (layers, md) {
           angular.forEach(layers, function (layer) {
             $scope.resultviewFns.addMdLayerToMap(layer, md);
@@ -353,6 +358,7 @@ module.controller('gnsSearchTopEntriesController', [
       // Share map loading functions
       gnViewerSettings.resultviewFns = $scope.resultviewFns;
 
+
       // Manage route at start and on $location change
       // depending on configuration
       if (!$location.path()) {
@@ -363,11 +369,6 @@ module.controller('gnsSearchTopEntriesController', [
           m.map.enabled ? '/map' : 'home'
         );
       }
-
-      // Manage route at start and on $location change
-      if (!$location.path()) {
-        $location.path('/home');
-      }
       var setActiveTab = function() {
         $scope.activeTab = $location.path().
         match(/^(\/[a-zA-Z0-9]*)($|\/.*)/)[1];
@@ -376,7 +377,7 @@ module.controller('gnsSearchTopEntriesController', [
       setActiveTab();
       $scope.$on('$locationChangeSuccess', setActiveTab);
 
-      var sortConfig = gnSearchSettings.sortBy.split('#');      
+      var sortConfig = gnSearchSettings.sortBy.split('#');
 
       var availableTabs = ['general', 'contact', 'relations', 'catalog', 'inspire'];
       $scope.changeTabMdView =function(newTab) {
@@ -437,7 +438,7 @@ module.controller('gnsSearchTopEntriesController', [
           setTimeout(function() {
             viewerMap.updateSize();
 
-	    // if an extent was obtained from a loaded context, apply it
+	          // if an extent was obtained from a loaded context, apply it
             if(viewerMap.get('lastExtent')) {
               viewerMap.getView().fit(
                 viewerMap.get('lastExtent'),
@@ -456,25 +457,41 @@ module.controller('gnsSearchTopEntriesController', [
       angular.extend($scope.searchObj, {
         advancedMode: false,
         from: 1,
-        to: 30,
+        to: 20,
         selectionBucket: 's101',
         viewerMap: viewerMap,
         searchMap: searchMap,
         mapfieldOption: {
-          relations: ['within_bbox'],
+          relations: ['within'],
           autoTriggerSearch: true
         },
         hitsperpageValues: gnSearchSettings.hitsperpageValues,
         filters: gnSearchSettings.filters,
         defaultParams: {
-          'facet.q': '',
-          resultType: gnSearchSettings.facetsSummaryType || 'details',
+          isTemplate: 'n',
+          resourceTemporalDateRange: {
+            range: {
+              resourceTemporalDateRange: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
           sortBy: sortConfig[0] || 'relevance',
           sortOrder: sortConfig[1] || ''
         },
         params: {
-          'facet.q': gnSearchSettings.defaultSearchString || '',
-          resultType: gnSearchSettings.facetsSummaryType || 'details',
+          isTemplate: 'n',
+          resourceTemporalDateRange: {
+            range: {
+              resourceTemporalDateRange: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
           sortBy: sortConfig[0] || 'relevance',
           sortOrder: sortConfig[1] || ''
         },

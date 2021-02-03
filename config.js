@@ -30,9 +30,8 @@
   var module = angular.module('gn_search_dutch_config', ['gn_dutch_gazetteer_factory',
     'gn_relatedresources_service']);
 
-
   module.value('gnTplResultlistLinksbtn',
-      '../../catalog/views/default/directives/partials/linksbtn.html');
+      '../../catalog/views/dutch/directives/partials/linksbtn.html');
 
   module
       .run([
@@ -61,7 +60,7 @@
 
           // WMS settings
           // If 3D mode is activated, single tile WMS mode is
-          // not supported by ol3cesium, so force tiling.
+          // not supported by olcesium, so force tiling.
           if (viewerSettings.mapConfig.is3DModeAllowed) {
             viewerSettings.singleTileWMS = false;
             // Configure Cesium to use a proxy. This is required when
@@ -102,7 +101,6 @@
           };
 
           gnMapsManager.initProjections(viewerSettings.mapConfig.switcherProjectionList);
-          
           var searchMap = gnMapsManager.createMap(gnMapsManager.SEARCH_MAP);
           var viewerMap = gnMapsManager.createMap(gnMapsManager.VIEWER_MAP);
 
@@ -110,37 +108,41 @@
           viewerSettings.gazetteerProvider = gnDutchGazetteer;
 
           /* Custom templates for search result views */
-          // searchSettings.resultViewTpls = [{
-          //   tplUrl: '../../catalog/views/dutch/templates/card.html',
-          //   tooltip: 'Grid',
-          //   icon: 'fa-th'
-          // }];
+          searchSettings.resultViewTpls = [{
+            tplUrl: '../../catalog/views/dutch/templates/list.html',
+            tooltip: 'List',
+            icon: 'fa-bars'
+          }];
 
           // Mapping for md links in search result list.
-          // searchSettings.linkTypes = {
-          //   links: ['LINK', 'pdf', 'docx'],
-          //   downloads: ['DOWNLOAD','gml', 'kml', 'geojson', 'gpkg', 'x-sqlite3', 'json', 'jsonld', 'json-ld', 'rdf-xml', 'xml', 'zip', 'jp2',
-          //     'tiff', 'csv', 'OGC:WFS', 'OGC:WCS', 'OGC:SOS', 'INSPIRE Atom', 'OASIS:OData', 'OGC:SensorThings', 'W3C:SPARQL', 'OAS'],
-          //   //layers:['OGC', 'kml'],
-          //   layers:['OGC'],
-          //   maps: ['OGC:OWC']
-          // };
+          searchSettings.linkTypes = {
+            links: ['LINK', 'pdf', 'docx'],
+            downloads: ['DOWNLOAD','gml', 'kml', 'geojson', 'gpkg', 'x-sqlite3', 'json', 'jsonld', 'json-ld', 'rdf-xml', 'xml', 'zip', 'jp2',
+              'tiff', 'csv', 'OGC:WFS', 'OGC:WCS', 'OGC:SOS', 'INSPIRE Atom', 'OASIS:OData', 'OGC:SensorThings', 'W3C:SPARQL', 'OAS'],
+            //layers:['OGC', 'kml'],
+            layers:['OGC'],
+            maps: ['OGC:OWC']
+          };
+
           // Map protocols used to load layers/services in the map viewer
           searchSettings.mapProtocols = {
             layers: [
               'OGC:WMS',
-              'OGC:WFS',
+              'OGC:WMTS',
+              'OGC:WMTS-1.1.0-http-get-tile',
               'OGC:WMS-1.1.1-http-get-map',
               'OGC:WMS-1.3.0-http-get-map',
-              'OGC:WMTS-1.1.0-http-get-tile',
-              'OGC:WMTS',
+              'OGC:WFS',
+              'ESRI:REST',
               'TMS',
               'KML',
-              'GML'],
+              'GML'
+              ],
             services: [
               'OGC:WMS-1.3.0-http-get-capabilities',
               'OGC:WMS-1.1.1-http-get-capabilities',
-              'OGC:WMTS-1.0.0-http-get-capabilities'
+              'OGC:WMTS-1.0.0-http-get-capabilities',
+              'OGC:WFS-1.0.0-http-get-capabilities'
               ]
           };
 
@@ -151,7 +153,7 @@
           });
 
         }]);
-  
+
         module.config(['$LOCALES', function($LOCALES) {
           $LOCALES.push('../../catalog/views/dutch/locales/|core');
         }]);
