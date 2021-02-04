@@ -1,8 +1,8 @@
-# A custom view for GeoNetwork: 'Dutch Government Skin' - Version 2
+# A custom view for GeoNetwork 4.0.x: 'Dutch Government Skin'
 
 This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
 
-Version 2 is rebuilt from the ground up. It's closely matched with the latest version of GeoNetwork OpenSource.
+Version 2 is rebuilt from the ground up. It's closely matched with the version 4.0.x of GeoNetwork OpenSource.
 
 ## Features:
 - Design slightly follows [dutch rijkshuisstijl](https://www.rijkshuisstijl.nl/)
@@ -32,11 +32,9 @@ git submodule init
 - Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.10.x
 - Unzip it in `/geonetwork/catalog/views/dutch`
 
-## Then
-
-Some additional settings on the main project:
-
 ## Settings
+
+**Then** do some additional settings on the main project:
 
 ### General
 
@@ -72,5 +70,5 @@ Go to `Admin` > `Settings` > `User Interface` > `Display filter tags in the sear
 
 - (re)start the service
 - Verify the view by browsing to `catalog.search?view=dutch`. 
-- If ok, then alter the setting "view" to "dutch" in 'Admin > Settings'
+- If Ok, then alter the setting "view" to "dutch" in `Admin` > `Settings`
 
