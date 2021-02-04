@@ -36,14 +36,36 @@ git submodule init
 
 Some additional settings on the main project:
 
+## Settings
+
+### General
+
 - In `pom.xml`, configure the database type and connection details, `Language.default`, `Language.forcedefault`.
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
 - On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` configure things such as catalog title, logo, URL, map extent, etc.
-- On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` set the default map to load to use the thematic map with pdok-backgrounds at `../../catalog/views/dutch/config-nl-viewer.xml`
-- Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in admin > classification (from local file > place)
-- Change the default template for the search results in `Admin` > `Settings` > `User Interface` > `Default template used for search results` to `../../catalog/views/dutch/templates/list.html`
+- Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in `admin` > `classification` (from local file > place)
 
-### How to add facets on top of the search results?
+### Set custom search list items
+
+In `Admin` > `Settings` > `User Interface` select the option to show the logo in the Header.
+
+- Change the default template to `../../catalog/views/dutch/templates/list.html`
+
+### Layout width
+
+Change the width of the page to a fixed width:
+- Go to  `Settings` > `User Interface` > `Top toolbar` > `Fluid container for Header and Top menu` and uncheck the option
+- Go to  `Settings` > `User Interface` > `Home page` > `Fluid container for Home and Search` and uncheck the option
+
+Do not change:
+- Editor width: Go to  `Settings` > `User Interface` > `Editor application` > `Fluid container for the Editor` and make shure the option is checked
+
+### Custom background layers for the Map
+
+On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` set the default map to load to use the thematic map with pdok-backgrounds at `../../catalog/views/dutch/config-nl-viewer.xml`
+
+### How to add facets?
+
 Go to `Admin` > `Settings` > `User Interface` > `Display filter tags in the search results` and select the option, and unselect the optiopn if you don't want the facets on the search results.
 
 ## Finally
