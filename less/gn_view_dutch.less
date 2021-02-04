@@ -100,6 +100,21 @@ body, p, div, span, a, blockquote, .btn {
   font-weight: normal;
 }
 
+// body
+body {
+  background-attachment: fixed;
+}
+// website scroll
+::-webkit-scrollbar {
+  background-color: @gn-background-color;
+}
+a {
+  color: @gn-link-color;
+  &:visited {
+    color: @gn-link-color-visited;
+  }
+}
+
 // ----- font awesome (in case it's overwritten with the above font)
 .fa {
   font-family: FontAwesome !important;
@@ -115,15 +130,6 @@ body, p, div, span, a, blockquote, .btn {
 .gn-icon-inlandwaters:before { content: @fa-var-tint }
 .gn-icon-planningcadastre:before { content: @fa-var-home }
 .gn-icon-utilitiescommunication:before { content: @fa-var-phone }
-
-// body
-body {
-  background-attachment: fixed;
-}
-// website scroll
-::-webkit-scrollbar {
-  background-color: @gn-background-color;
-}
 
 // header {
 .gn-header {
@@ -280,6 +286,18 @@ body {
   }
 }
 
+// user maps
+.gn-top-records {
+  background: none;
+  border: 0;
+  margin-bottom: 0;
+  padding: 0;
+  .container {
+    padding: 30px;
+    background-color: @gn-usermaps-background-color;
+  }
+}
+
 // topics
 .gn-row-topics {
   background: none;
@@ -349,7 +367,7 @@ body {
       font-size: 18px;
       padding: 8px 16px;
     }
-    .input-lg {
+    .input-lg, .btn-lg {
       height: 40px;
     }
     .btn-primary {
@@ -358,8 +376,9 @@ body {
       border-radius: @gn-border-radius;
     }
     .dutch-search-topic {
-      .input-group {
-        display: block;
+      .btn-lg {
+        font-size: 14px;
+        border-right: 0;
       }
     }
     .dutch-search-location {
@@ -425,7 +444,6 @@ body {
     // tools
     .gn-row-tools {
       border-bottom: 1px solid @panel-default-border;
-      // padding: 0 0 5px 0;
       margin-bottom: 15px;
       margin-left: 15px;
     }
@@ -443,6 +461,16 @@ body {
         .panel-body {
           padding-left: 0;
           .gn-facet {
+            .gn-facet-filter {
+              &:before {
+                margin: 0.2em 0.3em 0em 0em;
+              }
+              input {
+                padding-left: 0;
+                width: 93%;
+                margin-bottom: 10px;
+              }
+            }
             .gn-facet-toggle {
               width: 1px;
             }
@@ -469,6 +497,11 @@ body {
               right: 20px;
               font-size: 16px;
             }
+          }
+        }
+        &.gn-search-user {
+          .pull-right {
+            margin-right: 25px;
           }
         }
       }

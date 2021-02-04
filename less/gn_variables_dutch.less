@@ -5,6 +5,8 @@
 // general
 @gn-border-radius: 3px;
 @gn-outline: 5px auto -webkit-focus-ring-color;
+@gn-link-color: #01689b;
+@gn-link-color-visited: #884488;
 
 // override bootstrap variables
 @badge-bg: @gray;
@@ -25,7 +27,7 @@
 @modal-md: 700px;
 @navbar-default-color: #333;
 // slightly darker primary color, now color contrast on light gray backgrounds is high enough
-@brand-primary: #3277B3;
+@brand-primary: @gn-link-color;
 @dropdown-border: @navbar-default-border;
 
 // header
@@ -47,7 +49,7 @@
 @gn-crumbpath-color: @gn-menubar-color-active;
 
 // social bar
-@gn-socialbar-background: #0075A3;
+@gn-socialbar-background: @gn-link-color;
 @gn-socialbar-color: #fff;
 
 // bottombar
@@ -61,7 +63,7 @@
 // home page
 //
 // ----- search input
-@gn-search-background-color: #98C8F6;
+@gn-search-background-color: #cce0f1;
 
 @gn-search-outline-color: @brand-primary;
 @gn-search-button-background-color: @brand-primary;
@@ -74,6 +76,8 @@
 @gn-topics-background-color: @well-bg;
 // ----- info block
 @gn-info-background-color: @body-bg;
+// ----- user maps
+@gn-usermaps-background-color: @body-bg;
 // ----- resultcards
 @gn-resultcard-background-color: @body-bg;
 @gn-resultcard-title-background-color: #505050;
