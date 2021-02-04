@@ -110,9 +110,6 @@ body {
 }
 a:not(.btn) {
   color: @gn-link-color;
-  &:visited {
-    color: @gn-link-color-visited;
-  }
 }
 
 // ----- font awesome (in case it's overwritten with the above font)
@@ -153,11 +150,6 @@ a:not(.btn) {
   border: none;
   @media (max-width: @screen-md-max) {
     padding: 0;
-  }
-  a {
-    &:visited {
-      color: #555;
-    }
   }
   .container {
     background-color: @gn-menubar-background;
@@ -846,6 +838,13 @@ a:not(.btn) {
   [gn-localisation-input] {
     .dropdown-menu {
       min-width: 100%;
+      .list-group-item {
+        a {
+          &:hover {
+            background-color: @dropdown-link-hover-bg;
+          }
+        }
+      }
     }
   }
 }
