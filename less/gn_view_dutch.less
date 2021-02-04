@@ -108,7 +108,7 @@ body {
 ::-webkit-scrollbar {
   background-color: @gn-background-color;
 }
-a {
+a:not(.btn) {
   color: @gn-link-color;
   &:visited {
     color: @gn-link-color-visited;
@@ -151,6 +151,14 @@ a {
 .gn-top-bar {
   background: none;
   border: none;
+  @media (max-width: @screen-md-max) {
+    padding: 0;
+  }
+  a {
+    &:visited {
+      color: #555;
+    }
+  }
   .container {
     background-color: @gn-menubar-background;
     padding-top: 10px;
@@ -159,6 +167,9 @@ a {
       .gn-name {
         display: inline-block;
         margin-left: 0 !important;
+        &.hidden-md {
+          display: inline-block !important;
+        }
       }
     }
   }
@@ -184,6 +195,28 @@ a {
   color: @gn-crumbpath-color;
   a {
     color: @gn-crumbpath-color;
+  }
+  @media (max-width: @screen-xs-max) {
+    .col-md-12 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  @media (max-width: 424px) {
+    .gn-visible-xs {
+      display: inline-block;
+    }
+    .gn-hidden-xs {
+      display: none;
+    }
+  }
+  @media (min-width: 425px) {
+    .gn-visible-xs {
+      display: none;
+    }
+    .gn-hidden-xs {
+      display: inline-block;
+    }
   }
 }
 
@@ -389,11 +422,21 @@ a {
         top: 28px;
       }
     }
-    .dutch-search-btn-group, .dutch-reset-button {
-      width: 48%;
-    }
-    .dutch-search-button {
-      width: 80%;
+    .dutch-search-buttons {
+      .dutch-search-btn-group, .dutch-reset-button {
+        width: 48%;
+      }
+      .dutch-search-button {
+        width: 80%;
+        @media (max-width: @screen-sm-max) {
+          width: 92%;
+        }
+      }
+      .dutch-reset-button {
+        @media (max-width: @screen-md-max) {
+          float: right;
+        }
+      }
     }
 
     // advanced search
@@ -436,6 +479,9 @@ a {
   .gn-row-results {
     background: none;
     padding: 0 10px;
+    @media (max-width: @screen-md-max) {
+      padding: 0;
+    }
     .container {
       background-color: @gn-results-background-color;
       padding-top: 15px;
@@ -643,6 +689,17 @@ a {
   }
 }
 .gn-md-view {
+  .btn-toolbar {
+    .clearfix();
+    .dutch-edit-buttons {
+      margin-top: 10px;
+      float: left;
+      @media (min-width: @screen-sm-min) {
+        float: right;
+        margin-top: 0;
+      }
+    }
+  }
   .gn-metadata-display {
     h1 {
       font-size: 24px;
