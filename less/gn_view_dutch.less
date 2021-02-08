@@ -131,7 +131,7 @@ a:not(.btn) {
 // header {
 .gn-header {
   background: none;
-  .container {
+  .container, .container-fluid {
     background-color: #fff;
   }
   .gn-static-pages {
@@ -151,7 +151,7 @@ a:not(.btn) {
   @media (max-width: @screen-md-max) {
     padding: 0;
   }
-  .container {
+  .container, .container-fluid {
     background-color: @gn-menubar-background;
     padding-top: 10px;
     border-bottom: 5px solid @gn-menubar-border-color;
@@ -176,6 +176,9 @@ a:not(.btn) {
         display: inline-block;
       }
     }
+  }
+  .container-fluid {
+    margin: 0 -20px;
   }
 }
 
@@ -214,15 +217,18 @@ a:not(.btn) {
 
 // footer
 .gn-bottom-bar {
-  background: @gn-bottombar-background;
+  background: none;
   border: 0;
-  border-top: 1px solid @gn-bottombar-border-color;
-  position: relative;
-  .container();
-  .gn-static-pages {
-    li {
-      .fa {
-        display: none;
+  .container, .container-fluid {
+    background: @gn-bottombar-background;
+    border: 0;
+    border-top: 1px solid @gn-bottombar-border-color;
+    position: relative;
+    .gn-static-pages {
+      li {
+        .fa {
+          display: none;
+        }
       }
     }
   }
@@ -232,7 +238,7 @@ a:not(.btn) {
 
 // intro
 .gn-row-intro {
-  .container {
+  .container, .container-fluid {
     margin-top: 50px;
     margin-bottom: 70px;
     background: none;
@@ -328,7 +334,7 @@ a:not(.btn) {
   background: none;
   margin: 0;
   padding: 0;
-  .container {
+  .container, .container-fluid {
     background-color: #fff;
     padding-bottom: 60px;
     h1 {
@@ -1237,9 +1243,9 @@ a:not(.btn) {
 // admin
 [ng-app="gn_admin"] {
   .gn-top-bar {
-    padding: 0;
-    .container {
-      width: 100%;
+    // padding: 0;
+    .container, .container-fluid {
+      width: auto;
       padding-top: 0;
       padding-right: 10px;
       margin-bottom: 0;
@@ -1252,6 +1258,13 @@ a:not(.btn) {
         }
       }
     }
+    // .container-fluid {
+    //   width: auto;
+    // }
+    .container {
+      padding-left: 0;
+      margin: 0 -20px;
+    }
   }
   .navbar-default .nav > li > a {
     padding: 15px !important;
@@ -1260,6 +1273,27 @@ a:not(.btn) {
     .dropdown-menu {
       li:nth-child(2) {
         display: none;
+      }
+    }
+  }
+  .dropdown-menu > li {
+    &.active, &:hover {
+      > a {
+        background-color: #e5f0f9 !important;
+      }
+    }
+  }
+  // ----- sidebar
+  [data-ng-controller="GnAdminController"] {
+    .sidebar {
+      ul {
+        li {
+          &.active, &:hover {
+            a {
+              background-color: #e5f0f9 !important;
+            }
+          }
+        }
       }
     }
   }
