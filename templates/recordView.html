@@ -33,7 +33,7 @@
     </a>
   </div>
 
-  <div class="container">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div class="alert alert-warning"
         data-ng-hide="!mdView.loadDetailsFinished || mdView.current.record"
         data-translate=""

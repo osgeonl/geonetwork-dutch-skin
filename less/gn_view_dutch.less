@@ -218,6 +218,7 @@ a:not(.btn) {
 // footer
 .gn-bottom-bar {
   background: none;
+  position: relative;
   border: 0;
   .container, .container-fluid {
     background: @gn-bottombar-background;
@@ -385,7 +386,7 @@ a:not(.btn) {
     background: none;
     margin: 0;
     padding: 0;
-    .container {
+    .container, .container-fluid {
       background-color: @navbar-default-link-active-bg;
       padding: 30px 20px 35px 20px;
       border-bottom: 10px solid darken(@navbar-default-link-active-bg, 5%);
@@ -483,10 +484,14 @@ a:not(.btn) {
     @media (max-width: @screen-md-max) {
       padding: 0;
     }
-    .container {
+    .container, .container-fluid {
       background-color: @gn-results-background-color;
       padding-top: 15px;
       padding-bottom: 15px;
+    }
+    .container-fluid {
+      margin-left: -10px;
+      margin-right: -10px;
     }
     // tools
     .gn-row-tools {
@@ -688,6 +693,9 @@ a:not(.btn) {
     padding-right: 0;
     background-color: @gn-background-color;
   }
+  .container-fluid {
+    background-color: @gn-background-color;
+  }
 }
 .gn-md-view {
   .btn-toolbar {
@@ -803,6 +811,13 @@ a:not(.btn) {
     }
   }
 }
+.container-fluid {
+  .gn-md-view {
+    .btn-toolbar {
+      margin-left: 10px;
+    }
+  }
+}
 .share-banner {
   color: @gn-socialbar-color;
   background-color: @gn-socialbar-background;
@@ -832,7 +847,6 @@ a:not(.btn) {
 [gn-main-viewer] {
   height: auto;
   margin-top: @gn-crumbpath-height;
-  .container();
   background-color: @gn-background-color;
   padding-left: 0;
   padding-right: 0;
@@ -841,7 +855,7 @@ a:not(.btn) {
     // height: calc(~"100vh - @{gn-header-height} - @{gn-menubar-height} -  @{gn-crumbpath-height} - @{gn-bottombar-height}");
   }
   .control-tools {
-    bottom: 1em;
+    bottom: calc(~"@{gn-bottombar-height} + 1em");
     position: absolute;
   }
   [gn-localisation-input] {
