@@ -871,6 +871,15 @@ a:not(.btn) {
     }
   }
 }
+.container {
+  [gn-main-viewer] {
+    .container();
+    padding: 0;
+    .control-tools {
+      bottom: 1em;
+    }
+  }
+}
 
 // login
 [ng-app="gn_login"] {
