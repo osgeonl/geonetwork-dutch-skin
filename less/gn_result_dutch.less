@@ -231,6 +231,11 @@
       font-size: 15px;
       line-height: 1.5em;
     }
+    .gn-abstract {
+      border: 0;
+      background: none;
+      padding: 0;
+    }
     .gn-md-side {
       h2 {
         font-size: 16px;
@@ -240,6 +245,7 @@
         background-color: rgb(255, 255, 255);
         display: inline-block;
         max-width: 100%;
+        max-height: 100%;
         height: auto;
         padding: 4px;
         border-width: 1px;
@@ -248,6 +254,11 @@
         border-image: initial;
         border-radius: 4px;
         transition: all 0.2s ease-in-out 0s;
+      }
+      .gn-md-side-extent {
+        .extent {
+          margin: 0;
+        }
       }
     }
     h2 {
@@ -259,6 +270,9 @@
       h2 {
         font-size: 14px;
         margin: 0 0 15px 0;
+      }
+      address {
+        margin: 15px 0;
       }
     }
     dl {
