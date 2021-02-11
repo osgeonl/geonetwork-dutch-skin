@@ -8,5 +8,5 @@ Only 2 files have a lot of changes, most files have small changes for the `@impo
 
 The 2 files with all the changes
 
-- web-ui/src/main/resources/catalog/views/dutch/less/gn_variables_default.less (for the colours)
+- web-ui/src/main/resources/catalog/views/dutch/less/gn_variables_dutch.less (for the colours)
 - web-ui/src/main/resources/catalog/views/dutch/less/gn_view_dutch.less (for all Dutch overrides)
