@@ -909,6 +909,9 @@ a:not(.btn) {
     display: block !important;
     z-index: 502 !important;
   }
+  .label {
+    padding: .4em .6em;
+  }
   .gn-sub-bar {
     .container();
     top: 65px;
@@ -944,6 +947,15 @@ a:not(.btn) {
           max-width: 120px;
         }
       } 
+    }
+  }
+  .gn-editor-sidebar {
+    .gn-editor-tools-container {
+      #gn-editor-validation-panel {
+        .btn-toolbar {
+          display: none;
+        }
+      }
     }
   }
   // import metadata
