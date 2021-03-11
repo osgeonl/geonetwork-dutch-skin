@@ -104,6 +104,9 @@
       };
     }]);
 
+    module.config(['$LOCALES', function($LOCALES) {
+      $LOCALES.push('/../api/i18n/packages/search');
+    }]);
 
   module.controller('gnsDutch', [
     '$scope',
