@@ -4,6 +4,8 @@ This project contains a skin for the GeoNetwork Opensource project at https://gi
 
 Version 2 is rebuilt from the ground up. It's closely matched with the version 4.0.x of GeoNetwork OpenSource.
 
+![Homepage](images/gn-dutch-home.png)
+
 ## Features:
 - Design slightly follows [dutch rijkshuisstijl](https://www.rijkshuisstijl.nl/)
 - PDOK background layers as map backgrounds
@@ -22,7 +24,7 @@ The license of the project is GPLv2.
 - Initialise the skin as a git submodule in `/web-ui/src/main/resources/catalog/views`
 
 ```bash
-git submodule add -b 4.0.x-v2 https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
+git submodule add -b 4.0.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
