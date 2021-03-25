@@ -128,6 +128,26 @@ a:not(.btn) {
 .gn-icon-planningcadastre:before { content: @fa-var-home }
 .gn-icon-utilitiescommunication:before { content: @fa-var-phone }
 
+// layout
+
+@media (min-width: 1200px) {
+  #gn-directory-container {
+    width: 1100px;
+  }
+}
+
+// extra wide screens
+.gn-extra-wide-container {
+  @media (min-width: 1440px) {
+    .container {
+      width: 1400px;
+    }
+    #gn-directory-container {
+      width: 1340px;
+    }
+  }
+}
+
 // header {
 .gn-header {
   background: none;
@@ -455,7 +475,7 @@ a:not(.btn) {
         box-shadow: none;
         i {
           &:before {
-            content: "\f062"; // up arrow 
+            content: "\f062"; // up arrow
           }
         }
       }
@@ -505,7 +525,7 @@ a:not(.btn) {
     }
     // facets
     .gn-search-facet {
-      margin-top: 2px;
+      margin-top: 17px;
       .panel-default {
         border: 0;
         box-shadow: none;
@@ -599,15 +619,27 @@ a:not(.btn) {
           margin: 2px;
         }
       }
-    } 
+    }
   }
-  // mini map
+  // mini map (map on search results page)
   [data-gn-map-field] > [ol-map] {
     position: relative !important;
     z-index: 99;
     width: 190px !important;
     height: 300px !important;
     margin: 10px 0;
+  }
+  .gn-minimap-button {
+    display: none;
+  }
+  .gn-fixed-map {
+    [data-gn-map-field] > [ol-map] {
+      position: fixed !important;
+      width: 250px !important;
+    }
+    .gn-minimap-button {
+      display: block;
+    }
   }
 }
 
@@ -950,7 +982,7 @@ a:not(.btn) {
         span {
           max-width: 120px;
         }
-      } 
+      }
     }
   }
   .gn-editor-sidebar {
@@ -959,6 +991,13 @@ a:not(.btn) {
         .btn-toolbar {
           display: none;
         }
+      }
+    }
+  }
+  .gn-extra-wide-container {
+    @media (min-width: 1440px) {
+      body, .gn-top-bar, .gn-sub-bar {
+        width: 1400px;
       }
     }
   }
@@ -1096,7 +1135,7 @@ a:not(.btn) {
         font-size: 16px;
         margin-top: -2px;
       }
-    } 
+    }
   }
 
   // xml editor
@@ -1108,7 +1147,7 @@ a:not(.btn) {
     }
   }
   // tooltip
-  // 
+  //
   // ----- icon to open
   .field-tooltip {
     padding: 6px;
@@ -1257,7 +1296,7 @@ a:not(.btn) {
         }
       }
     }
-    input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, 
+    input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control,
     input[type="month"].form-control {
       line-height: normal;
     }
