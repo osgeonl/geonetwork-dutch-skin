@@ -382,31 +382,32 @@
 
       var sortConfig = gnSearchSettings.sortBy.split('#');
 
-      var availableTabs = ['general', 'contact', 'relations', 'catalog', 'inspire'];
-      $scope.changeTabMdView =function(newTab) {
-        if (availableTabs.indexOf(newTab) == -1) {
-          newTab = availableTabs[0];
-        }
-        $location.search('tab', newTab);
-      };
-
-      // Event issued when the relations are not available.
-      // Instead of using the requestedTab (fixed value) always, check if the user selected another tab.
-      $scope.$on('tabChangeRequested', function(event, requestedTab) {
-        var search = $location.search();
-
-        if (angular.isDefined(search.tab) && (search.tab != 'relations')) {
-          $scope.changeTabWithoutModifyingUrl(search.tab);
-        } else {
-          $scope.changeTabWithoutModifyingUrl(requestedTab);
-        }
-      });
-
-      $scope.changeTabWithoutModifyingUrl = function (newTab) {
-        if (newTab && availableTabs.indexOf(newTab) != -1) {
-          $scope.currentTabMdView = newTab;
-        } else {
-          $scope.currentTabMdView = 'relations';
+      // tabs for the detail view
+      $scope.detailTabs = {
+        general: {
+          title: 'general',
+          titleInfo: 'GN',
+          active: true
+        },
+        contact: {
+          title: 'contact',
+          titleInfo: '',
+          active: false
+        },
+        relations: {
+          title: 'relations',
+          titleInfo: '',
+          active: false
+        },
+        catalog: {
+          title: 'catalog',
+          titleInfo: '',
+          active: false
+        },
+        inspire: {
+          title: 'inspire',
+          titleInfo: '',
+          active: false
         }
       };
 
@@ -416,12 +417,6 @@
             match(/^(\/[a-zA-Z0-9]*)($|\/.*)/)[1];
         } catch(e) {}
         var search = $location.search();
-
-        if (search.tab && availableTabs.indexOf(search.tab) != -1) {
-          $scope.currentTabMdView = search.tab;
-        } else {
-          $scope.currentTabMdView = 'relations';
-        }
 
         if (gnSearchLocation.isSearch() && (!angular.isArray(
             searchMap.getSize()) || searchMap.getSize()[0] < 0)) {
