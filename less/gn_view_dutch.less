@@ -1229,66 +1229,81 @@ a:not(.btn) {
     .panel-default {
       margin-top: 15px;
     }
-    fieldset {
-      padding: 0 0 10px 0 !important;
-      border: 1px solid @panel-default-border !important;
-      border-top: 0 !important;
-      border-radius: 0;
-      margin: 0 !important;
-      &:hover, &:active, &:focus {
-        background: 0;
-      }
-      label {
-        padding-top: 5px;
-      }
-      .well {
-        background-color: #f9f9f9;
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-        label {
-          padding-left: 15px;
-        }
-      }
-      legend {
-        padding: 10px 10px 10px 30px;
-        font-size: 18px !important;
-        background-color: @panel-default-heading-bg;
-        margin: -1px -1px 5px -1px !important;
-        border: 1px solid @panel-default-border;
-        width: calc(~"100% + 2px") !important;
-        min-height: 3em;
-        [data-gn-field-highlight-remove] {
-          margin-right: -11px;
-        }
-      }
+    &.gn-indent-default {
       fieldset {
         padding: 0 0 10px 0 !important;
-        border-width: 0 !important;
-        margin: 10px 0 5px 0 !important;
-        legend {
-          font-size: 16px !important;
-          background: #fff;
-          border-top: 0 !important;
+        border: 1px solid @panel-default-border !important;
+        border-top: 0 !important;
+        border-radius: 0;
+        margin: 0 !important;
+
+        &:hover, &:active, &:focus {
+          background: 0;
         }
+
+        label {
+          padding-top: 5px;
+        }
+
+        .well {
+          background-color: #f9f9f9;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+
+          label {
+            padding-left: 15px;
+          }
+        }
+
+        legend {
+          padding: 10px 10px 10px 30px;
+          font-size: 18px !important;
+          background-color: @panel-default-heading-bg;
+          margin: -1px -1px 5px -1px !important;
+          border: 1px solid @panel-default-border;
+          width: calc(~"100% + 2px") !important;
+          min-height: 3em;
+
+          [data-gn-field-highlight-remove] {
+            margin-right: -11px;
+          }
+        }
+
+        fieldset {
+          padding: 0 0 10px 0 !important;
+          border-width: 0 !important;
+          margin: 10px 0 5px 0 !important;
+
+          legend {
+            font-size: 16px !important;
+            background: #fff;
+            border-top: 0 !important;
+          }
+
+          .table {
+            margin-bottom: 0;
+          }
+        }
+
         .table {
-          margin-bottom: 0;
+          margin: 10px;
+          width: calc(~"100% - 20px");
         }
-      }
-      .table {
-        margin: 10px;
-        width: calc(~"100% - 20px");
-      }
-      &.gn-descriptiveKeywords {
-        background: @panel-default-heading-bg;
-        margin: 10px;
-        border: 1px solid @panel-default-border;
-        legend {
+
+        &.gn-descriptiveKeywords {
           background: @panel-default-heading-bg;
-          border-top: 1px solid @panel-default-border;
-        }
-        .gn-thesaurusName, .gn-CI_Citation, .gn-MD_Identifier {
-          background: @panel-default-heading-bg;
+          margin: 10px;
+          border: 1px solid @panel-default-border;
+
+          legend {
+            background: @panel-default-heading-bg;
+            border-top: 1px solid @panel-default-border;
+          }
+
+          .gn-thesaurusName, .gn-CI_Citation, .gn-MD_Identifier {
+            background: @panel-default-heading-bg;
+          }
         }
       }
     }
