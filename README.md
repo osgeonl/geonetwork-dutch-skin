@@ -1,5 +1,7 @@
 # A custom view for GeoNetwork: 'Dutch Government Skin'
 
+Compatible with GeoNetwork 3.12.x
+
 This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
 
 ## Features:
@@ -20,14 +22,14 @@ The license of the project is GPLv2.
 - Initialise the skin as a git submodule in `/web-ui/src/main/resources/catalog/views`
 
 ```bash
-git submodule add -b 3.10.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
+git submodule add -b 3.12.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
 ## If at run time (WAR)
 
-- Deploy the latest geonetwork `3.10.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
-- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.10.x
+- Deploy the latest geonetwork `3.12.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
+- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.12.x
 - Unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Then
