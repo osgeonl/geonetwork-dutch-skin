@@ -1,6 +1,6 @@
 <!-- dutch change: custom list view -->
 <ul class="list-group gn-resultview">
-  <li class="list-group-item" 
+  <li class="list-group-item"
       data-ng-repeat="md in searchResults.records"
       data-gn-fix-mdlinks=""
       data-gn-displayextent-onhover=""
@@ -8,7 +8,7 @@
 
     <div class="media">
 
-      <div class="media-body"> 
+      <div class="media-body">
         <!--Edit button-->
         <div class="pull-right hidden-sm">
           <a ng-href="catalog.edit#/metadata/{{md['geonet:info'].id}}" data-ng-show="isAdmin"
@@ -29,7 +29,7 @@
             </a>
           </div>
         </div>
-        <input gn-selection-md type="checkbox" 
+        <input gn-selection-md type="checkbox"
                data-ng-show="isAdmin"
                class="gn-select-record"
                ng-model="md['geonet:info'].selected"
@@ -49,7 +49,7 @@
             </a>
           </h1>
         </div>
-        
+
         <!-- organization -->
         <piv ng-if="md.allContacts.metadata">
           <span data-ng-repeat="o in md.allContacts.metadata">
@@ -77,7 +77,7 @@
             data-ng-href="#/search?topicCat={{t}}">{{t | translate}}</a>
         </div>
 
-		    <p title="{{md.resourceAbstract}}">{{md.resourceAbstract.split('.')[0] | striptags}}.</p>
+		    <p title="{{md.resourceAbstract}}">{{md.resourceAbstract.split('\n')[0] | striptags}}</p>
       </div>
     </div>
   </li>
