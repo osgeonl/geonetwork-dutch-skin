@@ -163,7 +163,6 @@
       $scope.fluidHeaderLayout = gnGlobalSettings.gnCfg.mods.header.fluidHeaderLayout;
       $scope.showGNName = gnGlobalSettings.gnCfg.mods.header.showGNName;
       $scope.fixedMiniMap = false;
-      $scope.extraWideContainer = false;
       $scope.toggleMap = function () {
         $(searchMap.getTargetElement()).toggle();
         $('button.gn-minimap-toggle > i').toggleClass('fa-angle-double-left fa-angle-double-right');
@@ -208,11 +207,6 @@
               $location.path('/map');
             }
           });
-
-      // add extra width
-      if ($scope.extraWideContainer) {
-        $('body').addClass("gn-extra-wide-container");
-      }
 
       // TODO: Previous record should be stored on the client side
       $scope.mdView = mdView;
