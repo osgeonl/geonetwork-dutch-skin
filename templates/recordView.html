@@ -486,6 +486,22 @@
                            data-gn-mode="org-role" />
                     </td>
                   </tr>
+
+                  <tr data-ng-if="mdView.current.record.contactForResource">
+                    <th data-translate="">resourceContact</th>
+                    <td>
+                      <div data-gn-metadata-contacts="mdView.current.record.contactForResource"
+                           data-gn-mode="org-role" />
+                    </td>
+                  </tr>
+
+                  <tr data-ng-if="mdView.current.record.contactForDistribution">
+                    <th data-translate="">distributionContact</th>
+                    <td>
+                      <div data-gn-metadata-contacts="mdView.current.record.contactForDistribution"
+                           data-gn-mode="org-role" />
+                    </td>
+                  </tr>
                   </tbody>
                 </table>
               </tab>
