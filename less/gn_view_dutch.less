@@ -946,6 +946,10 @@ a:not(.btn) {
   .gn-top-bar {
     display: block !important;
     z-index: 502 !important;
+    .gn-btn-toolbar {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
   .label {
     padding: .4em .6em;
@@ -1101,6 +1105,9 @@ a:not(.btn) {
       z-index: 501 !important;
       .navbar-text {
         display: none;
+      }
+      @media (min-width: 1440px) {
+        width: 1400px;
       }
     }
   }
@@ -1328,7 +1335,64 @@ a:not(.btn) {
         visibility: visible;
       }
     }
+
+    // alternative style for the editor form
+
+    // wider first column
+    &.gn-wider-first-column {
+      .col-sm-2 {
+        .make-sm-column(3);
+      }
+
+      .col-sm-9 {
+        .make-sm-column(8);
+      }
+    }
+
+    // Class to put label above fields
+    &.gn-label-above-input {
+      // override default bootstrap widths for the editor
+      // Increase label width to full width
+      .col-sm-2, .col-sm-3 {
+        width: 100%;
+        text-align: left;
+      }
+      // But do not for section in a well (eg. remove action)
+      // which are in one line label/control mode
+      .well {
+        .col-sm-2 {
+          width: 16.666%;
+        }
+        .col-sm-3 {
+          width: 25%;
+        }
+        .col-sm-6 {
+          width: 50%;
+        }
+      }
+      // Form field on a second row
+      .col-sm-8, .col-sm-9 {
+        width: 90%;
+        .col-sm-12 {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      // Date field
+      .col-sm-6 {
+        width: 65%;
+      }
+      // Cancel offset used in action
+      .col-xs-offset-2, .col-md-offset-2 {
+        margin-left: 0px;
+      }
+      div.gn-extra-field > label {
+        display: none;
+      }
+    }
   }
+
+
 }
 
 // admin
