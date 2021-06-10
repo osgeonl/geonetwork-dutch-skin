@@ -116,5 +116,6 @@
 "notPlanned": "niet gepland",
 "unknown": "onbekend",
 "dateType": "Datum type",
-"distributionContact": "Distributeur contact"
+"distributionContact": "Distributeur contact",
+  "mdTabCatalog": "Datamodel"
 }
