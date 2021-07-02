@@ -48,12 +48,12 @@
       </div>
     </div>
   </header>
-  <div class="navbar navbar-default gn-top-bar"
+  <nav class="navbar navbar-default gn-top-bar"
        role="navigation"
        data-ng-show="gnCfg.mods.header.enabled"
-       data-ng-include="'../../catalog/views/dutch/templates/top-toolbar.html'"
+       data-ng-include="isMenubarAccessible ? '../../catalog/templates/top-toolbar-accessible.html' : '../../catalog/templates/top-toolbar.html'"
        xmlns="http://www.w3.org/1999/html">
-  </div>
+  </nav>
 
   <div data-gn-alert-manager="" id="alerts"></div>
 
@@ -61,10 +61,10 @@
        data-ng-controller="DutchSearchController" role="main">
     <div class="gn-divider-bar"></div>
 
-    <div class="" 
+    <div class=""
          data-ng-controller="gnsDutch">
       <gn-extend-mainctrl></gn-extend-mainctrl>
-      
+
       <div data-gn-saved-selections="">
 
         <div class="container intro-text" data-ng-show="activeTab == '/home'">
