@@ -11,11 +11,11 @@
     </ows-context:General>
     <ows-context:ResourceList>
         <ows-context:Layer 
-        	name="{type=wmts,name=brtachtergrondkaartgrijs}" hidden="false" opacity="1" group="Background layers">
+            name="{type=wmts,name=grijs}" hidden="false" opacity="1" group="Background layers">
             <ows:Title>BRT Achtergrond</ows:Title>
             <ows-context:Server service="urn:ogc:serviceType:WMS">
                 <ows-context:OnlineResource 
-                		xlink:href="https://geodata.nationaalgeoregister.nl/tiles/service/wmts?"/>
+                    xlink:href="https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0?"/>
             </ows-context:Server>
         </ows-context:Layer>
         <ows-context:Layer 
