@@ -19,11 +19,11 @@
             </ows-context:Server>
         </ows-context:Layer>
         <ows-context:Layer 
-			name="{type=wmts,name=2016_ortho25}" hidden="false" opacity="1" group="Background layers">
+			name="{type=wmts,name=Actueel_ortho25}" hidden="false" opacity="1" group="Background layers">
 			<ows:Title>Luchtfoto</ows:Title>
 			<ows-context:Server service="urn:ogc:serviceType:WMS">
 				<ows-context:OnlineResource 
-					xlink:href="https://geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts"/>
+					xlink:href="https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0"/>
 			</ows-context:Server>
 		</ows-context:Layer>
     </ows-context:ResourceList>
