@@ -132,7 +132,7 @@
         font-size: 16px;
         margin-top: -2px;
       }
-    } 
+    }
   }
   // Fixed width layout
   body, .gn-top-bar, .gn-sub-bar {
@@ -172,7 +172,7 @@
   }
 
   // tooltip
-  // 
+  //
   // ----- icon to open
   .field-tooltip {
     padding: 6px;
@@ -243,6 +243,12 @@
   .fa-times:before {
     content: "\f00d";
     color: #a94442;
+  }
+
+  fieldset {
+    legend[data-gn-slide-toggle].collapsed:before {
+      content: "\f105" !important;
+    }
   }
 
   // No indent
@@ -323,7 +329,7 @@
         }
       }
     }
-    input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, 
+    input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control,
     input[type="month"].form-control {
       line-height: normal;
     }
@@ -392,7 +398,7 @@
 }
 #gn-new-metadata-container.new-metadata-vertical {
   padding-bottom: 15px;
-  
+
   .gn-record-type > a.list-group-item {
     text-align: left;
   }
