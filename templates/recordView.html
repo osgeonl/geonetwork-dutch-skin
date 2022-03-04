@@ -13,6 +13,7 @@
 
   <div data-ng-if="mdView.current.record.draft == 'e' || mdView.current.record.draft == 'y'"
        data-ng-show="user.canEditRecord(mdView.current.record)"
+       data-ng-class="fluidLayout ? 'container-fluid' : 'container'"
        class="bg-info see-draft-alert">
     <!-- If draft exists, show a link -->
     <a data-ng-if="mdView.current.record.draft == 'e'"
