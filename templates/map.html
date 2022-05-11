@@ -2,7 +2,7 @@
 <div class="crumb" data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
   <div class="row">
     <div class="col-md-12">
-      <a href="#/home" data-translate="">Home</a> 
+      <a href="#/home" data-translate="">Home</a>
       <span data-ng-show="mdView.records[0]">
         / <a href data-ng-click="backToSearch()" data-translate="">search</a>
         / <a href="#/metadata/{{mdView.records[0].uuid}}" alt="{{(mdView.records[0].title||mdView.records[0].resourceTitle)}}">{{(mdView.records[0].title||mdView.records[0].resourceTitle)}}</a>
@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+<div data-ng-class="fluidLayout ? 'container-fluid' : 'container'" class="gn-nopadding">
   <div gn-main-viewer=""
        data-map="searchObj.viewerMap">
   </div>

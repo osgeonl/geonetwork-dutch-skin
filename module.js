@@ -32,14 +32,13 @@
   goog.require('gn_mdactions_directive');
   goog.require('gn_related_directive');
   goog.require('gn_search');
-  goog.require('gn_gridrelated_directive');
   goog.require('gn_search_dutch_config');
   goog.require('gn_search_default_directive');
 
   var module = angular.module('gn_search_dutch',
       ['gn_search', 'gn_search_dutch_config',
        'gn_search_default_directive', 'gn_related_directive',
-       'cookie_warning', 'gn_mdactions_directive', 'gn_gridrelated_directive']);
+       'cookie_warning', 'gn_mdactions_directive']);
 
 
   module.controller('gnsSearchPopularController', [
@@ -153,7 +152,7 @@
       $scope.resultTemplate = gnSearchSettings.resultTemplate;
       /* Default advanced search form template */
       $scope.advancedSearchTemplate = gnSearchSettings.advancedSearchTemplate ||
-        '../../catalog/views/dutch/templates/advancedSearchForm/dutchAdvancedSearchForm.html';
+        '../../catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html';
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;

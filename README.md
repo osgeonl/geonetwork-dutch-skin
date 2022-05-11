@@ -1,8 +1,8 @@
-# A custom view for GeoNetwork 4.0.x: 'Dutch Government Skin'
+# A custom view for GeoNetwork 4.1.x: 'Dutch Government Skin'
 
 This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
 
-Version 2 is rebuilt from the ground up. It's closely matched with the version 4.0.x of GeoNetwork OpenSource.
+Version 2 is rebuilt from the ground up. It's closely matched with the version 4.0.x of GeoNetwork OpenSource (Main branch).
 
 ![Homepage](images/gn-dutch-home.png)
 
@@ -24,14 +24,14 @@ The license of the project is GPLv2.
 - Initialise the skin as a git submodule in `/web-ui/src/main/resources/catalog/views`
 
 ```bash
-git submodule add -b 4.0.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
+git submodule add -b 4.1.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
 ## If at run time (WAR)
 
 - Deploy the latest geonetwork `4.0.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
-- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/3.10.x
+- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/4.1.x
 - Unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Settings
@@ -63,6 +63,13 @@ Do not change:
 ### Custom background layers for the Map
 
 On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` set the default map to load to use the thematic map with pdok-backgrounds at `../../catalog/views/dutch/config-nl-viewer.xml`
+
+### Tabbed interface for related elements
+
+The content and layout of the related elements (links, downloads, etc) can be changed in the admin interface. In order to change it, go to `Admin` > `Settings` > `User Interface` > `Record View` and look for the distribution configuration,
+this is a JSON file where default the "layout" is left `empty`, but when you enter `tabset`, tabs are being used. Like this: `"layout": "tabset",`
+
+![Tabbed interface](images/gn-dutch-tabs.png)
 
 ### How to add facets?
 

@@ -1,6 +1,7 @@
 @import "../../../style/gn_login";
+@import "gn_view_dutch.less";
 // alert messages
-@import "gn_alerts_dutch.less";
+@import "../../default/less/gn_alerts_default.less";
 // variables for manipulating the theme
 @import "gn_variables_dutch.less"; // must be last
 
@@ -27,6 +28,9 @@
   .input-group-addon {
     background-color: #fff;
   }
+  .text-danger {
+    color: @brand-danger;
+  }
   p.text-danger {
     margin-top: 10px;
   }
@@ -42,7 +46,7 @@
     border-color: #f98258;
     &:focus {
       box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgb(250, 140, 99);
-  }
+    }
   }
 }
 
@@ -80,6 +84,7 @@
   border: 0;
   box-shadow: none;
   margin-bottom: 0;
+  background: none;
   .panel-heading {
     background: 0;
     border: 0;
@@ -95,5 +100,6 @@
   .panel-body {
     padding-left: 0;
     padding-right: 0;
+    background: none;
   }
 }

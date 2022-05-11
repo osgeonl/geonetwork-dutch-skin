@@ -31,7 +31,7 @@
     'gn_relatedresources_service']);
 
   module.value('gnTplResultlistLinksbtn',
-      '../../catalog/views/dutch/directives/partials/linksbtn.html');
+      '../../catalog/views/default/directives/partials/linksbtn.html');
 
   module
       .run([
