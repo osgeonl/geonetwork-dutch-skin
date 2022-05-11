@@ -1,0 +1,40 @@
+<tabset id="detail-tabset" type="tabs" justified="false" role="tablist">
+
+  <!-- contact -->
+  <tab heading="{{'mdTabContact' | translate}}"
+       role="tab"
+       active="infoTabs.contact.active">
+    <h2 data-translate="">resourceContact</h2>
+    <div ng-include="'../../catalog/views/default/templates/recordView/contact.html'"/>
+  </tab>
+  <!-- /contact -->
+
+  <!-- downloads & links -->
+  <tab heading="{{'mdTabDownloads' | translate}}"
+       role="tab"
+       active="infoTabs.relations.active">
+    <h2>downloads</h2>
+    <div data-ng-if="md.relatedRecords"
+         data-gn-related-container="md"
+         data-mode="::viewConfig.distributionConfig.layout || ''"
+         data-related-config="::viewConfig.distributionConfig.sections">
+    </div>
+  </tab>
+  <!-- /downloads & links -->
+
+  <!-- (associated) resources -->
+  <tab heading="{{'mdTabLinks' | translate}}"
+       role="tab"
+       active="infoTabs.resources.active">
+    <h2>links</h2>
+    <div data-ng-if="mdView.current.record.relatedRecords"
+         data-gn-related="mdView.current.record"
+         data-user="user"
+         data-types="hassources"
+         data-layout="card"
+         data-has-results="hasRelations.hassources"
+         data-title="{{'isSourceOfDatasets' | translate}}">
+    </div>
+  </tab>
+  <!-- /(associated) resources -->
+</tabset>
