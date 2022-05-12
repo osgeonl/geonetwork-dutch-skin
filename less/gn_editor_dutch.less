@@ -1,6 +1,9 @@
 @import "gn_search_dutch.less";
 @import "../../../style/gn_editor.less";
+// use the default editor styles
+@import "../../default/less/gn_editor_default.less";
 @import "gn_view_dutch.less";
+
 
 
 .gn-results-editor {
@@ -14,7 +17,14 @@
 }
 
 [ng-app="gn_editor"] {
+
   .gn-top-bar {
+    // full width for the menubar
+    padding-left: 0;
+    padding-right: 0;
+    .container {
+      width: 100%;
+    }
     // status
     div.gn-tooltip {
       padding: 0;
@@ -73,9 +83,11 @@
     }
   }
   .gn-editor-board {
+    padding-top: 100px;
     .gn-top-search {
       padding-top: 0;
       padding-bottom: 0;
+      margin-bottom: 50px;
       background-color: #fff;
     }
   }
@@ -86,6 +98,25 @@
   @media (min-width: @screen-sm-min) {
     .modal-dialog {
       width: 760px;
+    }
+  }
+  [data-ng-view] {
+    .navbar-fixed-top.gn-top-bar {
+      width: calc(~"100% - 30px");
+      margin-left: 15px;
+      margin-right: 15px;
+      @media (max-width: @screen-xs-max) {
+        margin: 0 0 10px 0;
+        top: 10px;
+        display: inline-block !important;
+        width: 100%;
+      }
+    }
+  }
+  .gn-editor-container {
+    @media (max-width: @screen-xs-max) {
+      padding-top: 10px;
+      margin-top: 0;
     }
   }
   form.gn-editor {
@@ -151,13 +182,16 @@
     }
     fieldset {
       padding: 0 0 5px 0;
-      border: 1px solid #eee;
+      border: 1px solid @panel-default-border;
       margin-top: 10px;
       background-color: #fff;
       legend {
-        margin-left: -6px;
-        width: calc(~"100% + 6px");
-        font-size: 24px;
+        margin-left: -1px;
+        background-color: @panel-default-heading-bg;
+        border: 1px solid @panel-default-border;
+        padding: 5px 5px 5px 25px;
+        width: calc(~"100% + 2px");
+        font-size: 16px;
         line-height: 34px;
         & > div.gn-move {
           position: relative;
@@ -171,7 +205,7 @@
         font-weight: normal;
         text-decoration: inherit;
         position: absolute;
-        margin-left: -17px;
+        //margin-left: -17px;
         font-size: 16px;
         margin-top: 0px;
       }
@@ -204,7 +238,7 @@
         padding-left: 0;
         legend {
           padding-right: 11px;
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 400;
         }
         @media (max-width: @screen-xs-max) {
@@ -368,10 +402,6 @@
     }
     // ----- only show first help icon
     [data-gn-multilingual-field] + .gn-control {
-      // > .field-tooltip {
-      //   // display: none;
-      //   background-color: red;
-      // }
       > .field-tooltip ~ .field-tooltip {
         display: none;
       }
@@ -427,163 +457,6 @@
   }
 }
 
-// alternative style for the editor form
-// Class to put label above fields
-form.gn-editor.gn-label-above-input {
-  // override default bootstrap widths for the editor
-  // Increase label width to full width
-  .col-sm-2 {
-    width: 100%;
-    text-align: left;
-  }
-  // But do not for section in a well (eg. remove action)
-  // which are in one line label/control mode
-  .well {
-    .col-sm-2 {
-      width: 16.666%;
-    }
-    .col-sm-6 {
-      width: 50%;
-    }
-  }
-  // Form field on a second row
-  .col-sm-9 {
-    width: 90%;
-    .col-sm-12 {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-  // Date field
-  .col-sm-6 {
-    width: 65%;
-  }
-  // Cancel offset used in action
-  .col-xs-offset-2, .col-md-offset-2 {
-    margin-left: 0px;
-  }
-  div.gn-extra-field > label {
-    display: none;
-  }
-}
-
-// Class to color indent
-form.gn-editor.gn-indent-colored {
-  fieldset {
-    border: 1px solid @panel-default-border;
-    border-left: 3px solid @brand-primary;
-    legend {
-      border: 1px solid @panel-default-border;
-      border-left: 3px solid @brand-primary;
-      background: @panel-default-heading-bg;
-      margin-left: -3px;
-      margin-right: -3px;
-      width: ~"calc(100% + 4px)";
-      font-size: 16px;
-      padding: 3px 23px;
-      line-height: 34px;
-      border-top-left-radius: @gn-border-radius;
-      border-top-right-radius: @gn-border-radius;
-    }
-    // No highlight on hover
-    .field-bg {
-      background: transparent;
-    }
-    fieldset {
-      margin: 10px 15px;
-      border-left-color: @brand-success;
-      legend {
-        padding-right: 11px;
-        font-size: 14px;
-        border-left-color: @brand-success;
-      }
-      fieldset {
-        border-left-color: @brand-danger;
-        legend {
-          border-left-color: @brand-danger;
-        }
-        fieldset {
-          border-left-color: @brand-info;
-          legend {
-            border-left-color: @brand-info;
-          }
-          fieldset {
-            border-left-color: @brand-warning;
-            legend {
-              border-left-color: @brand-warning;
-            }
-            fieldset {
-              border-left-color: #999;
-              legend {
-                border-left-color: #999;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// Blue scale color indent
-form.gn-editor.gn-indent-bluescale {
-  @indent-color: @brand-primary;
-  @indent-color-r: red(@indent-color);
-  @indent-color-g: green(@indent-color);
-  @indent-color-b: blue(@indent-color);
-  fieldset {
-    border: 1px solid @panel-default-border;
-    border-left: 3px solid @indent-color;
-    legend {
-      border: 1px solid @panel-default-border;
-      border-left: 3px solid @indent-color;
-      background: @panel-default-heading-bg;
-      margin-left: -3px;
-      margin-right: -3px;
-      width: ~"calc(100% + 4px)";
-      font-size: 16px;
-      padding: 3px 23px;
-      line-height: 34px;
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
-    }
-
-    fieldset {
-      margin: 10px 15px;
-      border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .9)';
-      legend {
-        padding-right: 11px;
-        font-size: 14px;
-        border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .9)';
-      }
-      fieldset {
-        border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .7)';
-        legend {
-          border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .7)';
-        }
-        fieldset {
-          border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .5)';
-          legend {
-            border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .5)';
-          }
-          fieldset {
-            border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .3)';
-            legend {
-              border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .3)';
-            }
-            fieldset {
-              border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .1)';
-              legend {
-                border-left-color: ~'rgba(@{indent-color-r}, @{indent-color-g}, @{indent-color-b}, .1)';
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 // inspire
 // md type widget (used only in editor for now)
 .fa-inspire {
@@ -595,6 +468,5 @@ form.gn-editor.gn-indent-bluescale {
   margin-top: 3px;
   &:before {
     content: "";
-
   }
 }
