@@ -10,45 +10,43 @@
     <li class="navbar-text">
       <span data-translate="">shareOn</span>
     </li>
-    <li class="socialmedia" ng-show="getSocialLinksVisible()">
+    <li>
       <a href="https://twitter.com/share?url={{socialMediaLink | encodeURIComponent}}"
-        target="_blank"
-        title="{{'shareOnTwitter' | translate}}"
-        aria-label="{{'shareOnTwitter' | translate}}">
+         target="_blank"
+         title="{{'shareOnTwitter' | translate}}"
+         aria-label="{{'shareOnTwitter' | translate}}">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a href="https://www.facebook.com/sharer.php?u={{socialMediaLink | encodeURIComponent}}"
-        target="_blank"
-        title="{{'shareOnFacebook' | translate}}"
-        aria-label="{{'shareOnFacebook' | translate}}">
+         target="_blank"
+         title="{{'shareOnFacebook' | translate}}"
+         aria-label="{{'shareOnFacebook' | translate}}">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
-      <a
-        href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{socialMediaLink | encodeURIComponent}}"
-        target="_blank"
-        title="{{'shareOnLinkedIn' | translate}}"
-        aria-label="{{'shareOnLinkedIn' | translate}}">
+      <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{socialMediaLink | encodeURIComponent}}"
+         target="_blank"
+         title="{{'shareOnLinkedIn' | translate}}"
+         aria-label="{{'shareOnLinkedIn' | translate}}">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a href="mailto:?subject={{info.site.name}}&amp;body={{socialMediaLink | encodeURIComponent}}"
-        target="_blank"
-        title="{{'shareByEmail' | translate}}"
-        aria-label="{{'shareByEmail' | translate}}">
+         target="_blank"
+         title="{{'shareByEmail' | translate}}"
+         aria-label="{{'shareByEmail' | translate}}">
         <i class="fa fa-envelope-o"></i>
       </a>
     </li>
     <li>
-      <a
-        href=""
-        data-ng-click="getPermalink('', socialMediaLink)"
-        title="{{'permalink' | translate}}"
-        aria-label="{{'permalink' | translate}}">
+      <a href=""
+         data-ng-click="getPermalink('', socialMediaLink)"
+         title="{{'permalink' | translate}}"
+         aria-label="{{'permalink' | translate}}">
         <i class="fa fa-fw fa-link"></i></a>
     </li>
     <li>
