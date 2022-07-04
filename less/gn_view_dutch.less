@@ -135,7 +135,7 @@
   font-family: rijksoverheidsanstext-bold;
   src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
 }
-h1, h2, h3, h4, h5, h6, strong, b, dt, .table-striped th, .share-banner-title {
+h1, h2, h3, h4, h5, h6, strong, b, dt, .table-striped th, .share-banner-title, label {
   font-family: rijksoverheidsanstext-bold, sans, arial !important;
   font-weight: 500;
 }
@@ -276,7 +276,7 @@ a:not(.btn) {
 
 // check if the variable is a not an empty string, if not, then set the background image
 //
-// if the background image is an empty string it will be substitued with the name of the css file,
+// if the background image is an empty string it will be substituted with the name of the css file,
 // see: https://stackoverflow.com/questions/20727262/css-file-considered-as-being-an-image-resource
 [ng-app^="gn_search_"] body when (isstring(@gn-background-image)) {
   background-image: url(@gn-background-image);
@@ -286,6 +286,11 @@ a:not(.btn) {
 }
 [ng-app^="gn_login"] body when (isstring(@gn-background-image)) {
   background-image: url(@gn-background-image);
+}
+.gn-row-main {
+  .col-md-offset-3 {
+    .make-md-column-offset(2);
+  }
 }
 
 @media (min-width: 1200px) {
@@ -629,9 +634,19 @@ a:not(.btn) {
     background: none;
     margin: 0;
     padding: 0;
+    // hack for making the search input wider
+    .col-md-6 {
+      .make-md-column(8);
+      .col-md-6 {
+        .make-md-column(6);
+      }
+    }
+    .col-md-offset-3 {
+      .make-md-column-offset(2);
+    }
     .container, .container-fluid {
       background-color: @navbar-default-link-active-bg;
-      padding: 30px 20px 35px 20px;
+      padding: 50px 20px 70px 20px;
       border-bottom: 10px solid darken(@navbar-default-link-active-bg, 5%);
     }
     .form-control, .bootstrap-tagsinput {
@@ -732,7 +747,7 @@ a:not(.btn) {
     // advanced search
     .gn-search-filter {
       position: absolute;
-      z-index: 10;
+      z-index: 100;
       padding: 15px;
       background-color: @panel-default-heading-bg;
       width: calc(~"100% - 30px");
@@ -1000,6 +1015,7 @@ a:not(.btn) {
     }
   }
 }
+
 
 @media (min-width: @screen-sm-min) {
   .tt-dropdown-menu, .tt-menu {
