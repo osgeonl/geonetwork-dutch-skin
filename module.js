@@ -162,6 +162,8 @@
       $scope.fluidHeaderLayout = gnGlobalSettings.gnCfg.mods.header.fluidHeaderLayout;
       $scope.showGNName = gnGlobalSettings.gnCfg.mods.header.showGNName;
       $scope.fixedMiniMap = false;
+      // for use of the old template: '../../catalog/views/dutch/templates/recordView4.html'
+      $scope.recordViewTemplate = '../../catalog/views/dutch/templates/recordView/recordView.html';
       $scope.toggleMap = function () {
         $(searchMap.getTargetElement()).toggle();
         $('button.gn-minimap-toggle > i').toggleClass('fa-angle-double-left fa-angle-double-right');

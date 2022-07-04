@@ -34,9 +34,9 @@
            data-ng-show="activeTab == '/search'"/>
       <div data-ng-if="isMapViewerEnabled && !isExternalViewerEnabled && activeTab == '/map'"
            data-ng-include="'../../catalog/views/dutch/templates/map.html'"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/recordView/recordView.html'"
+      <div data-ng-include="recordViewTemplate"
            data-ng-if="activeTab == '/metadata'" class="gn-view-approved"/>
-      <div data-ng-include="'../../catalog/views/dutch/templates/recordView/recordView.html'"
+      <div data-ng-include="recordViewTemplate"
            data-ng-if="activeTab == '/metadraf'" class="gn-view-not-approved"/>
       <div data-ng-include="'../../catalog/views/default/templates/page.html'"
            data-ng-if="activeTab == '/page'"/>
