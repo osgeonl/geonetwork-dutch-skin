@@ -127,13 +127,16 @@
     'gnGlobalSettings',
     'gnESClient',
     'gnESFacet',
+    'gnFacetSorter',
     'gnExternalViewer',
+    'gnUrlUtils',
     function($scope, $location, $filter,
              suggestService, $http, $translate,
              gnUtilityService, gnSearchSettings, gnViewerSettings,
              gnMap, gnMdView, mdView, gnWmsQueue,
              gnSearchLocation, gnOwsContextService,
-             hotkeys, gnGlobalSettings, gnESClient, gnESFacet, gnExternalViewer) {
+             hotkeys, gnGlobalSettings, gnESClient,
+             gnESFacet, gnFacetSorter, gnExternalViewer, gnUrlUtils) {
 
 
       var viewerMap = gnSearchSettings.viewerMap;
@@ -142,8 +145,14 @@
 
       $scope.modelOptions = angular.copy(gnGlobalSettings.modelOptions);
       $scope.modelOptionsForm = angular.copy(gnGlobalSettings.modelOptions);
+      $scope.showMosaic = gnGlobalSettings.gnCfg.mods.home.showMosaic;
       $scope.isFilterTagsDisplayedInSearch = gnGlobalSettings.gnCfg.mods.search.isFilterTagsDisplayedInSearch;
+      $scope.showMapInFacet = gnGlobalSettings.gnCfg.mods.search.showMapInFacet;
+      $scope.showStatusFooterFor = gnGlobalSettings.gnCfg.mods.search.showStatusFooterFor;
+      $scope.showBatchDropdown = gnGlobalSettings.gnCfg.mods.search.showBatchDropdown;
       $scope.exactMatchToggle = gnGlobalSettings.gnCfg.mods.search.exactMatchToggle;
+      $scope.exactTitleToggle = gnGlobalSettings.gnCfg.mods.search.exactTitleToggle;
+      $scope.searchOptions = gnGlobalSettings.gnCfg.mods.search.searchOptions;
       $scope.gnWmsQueue = gnWmsQueue;
       $scope.$location = $location;
       $scope.activeTab = '/home';
@@ -158,12 +167,20 @@
       $scope.facetTabField = gnSearchSettings.facetTabField;
       $scope.location = gnSearchLocation;
       $scope.fluidLayout = gnGlobalSettings.gnCfg.mods.home.fluidLayout;
+      $scope.showMaps = gnGlobalSettings.gnCfg.mods.home.showMaps;
       $scope.fluidEditorLayout = gnGlobalSettings.gnCfg.mods.editor.fluidEditorLayout;
       $scope.fluidHeaderLayout = gnGlobalSettings.gnCfg.mods.header.fluidHeaderLayout;
       $scope.showGNName = gnGlobalSettings.gnCfg.mods.header.showGNName;
       $scope.fixedMiniMap = false;
       // for use of the old template: '../../catalog/views/dutch/templates/recordView4.html'
-      $scope.recordViewTemplate = '../../catalog/views/dutch/templates/recordView/recordView.html';
+      $scope.recordViewTemplate = '../../catalog/views/dutch/templates/recordView4.html';
+
+      $scope.facetSorter = gnFacetSorter.sortByTranslation;
+
+      $scope.addToMapLayerNameUrlParam = gnGlobalSettings.gnCfg.mods.search.addWMSLayersToMap.urlLayerParam;
+
+      $scope.sortKeywordsAlphabetically = gnGlobalSettings.gnCfg.mods.recordview.sortKeywordsAlphabetically;
+
       $scope.toggleMap = function () {
         $(searchMap.getTargetElement()).toggle();
         $('button.gn-minimap-toggle > i').toggleClass('fa-angle-double-left fa-angle-double-right');
