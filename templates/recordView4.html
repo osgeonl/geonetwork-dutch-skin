@@ -512,31 +512,48 @@
               <tab heading="{{'mdTabRelations' | translate}}"
                    role="tab"
                    active="infoTabs.relations.active">
-                <div data-gn-related="mdView.current.record"
-                     data-user="user"
-                     data-types="onlines"
-                     data-has-results="hasRelations.onlines"
-                     data-title="{{'downloadsAndResources' | translate}}">
-                </div>
 
-                <div data-gn-related="mdView.current.record"
-                     data-user="user"
-                     data-types="parent|children|brothersAndSisters|services|datasets"
-                     data-title="{{'associatedResources' | translate}}">
-                </div>
-
-                <div data-gn-related-observer>
-                  <div data-gn-related="mdView.current.record"
-                       data-user="user"
-                       data-types="fcats|related"
-                       data-title="{{'featureCatalog' | translate}}">
-                  </div>
-                  <div data-gn-related="mdView.current.record"
-                       data-user="user"
-                       data-types="siblings|associated"
-                       data-title="{{'siblings' | translate}}">
+                <!-- links (Download, API, Others) -->
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div ng-include="'../../catalog/views/default/templates/recordView/downloads.html'"/>
                   </div>
                 </div>
+
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div data-ng-if="mdView.current.record.related.uuids"
+                         data-gn-related="mdView.current.record"
+                         data-user="user"
+                         data-layout="card"
+                         data-types="services"
+                         data-title="{{'<span class=\'badge badge-rounded\'><i class=\'fa fa-fw gn-icon-service\'></i></span><strong>' + ('openRecordservices' | translate) + '</strong>'}}">
+                    </div>
+                    <div data-ng-if="mdView.current.record.related.uuids"
+                         data-gn-related="mdView.current.record"
+                         data-user="user"
+                         data-layout="card"
+                         data-size="4"
+                         data-types="datasets"
+                         data-title="{{'<span class=\'badge badge-rounded\'><i class=\'fa fa-fw gn-icon-dataset\'></i></span><strong>' + ('openRecorddatasets' | translate) + '</strong>'}}">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div data-ng-if="mdView.current.record.related.uuids"
+                         data-gn-related="mdView.current.record"
+                         data-user="user"
+                         data-layout="card"
+                         data-types="children"
+                         data-title="{{'seriesComposedOf' | translate}}">
+                    </div>
+
+                    <div ng-include="'../../catalog/views/default/templates/recordView/related.html'"/>
+                  </div>
+                </div>
+
               </tab>
               <!-- /downloads & links -->
 

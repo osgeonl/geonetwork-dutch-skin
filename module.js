@@ -174,6 +174,8 @@
       $scope.fixedMiniMap = false;
       // for use of the old template: '../../catalog/views/dutch/templates/recordView4.html'
       $scope.recordViewTemplate = '../../catalog/views/dutch/templates/recordView4.html';
+      // New metadata layout in GN 4.2
+      //$scope.recordViewTemplate = '../../catalog/views/default/templates/recordView/recordView.html';
 
       $scope.facetSorter = gnFacetSorter.sortByTranslation;
 
