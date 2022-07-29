@@ -4,7 +4,7 @@
 
 This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
 
-Version 4.1 is rebuilt from the ground up. It's closely matched with the version 4.0.x of GeoNetwork OpenSource (Main branch).
+Version 4.2 is rebuilt from the ground up. It's closely matched with the version 4.2.x of GeoNetwork OpenSource (main branch).
 
 This version replaces version 4.0.
 
@@ -28,14 +28,14 @@ The license of the project is GPLv2.
 - Initialise the skin as a git submodule in `/web-ui/src/main/resources/catalog/views`
 
 ```bash
-git submodule add -b 4.1.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
+git submodule add -b 4.2.x https://github.com/osgeonl/geonetwork-dutch-skin.git web-ui/src/main/resources/catalog/views/dutch
 git submodule init
 ```
 
 ## If at run time (WAR)
 
-- Deploy the latest geonetwork `4.0.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
-- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/4.1.x
+- Deploy the latest geonetwork `4.2.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
+- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/4.2.x
 - Unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Settings
