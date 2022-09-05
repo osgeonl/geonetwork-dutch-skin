@@ -1,0 +1,31 @@
+<div class="gn-search-filter advancedSearchForm">
+
+  <div class="gn-margin-bottom">
+    <label id="searchLocationLbl" for="loc" data-translate="">AtLocation</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-map-marker"></i>
+      </span>
+      <select multiple
+              class="form-control input-lg"
+              id="loc"
+              data-dutch-multi-location
+              data-thesaurus-key="external.place.regions"
+              data-limit="10"
+              data-search-params="searchObj.params"></select>
+    </div>
+  </div>
+
+  <label data-translate="">options</label>
+  <div class="search-options">
+    <gn-search-options></gn-search-options>
+  </div>
+  <label data-ng-if="searchObj.params.resourceTemporalDateRange"
+         class="gn-margin-top"
+         data-translate="">advanced</label>
+  <div data-ng-if="searchObj.params.resourceTemporalDateRange"
+       data-gn-date-range-filter="resourceTemporalDateRange"
+       data-field="searchObj.params.resourceTemporalDateRange"
+       class="gn-search-filter-datepicker">
+  </div>
+</div>

@@ -198,7 +198,7 @@
       $scope.resultTemplate = gnSearchSettings.resultTemplate;
       /* Default advanced search form template */
       $scope.advancedSearchTemplate = gnSearchSettings.advancedSearchTemplate ||
-        '../../catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html';
+        '../../catalog/views/dutch/templates/advancedSearchForm/defaultAdvancedSearchForm.html';
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;

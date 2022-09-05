@@ -453,17 +453,16 @@ a:not(.btn) {
   padding: 0;
   background: none;
   .container, .container-fluid {
-    padding-bottom: 4em;
-    padding-top: 2em;
+    padding-bottom: 3em;
+    padding-top: 3em;
     background-color: @gn-search-background-color;
   }
   .gn-form-any {
-    //display: block;
     .dropdown-menu {
       border-radius: 0;
       border-top: 0;
       max-width: 600px;
-      width: auto;
+      width: calc(~"100% - 15px");
       li {
         a {
           padding: 8px 20px;
@@ -477,6 +476,27 @@ a:not(.btn) {
         > a {
           background-color: @dropdown-link-hover-bg !important;
           color: @dropdown-link-hover-color !important;
+        }
+      }
+    }
+    .bootstrap-tagsinput {
+      &.focused {
+        border-color: #86b7fe !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .4) !important;
+      }
+      .tt-menu {
+        margin-left: -15px;
+        width: calc(~"100% + 30px");
+        max-width: 600px;
+        max-height: 300px;
+        overflow: auto;
+        .tt-suggestion {
+          padding: 8px 20px;
+          &:hover {
+            background-color: @dropdown-link-hover-bg !important;
+            color: @dropdown-link-hover-color !important;
+          }
         }
       }
     }
@@ -684,6 +704,25 @@ a:not(.btn) {
     .bootstrap-tagsinput {
       font-size: 18px;
       padding: 8px 16px;
+      margin: 0;
+      &.focused {
+        border-color: #86b7fe !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .4) !important;
+      }
+      .tt-menu {
+        margin-left: -15px;
+        width: calc(~"100% + 30px");
+        max-height: 300px;
+        overflow: auto;
+        .tt-suggestion {
+          padding: 8px 20px;
+          &:hover {
+            background-color: @dropdown-link-hover-bg !important;
+            color: @dropdown-link-hover-color !important;
+          }
+        }
+      }
     }
     .input-lg, .btn-lg {
       height: 40px;
@@ -693,58 +732,7 @@ a:not(.btn) {
       margin-top: 26px;
       border-radius: @gn-border-radius;
     }
-    .dutch-search-topic {
-      .input-group {
-        width: 100%;
-        .btn-lg {
-          font-size: 14px;
-          border-right: 0;
-        }
-      }
-    }
-    .dutch-search-location {
-      .form-control-feedback {
-        width: 42px;
-        height: 42px;
-        line-height: 42px;
-        top: 28px;
-      }
-    }
-    .dutch-search-buttons {
-      .dutch-search-btn-group, .dutch-reset-button {
-        width: 48%;
-      }
-      .dutch-search-button {
-        width: 80%;
-        @media (max-width: @screen-sm-max) {
-          width: 92%;
-        }
-      }
-      .dutch-reset-button {
-        @media (max-width: @screen-md-max) {
-          float: right;
-        }
-      }
-    }
 
-    // advanced search
-
-    // toggle button
-    #btn-advanced-search {
-      margin-top: 30px;
-      padding: 15px;
-      border-radius: 0;
-      border-color: darken(@navbar-default-link-active-bg, 5%);
-      background-color: darken(@navbar-default-link-active-bg, 5%);
-      &.active {
-        box-shadow: none;
-        i {
-          &:before {
-            content: "\f062"; // up arrow
-          }
-        }
-      }
-    }
     // advanced search
     .gn-search-filter {
       position: absolute;
