@@ -3,59 +3,58 @@
     <div class="row">
       <div class="col-md-12">
         <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
-        <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">searchOver</p>
+        <p data-translate="" data-translate-values="{records: '{{searchInfo.count}}'}">
+          searchOver
+        </p>
       </div>
     </div>
-
   </div>
 </div>
 
 <!-- search -->
 <div class="row gn-row-main">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-
-    <div class="col-sm-4 col-sm-offset-6 ng-cloak"
-         data-ng-if="showHealthIndexError">
+    <div class="col-sm-4 col-sm-offset-6 ng-cloak" data-ng-if="showHealthIndexError">
       <div class="alert alert-warning text-center">
         <h3 data-translate="">indexNotAvailable</h3>
-        <i class="fa fa-fw fa-cogs fa-3x"/>
+        <i class="fa fa-fw fa-cogs fa-3x" />
       </div>
     </div>
 
-    <div class="col-md-8 col-md-offset-2"
-         data-ng-if="!showHealthIndexError">
-
+    <div class="col-md-8 col-md-offset-2" data-ng-if="!showHealthIndexError">
       <label for="anyHome" data-translate="">SearchAny</label>
 
       <div class="gn-form-any row">
         <div class="col-md-9 gn-nopadding-left">
-          <input type="text"
-                 role="combobox"
-                 class="form-control input-lg"
-                 autofocus=""
-                 autocomplete="off"
-                 data-ng-model="homeAnyField"
-                 data-ng-model-options="modelOptions"
-                 placeholder="{{'anyPlaceHolder' | translate}}"
-                 aria-label="{{'anyPlaceHolder' | translate}}"
-                 data-ng-keyup="$event.keyCode == 13 && goToSearch(homeAnyField)"
-                 data-typeahead="address for address in getAnySuggestions($viewValue, searchObj)"
-                 data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
-                 data-typeahead-loading="anyLoading"
-                 data-typeahead-min-length="1"
-                 data-typeahead-focus-first="false"
-                 data-typeahead-wait-ms="300"/>
+          <input
+            type="text"
+            role="combobox"
+            class="form-control input-lg"
+            autofocus=""
+            autocomplete="off"
+            data-ng-model="homeAnyField"
+            data-ng-model-options="modelOptions"
+            placeholder="{{'anyPlaceHolder' | translate}}"
+            aria-label="{{'anyPlaceHolder' | translate}}"
+            data-ng-keyup="$event.keyCode == 13 && goToSearch(homeAnyField)"
+            data-typeahead="address for address in getAnySuggestions($viewValue, searchObj)"
+            data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
+            data-typeahead-loading="anyLoading"
+            data-typeahead-min-length="1"
+            data-typeahead-focus-first="false"
+            data-typeahead-wait-ms="300"
+          />
         </div>
         <div class="col-md-3 gn-nopadding-right">
-
-          <a class="btn btn-primary btn-block"
-             type="button"
-             data-ng-disabled="searchInfo.hits.total.value == 0"
-             data-ng-href="#/search?any={{homeAnyField}}">
+          <a
+            class="btn btn-primary btn-block"
+            type="button"
+            data-ng-disabled="searchInfo.hits.total.value == 0"
+            data-ng-href="#/search?any={{homeAnyField}}"
+          >
             <i class="fa fa-search"></i>
             <span data-translate="">search</span>
           </a>
-
         </div>
       </div>
     </div>
@@ -66,8 +65,10 @@
 <!-- no data message -->
 <div class="row gn-margin-top" data-ng-show="searchInfo.count == 0">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-    <div data-ng-show="searchInfo.count == 0"
-         class="col-md-offset-2 col-md-8 alert alert-warning">
+    <div
+      data-ng-show="searchInfo.count == 0"
+      class="col-md-offset-2 col-md-8 alert alert-warning"
+    >
       <span data-translate="">noDataInCatalog</span>
       <div data-gn-need-help="user-guide/quick-start/index.html"></div>
     </div>
@@ -75,60 +76,72 @@
 </div>
 
 <!-- user saved maps -->
-<form class="form-horizontal"
-      role="form"
-      data-ng-controller="gnsSearchTopEntriesController"
-      data-ng-search-form=""
-      data-runSearch="true"
-      data-ng-show="searchResults.records.length > 0">
+<form
+  class="form-horizontal"
+  role="form"
+  data-ng-controller="gnsSearchTopEntriesController"
+  data-ng-search-form=""
+  data-runSearch="true"
+  data-ng-show="searchResults.records.length > 0"
+>
   <div class="row gn-top-records" role="row">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
       <h1 data-translate="">topMaps</h1>
 
-      <input type="hidden" name="_csrf" value="{{csrf}}"/>
+      <input type="hidden" name="_csrf" value="{{csrf}}" />
 
-      <div data-ng-show="searchResults.records.length > 0"
-           data-gn-results-container=""
-           class="gn-info-list-blocks"
-           data-search-results="searchResults"
-           data-template-url="resultTemplate"></div>
+      <div
+        data-ng-show="searchResults.records.length > 0"
+        data-gn-results-container=""
+        class="gn-info-list-blocks"
+        data-search-results="searchResults"
+        data-template-url="resultTemplate"
+      ></div>
     </div>
   </div>
   <!-- /.gn-top-records -->
 </form>
 
 <!-- topics -->
-<div class="row gn-row-topics"
-     data-ng-show="searchInfo.hits.total.value > 0 && searchInfo.aggregations">
+<div
+  class="row gn-row-topics"
+  data-ng-show="searchInfo.hits.total.value > 0 && searchInfo.aggregations"
+>
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div class="col-md-12" data-ng-show="homeFacet.list.length > 0">
       <h1 class="text-center">{{'byCategory'|translate}}</h1>
       <div class="row">
-        <span data-ng-show="homeFacet.key !== 'inspireThemeUri'"
-              data-ng-init="aggResponse = searchInfo.aggregations[homeFacet.key]"
-              data-ng-repeat="facet in searchInfo.aggregations[homeFacet.key].buckets"
-              class="col-xs-12 col-sm-6 col-md-4 chips-card">
+        <span
+          data-ng-show="homeFacet.key !== 'inspireThemeUri'"
+          data-ng-init="aggResponse = searchInfo.aggregations[homeFacet.key]"
+          data-ng-repeat="facet in searchInfo.aggregations[homeFacet.key].buckets"
+          class="col-xs-12 col-sm-6 col-md-4 chips-card"
+        >
           <div class="badge-result badge-result-topic clearfix">
-            <a class="pull-left clearfix"
-               title="{{facet.key}}"
-               role="link"
-               data-ng-init="field = (aggResponse.meta && aggResponse.meta.field) || homeFacet.key"
-               data-ng-href='#/search?query_string={"{{field}}": {"{{facet.key}}": true} }'>
+            <a
+              class="pull-left clearfix"
+              title="{{facet.key}}"
+              role="link"
+              data-ng-init="field = (aggResponse.meta && aggResponse.meta.field) || homeFacet.key"
+              data-ng-href='#/search?query_string={"{{field}}": {"{{facet.key}}": true} }'
+            >
               <span class="badge-icon badge-result-topic pull-left">
-                <i class="fa fa-3x gn-icon gn-icon-{{facet.key.toLowerCase().replace('/', '').replace(' ', '')}}">
+                <i
+                  class="fa fa-3x gn-icon gn-icon-{{facet.key.toLowerCase().replace('/', '').replace(' ', '')}}"
+                >
                 </i>
               </span>
               <span class="badge-text pull-left">
-                <span class="gn-icon-label">{{facet.key | facetTranslator: homeFacet.key | capitalize}}</span>
+                <span class="gn-icon-label"
+                  >{{facet.key | facetTranslator: homeFacet.key | capitalize}}</span
+                >
                 <span class="gn-icon-count">({{facet.doc_count}})</span>
               </span>
             </a>
-
           </div>
         </span>
       </div>
     </div>
-
   </div>
 </div>
 <!-- /.gn-row-topics -->
