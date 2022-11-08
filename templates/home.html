@@ -23,6 +23,7 @@
 
     <div class="col-md-10 col-md-offset-2" data-ng-if="!showHealthIndexError">
       <div class="gn-form-any row">
+
         <div class="col-md-4 gn-nopadding-left">
           <div class="form-group">
             <label for="anyHome" data-translate="">SearchAny</label>
@@ -37,7 +38,7 @@
               placeholder="{{'anyPlaceHolder' | translate}}"
               aria-label="{{'anyPlaceHolder' | translate}}"
               data-ng-keyup="$event.keyCode == 13 && goToSearch(homeAnyField)"
-              data-typeahead="address for address in getAnySuggestions($viewValue, searchObj)"
+              data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
               data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
               data-typeahead-loading="anyLoading"
               data-typeahead-min-length="1"

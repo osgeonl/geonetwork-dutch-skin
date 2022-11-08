@@ -3,6 +3,7 @@
   <!--ANY full text search input-->
   <div class="row gn-top-search">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+
       <div class="col-md-10 col-md-offset-1">
         <div class="col-md-6">
           <div class="input-group gn-form-any">
@@ -22,7 +23,7 @@
               placeholder="{{'anyPlaceHolder' | translate}}"
               aria-label="{{'anyPlaceHolder' | translate}}"
               data-ng-keyup="$event.keyCode == 13 && triggerSearch()"
-              data-typeahead="address for address in getAnySuggestions($viewValue, searchObj)"
+               data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
               data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
               data-typeahead-loading="anyLoading"
               class="form-control"
