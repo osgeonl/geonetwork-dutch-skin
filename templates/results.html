@@ -48,7 +48,9 @@
       <div class="col-md-9 container-fluid">
         <div class="row gn-row-tools" data-ng-show="searchResults.records.length > 0">
           <div class="col-xs-6 col-sm-3 gn-nopadding-left">
-            <div data-gn-selection-widget="" data-results="searchResults"></div>
+            <div data-gn-selection-widget=""
+                 data-ng-if="showBatchDropdown"
+                 data-results="searchResults"></div>
           </div>
 
           <div class="col-xs-12 col-sm-6 text-center">
