@@ -479,7 +479,22 @@ a:not(.btn) {
         }
       }
     }
+    .form-control, .btn {
+      height: auto !important;
+      min-height: 44px !important;
+      font-size: 16px !important;
+    }
+    .btn {
+      padding-top: 10px;
+    }
     .bootstrap-tagsinput {
+      height: auto !important;
+      min-height: 44px !important;
+      padding: 8px 30px 8px 16px;
+      input {
+        margin-top: 3px;
+        font-size: 16px !important;
+      }
       &.focused {
         border-color: #86b7fe !important;
         outline: 0 !important;
@@ -499,6 +514,15 @@ a:not(.btn) {
           }
         }
       }
+      .label {
+        display: inline-block;
+        margin-right: 3px !important;
+        margin-bottom: 3px !important;
+        padding: 0.5em 0.8em !important;
+      }
+    }
+    .form-control-feedback {
+      top: 32px !important;
     }
     .input-lg {
       &:focus {
@@ -518,7 +542,8 @@ a:not(.btn) {
 
   }
   .form-control, .bootstrap-tagsinput {
-    height: 40px !important;
+    height: auto !important;
+    min-height: 46px !important;
     width: 100%;
     border-radius: @gn-border-radius;
   }
@@ -673,6 +698,9 @@ a:not(.btn) {
     .form-control, .bootstrap-tagsinput {
       width: 100%;
       border-radius: @gn-border-radius;
+      height: auto !important;
+      min-height: 44px !important;
+      padding: 8px 30px 8px 16px;
     }
     .gn-form-any {
       input[type="text"], button {
@@ -705,6 +733,10 @@ a:not(.btn) {
       font-size: 18px;
       padding: 8px 16px;
       margin: 0;
+      input {
+        margin-top: 3px;
+        font-size: 16px !important;
+      }
       &.focused {
         border-color: #86b7fe !important;
         outline: 0 !important;
@@ -723,6 +755,16 @@ a:not(.btn) {
           }
         }
       }
+      .label {
+        display: inline-block;
+        margin-right: 3px !important;
+        margin-bottom: 3px !important;
+        padding: 0.5em 0.8em !important;
+      }
+    }
+    .form-control-feedback {
+      top: 8px !important;
+      right: 4px;
     }
     .input-lg, .btn-lg {
       height: 40px;
