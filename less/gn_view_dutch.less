@@ -616,7 +616,7 @@ a:not(.btn) {
       border-radius: 0;
       border-top: 0;
       max-width: 600px;
-      width: auto;
+      width: calc(~"100% - 15px");
       li {
         a {
           padding: 8px 20px;
@@ -632,6 +632,52 @@ a:not(.btn) {
           color: @dropdown-link-hover-color !important;
         }
       }
+    }
+    .form-control,
+    .btn {
+      height: auto !important;
+      min-height: 44px !important;
+      font-size: 16px !important;
+    }
+    .btn {
+      padding-top: 10px;
+    }
+    .bootstrap-tagsinput {
+      height: auto !important;
+      min-height: 44px !important;
+      padding: 8px 30px 8px 16px;
+      input {
+        margin-top: 3px;
+        font-size: 16px !important;
+      }
+      &.focused {
+        border-color: #86b7fe !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.4) !important;
+      }
+      .tt-menu {
+        margin-left: -15px;
+        width: calc(~"100% + 30px");
+        max-width: 600px;
+        max-height: 300px;
+        overflow: auto;
+        .tt-suggestion {
+          padding: 8px 20px;
+          &:hover {
+            background-color: @dropdown-link-hover-bg !important;
+            color: @dropdown-link-hover-color !important;
+          }
+        }
+      }
+      .label {
+        display: inline-block;
+        margin-right: 3px !important;
+        margin-bottom: 3px !important;
+        padding: 0.5em 0.8em !important;
+      }
+    }
+    .form-control-feedback {
+      top: 32px !important;
     }
     .input-lg {
       &:focus {
@@ -658,7 +704,8 @@ a:not(.btn) {
   }
   .form-control,
   .bootstrap-tagsinput {
-    height: 40px !important;
+    height: auto !important;
+    min-height: 46px !important;
     width: 100%;
     border-radius: @gn-border-radius;
   }
@@ -796,31 +843,32 @@ a:not(.btn) {
     background: none;
     margin: 0;
     padding: 0;
-    // hack for making the search input wider
-    .col-md-6 {
-      .make-md-column(8);
-      .col-md-6 {
-        .make-md-column(6);
-      }
-    }
-    .col-md-offset-3 {
-      .make-md-column-offset(2);
-    }
     .container,
     .container-fluid {
-      background-color: @gn-menubar-background-active;
-      padding: 50px 20px 70px 20px;
-      border-bottom: 10px solid @gn-menubar-background-active;
+      background-color: @navbar-default-link-active-bg;
+      padding: 50px 20px;
+      border-bottom: 10px solid darken(@navbar-default-link-active-bg, 5%);
     }
     .form-control,
     .bootstrap-tagsinput {
       width: 100%;
       border-radius: @gn-border-radius;
+      height: auto !important;
+      min-height: 46px !important;
+      padding: 8px 30px 8px 16px;
+    }
+    .btn-group-justified {
+      .btn {
+        font-size: 16px !important;
+        height: 45px;
+      }
     }
     .gn-form-any {
+      width: 100%;
+
       input[type="text"],
       button {
-        height: 36px;
+        height: 46px;
       }
       button.btn-lg,
       input[type="text"].input-lg {
@@ -856,78 +904,62 @@ a:not(.btn) {
     .bootstrap-tagsinput {
       font-size: 18px;
       padding: 8px 16px;
+      margin: 0;
+      input {
+        margin-top: 3px;
+        font-size: 16px !important;
+      }
+      &.focused {
+        border-color: #86b7fe !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.4) !important;
+      }
+      .tt-menu {
+        margin-left: -15px;
+        width: calc(~"100% + 30px");
+        max-height: 300px;
+        overflow: auto;
+        .tt-suggestion {
+          padding: 8px 20px;
+          &:hover {
+            background-color: @dropdown-link-hover-bg !important;
+            color: @dropdown-link-hover-color !important;
+          }
+        }
+      }
+      .label {
+        display: inline-block;
+        margin-right: 3px !important;
+        margin-bottom: 3px !important;
+        padding: 0.5em 0.8em !important;
+      }
+    }
+    .form-control-feedback {
+      top: 34px !important;
+      right: 16px;
     }
     .input-lg,
     .btn-lg {
       height: 40px;
     }
     .btn-primary {
-      height: 38px;
+      height: 45px;
       margin-top: 26px;
       border-radius: @gn-border-radius;
     }
-    .dutch-search-topic {
-      .input-group {
-        width: 100%;
-        .btn-lg {
-          font-size: 14px;
-          border-right: 0;
-        }
-      }
-    }
-    .dutch-search-location {
-      .form-control-feedback {
-        width: 42px;
-        height: 42px;
-        line-height: 42px;
-        top: 28px;
-      }
-    }
-    .dutch-search-buttons {
-      .dutch-search-btn-group,
-      .dutch-reset-button {
-        width: 48%;
-      }
-      .dutch-search-button {
-        width: 80%;
-        @media (max-width: @screen-sm-max) {
-          width: 92%;
-        }
-      }
-      .dutch-reset-button {
-        @media (max-width: @screen-md-max) {
-          float: right;
-        }
-      }
-    }
 
     // advanced search
-
-    // toggle button
-    #btn-advanced-search {
-      margin-top: 30px;
-      padding: 15px;
-      border-radius: 0;
-      border-color: darken(@navbar-default-link-active-bg, 5%);
-      background-color: darken(@navbar-default-link-active-bg, 5%);
-      &.active {
-        box-shadow: none;
-        i {
-          &:before {
-            content: "\f062"; // up arrow
-          }
-        }
-      }
+    .btn-advanced {
+      display: inline-block;
     }
-    // advanced search
     .gn-search-filter {
       position: absolute;
       z-index: 100;
       padding: 15px;
-      background-color: @panel-default-heading-bg;
+      background-color: darken(@navbar-default-link-active-bg, 5%);
       width: calc(~"100% - 30px");
-      border: 1px solid @input-border;
       border-top: 0;
+      border-radius: 8px;
       [class*="col-md"] {
         padding-right: 0;
       }
@@ -974,7 +1006,6 @@ a:not(.btn) {
         }
       }
       .gn-search-filter-datepicker {
-        margin-bottom: 10px;
         .col-md-6 {
           padding-left: 0;
           @media (min-width: 400px) and (max-width: @screen-sm-max) {
