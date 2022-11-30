@@ -499,7 +499,7 @@ a:not(.btn) {
 
 // breadcrumbs (in second toolbar/navbar)
 .crumb {
-  background-color: @gn-crumbpath-background;
+  background-color: @gn-crumbpath-background !important;
   line-height: calc(~"@{gn-crumbpath-height} - 8px");
   height: @gn-crumbpath-height;
   color: @gn-crumbpath-color;
@@ -1570,8 +1570,9 @@ a:not(.btn) {
   a {
     color: @gn-socialbar-color;
     background: none;
+    background-color: transparent !important;
     border: 0;
-    &:hover {
+    &:hover, &:focus {
       color: @gn-socialbar-color;
       background: darken(@gn-socialbar-background, 10%);
       text-decoration: none;
@@ -1581,6 +1582,17 @@ a:not(.btn) {
     }
   }
   .md-feedback {
+    &.gn-margin-bottom {
+      margin-bottom: 0 !important;
+    }
+    a {
+      background-color: transparent;
+      &:hover, &:focus {
+        color: @gn-socialbar-color;
+        background: darken(@gn-socialbar-background, 10%);
+        text-decoration: none;
+      }
+    }
     .btn {
       font-size: 12px;
       padding: 5px 10px;
@@ -2212,7 +2224,7 @@ a:not(.btn) {
 // admin
 [ng-app="gn_admin"] {
   .gn-top-bar {
-    .container {
+    .container, .container-fluid {
       border-bottom: 1px solid @navbar-default-border !important;
     }
   }

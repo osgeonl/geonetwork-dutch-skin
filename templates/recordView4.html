@@ -647,77 +647,69 @@
                     data-ng-repeat="c in mdView.current.record.contactForResource"
                   >
                     <tbody>
-                    <tr data-ng-if="c.individual">
-                      <th>
-                        <span data-translate="">mdContactName</span>
-                      </th>
-                      <td>
-                        {{c.individual}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.individual">
+                        <th>
+                          <span data-translate="">mdContactName</span>
+                        </th>
+                        <td>{{c.individual}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.organisation">
-                      <th>
-                        <span data-translate="">mdContactSource</span>
-                      </th>
-                      <td>
-                        {{c.organisation}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.organisation">
+                        <th>
+                          <span data-translate="">mdContactSource</span>
+                        </th>
+                        <td>{{c.organisation}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.role">
-                      <th>
-                        <span data-translate="">mdContactRole</span>
-                      </th>
-                      <td>
-                        {{c.role | translate}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.role">
+                        <th>
+                          <span data-translate="">mdContactRole</span>
+                        </th>
+                        <td>{{c.role | translate}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.position">
-                      <th>
-                        <span data-translate="">positionName</span>
-                      </th>
-                      <td>
-                        {{c.position}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.position">
+                        <th>
+                          <span data-translate="">positionName</span>
+                        </th>
+                        <td>{{c.position}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.address">
-                      <th>
-                        <span data-translate="">address</span>
-                      </th>
-                      <td>
-                        {{c.address}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.address">
+                        <th>
+                          <span data-translate="">address</span>
+                        </th>
+                        <td>{{c.address}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.email">
-                      <th>
-                        <span data-translate="">email</span>
-                      </th>
-                      <td>
-                        <a href="mailto:{{c.email}}">{{c.email}}</a>
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.email">
+                        <th>
+                          <span data-translate="">email</span>
+                        </th>
+                        <td>
+                          <a href="mailto:{{c.email}}">{{c.email}}</a>
+                        </td>
+                      </tr>
 
                       <tr data-ng-if="c.website">
                         <th>
                           <span data-translate="">website</span>
                         </th>
                         <td>
-                          <a href="{{c.website}}" target="_blank">{{c.website}}</a>
+                          <a href="{{c.website}}" target="_blank"
+                            >{{c.website}}</a
+                          >
                         </td>
                       </tr>
 
-                    <tr data-ng-if="c.phone">
-                      <th>
-                        <span data-translate="">mdPhone</span>
-                      </th>
-                      <td>
-                        <a href="tel:{{c.phone}}">{{c.phone}}</a>
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.phone">
+                        <th>
+                          <span data-translate="">mdPhone</span>
+                        </th>
+                        <td>
+                          <a href="tel:{{c.phone}}">{{c.phone}}</a>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -729,79 +721,74 @@
                     <span data-translate="">contact</span>
                   </h2>
 
-                  <table class="table table-striped" data-ng-repeat="c in mdView.current.record.contact">
+                  <table
+                    class="table table-striped"
+                    data-ng-repeat="c in mdView.current.record.contact"
+                  >
                     <tbody>
-                    <tr data-ng-if="c.individual">
-                      <th>
-                        <span data-translate="">mdContactName</span>
-                      </th>
-                      <td>
-                        {{c.individual}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.individual">
+                        <th>
+                          <span data-translate="">mdContactName</span>
+                        </th>
+                        <td>{{c.individual}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.organisation">
-                      <th>
-                        <span data-translate="">mdContactSource</span>
-                      </th>
-                      <td>
-                        {{c.organisation}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.organisation">
+                        <th>
+                          <span data-translate="">mdContactSource</span>
+                        </th>
+                        <td>{{c.organisation}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.role">
-                      <th>
-                        <span data-translate="">mdContactRole</span>
-                      </th>
-                      <td>
-                        {{c.role | translate}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.role">
+                        <th>
+                          <span data-translate="">mdContactRole</span>
+                        </th>
+                        <td>{{c.role | translate}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.position">
-                      <th>
-                        <span data-translate="">positionName</span>
-                      </th>
-                      <td>
-                        {{c.position}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.position">
+                        <th>
+                          <span data-translate="">positionName</span>
+                        </th>
+                        <td>{{c.position}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.address">
-                      <th>
-                        <span data-translate="">address</span>
-                      </th>
-                      <td>
-                        {{c.address}}
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.address">
+                        <th>
+                          <span data-translate="">address</span>
+                        </th>
+                        <td>{{c.address}}</td>
+                      </tr>
 
-                    <tr data-ng-if="c.email">
-                      <th>
-                        <span data-translate="">email</span>
-                      </th>
-                      <td>
-                        <a href="mailto:{{c.email}}">{{c.email}}</a>
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.email">
+                        <th>
+                          <span data-translate="">email</span>
+                        </th>
+                        <td>
+                          <a href="mailto:{{c.email}}">{{c.email}}</a>
+                        </td>
+                      </tr>
 
-                    <tr data-ng-if="c.website">
-                      <th>
-                        <span data-translate="">website</span>
-                      </th>
-                      <td>
-                        <a href="{{c.website}}" target="_blank">{{c.website}}</a>
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.website">
+                        <th>
+                          <span data-translate="">website</span>
+                        </th>
+                        <td>
+                          <a href="{{c.website}}" target="_blank"
+                            >{{c.website}}</a
+                          >
+                        </td>
+                      </tr>
 
-                    <tr data-ng-if="c.phone">
-                      <th>
-                        <span data-translate="">mdPhone</span>
-                      </th>
-                      <td>
-                        <a href="tel:{{c.phone}}">{{c.phone}}</a>
-                      </td>
-                    </tr>
+                      <tr data-ng-if="c.phone">
+                        <th>
+                          <span data-translate="">mdPhone</span>
+                        </th>
+                        <td>
+                          <a href="tel:{{c.phone}}">{{c.phone}}</a>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -906,7 +893,7 @@
                     <span
                       data-ng-repeat="cat in mdView.current.record['th_GEMET-INSPIREthemesversion1-0']"
                       title="{{ cat.default }}"
-                    >{{ cat.default }}<br
+                      >{{ cat.default }}<br
                     /></span>
                   </div>
                 </div>
@@ -922,20 +909,17 @@
                       style="padding-top: 10px"
                     >
                       <b>{{ 'Specification'|translate }}:</b> {{ conf.title }}
-                      <span
-                        data-ng-if="conf.date"
-                      ><br/>
-                        <b>{{ 'Date'|translate }}:</b
-                        >({{ conf.date }})</span
+                      <span data-ng-if="conf.date"
+                        ><br />
+                        <b>{{ 'Date'|translate }}:</b>({{ conf.date }})</span
                       >
                       <span data-ng-if="conf.pass"
-                      ><br/>
+                        ><br />
                         <b>{{ 'Degree'|translate }}:</b>
                         {{ conf.pass|translate}}</span
                       >
-                      <span
-                        data-ng-if="conf.explanation"
-                      ><br/>
+                      <span data-ng-if="conf.explanation"
+                        ><br />
                         <b>{{ 'Explanation'|translate }}:</b>
                         {{ conf.explanation }}</span
                       >
@@ -1012,6 +996,13 @@
                   <i class="fa fa-fw fa-link"></i>
                   <span class="hidden-xs">Link</span>
                 </a>
+
+                <!-- feedback -->
+                <div
+                  class="pull-right"
+                  data-gn-md-feedback="mdView.current.record"
+                  data-show-label="feedback"
+                ></div>
               </div>
             </div>
           </div>
@@ -1196,9 +1187,9 @@
 
           <!-- feedback -->
           <div
-                  data-gn-userfeedback="mdView.current.record"
-                  data-gn-user="{{ user.username }}"
-                  data-ng-if="isUserFeedbackEnabled && mdView.current.record.draft != 'y'"
+            data-gn-userfeedback="mdView.current.record"
+            data-gn-user="{{ user.username }}"
+            data-ng-if="isUserFeedbackEnabled && mdView.current.record.draft != 'y'"
           ></div>
           <div
             data-ng-show="isRecordHistoryEnabled
