@@ -1,18 +1,111 @@
 <div class="gn-search-filter advancedSearchForm">
-  <label data-translate="">options</label>
-  <div class="search-options">
-    <gn-search-options></gn-search-options>
+
+  <!--Advanced search form-->
+  <div>
+
+
+    <div class="col-md-2">
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label data-translate="">DataAvailability</label>
+          <div class="checkbox">
+            <label class="label-inline">
+              <input id="chk-visualisation" type="checkbox" value="true" checked="{searchObj.params.dynamic}"
+                     data-ng-model="searchObj.params.dynamic">
+              {{'Visualisation'|translate}}
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="label-inline">
+              <input id="chk-download" type="checkbox" value="true" data-ng-model="searchObj.params.download"/>
+              {{'DownloadData'|translate}}
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="label-inline">
+              <input id="chk-data-request" type="checkbox" value="true"
+                     data-ng-model="searchObj.params.nodynamicdownload"/>
+              {{'DataOnRequest'|translate}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-10">
+
+      <div class="col-sm-10 col-md-10">
+        <label data-translate="">ByDate</label>
+      </div>
+
+      <div class="col-sm-10 col-md-10">
+        <div class="form-group">
+          <select name="date-type"
+                  data-ng-model="dateType"
+                  class="form-control"
+                  aria-label="{{'dateType' | translate}}">
+            <option value="creation">{{'dateCreation' | translate}}</option>
+            <option value="revision">{{'dateRevision' | translate}}</option>
+            <option value="publication">{{'datePublication' | translate}}</option>
+            <option value="extent">{{'dateExtent' | translate}}</option>
+            <option value="metadata">{{'dateMetadata' | translate}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-md-10" data-ng-show="dateType=='metadata'">
+
+        <div
+          data-ng-if="searchObj.params.creationDateForResource"
+          data-gn-date-range-filter="creationDateForResource"
+          data-field="searchObj.params.creationDateForResource"
+          class="gn-search-filter-datepicker"
+        ></div>
+
+      </div>
+
+      <div class="col-sm-10 col-md-10" data-ng-show="dateType=='creation'">
+        <div
+          data-ng-if="searchObj.params.creationDateForResource"
+          data-gn-date-range-filter="creationDateForResource"
+          data-field="searchObj.params.creationDateForResource"
+          class="gn-search-filter-datepicker"
+        ></div>
+      </div>
+
+      <div class="col-sm-10 col-md-10" data-ng-show="dateType=='revision'">
+        <div
+          data-ng-if="searchObj.params.revisionDateForResource"
+          data-gn-date-range-filter="revisionDateForResource"
+          data-field="searchObj.params.revisionDateForResource"
+          class="gn-search-filter-datepicker"
+        ></div>
+      </div>
+
+      <div class="col-sm-10 col-md-10"data-ng-show="dateType=='publication'">
+
+        <div
+          data-ng-if="searchObj.params.publicationDateForResource"
+          data-gn-date-range-filter="publicationDateForResource"
+          data-field="searchObj.params.publicationDateForResource"
+          class="gn-search-filter-datepicker"
+        ></div>
+      </div>
+
+      <div class="col-sm-10 col-md-10" data-ng-show="dateType=='extent'">
+
+        <div
+          data-ng-if="searchObj.params.resourceTemporalDateRange"
+          data-gn-date-range-filter="resourceTemporalDateRange"
+          data-field="searchObj.params.resourceTemporalDateRange"
+          class="gn-search-filter-datepicker"
+        ></div>
+
+      </div>
+
+    </div>
+
   </div>
-  <label
-    data-ng-if="searchObj.params.resourceTemporalDateRange"
-    class="gn-margin-top"
-    data-translate=""
-    >advanced</label
-  >
-  <div
-    data-ng-if="searchObj.params.resourceTemporalDateRange"
-    data-gn-date-range-filter="resourceTemporalDateRange"
-    data-field="searchObj.params.resourceTemporalDateRange"
-    class="gn-search-filter-datepicker"
-  ></div>
 </div>

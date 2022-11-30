@@ -237,10 +237,14 @@
       $scope.formatter = gnGlobalSettings.gnCfg.mods.search.formatter;
       $scope.listOfResultTemplate = gnGlobalSettings.gnCfg.mods.search.resultViewTpls;
       $scope.resultTemplate = gnSearchSettings.resultTemplate;
+      $scope.dateType = "metadata";
       /* Default advanced search form template */
       $scope.advancedSearchTemplate =
         gnSearchSettings.advancedSearchTemplate ||
         "../../catalog/views/dutch/templates/advancedSearchForm/defaultAdvancedSearchForm.html";
+      $scope.optionsSearchTemplate =
+        gnSearchSettings.advancedSearchTemplate ||
+        "../../catalog/views/dutch/templates/advancedSearchForm/defaultOptionsSearchForm.html";
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;
@@ -597,6 +601,7 @@
 
       angular.extend($scope.searchObj, {
         advancedMode: false,
+        optionsMode: false,
         from: 1,
         to: 20,
         selectionBucket: "s101",
@@ -610,6 +615,33 @@
         filters: gnSearchSettings.filters,
         defaultParams: {
           isTemplate: "n",
+          creationDateForResource: {
+            range: {
+              creationDateForResource: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
+          revisionDateForResource: {
+            range: {
+              revisionDateForResource: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
+          publicationDateForResource: {
+            range: {
+              publicationDateForResource: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
           resourceTemporalDateRange: {
             range: {
               resourceTemporalDateRange: {
@@ -624,6 +656,33 @@
         },
         params: {
           isTemplate: "n",
+          creationDateForResource: {
+            range: {
+              creationDateForResource: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
+          revisionDateForResource: {
+            range: {
+              revisionDateForResource: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
+          publicationDateForResource: {
+            range: {
+              publicationDateForResource: {
+                gte: null,
+                lte: null,
+                relation: "intersects"
+              }
+            }
+          },
           resourceTemporalDateRange: {
             range: {
               resourceTemporalDateRange: {
