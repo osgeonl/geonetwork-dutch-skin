@@ -1,5 +1,17 @@
-<div class="gn-search-filter advancedSearchForm">
+<div>
+  <div class="input-group col-md-3">
+    <button type="button" id="btn-advanced-search"
+            class="btn btn-link"
+            data-ng-model="searchObj.advancedMode"
+            btn-checkbox=""
+            btn-checkbox-true="1"
+            btn-checkbox-false="0">
+      {{'AdvancedSearch'|translate}} <i class="fa fa-arrow-down"></i>
+    </button>
+  </div>
+</div>
 
+<div id="pnl-advanced-search" data-ng-show="searchObj.advancedMode">
   <!--Advanced search form-->
   <div>
 
@@ -34,14 +46,14 @@
 
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-6">
 
-      <div class="col-sm-12 col-md-12">
+      <div class="col-md-12">
         <label data-translate="">ByDate</label>
       </div>
 
       <div class="col-sm-12 col-md-12">
-        <div class="form-group gn-nomargin-left gn-nomargin-right">
+        <div class="form-group">
           <select name="date-type"
                   data-ng-model="dateType"
                   class="form-control"
@@ -55,7 +67,8 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-md-12" data-ng-show="dateType=='metadata'">
+
+      <div data-ng-show="dateType=='metadata'">
 
         <div
           data-ng-if="searchObj.params.creationDateForResource"
@@ -66,7 +79,7 @@
 
       </div>
 
-      <div class="col-sm-12 col-md-12" data-ng-show="dateType=='creation'">
+      <div data-ng-show="dateType=='creation'">
         <div
           data-ng-if="searchObj.params.creationDateForResource"
           data-gn-date-range-filter="creationDateForResource"
@@ -75,7 +88,7 @@
         ></div>
       </div>
 
-      <div class="col-sm-12 col-md-12" data-ng-show="dateType=='revision'">
+      <div data-ng-show="dateType=='revision'">
         <div
           data-ng-if="searchObj.params.revisionDateForResource"
           data-gn-date-range-filter="revisionDateForResource"
@@ -84,7 +97,7 @@
         ></div>
       </div>
 
-      <div class="col-sm-12 col-md-12" data-ng-show="dateType=='publication'">
+      <div data-ng-show="dateType=='publication'">
 
         <div
           data-ng-if="searchObj.params.publicationDateForResource"
@@ -94,7 +107,7 @@
         ></div>
       </div>
 
-      <div class="col-sm-12 col-md-12" data-ng-show="dateType=='extent'">
+      <div data-ng-show="dateType=='extent'">
 
         <div
           data-ng-if="searchObj.params.resourceTemporalDateRange"
@@ -108,4 +121,5 @@
     </div>
 
   </div>
+</div>
 </div>
