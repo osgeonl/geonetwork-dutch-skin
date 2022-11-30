@@ -297,7 +297,7 @@
                         <a
                           class="dutch-keyword"
                           data-ng-repeat="t in mdView.current.record.cl_topic track by $index"
-                          data-ng-href="#/search?topicCat={{ t.key }}"
+                          data-ng-href='#/search?query_string={"cl_topic.key": {"{{t.key}}":true}}'
                         >
                           <i class="fa gn-icon-{{ t.key }}"></i>
                           {{ t.key | translate }}
