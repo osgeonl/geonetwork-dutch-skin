@@ -3,79 +3,40 @@
   <!--ANY full text search input-->
   <div class="row gn-top-search">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-
       <div class="col-md-10 col-md-offset-1">
-        <div class="col-md-6">
-          <div class="input-group gn-form-any">
-            <div
-              data-gn-user-searches-list=""
-              data-ng-cloak=""
-              data-mode="button"
-              class="input-group-btn btn-favorites"
-            ></div>
-            <input
-              type="text"
-              class="form-control input-lg"
-              id="gn-any-field"
-              title="{{'anyFieldTitle' | translate}}"
-              data-ng-model="searchObj.params.any"
-              autocomplete="off"
-              placeholder="{{'anyPlaceHolder' | translate}}"
-              aria-label="{{'anyPlaceHolder' | translate}}"
-              data-ng-keyup="$event.keyCode == 13 && triggerSearch()"
-               data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
-              data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
-              data-typeahead-loading="anyLoading"
-              class="form-control"
-              data-typeahead-min-length="1"
-              data-typeahead-focus-first="false"
-              data-typeahead-wait-ms="600"
-            />
-
-            <div class="input-group-btn">
-              <button
-                type="button"
-                data-ng-click="resetSearch(searchObj.defaultParams);"
-                title="{{'ClearTitle' | translate}}"
-                class="btn btn-default btn-lg btn-reset"
-              >
-                <i class="fa fa-times"></i>
-                <span class="sr-only" data-translate="">ClearTitle</span>
-              </button>
-              <button
-                type="button"
-                data-ng-click="triggerSearch()"
-                title="{{'search' | translate}}"
-                class="btn btn-default btn-lg btn-search"
-              >
-                <i class="fa fa-search"></i>
-                <span class="sr-only" data-translate="">search</span>
-              </button>
-              <button
-                type="button"
-                class="btn btn-default btn-lg btn-advanced"
-                title="{{'searchOptions' | translate}}"
-                data-ng-model="searchObj.advancedMode"
-                btn-checkbox=""
-                btn-checkbox-true="1"
-                btn-checkbox-false="0"
-              >
-                <i class="fa fa-fw fa-sliders"></i>
-                <!--              <span class="sr-only" data-translate="">searchOptions</span>-->
-                <span class="hidden-xs" data-translate="">advanced</span>
-              </button>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="gn-any-field" data_translate="">SearchAny</label>
+            <div class="input-group gn-form-any">
+              <div
+                data-gn-user-searches-list=""
+                data-ng-cloak=""
+                data-mode="button"
+                class="input-group-btn btn-favorites"
+              ></div>
+              <input
+                type="text"
+                class="form-control input-lg"
+                id="gn-any-field"
+                title="{{'anyFieldTitle' | translate}}"
+                data-ng-model="searchObj.params.any"
+                autocomplete="off"
+                placeholder="{{'anyPlaceHolder' | translate}}"
+                aria-label="{{'anyPlaceHolder' | translate}}"
+                data-ng-keyup="$event.keyCode == 13 && triggerSearch()"
+                data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
+                data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
+                data-typeahead-loading="anyLoading"
+                class="form-control"
+                data-typeahead-min-length="1"
+                data-typeahead-focus-first="false"
+                data-typeahead-wait-ms="600"
+              />
             </div>
           </div>
-
-          <div data-ng-show="searchObj.advancedMode">
-            <!--Advanced search form-->
-            <div data-ng-include="advancedSearchTemplate"></div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group has-feedback">
-            <label id="searchLocationLbl" for="loc" data-translate="" class="hidden"
+          <!-- location -->
+          <div class="col-md-4 gn-nopadding-left">
+            <label id="searchLocationLbl" for="loc" data-translate=""
               >AtLocation</label
             >
             <select
@@ -90,6 +51,48 @@
             <span class="form-control-feedback">
               <i class="fa fa-map-marker fa-2x"></i>
             </span>
+          </div>
+          <div class="col-md-2 gn-nopadding-left">
+            <button
+              type="button"
+              data-ng-click="triggerSearch()"
+              title="{{'search' | translate}}"
+              class="btn btn-primary btn-block btn-search"
+            >
+              <i class="fa fa-fw fa-search"></i>
+              <span data-translate="">search</span>
+            </button>
+          </div>
+          <div class="col-md-2 gn-nopadding-left">
+            <button
+              type="button"
+              data-ng-click="resetSearch(searchObj.defaultParams);"
+              title="{{'ClearTitle' | translate}}"
+              class="btn btn-primary btn-block btn-reset"
+            >
+              <i class="fa fa-fw fa-times"></i>
+              <span data-translate="">Reset</span>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <a
+              href=""
+              class="btn-advanced gn-margin-top gn-margin-bottom"
+              title="{{'searchOptions' | translate}}"
+              data-ng-model="searchObj.advancedMode"
+              btn-checkbox=""
+              btn-checkbox-true="1"
+              btn-checkbox-false="0"
+            >
+              <i class="fa fa-fw fa-sliders"></i>
+              <span class="hidden-xs" data-translate="">advanced</span>
+            </a>
+            <div data-ng-show="searchObj.advancedMode">
+              <!--Advanced search form-->
+              <div data-ng-include="advancedSearchTemplate"></div>
+            </div>
           </div>
         </div>
       </div>
