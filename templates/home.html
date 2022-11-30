@@ -12,7 +12,7 @@
 </div>
 
 <!-- search -->
-<div class="row gn-row-main">
+<div class="row gn-row-main" data-ng-controller="DutchSearchHomeController">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div class="col-sm-4 col-sm-offset-6 ng-cloak" data-ng-if="showHealthIndexError">
       <div class="alert alert-warning text-center">
@@ -21,40 +21,63 @@
       </div>
     </div>
 
-    <div class="col-md-8 col-md-offset-2" data-ng-if="!showHealthIndexError">
-      <label for="anyHome" data-translate="">SearchAny</label>
-
+    <div class="col-md-10 col-md-offset-2" data-ng-if="!showHealthIndexError">
       <div class="gn-form-any row">
-        <div class="col-md-9 gn-nopadding-left">
-          <input
-            type="text"
-            role="combobox"
-            class="form-control input-lg"
-            autofocus=""
-            autocomplete="off"
-            data-ng-model="homeAnyField"
-            data-ng-model-options="modelOptions"
-            placeholder="{{'anyPlaceHolder' | translate}}"
-            aria-label="{{'anyPlaceHolder' | translate}}"
-            data-ng-keyup="$event.keyCode == 13 && goToSearch(homeAnyField)"
-            data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
-            data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
-            data-typeahead-loading="anyLoading"
-            data-typeahead-min-length="1"
-            data-typeahead-focus-first="false"
-            data-typeahead-wait-ms="300"
-          />
+
+        <div class="col-md-4 gn-nopadding-left">
+          <div class="form-group">
+            <label for="anyHome" data-translate="">SearchAny</label>
+            <input
+              type="text"
+              role="combobox"
+              class="form-control input-lg"
+              autofocus=""
+              autocomplete="off"
+              data-ng-model="searchHomeParams.any"
+              data-ng-model-options="modelOptions"
+              placeholder="{{'anyPlaceHolder' | translate}}"
+              aria-label="{{'anyPlaceHolder' | translate}}"
+              data-ng-keyup="$event.keyCode == 13 && goToSearch(homeAnyField)"
+              data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
+              data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
+              data-typeahead-loading="anyLoading"
+              data-typeahead-min-length="1"
+              data-typeahead-focus-first="false"
+              data-typeahead-wait-ms="300"
+            />
+          </div>
         </div>
-        <div class="col-md-3 gn-nopadding-right">
-          <a
-            class="btn btn-primary btn-block"
-            type="button"
-            data-ng-disabled="searchInfo.hits.total.value == 0"
-            data-ng-href="#/search?any={{homeAnyField}}"
-          >
-            <i class="fa fa-search"></i>
-            <span data-translate="">search</span>
-          </a>
+
+        <div class="col-md-4 gn-nopadding-left">
+          <div class="form-group has-feedback">
+            <label id="searchLocationLbl" for="loc" data-translate="">AtLocation</label>
+            <select
+              multiple
+              class="form-control input-lg"
+              id="loc"
+              data-dutch-multi-location
+              data-thesaurus-key="external.place.regions"
+              data-limit="10"
+              data-search-params="searchHomeParams"
+            ></select>
+            <span class="form-control-feedback">
+              <i class="fa fa-map-marker fa-2x"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-2 gn-nopadding-left gn-nopadding-right">
+          <div class="form-group" style="margin-top: 27px">
+            <a
+              class="btn btn-primary btn-block"
+              type="button"
+              data-ng-disabled="searchInfo.hits.total.value == 0"
+              data-ng-click="performSearchHome()"
+            >
+              <i class="fa fa-search"></i>
+              <span data-translate="">search</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -30,6 +30,7 @@
   goog.require("gn_search");
   goog.require("gn_search_dutch_config");
   goog.require("gn_search_default_directive");
+  goog.require("dutch_multi_location_directive");
 
   var module = angular.module("gn_search_dutch", [
     "gn_search",
@@ -37,7 +38,60 @@
     "gn_search_default_directive",
     "gn_related_directive",
     "cookie_warning",
-    "gn_mdactions_directive"
+    "gn_mdactions_directive",
+    "dutch_multi_location_directive"
+  ]);
+
+  goog.require("cookie_warning");
+  goog.require("gn_mdactions_directive");
+  goog.require("gn_related_directive");
+  goog.require("gn_search");
+  goog.require("gn_search_dutch_config");
+  goog.require("gn_search_default_directive");
+  goog.require("dutch_multi_location_directive");
+
+  var module = angular.module("gn_search_dutch", [
+    "gn_search",
+    "gn_search_dutch_config",
+    "gn_search_default_directive",
+    "gn_related_directive",
+    "cookie_warning",
+    "gn_mdactions_directive",
+    "dutch_multi_location_directive"
+  ]);
+
+  module.controller("DutchSearchHomeController", [
+    "$scope",
+    "$location",
+    "$log",
+    function ($scope, $location, $log) {
+      $scope.resetHomeParams = function () {
+        $scope.searchHomeParams = {
+          any: null,
+          geometry: null
+        };
+      };
+
+      $scope.performSearchHome = function () {
+        var searchParams = angular.extend({}, $scope.searchHomeParams);
+        if (!$scope.searchHomeParams.geometry) {
+          delete searchParams.geometry;
+        }
+
+        $location.path("/search").search(searchParams);
+      };
+
+      $scope.$on("$locationChangeSuccess", function (event, newUrl) {
+        var activeTab = $location.path().match(/^(\/[a-zA-Z0-9]*)($|\/.*)/)[1];
+        // reset search paramameters
+        if (activeTab === "/home") {
+          $scope.resetHomeParams();
+        }
+      });
+
+      // Init search params
+      $scope.resetHomeParams();
+    }
   ]);
 
   module.controller("gnsSearchPopularController", [
@@ -186,7 +240,7 @@
       /* Default advanced search form template */
       $scope.advancedSearchTemplate =
         gnSearchSettings.advancedSearchTemplate ||
-        "../../catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html";
+        "../../catalog/views/dutch/templates/advancedSearchForm/defaultAdvancedSearchForm.html";
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;
