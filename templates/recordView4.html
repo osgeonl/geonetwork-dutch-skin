@@ -242,23 +242,23 @@
                   <tr data-ng-repeat="(key, t) in mdView.current.record.allKeywords">
                     <th>{{ (t.title || key) | translate }}</th>
                     <td>
-                        <div
-                          data-ng-repeat="k in t.keywords track by $index"
-                          data-ng-if="k"
-                          class="tt-cursor">
-                          <span data-ng-hide="::!!k.link">{{::k.default | capitalize}}</span>
-                          <a
-                            href=""
-                            data-ng-href="{{::k.link}}"
-                            data-ng-show="::!!k.link">{{::k.default | capitalize}}</a>&nbsp;
-                          <a
-                            href=""
-                            title="{{ 'clickToFilterOn' | translate }} {{::k.default | capitalize}}"
-                            aria-label="{{ 'clickToFilterOn' | translate }} {{::k.default | capitalize}}"
-                            data-ng-click="filterBy('tag.default', k.default)">
-                            <i class="fa fa-search"/>
-                          </a>
-                        </div>
+                      <div
+                        data-ng-repeat="k in t.keywords track by $index"
+                        data-ng-if="k"
+                        class="tt-cursor">
+                        <span data-ng-hide="::!!k.link">{{::k.default | capitalize}}</span>
+                        <a
+                          href=""
+                          data-ng-href="{{::k.link}}"
+                          data-ng-show="::!!k.link">{{::k.default | capitalize}}</a>&nbsp;
+                        <a
+                          href=""
+                          title="{{ 'clickToFilterOn' | translate }} {{::k.default | capitalize}}"
+                          aria-label="{{ 'clickToFilterOn' | translate }} {{::k.default | capitalize}}"
+                          data-ng-click="filterBy('tag.default', k.default)">
+                          <i class="fa fa-search"/>
+                        </a>
+                      </div>
 
                     </td>
                   </tr>
@@ -572,77 +572,77 @@
 
                   <table class="table table-striped" data-ng-repeat="c in mdView.current.record.contactForResource">
                     <tbody>
-                      <tr data-ng-if="c.individual">
-                        <th>
-                          <span data-translate="">mdContactName</span>
-                        </th>
-                        <td>
-                          {{c.individual}}
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.individual">
+                      <th>
+                        <span data-translate="">mdContactName</span>
+                      </th>
+                      <td>
+                        {{c.individual}}
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.organisation">
-                        <th>
-                          <span data-translate="">mdContactSource</span>
-                        </th>
-                        <td>
-                          {{c.organisation}}
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.organisation">
+                      <th>
+                        <span data-translate="">mdContactSource</span>
+                      </th>
+                      <td>
+                        {{c.organisation}}
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.role">
-                        <th>
-                          <span data-translate="">mdContactRole</span>
-                        </th>
-                        <td>
-                          {{c.role | translate}}
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.role">
+                      <th>
+                        <span data-translate="">mdContactRole</span>
+                      </th>
+                      <td>
+                        {{c.role | translate}}
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.position">
-                        <th>
-                          <span data-translate="">positionName</span>
-                        </th>
-                        <td>
-                          {{c.position}}
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.position">
+                      <th>
+                        <span data-translate="">positionName</span>
+                      </th>
+                      <td>
+                        {{c.position}}
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.address">
-                        <th>
-                          <span data-translate="">address</span>
-                        </th>
-                        <td>
-                          {{c.address}}
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.address">
+                      <th>
+                        <span data-translate="">address</span>
+                      </th>
+                      <td>
+                        {{c.address}}
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.email">
-                        <th>
-                          <span data-translate="">email</span>
-                        </th>
-                        <td>
-                          <a href="mailto:{{c.email}}">{{c.email}}</a>
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.email">
+                      <th>
+                        <span data-translate="">email</span>
+                      </th>
+                      <td>
+                        <a href="mailto:{{c.email}}">{{c.email}}</a>
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.website">
-                        <th>
-                          <span data-translate="">website</span>
-                        </th>
-                        <td>
-                          <a href="{{c.website}}" target="_blank">{{c.website}}</a>
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.website">
+                      <th>
+                        <span data-translate="">website</span>
+                      </th>
+                      <td>
+                        <a href="{{c.website}}" target="_blank">{{c.website}}</a>
+                      </td>
+                    </tr>
 
-                      <tr data-ng-if="c.phone">
-                        <th>
-                          <span data-translate="">mdPhone</span>
-                        </th>
-                        <td>
-                          <a href="tel:{{c.phone}}">{{c.phone}}</a>
-                        </td>
-                      </tr>
+                    <tr data-ng-if="c.phone">
+                      <th>
+                        <span data-translate="">mdPhone</span>
+                      </th>
+                      <td>
+                        <a href="tel:{{c.phone}}">{{c.phone}}</a>
+                      </td>
+                    </tr>
                     </tbody>
                   </table>
                 </div>
@@ -655,79 +655,79 @@
                   </h2>
 
                   <table class="table table-striped" data-ng-repeat="c in mdView.current.record.contact">
-                  <tbody>
-                  <tr data-ng-if="c.individual">
-                    <th>
-                      <span data-translate="">mdContactName</span>
-                    </th>
-                    <td>
-                      {{c.individual}}
-                    </td>
-                  </tr>
+                    <tbody>
+                    <tr data-ng-if="c.individual">
+                      <th>
+                        <span data-translate="">mdContactName</span>
+                      </th>
+                      <td>
+                        {{c.individual}}
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.organisation">
-                    <th>
-                      <span data-translate="">mdContactSource</span>
-                    </th>
-                    <td>
-                      {{c.organisation}}
-                    </td>
-                  </tr>
+                    <tr data-ng-if="c.organisation">
+                      <th>
+                        <span data-translate="">mdContactSource</span>
+                      </th>
+                      <td>
+                        {{c.organisation}}
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.role">
-                    <th>
-                      <span data-translate="">mdContactRole</span>
-                    </th>
-                    <td>
-                      {{c.role | translate}}
-                    </td>
-                  </tr>
+                    <tr data-ng-if="c.role">
+                      <th>
+                        <span data-translate="">mdContactRole</span>
+                      </th>
+                      <td>
+                        {{c.role | translate}}
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.position">
-                    <th>
-                      <span data-translate="">positionName</span>
-                    </th>
-                    <td>
-                      {{c.position}}
-                    </td>
-                  </tr>
+                    <tr data-ng-if="c.position">
+                      <th>
+                        <span data-translate="">positionName</span>
+                      </th>
+                      <td>
+                        {{c.position}}
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.address">
-                    <th>
-                      <span data-translate="">address</span>
-                    </th>
-                    <td>
-                      {{c.address}}
-                    </td>
-                  </tr>
+                    <tr data-ng-if="c.address">
+                      <th>
+                        <span data-translate="">address</span>
+                      </th>
+                      <td>
+                        {{c.address}}
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.email">
-                    <th>
-                      <span data-translate="">email</span>
-                    </th>
-                    <td>
-                      <a href="mailto:{{c.email}}">{{c.email}}</a>
-                    </td>
-                  </tr>
+                    <tr data-ng-if="c.email">
+                      <th>
+                        <span data-translate="">email</span>
+                      </th>
+                      <td>
+                        <a href="mailto:{{c.email}}">{{c.email}}</a>
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.website">
-                    <th>
-                      <span data-translate="">website</span>
-                    </th>
-                    <td>
-                      <a href="{{c.website}}" target="_blank">{{c.website}}</a>
-                    </td>
-                  </tr>
+                    <tr data-ng-if="c.website">
+                      <th>
+                        <span data-translate="">website</span>
+                      </th>
+                      <td>
+                        <a href="{{c.website}}" target="_blank">{{c.website}}</a>
+                      </td>
+                    </tr>
 
-                  <tr data-ng-if="c.phone">
-                    <th>
-                      <span data-translate="">mdPhone</span>
-                    </th>
-                    <td>
-                      <a href="tel:{{c.phone}}">{{c.phone}}</a>
-                    </td>
-                  </tr>
-                  </tbody>
+                    <tr data-ng-if="c.phone">
+                      <th>
+                        <span data-translate="">mdPhone</span>
+                      </th>
+                      <td>
+                        <a href="tel:{{c.phone}}">{{c.phone}}</a>
+                      </td>
+                    </tr>
+                    </tbody>
                   </table>
                 </div>
               </tab>
@@ -816,23 +816,22 @@
               <!-- inspire -->
               <tab
                 heading="{{ 'mdTabInspire' | translate }}"
-                data-ng-if="mdView.current.record.category.indexOf('inspire')>-1"
+                data-ng-if="mdView.current.record.cat.indexOf('inspire')>-1"
                 role="tab"
                 active="infoTabs.inspire.active"
               >
                 <div
-                  data-ng-if="mdView.current.record.inspirethemewithac.length > 0 ||
-                                mdView.current.record.inspirethemewithac.length > 0"
+                  data-ng-if="mdView.current.record['th_GEMET-INSPIREthemesversion1-0'].length > 0"
                   class="row gn-margin-top"
                 >
-                  <div class="col-md-4 dutch-md-label" data-translate="">
-                    inspireThemes
+                  <div class="col-md-4 dutch-md-label">
+                    <h4 data-translate="">inspireThemes</h4>
                   </div>
                   <div class="col-md-8">
                     <span
-                      data-ng-repeat="cat in mdView.current.record.inspirethemewithac track by $index"
-                      title="{{ cat|split:'|':1}}"
-                    >{{ cat|split:'|':1}}<br
+                      data-ng-repeat="cat in mdView.current.record['th_GEMET-INSPIREthemesversion1-0']"
+                      title="{{ cat.default }}"
+                    >{{ cat.default }}<br
                     /></span>
                   </div>
                 </div>
@@ -844,26 +843,26 @@
                   </div>
                   <div class="col-md-8">
                     <div
-                      data-ng-repeat="conf in (mdView.current.record.specificationTitle|asArray) track by $index"
+                      data-ng-repeat="conf in mdView.current.record.specificationConformance"
                       style="padding-top: 10px"
                     >
-                      <b>{{ 'Specification'|translate }}:</b> {{ conf }}
+                      <b>{{ 'Specification'|translate }}:</b> {{ conf.title }}
                       <span
-                        data-ng-if="(mdView.current.record.specificationDate|asArray)[$index]"
+                        data-ng-if="conf.date"
                       ><br/>
                         <b>{{ 'Date'|translate }}:</b
-                        >({{ (mdView.current.record.specificationDate|asArray)[$index]}})</span
+                        >({{ conf.date }})</span
                       >
-                      <span data-ng-if="(mdView.current.record.degree|asArray)[$index]"
+                      <span data-ng-if="conf.pass"
                       ><br/>
                         <b>{{ 'Degree'|translate }}:</b>
-                        {{ (mdView.current.record.degree|asArray)[$index]|translate}}</span
+                        {{ conf.pass|translate}}</span
                       >
                       <span
-                        data-ng-if="(mdView.current.record.specificationExplanation|asArray)[$index]"
+                        data-ng-if="conf.explanation"
                       ><br/>
                         <b>{{ 'Explanation'|translate }}:</b>
-                        {{ (mdView.current.record.specificationExplanation|asArray)[$index]}}</span
+                        {{ conf.explanation }}</span
                       >
                     </div>
                   </div>
