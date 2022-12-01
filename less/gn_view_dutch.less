@@ -1819,6 +1819,29 @@ a:not(.btn) {
     .gn-btn-toolbar {
       padding-left: 15px;
       padding-right: 15px;
+      // change metadata group dropdown
+      [data-gn-metadata-group-updater="groupOwner"] {
+        .dropdown-menu {
+          li {
+            // filter
+            .form-control {
+              margin: 10px 20px;
+              width: calc(~"100% - 40px");
+            }
+            // header
+            &.dropdown-header {
+              margin-bottom: 5px;
+            }
+            a {
+              padding: 12px 20px;
+              .gn-logo {
+                margin: -6px 0 0 15px;
+                max-height: 30px;
+              }
+            }
+          }
+        }
+      }
     }
   }
   .label {
