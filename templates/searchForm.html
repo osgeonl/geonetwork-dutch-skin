@@ -3,7 +3,7 @@
   <!--ANY full text search input-->
   <div class="row gn-top-search">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-      <div class="col-md-10 col-md-offset-1">
+      <div data-ng-class="fluidLayout ? 'col-md-10 col-md-offset-1' : 'col-md-12'">
         <div class="row">
           <div class="col-md-4">
             <label for="gn-any-field" data_translate="">SearchAny</label>
@@ -79,7 +79,7 @@
           <div class="col-md-12">
             <a
               href=""
-              class="btn-advanced gn-margin-top gn-margin-bottom"
+              class="btn-link gn-margin-top gn-margin-bottom"
               title="{{'searchOptions' | translate}}"
               data-ng-model="searchObj.advancedMode"
               btn-checkbox=""
@@ -91,7 +91,7 @@
             </a>
             <a
               href=""
-              class="btn-advanced gn-margin-top gn-margin-bottom"
+              class="btn-link gn-margin-top gn-margin-bottom"
               title="{{'searchOptions' | translate}}"
               data-ng-model="searchObj.optionsMode"
               btn-checkbox=""
@@ -102,12 +102,12 @@
               <span class="hidden-xs" data-translate="">options</span>
             </a>
 
-            <div data-ng-show="searchObj.advancedMode">
+            <div data-ng-show="searchObj.advancedMode" style="clear: both">
               <!--Advanced search form-->
               <div data-ng-include="advancedSearchTemplate"></div>
             </div>
 
-            <div data-ng-show="searchObj.optionsMode">
+            <div data-ng-show="searchObj.optionsMode" style="clear: both">
               <!--Advanced search form-->
               <div data-ng-include="optionsSearchTemplate"></div>
             </div>
