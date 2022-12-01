@@ -89,9 +89,27 @@
               <i class="fa fa-fw fa-sliders"></i>
               <span class="hidden-xs" data-translate="">advanced</span>
             </a>
+            <a
+              href=""
+              class="btn-advanced gn-margin-top gn-margin-bottom"
+              title="{{'searchOptions' | translate}}"
+              data-ng-model="searchObj.optionsMode"
+              btn-checkbox=""
+              btn-checkbox-true="1"
+              btn-checkbox-false="0"
+            >
+              <i class="fa fa-fw fa-gear"></i>
+              <span class="hidden-xs" data-translate="">options</span>
+            </a>
+
             <div data-ng-show="searchObj.advancedMode">
               <!--Advanced search form-->
               <div data-ng-include="advancedSearchTemplate"></div>
+            </div>
+
+            <div data-ng-show="searchObj.optionsMode">
+              <!--Advanced search form-->
+              <div data-ng-include="optionsSearchTemplate"></div>
             </div>
           </div>
         </div>
