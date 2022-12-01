@@ -1846,7 +1846,7 @@ a:not(.btn) {
       }
     }
     .gn-search-facet {
-      padding-top: 0;
+      margin-top: 0;
     }
     .gn-top-search {
       .input-group-addon {
@@ -2061,13 +2061,18 @@ a:not(.btn) {
     }
   }
   .gn-multi-field {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    .col-sm-11 {
-      padding-left: 0;
-    }
-    .col-sm-1 {
-      padding-right: 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: @gn-border-radius;
+    .row {
+      padding-bottom: 10px;
+      .col-sm-11 {
+        padding-left: 0;
+        float: left;
+      }
+      .col-sm-1 {
+        padding-right: 0;
+      }
     }
   }
 
