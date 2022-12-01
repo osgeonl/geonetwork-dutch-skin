@@ -45,7 +45,8 @@
           return {
             onClick: function (scope, loc, map) {
               // get the details from the lookup service
-              var url = "https://geodata.nationaalgeoregister.nl/locatieserver/lookup";
+              var url =
+                "https://geodata.nationaalgeoregister.nl/locatieserver/lookup";
               $http
                 .get(url, {
                   params: {
@@ -102,19 +103,26 @@
                   view.setZoom(zoom);
                   view.setCenter(center);
                 }
-                moveTo(scope.map, 5, ol.proj.transform(coord, "EPSG:4326", "EPSG:28992"));
+                moveTo(
+                  scope.map,
+                  5,
+                  ol.proj.transform(coord, "EPSG:4326", "EPSG:28992")
+                );
                 return;
               }
               var formatter = function (loc) {
                 var props = [];
-                ["toponymName", "adminName1", "countryName"].forEach(function (p) {
+                ["toponymName", "adminName1", "countryName"].forEach(function (
+                  p
+                ) {
                   if (loc[p]) {
                     props.push(loc[p]);
                   }
                 });
                 return props.length == 0 ? "" : "—" + props.join(", ");
               };
-              var url = "https://geodata.nationaalgeoregister.nl/locatieserver/suggest";
+              var url =
+                "https://geodata.nationaalgeoregister.nl/locatieserver/suggest";
               $http
                 .get(url, {
                   params: {

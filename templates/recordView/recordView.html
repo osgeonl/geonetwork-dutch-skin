@@ -1,13 +1,18 @@
 <div data-ng-controller="GnMdViewController">
   <!-- dutch change: added crumb path -->
-  <div class="crumb" data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+  <div
+    class="crumb"
+    data-ng-class="fluidLayout ? 'container-fluid' : 'container'"
+  >
     <div class="row">
       <div class="col-md-12">
         <a href="#/home" data-translate="">Home</a>
         / <a href data-ng-click="backToSearch()" data-translate="">search</a> /
         <span class="gn-visible-xs">
           {{mdView.current.record.resourceTitle | characters:25}}</span
-        ><span class="gn-hidden-xs"> {{mdView.current.record.resourceTitle}}</span>
+        ><span class="gn-hidden-xs">
+          {{mdView.current.record.resourceTitle}}</span
+        >
       </div>
     </div>
   </div>
@@ -151,7 +156,9 @@
               aria-expanded="false"
             >
               <span class="fa fa-fw fa-eye"></span>
-              <span data-translate="" class="hidden-sm hidden-xs">chooseAView</span>
+              <span data-translate="" class="hidden-sm hidden-xs"
+                >chooseAView</span
+              >
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -180,7 +187,10 @@
         class="gn-metadata-display"
       ></div>
 
-      <div data-ng-show="!gnMdViewObj.usingFormatter" class="gn-metadata-display">
+      <div
+        data-ng-show="!gnMdViewObj.usingFormatter"
+        class="gn-metadata-display"
+      >
         <div data-ng-switch on="md.resourceType[0]">
           <div data-ng-switch-when="series">
             <div

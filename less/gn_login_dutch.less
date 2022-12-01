@@ -13,7 +13,8 @@
   label {
     font-weight: 500;
   }
-  fieldset.pull-left, fieldset.pull-right {
+  fieldset.pull-left,
+  fieldset.pull-right {
     width: 48%;
     @media (max-width: @screen-xs-max) {
       width: 100%;
@@ -42,10 +43,12 @@
       margin-top: 5px;
     }
   }
-  input.ng-invalid, .has-error .form-control {
+  input.ng-invalid,
+  .has-error .form-control {
     border-color: #f98258;
     &:focus {
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgb(250, 140, 99);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 4px rgb(250, 140, 99);
     }
   }
 }
@@ -53,10 +56,13 @@
 .navbar-default {
   background-color: @gn-menubar-background;
   border-color: @gn-menubar-border-color;
-  .navbar-nav > li > a, .navbar-nav > .open > a, .navbar-nav > .active > a {
+  .navbar-nav > li > a,
+  .navbar-nav > .open > a,
+  .navbar-nav > .active > a {
     height: @gn-menubar-height;
     color: @gn-menubar-color;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: @gn-menubar-color-hover;
     }
   }
@@ -69,9 +75,8 @@
   }
   // also add `display:none`, this doesn't take whitespace on the navbar
   .badge.invisible {
-    display: none
+    display: none;
   }
-
 }
 
 @media (max-width: @grid-float-breakpoint) {
