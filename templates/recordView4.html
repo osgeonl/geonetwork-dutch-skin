@@ -230,16 +230,6 @@
             data-ng-bind-html="(mdView.current.record.resourceAbstract) | linky | newlines"
           />
 
-          <!-- Display the first metadata status (apply to ISO19139 record) -->
-          <div
-            data-ng-if="mdView.current.record.cl_status.length > 0"
-            data-ng-repeat="c in mdView.current.record.cl_status track by $index"
-            title="{{ c.default }}"
-            class="gn-status gn-status-mdview gn-status-{{ c.key }}"
-          >
-            {{ c.default }}
-          </div>
-
           <div data-gn-related-observer class="gn-margin-top">
             <tabset
               id="detail-tabset"
@@ -368,7 +358,11 @@
                         <p
                           data-ng-repeat="c in mdView.current.record.cl_status"
                         >
-                          {{ c.default }}
+                          <span
+                            class="gn-status gn-status-mdview gn-status-{{ c.key }}"
+                          >
+                            {{ c.default }}
+                          </span>
                         </p>
                       </td>
                     </tr>

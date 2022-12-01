@@ -9,6 +9,34 @@
 
   <div class="row gn-row-results">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+
+      <div class="col-md-9 col-md-offset-3">
+        <div
+          class="row gn-row-tools gn-noborder-bottom"
+          data-ng-show="searchResults.records.length > 0"
+        >
+          <div class="col-xs-6 col-sm-6 col-md-6 gn-nopadding-left">
+            <div
+              data-gn-selection-widget=""
+              data-ng-if="showBatchDropdown"
+              data-results="searchResults"
+            ></div>
+            <h4>{{searchResults.count}} <span data-translate="">resultsFound</span></h4>
+
+          </div>
+
+          <div class="col-xs-6 col-sm-6 col-md-6 gn-nopadding-right">
+            <div
+              class="pull-right"
+              data-sortby-combo=""
+              data-params="searchObj.params"
+              data-gn-sortby-values="searchObj.sortbyValues"
+            ></div>
+          </div>
+        </div>
+        <!-- /.gn-row-tools -->
+      </div>
+
       <div class="col-md-3 gn-search-facet">
         <div ng-if="showMapInFacet">
           <div class="panel panel-default">
@@ -48,38 +76,6 @@
       <!-- /.gn-search-facet -->
 
       <div class="col-md-9 container-fluid">
-        <div
-          class="row gn-row-tools"
-          data-ng-show="searchResults.records.length > 0"
-        >
-          <div class="col-xs-6 col-sm-3 gn-nopadding-left">
-            <div
-              data-gn-selection-widget=""
-              data-ng-if="showBatchDropdown"
-              data-results="searchResults"
-            ></div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 text-center">
-            <div
-              class=""
-              data-gn-pagination="paginationInfo"
-              data-hits-values="searchObj.hitsperpageValues"
-              data-enable-hot-keys=""
-              data-enable-events=""
-            ></div>
-          </div>
-
-          <div class="col-xs-6 col-sm-3 gn-nopadding-right">
-            <div
-              class="pull-right"
-              data-sortby-combo=""
-              data-params="searchObj.params"
-              data-gn-sortby-values="searchObj.sortbyValues"
-            ></div>
-          </div>
-        </div>
-        <!-- /.gn-row-tools -->
 
         <div class="row">
           <div
@@ -117,7 +113,7 @@
 
             <button
               data-ng-show="searchResults.records.length > 9"
-              class="btn btn-link"
+              class="btn btn-link hidden"
               onClick="window.scrollTo(0,0);"
               title="{{'scrollTop' | translate}}"
             >
@@ -128,6 +124,7 @@
           <!-- dutch change: column for mini map, mini map toggle button is removed -->
           <div
             data-ng-class="fixedMiniMap ? 'gn-fixed-map' : 'col-md-3 gn-sticky-map'"
+            class="gn-nopadding-right"
           >
             <div ng-if="!showMapInFacet">
               <div
@@ -156,7 +153,7 @@
           class="row gn-row-tools gn-noborder-bottom"
           data-ng-show="searchResults.records.length > 0"
         >
-          <div class="col-xs-12 col-sm-12 text-center">
+          <div class="col-xs-12 col-md-8 col-lg-9 text-center">
             <div
               class="dropup"
               data-gn-pagination="paginationInfo"

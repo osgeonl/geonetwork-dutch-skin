@@ -834,6 +834,89 @@ a:not(.btn) {
   }
 }
 
+// facets
+.gn-search-facet {
+  margin-top: 17px;
+  .panel-default {
+    border: 0;
+    box-shadow: none;
+    background: none;
+    .panel-heading {
+      background: none;
+      padding-left: 0;
+    }
+    .panel-body {
+      padding-left: 0;
+      .gn-facet {
+        .gn-facet-filter {
+          &:before {
+            margin: 0.2em 0.3em 0 0;
+          }
+          input {
+            padding-left: 0;
+            width: 93%;
+            margin-bottom: 10px;
+          }
+        }
+        .gn-facet-toggle {
+          width: 1px;
+        }
+        .gn-facet-header {
+          margin-bottom: 8px;
+          .text-ellipsis {
+            font-family: rijksoverheidsanstext-bold, sans, arial !important;
+            font-weight: 500;
+          }
+        }
+        .gn-facet-root-container {
+          border-left: 1px dotted @panel-default-border;
+          margin-left: 10px;
+          padding-left: 8px;
+        }
+        .gn-facet-container {
+          margin-top: 6px;
+          margin-bottom: 6px;
+          .gn-facet-collapse-toggle {
+            color: @gn-color;
+          }
+        }
+        .list-group-item {
+          padding-top: 3px;
+          padding-bottom: 3px;
+        }
+        .gn-facet-input-group,
+        .gn-facet-more {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+  .panel {
+    [data-gn-slide-toggle] {
+      &.panel-heading {
+        &:before {
+          display: none;
+        }
+        &:after {
+          content: "\f107";
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: inherit;
+          position: absolute;
+          right: 20px;
+          font-size: 16px;
+        }
+      }
+    }
+    &.gn-search-user {
+      .pull-right {
+        margin-right: 25px;
+      }
+    }
+  }
+}
+
 // search page
 .gn-search-page {
   background: none;
@@ -1065,92 +1148,15 @@ a:not(.btn) {
     // tools
     .gn-row-tools {
       border-bottom: 1px solid @panel-default-border;
-      margin-bottom: 15px;
-      margin-left: 15px;
-      margin-top: 3px;
-    }
-    // facets
-    .gn-search-facet {
-      margin-top: 17px;
-      .panel-default {
-        border: 0;
-        box-shadow: none;
-        background: none;
-        .panel-heading {
-          background: none;
-          padding-left: 0;
-        }
-        .panel-body {
-          padding-left: 0;
-          .gn-facet {
-            .gn-facet-filter {
-              &:before {
-                margin: 0.2em 0.3em 0 0;
-              }
-              input {
-                padding-left: 0;
-                width: 93%;
-                margin-bottom: 10px;
-              }
-            }
-            .gn-facet-toggle {
-              width: 1px;
-            }
-            .gn-facet-header {
-              margin-bottom: 8px;
-              .text-ellipsis {
-                font-family: rijksoverheidsanstext-bold, sans, arial !important;
-                font-weight: 500;
-              }
-            }
-            .gn-facet-root-container {
-              border-left: 1px dotted @panel-default-border;
-              margin-left: 10px;
-              padding-left: 8px;
-            }
-            .gn-facet-container {
-              margin-top: 6px;
-              margin-bottom: 6px;
-              .gn-facet-collapse-toggle {
-                color: #333;
-              }
-            }
-            .list-group-item {
-              padding-top: 3px;
-              padding-bottom: 3px;
-            }
-            .gn-facet-input-group,
-            .gn-facet-more {
-              margin-left: 3px;
-            }
-          }
-        }
+      margin: 3px 10px 15px 5px;
+      .btn-default {
+        border: 1px solid #ccc;
       }
-      .panel {
-        [data-gn-slide-toggle] {
-          &.panel-heading {
-            &:before {
-              display: none;
-            }
-            &:after {
-              content: "\f107";
-              font-family: FontAwesome;
-              font-style: normal;
-              font-weight: normal;
-              text-decoration: inherit;
-              position: absolute;
-              right: 20px;
-              font-size: 16px;
-            }
-          }
-        }
-        &.gn-search-user {
-          .pull-right {
-            margin-right: 25px;
-          }
-        }
+      .pagination > li > a {
+        border: 1px solid #ccc;
       }
     }
+
     // results
     ul.gn-resultview {
       li.list-group-item {
@@ -1338,7 +1344,7 @@ a:not(.btn) {
   }
   .gn-metadata-display {
     h1 {
-      font-size: 24px;
+      font-size: 36px;
     }
     // highlight the active view
     .gn-view-menu-button {
@@ -1361,11 +1367,14 @@ a:not(.btn) {
         [data-gn-link-icon] {
           .label {
             display: inline-block;
-            padding: 6px 10px;
+            padding: 0;
+            background-color: transparent !important;
+            color: @gn-color;
           }
         }
         .gn-related-item {
           border: 0;
+          padding: 10px 0;
           // adjust first column
           .gn-related-icon-col {
             &.col-xs-2 {
@@ -1376,10 +1385,10 @@ a:not(.btn) {
             }
           }
           // adjust middle column
-          &.col-xs-10 {
+          .col-xs-10 {
             .make-xs-column(11);
           }
-          &.col-sm-7 {
+          .col-sm-7 {
             .make-sm-column(8);
           }
         }
@@ -1433,6 +1442,20 @@ a:not(.btn) {
         }
       }
     }
+    .dutch-keyword {
+      float: left;
+      text-decoration: underline;
+      margin-right: 3px;
+      a {
+        margin-left: 2px;
+      }
+      &:after {
+        content: ",";
+      }
+      &:last-child:after {
+        content: "";
+      }
+    }
     .gn-md-side {
       section {
         h2 {
@@ -1443,7 +1466,25 @@ a:not(.btn) {
       }
       .gn-md-side-overview {
         img {
-          margin-bottom: 10px;
+          margin-bottom: 20px;
+        }
+      }
+      .gn-md-side-dates {
+        .timeline {
+          padding-left: 1em;
+          margin-bottom: 20px;
+          &:before {
+            margin-left: 11.5px;
+          }
+          .timeline-badge {
+            background-color: @gn-color;
+          }
+          .timeline-inverted {
+            padding: 0 10px;
+            .timeline-panel {
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+            }
+          }
         }
       }
     }
@@ -1510,8 +1551,10 @@ a:not(.btn) {
     padding: 0;
     background: none !important;
     border: 0 !important;
-    font-size: 16px;
-    font-family: rijksoverheidsanstext-bold;
+    font-size: 14px;
+    bottom: 0;
+    text-transform: capitalize;
+    font-family: "rijksoverheidsanstext-bold" !important;
     src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
   }
   .gn-status-completed {
@@ -1602,6 +1645,9 @@ a:not(.btn) {
       padding: 5px 10px;
       background: none;
       border: 0;
+    }
+    &.gn-margin-bottom {
+      margin-bottom: 0 !important;
     }
   }
 }
