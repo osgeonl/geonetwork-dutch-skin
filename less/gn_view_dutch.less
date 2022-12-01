@@ -239,6 +239,8 @@ div,
 span,
 a,
 blockquote,
+.radio label,
+.checkbox label,
 .btn {
   font-family: rijksoverheidsanstext-regular, sans, arial !important;
   font-weight: normal;
@@ -246,7 +248,7 @@ blockquote,
 .ace_content *,
 [gn-json-edit] {
   font: 12px / normal "Monaco", "Menlo", "Ubuntu Mono", "Consolas",
-    "source-code-pro", monospace !important;
+  "source-code-pro", monospace !important;
 }
 
 // body
@@ -302,46 +304,46 @@ a:not(.btn) {
 .btn-primary {
   &:focus {
     box-shadow: 0 0 0 0.25rem
-      rgba(
-        red(@brand-primary),
-        green(@brand-primary),
-        blue(@brand-primary),
-        0.5
-      );
+    rgba(
+      red(@brand-primary),
+      green(@brand-primary),
+      blue(@brand-primary),
+      0.5
+    );
   }
 }
 .btn-danger {
   &:focus {
     box-shadow: 0 0 0 0.25rem
-      rgba(red(@brand-danger), green(@brand-danger), blue(@brand-danger), 0.5);
+    rgba(red(@brand-danger), green(@brand-danger), blue(@brand-danger), 0.5);
   }
 }
 .btn-success {
   &:focus {
     box-shadow: 0 0 0 0.25rem
-      rgba(
-        red(@brand-success),
-        green(@brand-success),
-        blue(@brand-success),
-        0.5
-      );
+    rgba(
+      red(@brand-success),
+      green(@brand-success),
+      blue(@brand-success),
+      0.5
+    );
   }
 }
 .btn-warning {
   &:focus {
     box-shadow: 0 0 0 0.25rem
-      rgba(
-        red(@brand-warning),
-        green(@brand-warning),
-        blue(@brand-warning),
-        0.5
-      );
+    rgba(
+      red(@brand-warning),
+      green(@brand-warning),
+      blue(@brand-warning),
+      0.5
+    );
   }
 }
 .btn-info {
   &:focus {
     box-shadow: 0 0 0 0.25rem
-      rgba(red(@brand-info), green(@brand-info), blue(@brand-info), 0.5);
+    rgba(red(@brand-info), green(@brand-info), blue(@brand-info), 0.5);
   }
 }
 // ----- forms
@@ -499,7 +501,7 @@ a:not(.btn) {
 
 // breadcrumbs (in second toolbar/navbar)
 .crumb {
-  background-color: @gn-crumbpath-background !important;
+  background-color: @gn-crumbpath-background;
   line-height: calc(~"@{gn-crumbpath-height} - 8px");
   height: @gn-crumbpath-height;
   color: @gn-crumbpath-color;
@@ -683,13 +685,13 @@ a:not(.btn) {
       &:focus {
         border-color: @gn-search-outline-color;
         box-shadow: rgba(0, 0, 0, 0.075) 0 1px 1px inset,
-          rgba(
-              @gn-search-outline-color-red,
-              @gn-search-outline-color-green,
-              @gn-search-outline-color-blue,
-              0.6
-            )
-            0 0 8px;
+        rgba(
+          @gn-search-outline-color-red,
+          @gn-search-outline-color-green,
+          @gn-search-outline-color-blue,
+          0.6
+        )
+        0 0 8px;
       }
     }
     .btn {
@@ -845,9 +847,9 @@ a:not(.btn) {
     padding: 0;
     .container,
     .container-fluid {
-      background-color: @navbar-default-link-active-bg;
+      background-color: @gn-menubar-background-active;
       padding: 50px 20px;
-      border-bottom: 10px solid darken(@navbar-default-link-active-bg, 5%);
+      border-bottom: 10px solid darken(@gn-menubar-background-active, 5%);
     }
     .form-control,
     .bootstrap-tagsinput {
@@ -878,13 +880,13 @@ a:not(.btn) {
         &:focus {
           border-color: @gn-search-outline-color;
           box-shadow: rgba(0, 0, 0, 0.075) 0 1px 1px inset,
-            rgba(
-                @gn-search-outline-color-red,
-                @gn-search-outline-color-green,
-                @gn-search-outline-color-blue,
-                0.6
-              )
-              0 0 8px;
+          rgba(
+            @gn-search-outline-color-red,
+            @gn-search-outline-color-green,
+            @gn-search-outline-color-blue,
+            0.6
+          )
+          0 0 8px;
         }
       }
       button.btn-primary.btn-lg {
@@ -951,13 +953,18 @@ a:not(.btn) {
     // advanced search
     .btn-advanced {
       display: inline-block;
+      color: @gn-menubar-color-active;
+      &:hover, &:active {
+        color: @gn-menubar-color-active;
+      }
     }
     .gn-search-filter {
       position: absolute;
       z-index: 100;
       padding: 15px;
-      background-color: darken(@navbar-default-link-active-bg, 5%);
-      width: calc(~"100% - 30px");
+      margin: 0 -10px;
+      background-color: darken(@gn-menubar-background-active, 5%);
+      width: calc(~"100% - 15px");
       border-top: 0;
       border-radius: 8px;
       [class*="col-md"] {
@@ -969,6 +976,12 @@ a:not(.btn) {
       .search-options {
         label {
           font-weight: normal;
+        }
+      }
+      a, .btn-link {
+        color: @gn-menubar-color-active;
+        &:hover, &:active {
+          color: @gn-menubar-color-active;
         }
       }
       .btn-link {
@@ -1570,9 +1583,8 @@ a:not(.btn) {
   a {
     color: @gn-socialbar-color;
     background: none;
-    background-color: transparent !important;
     border: 0;
-    &:hover, &:focus {
+    &:hover {
       color: @gn-socialbar-color;
       background: darken(@gn-socialbar-background, 10%);
       text-decoration: none;
@@ -1582,17 +1594,6 @@ a:not(.btn) {
     }
   }
   .md-feedback {
-    &.gn-margin-bottom {
-      margin-bottom: 0 !important;
-    }
-    a {
-      background-color: transparent;
-      &:hover, &:focus {
-        color: @gn-socialbar-color;
-        background: darken(@gn-socialbar-background, 10%);
-        text-decoration: none;
-      }
-    }
     .btn {
       font-size: 12px;
       padding: 5px 10px;
@@ -2040,7 +2041,7 @@ a:not(.btn) {
   // remove icon
   .fa-times:before {
     content: "\f00d";
-    color: #a94442;
+    color: @brand-danger;
   }
 
   // No indent
@@ -2224,7 +2225,7 @@ a:not(.btn) {
 // admin
 [ng-app="gn_admin"] {
   .gn-top-bar {
-    .container, .container-fluid {
+    .container {
       border-bottom: 1px solid @navbar-default-border !important;
     }
   }
@@ -2333,7 +2334,6 @@ a:not(.btn) {
     }
   }
 }
-
 
 // custom overrides
 @import "gn_view_custom.less";
