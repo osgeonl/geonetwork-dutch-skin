@@ -1596,6 +1596,16 @@ a:not(.btn) {
   .gn-workflow-status-1-bg {
     color: darken(@brand-danger, 5%);
   }
+  // less columns in a tab
+  .tab-pane {
+    .gn-info-list-blocks {
+      .gn-info-list {
+        .gn-card {
+          width: calc(~"(100% / 2) - 20px");
+        }
+      }
+    }
+  }
   .gn-md-side {
     padding-top: 0;
     .gn-md-side-providedby {
@@ -1625,6 +1635,7 @@ a:not(.btn) {
   background-color: @gn-socialbar-background;
   margin: 20px 0;
   padding: @gn-spacing-sm;
+  border-radius: @gn-border-radius;
   a {
     color: @gn-socialbar-color;
     background: none;
