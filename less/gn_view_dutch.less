@@ -879,7 +879,13 @@ a:not(.btn) {
           .gn-facet-collapse-toggle {
             color: @gn-color;
           }
+          .gn-facet-item {
+            .facet-invert span {
+              color: @brand-danger;
+            }
+          }
         }
+
         .list-group-item {
           padding-top: 3px;
           padding-bottom: 3px;
@@ -912,6 +918,48 @@ a:not(.btn) {
     &.gn-search-user {
       .pull-right {
         margin-right: 25px;
+      }
+    }
+  }
+}
+
+// facets as tags
+.gn-facets-tagcloud {
+  .panel {
+    border: 0;
+    box-shadow: none;
+    .panel-heading {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      .flex-grow {
+        flex-grow: 0;
+      }
+      a {
+        border: 0;
+        font-size: 14px;
+      }
+    }
+    .panel-body {
+      border: 0;
+      padding: 0;
+      a.filter-group {
+        float: left;
+        background-color: #337ab7;
+        color: #fff;
+        margin: 0 5px 5px 0;
+        padding: 5px 10px 5px 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 2px;
+        strong {
+          display: none;
+        }
+        .delete-icon {
+          margin-left: 1em;
+          opacity: 1;
+          color: #fff;
+        }
       }
     }
   }
@@ -1383,12 +1431,9 @@ a:not(.btn) {
               .make-sm-column(1);
             }
           }
-          // adjust middle column
-          .col-xs-10 {
-            .make-xs-column(11);
-          }
-          .col-sm-7 {
-            .make-sm-column(8);
+          // last column - add more room for the buttons
+          .col-sm-3 {
+            .make-sm-column(4);
           }
         }
       }
@@ -1640,7 +1685,7 @@ a:not(.btn) {
     color: @gn-socialbar-color;
     background: none;
     border: 0;
-    &:hover {
+    &:hover, &:focus {
       color: @gn-socialbar-color;
       background: darken(@gn-socialbar-background, 10%);
       text-decoration: none;
@@ -1655,7 +1700,7 @@ a:not(.btn) {
       padding: @gn-spacing-sm @gn-spacing;
       background: none;
       border: 0;
-      &:hover {
+      &:hover, &:focus {
         color: @gn-socialbar-color;
         background: darken(@gn-socialbar-background, 10%);
         text-decoration: none;
@@ -1727,6 +1772,11 @@ a:not(.btn) {
   .search-container {
     margin: 20px;
   }
+  .panel-tools {
+    max-height: calc(
+      ~"100vh - @{gn-header-height} - @{gn-menubar-height} -  @{gn-crumbpath-height} - @{gn-bottombar-height} - 67px"
+    );
+  }
   [gn-projection-switcher] {
     .input-group-addon {
       width: 7em;
@@ -1792,7 +1842,7 @@ a:not(.btn) {
 .container {
   [gn-main-viewer] {
     .container();
-    padding: 0;
+    padding: 20px;
     .control-tools {
       bottom: 1em;
     }
