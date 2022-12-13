@@ -487,6 +487,16 @@ a:not(.btn) {
   .container-fluid {
     margin: 0 -20px;
   }
+  // user info
+  .navbar-nav {
+    li > a {
+      &:hover {
+        .gn-user-role {
+          color: @gn-menubar-color-hover;
+        }
+      }
+    }
+  }
 }
 [ng-app="gn_editor"],
 [ng-app="gn_admin"] {
@@ -1685,7 +1695,8 @@ a:not(.btn) {
     color: @gn-socialbar-color;
     background: none;
     border: 0;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: @gn-socialbar-color;
       background: darken(@gn-socialbar-background, 10%);
       text-decoration: none;
@@ -1700,7 +1711,8 @@ a:not(.btn) {
       padding: @gn-spacing-sm @gn-spacing;
       background: none;
       border: 0;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: @gn-socialbar-color;
         background: darken(@gn-socialbar-background, 10%);
         text-decoration: none;
