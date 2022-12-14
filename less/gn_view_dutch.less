@@ -207,10 +207,6 @@
 @gn-card-footer-height: 52px;
 
 // ----- font bold
-@font-face {
-  font-family: rijksoverheidsanstext-bold;
-  src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
-}
 h1,
 h2,
 h3,
@@ -224,15 +220,11 @@ dt,
 .table-striped th span,
 .share-banner-title,
 label {
-  font-family: rijksoverheidsanstext-bold, sans, arial !important;
-  font-weight: 500;
+  font-family: @gn-fontfamily-bold !important;
+  font-weight: @gn-fontweight-bold;
 }
 
 // ----- font regular
-@font-face {
-  font-family: rijksoverheidsanstext-regular;
-  src: url(../catalog/views/dutch/images/rijksoverheidsanstext-regular.woff);
-}
 body,
 p,
 div,
@@ -242,8 +234,8 @@ blockquote,
 .radio label,
 .checkbox label,
 .btn {
-  font-family: rijksoverheidsanstext-regular, sans, arial !important;
-  font-weight: normal;
+  font-family: @gn-fontfamily-regular !important;
+  font-weight: @gn-fontweight-regular;
 }
 .ace_content *,
 [gn-json-edit] {
@@ -254,10 +246,15 @@ blockquote,
 // body
 body {
   background-attachment: fixed;
+  font-size: @gn-body-font-size;
 }
 // website scroll
 ::-webkit-scrollbar {
   background-color: @gn-background-color;
+}
+// button
+.btn {
+  font-size: @gn-btn-font-size;
 }
 a:not(.btn) {
   color: @gn-link-color;
@@ -874,8 +871,8 @@ a:not(.btn) {
         .gn-facet-header {
           margin-bottom: 8px;
           .text-ellipsis {
-            font-family: rijksoverheidsanstext-bold, sans, arial !important;
-            font-weight: 500;
+            font-family: @gn-fontfamily-bold !important;
+            font-weight: @gn-fontweight-bold;
           }
         }
         .gn-facet-root-container {
@@ -1198,8 +1195,8 @@ a:not(.btn) {
     .gn-record-selected {
       background: none;
       a {
-        font-family: rijksoverheidsanstext-bold, sans, arial !important;
-        font-weight: bold;
+        font-family: @gn-fontfamily-bold !important;
+        font-weight: @gn-fontweight-bold;
       }
     }
     // tools
@@ -1605,11 +1602,10 @@ a:not(.btn) {
     padding: 0;
     background: none !important;
     border: 0 !important;
-    font-size: 14px;
     bottom: 0;
     text-transform: capitalize;
-    font-family: "rijksoverheidsanstext-bold" !important;
-    src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
+    font-family: @gn-fontfamily-bold !important;
+    font-weight: @gn-fontweight-bold;
   }
   .gn-status-completed {
     color: @brand-success;

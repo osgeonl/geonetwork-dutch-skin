@@ -30,6 +30,28 @@
 // override bootstrap variables
 @badge-bg: @gray;
 
+// fonts
+//
+// font-face
+@font-face {
+  font-family: rijksoverheidsanstext-bold;
+  src: url(../catalog/views/dutch/images/rijksoverheidsansheading-bold.woff);
+}
+@font-face {
+  font-family: rijksoverheidsanstext-regular;
+  src: url(../catalog/views/dutch/images/rijksoverheidsanstext-regular.woff);
+}
+
+@gn-fontfamily-bold: rijksoverheidsanstext-bold, sans, arial;
+@gn-fontweight-bold: 500;
+
+@gn-fontfamily-regular: rijksoverheidsanstext-regular, sans, arial;
+@gn-fontweight-regular: normal;
+
+// font size
+@gn-body-font-size: 14px;
+@gn-btn-font-size: 14px;
+
 // body background (image & color)
 //
 // change the variable to a string pointing towards an image, like 'www.dummy.net/image.png'. When no
