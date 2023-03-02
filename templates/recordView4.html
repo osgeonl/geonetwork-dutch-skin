@@ -336,12 +336,12 @@
                       </td>
                     </tr>
 
-                    <!-- license -->
-                    <tr data-ng-if="mdView.current.record.licenseObject">
-                      <th data-translate="">license</th>
+                    <!-- Legal constraints -->
+                    <tr data-ng-if="mdView.current.record.MD_LegalConstraintsOtherConstraintsObject">
+                      <th data-translate="">legalConstraints</th>
                       <td>
                         <p
-                          data-ng-repeat="c in mdView.current.record.licenseObject"
+                          data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
                         >
                           <span
                             data-ng-bind-html="c.default | striptags | linky:'_blank'"
@@ -592,7 +592,7 @@
 
                     <!-- date -->
                     <tr>
-                      <th data-translate="">types</th>
+                      <th data-translate="">mdDate</th>
                       <td>
                         <p>
                           <span
@@ -646,7 +646,10 @@
               >
                 <!-- Dataset contact -->
                 <div data-ng-if="mdView.current.record.contactForResource">
-                  <h2 data-translate="">contact</h2>
+                  <h2 >
+                    <span>{{mdView.current.record.cl_hierarchyLevel[0].default | capitalize}}</span>
+                    <span data-translate="">contact</span>
+                  </h2>
 
                   <table
                     class="table table-striped"
@@ -722,7 +725,7 @@
 
                 <!-- Metadata contact -->
                 <div data-ng-if="mdView.current.record.contact">
-                  <h2 data-translate="">
+                  <h2>
                     <span data-translate="">metadata</span>
                     <span data-translate="">contact</span>
                   </h2>
