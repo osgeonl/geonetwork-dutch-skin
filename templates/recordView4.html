@@ -366,7 +366,20 @@
                       </td>
                     </tr>
 
-                    <!-- TODO: update frequency -->
+                    <!-- update frequency -->
+                    <tr data-ng-if="mdView.current.record.cl_maintenanceAndUpdateFrequency">
+                      <th data-translate="">updateFrequency</th>
+                      <td>
+                        <p
+                          data-ng-repeat="c in mdView.current.record.cl_maintenanceAndUpdateFrequency"
+                        >
+                          <span
+                          >
+                            {{ c.default }}
+                          </span>
+                        </p>
+                      </td>
+                    </tr>
 
                     <!-- creation date -->
                     <tr
