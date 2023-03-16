@@ -192,6 +192,13 @@
             scope.polygon = calculateBBOX(scope.modelGeometries);
             console.log(scope.polygon);
             scope.searchParams.geometry = scope.polygon;
+
+            var geometryUris = [];
+            scope.model.forEach(function(keyword) {
+              geometryUris.push(keyword);
+            });
+
+            scope.searchParams.geometryUris = geometryUris.join(",");
           };
 
           var removeFromModel = function (keyword) {
@@ -211,6 +218,13 @@
               scope.polygon = calculateBBOX(scope.modelGeometries);
               console.log(scope.polygon);
               scope.searchParams.geometry = scope.polygon;
+
+              var geometryUris = [];
+              scope.model.forEach(function(keyword) {
+                geometryUris.push(keyword);
+              });
+
+              scope.searchParams.geometryUris = geometryUris.join(",");
             }
           };
 
@@ -226,6 +240,67 @@
               }
               var keyword = cache.get(uri);
             });
+          });
+
+          scope.$watch('searchParams.geometryUris', function (newVal) {
+            if (scope.model.length > 0) return;
+
+            if (!newVal) {
+              scope.model = [];
+              $(element).tagsinput('removeAll');
+            } else {
+              var uris = [];
+              if (scope.searchParams.geometryUris) {
+                uris = scope.searchParams.geometryUris.split(',');
+              }
+              scope.model = [];
+              var promises = [];
+              angular.forEach(uris, function(uri, index) {
+                var promise = getKeywordFromUri(uri).then(function(kw) {
+                  scope.model[index] = kw.props.uri;
+                });
+                promises.push(promise);
+              });
+              $q.all(promises).then(function() {
+                // TODO update tagsinput
+                //console.log("All request done: ", scope.model);
+                $(element).tagsinput('removeAll');
+                angular.forEach(scope.model, function(item) {
+                  $(element).tagsinput('add', cache.get(item));
+                });
+              });
+            }
+          });
+
+          var getKeywordFromUri = function(uri) {
+            var defer = $q.defer();
+            if (!cache.get(uri)) {
+              gnThesaurusService.lookupURI(scope.thesaurusKey, uri).then(function(keyword) {
+                if (keyword) {
+                  var kw = {};
+                  kw['label'] = keyword.prefLabel[Object.keys(keyword.prefLabel)[0]];
+                  kw['props'] = {};
+                  kw['props']['uri'] = keyword.uri;
+                  cache.put(uri, kw);
+                  defer.resolve(kw);
+                } else {
+                  defer.reject(keyword);
+                }
+
+              }, function(rejected) {
+                defer.reject(rejected);
+              });
+            } else {
+              $browser.defer(function (){
+                defer.resolve(cache.get(uri))
+              });
+            }
+            return defer.promise;
+          };
+
+          scope.$on("beforeSearchReset", function (event, args) {
+            scope.model = [];
+            $(element).tagsinput('removeAll');
           });
         }
       };
