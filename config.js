@@ -26,6 +26,8 @@
 
   goog.require("gn_dutch_gazetteer_factory");
 
+  goog.require("gn_es_service");
+
   var module = angular.module("gn_search_dutch_config", [
     "gn_dutch_gazetteer_factory",
     "gn_relatedresources_service"
@@ -44,6 +46,7 @@
     "gnMapsManager",
     "gnDefaultGazetteer",
     "gnDutchGazetteer",
+    "gnESService",
     function (
       searchSettings,
       viewerSettings,
@@ -51,8 +54,12 @@
       gnMap,
       gnMapsManager,
       gnDefaultGazetteer,
-      gnDutchGazetteer
+      gnDutchGazetteer,
+      gnESService
     ) {
+
+      gnESService.addExcludeField('geometryUris');
+
       if (viewerSettings.mapConfig.viewerMapLayers) {
         console.warn(
           '[geonetwork] Use of "mapConfig.viewerMapLayers" is deprecated. ' +
