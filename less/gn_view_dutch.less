@@ -1097,6 +1097,7 @@ a:not(.btn) {
         color: @gn-menubar-color-active;
       }
     }
+
     .gn-search-filter {
       z-index: 100;
       padding: @gn-spacing-lg;
@@ -1191,6 +1192,17 @@ a:not(.btn) {
     .container-fluid {
       margin-left: -@gn-spacing;
       margin-right: -@gn-spacing;
+    }
+    .loading {
+      position: absolute;
+      top: 1.8em;
+      font-size: 40px;
+      left: 46%;
+      text-shadow: 0 0 1px white;
+      z-index: 200;
+      background: rgba(255,255,255,.7);
+      border-radius: 1em;
+      padding: .2em;
     }
     .gn-record-selected {
       background: none;
