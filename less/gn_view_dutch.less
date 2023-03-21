@@ -1200,9 +1200,9 @@ a:not(.btn) {
       left: 46%;
       text-shadow: 0 0 1px white;
       z-index: 200;
-      background: rgba(255,255,255,.7);
+      background: rgba(255, 255, 255, 0.7);
       border-radius: 1em;
-      padding: .2em;
+      padding: 0.2em;
     }
     .gn-record-selected {
       background: none;
@@ -1379,6 +1379,7 @@ a:not(.btn) {
 }
 
 // detail/metadata page
+
 [data-ng-controller="GnMdViewController"] {
   .container:not(.crumb):not(.bg-info) {
     padding-left: 0;
@@ -1393,6 +1394,10 @@ a:not(.btn) {
   background-color: @gn-md-view-background-color;
   h2 {
     font-size: 22px;
+    span {
+      font-family: @gn-fontfamily-bold !important;
+      font-weight: @gn-fontweight-bold;
+    }
   }
   .btn-toolbar {
     .clearfix();
@@ -1462,6 +1467,18 @@ a:not(.btn) {
         .gn-relation-type-WFS {
           [data-gn-record-links-button] {
             display: none;
+          }
+        }
+        // WFS download button in the right column
+        .gn-related-type-wfs {
+          p {
+            display: none;
+          }
+          .btn-group {
+            width: 100%;
+            .btn {
+              width: 100%;
+            }
           }
         }
       }
