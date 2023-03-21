@@ -45,17 +45,16 @@
           return {
             onClick: function (scope, loc, map) {
               // get the details from the lookup service
-              var url =
-                "https://geodata.nationaalgeoregister.nl/locatieserver/lookup";
+              var url = "https://geodata.nationaalgeoregister.nl/locatieserver/lookup";
               $http
                 .get(url, {
                   params: {
                     id: loc.id
                   }
                 })
-                .success(function (response) {
-                  if (response.response.numFound > 0) {
-                    var dataPoint = response.response.docs[0].centroide_ll;
+                .then(function (response) {
+                  if (response.data.response.numFound > 0) {
+                    var dataPoint = response.data.response.docs[0].centroide_ll;
                     var mapProjection = map.getView().getProjection().getCode();
                     // turn it into a geometry and convert
                     var geom = new ol.format.WKT()
@@ -65,7 +64,7 @@
                     //
                     // zoom depends on type
                     var zoom = 10;
-                    var type = response.response.docs[0].type;
+                    var type = response.data.response.docs[0].type;
 
                     if (type == "gemeente") {
                       zoom = 8;
@@ -103,43 +102,37 @@
                   view.setZoom(zoom);
                   view.setCenter(center);
                 }
-                moveTo(
-                  scope.map,
-                  5,
-                  ol.proj.transform(coord, "EPSG:4326", "EPSG:28992")
-                );
+                moveTo(scope.map, 5, ol.proj.transform(coord, "EPSG:4326", "EPSG:28992"));
                 return;
               }
               var formatter = function (loc) {
                 var props = [];
-                ["toponymName", "adminName1", "countryName"].forEach(function (
-                  p
-                ) {
+                ["toponymName", "adminName1", "countryName"].forEach(function (p) {
                   if (loc[p]) {
                     props.push(loc[p]);
                   }
                 });
                 return props.length == 0 ? "" : "—" + props.join(", ");
               };
-              var url =
-                "https://geodata.nationaalgeoregister.nl/locatieserver/suggest";
+              var url = "https://geodata.nationaalgeoregister.nl/locatieserver/suggest";
               $http
                 .get(url, {
                   params: {
                     q: query
                   }
                 })
-                .success(function (response) {
+                .then(function (response) {
                   // array for the search results
                   scope.results = [];
+
                   // no results, just stop, don't build the dropdown
-                  var numResults = response.response.numFound;
+                  var numResults = response.data.response.numFound;
 
                   if (numResults == 0) {
                     return;
                   }
                   // get the results
-                  $features = response.response.docs;
+                  $features = response.data.response.docs;
                   // loop through the results
                   $.each($features, function (i, item) {
                     // create the result
