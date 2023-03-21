@@ -343,10 +343,14 @@
                         <p
                           data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
                         >
-                          <span
-                            data-ng-bind-html="c.default | striptags | linky:'_blank'"
+                          <span data-ng-if="c.link"
+                            data-ng-bind-html="c.link | striptags | linky:'_blank'"
+                          ></span>
+                          <span data-ng-if="!c.link"
+                                data-ng-bind-html="c.default | striptags | linky:'_blank'"
                           ></span
-                          ><br />
+                          >
+                          <br />
                         </p>
                       </td>
                     </tr>
