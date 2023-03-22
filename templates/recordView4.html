@@ -318,21 +318,19 @@
                   <tr
                     data-ng-if="mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
                   >
-                    <th data-translate="">legalConstraints</th>
+                    <th data-translate="">license</th>
                     <td>
-                      <p
-                        data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
-                      >
-                          <span
-                            data-ng-if="c.link"
-                            data-ng-bind-html="c.link | striptags | linky:'_blank'"
-                          ></span>
-                        <span
-                          data-ng-if="!c.link"
-                          data-ng-bind-html="c.default | striptags | linky:'_blank'"
-                        ></span>
-                        <br />
-                      </p>
+
+                      <div data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
+                           data-ng-if="c.link"
+                           data-ng-bind-html="c.link | striptags | linky:'_blank'"
+                      ></div>
+                      <div data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
+                           data-ng-if="c.default.indexOf('http') > -1"
+                           data-ng-bind-html="c.default | striptags | linky:'_blank'"
+                      ></div>
+
+
                     </td>
                   </tr>
 
