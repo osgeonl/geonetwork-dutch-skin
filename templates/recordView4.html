@@ -288,12 +288,12 @@
                   </tr>
 
                   <!-- Legal constraints -->
+                  <!-- Legal constraints -->
                   <tr
-                    data-ng-if="mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
+                    data-ng-if="mdView.current.record.MD_LegalConstraintsOtherConstraintsObject | metadataLicenses).length > 0"
                   >
                     <th data-translate="">license</th>
                     <td>
-
                       <div data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
                            data-ng-if="c.link"
                            data-ng-bind-html="c.link | striptags | linky:'_blank'"
@@ -302,8 +302,6 @@
                            data-ng-if="c.default.indexOf('http') > -1"
                            data-ng-bind-html="c.default | striptags | linky:'_blank'"
                       ></div>
-
-
                     </td>
                   </tr>
 

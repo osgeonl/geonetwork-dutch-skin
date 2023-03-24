@@ -60,6 +60,23 @@
     "dutch_multi_location_directive"
   ]);
 
+  module.filter('metadataLicenses', function() {
+    return function(licenses){
+      var filteredArray = [];
+
+      if (licenses) {
+        for(var i=0; i<licenses.length; i++){
+          if (licenses[i].link) {
+            filteredArray.push(licenses[i]);
+          } else if (licenses[i].default.indexOf('http') > -1) {
+            filteredArray.push(licenses[i]);
+          }
+        }
+      }
+      return filteredArray;
+    }
+  });
+
   module.controller("DutchSearchHomeController", [
     "$scope",
     "$location",
