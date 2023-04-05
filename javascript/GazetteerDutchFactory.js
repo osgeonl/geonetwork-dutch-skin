@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2016 Food and Agriculture Organization of the
+ * Copyright (C) 2001-2023 Food and Agriculture Organization of the
  * United Nations (FAO-UN), United Nations World Food Programme (WFP)
  * and United Nations Environment Programme (UNEP)
  *
@@ -26,7 +26,12 @@
 
   var module = angular.module("gn_dutch_gazetteer_factory", []);
 
-  module.provider("gnDutchGazetteer", function () {
+  module.constant('serviceUrls', {
+    'lookupServiceUrl': 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/lookup',
+    'suggestServiceUrl': 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest'
+  });
+
+  module.provider("gnDutchGazetteer", ['serviceUrls', function (serviceUrls) {
     return {
       $get: [
         "$http",
@@ -45,9 +50,8 @@
           return {
             onClick: function (scope, loc, map) {
               // get the details from the lookup service
-              var url = "https://geodata.nationaalgeoregister.nl/locatieserver/lookup";
               $http
-                .get(url, {
+                .get(serviceUrls.lookupServiceUrl, {
                   params: {
                     id: loc.id
                   }
@@ -114,9 +118,8 @@
                 });
                 return props.length == 0 ? "" : "—" + props.join(", ");
               };
-              var url = "https://geodata.nationaalgeoregister.nl/locatieserver/suggest";
               $http
-                .get(url, {
+                .get(serviceUrls.suggestServiceUrl, {
                   params: {
                     q: query
                   }
@@ -149,5 +152,5 @@
         }
       ]
     };
-  });
+  }]);
 })();
