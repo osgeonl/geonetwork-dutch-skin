@@ -1433,7 +1433,7 @@ a:not(.btn) {
     .gn-record {
       .gn-abstract {
         max-width: 800px;
-        white-space: pre-wrap;
+        //white-space: pre-wrap;
         margin-bottom: 20px !important;
         line-height: 1.6em;
       }
@@ -1810,6 +1810,7 @@ a:not(.btn) {
   height: calc(
     ~"100vh - @{gn-header-height} - @{gn-menubar-height} -  @{gn-crumbpath-height} - @{gn-bottombar-height}"
   );
+  min-height: 250px;
   width: 100% !important;
   [ol-map] {
     height: 100%;
