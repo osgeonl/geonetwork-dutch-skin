@@ -276,35 +276,8 @@
                   </tr>
 
                   <!-- useLimitation -->
-                  <tr
-                    data-ng-if="mdView.current.record.MD_LegalConstraintsUseLimitation"
-                  >
-                    <th data-translate="">legalConstraints</th>
-                    <td>
-                      <p
-                        data-ng-repeat="i in mdView.current.record.MD_LegalConstraintsUseLimitation"
-                      >
-                        {{ i }}
-                      </p>
-                    </td>
-                  </tr>
-
-                  <tr
-                    data-ng-if="mdView.current.record.MD_SecurityConstraintsUseLimitation"
-                  >
-                    <th data-translate="">securityConstraints</th>
-                    <td>
-                      B
-                      <p
-                        data-ng-repeat="i in mdView.current.record.MD_SecurityConstraintsUseLimitation"
-                      >
-                        {{ i }}
-                      </p>
-                    </td>
-                  </tr>
-
                   <tr data-ng-if="mdView.current.record.MD_ConstraintsUseLimitation">
-                    <th data-translate="">resourceConstraints</th>
+                    <th data-translate="">useLimitation</th>
                     <td>
                       <p
                         data-ng-repeat="i in mdView.current.record.MD_ConstraintsUseLimitation"
@@ -316,11 +289,10 @@
 
                   <!-- Legal constraints -->
                   <tr
-                    data-ng-if="mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
+                    data-ng-if="(mdView.current.record.MD_LegalConstraintsOtherConstraintsObject | metadataLicenses).length > 0"
                   >
                     <th data-translate="">license</th>
                     <td>
-
                       <div data-ng-repeat="c in mdView.current.record.MD_LegalConstraintsOtherConstraintsObject"
                            data-ng-if="c.link"
                            data-ng-bind-html="c.link | striptags | linky:'_blank'"
@@ -329,8 +301,6 @@
                            data-ng-if="c.default.indexOf('http') > -1"
                            data-ng-bind-html="c.default | striptags | linky:'_blank'"
                       ></div>
-
-
                     </td>
                   </tr>
 
