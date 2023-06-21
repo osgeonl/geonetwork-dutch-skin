@@ -228,7 +228,7 @@ label {
 body,
 p,
 div,
-span,
+span:not(.fa),
 a,
 blockquote,
 .radio label,
@@ -259,10 +259,16 @@ body {
 a:not(.btn) {
   color: @gn-link-color;
 }
-
-// ----- font awesome (in case it's overwritten with the above font)
-.fa {
-  font-family: FontAwesome !important;
+// no break all in titles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    word-break: break-word;
+  }
 }
 
 // ----- fix for icons (no camelcase)
@@ -288,6 +294,38 @@ a:not(.btn) {
 }
 .gn-icon-utilitiescommunication:before {
   content: @fa-var-phone;
+}
+
+// keywords
+.gn-keywords {
+  .gn-keyword {
+    float: left;
+    text-decoration: underline;
+    margin-right: 3px;
+    a {
+      margin-left: 2px;
+    }
+    &:after {
+      content: ",";
+    }
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
+.dutch-keyword {
+  float: left;
+  text-decoration: underline;
+  margin-right: 3px;
+  a {
+    margin-left: 2px;
+  }
+  &:after {
+    content: ",";
+  }
+  &:last-child:after {
+    content: "";
+  }
 }
 
 // ----- buttons
@@ -401,6 +439,23 @@ a:not(.btn) {
   border-color: #b6effb !important;
 }
 
+// popover
+.popover {
+  font-size: 14px;
+  .popover-content {
+    a {
+      display: inline-block;
+      margin-top: 5px;
+    }
+    p {
+      a {
+        display: inline;
+        margin: 0;
+      }
+    }
+  }
+}
+
 // layout
 
 // check if the variable is a not an empty string, if not, then set the background image
@@ -503,6 +558,13 @@ a:not(.btn) {
     .gn-logo + span {
       display: none;
     }
+    .dropdown-menu {
+      > li {
+        > a {
+          padding: 8px 16px;
+        }
+      }
+    }
   }
 }
 
@@ -514,6 +576,10 @@ a:not(.btn) {
   color: @gn-crumbpath-color;
   a {
     color: @gn-crumbpath-color;
+  }
+  .col-md-12 {
+    white-space: nowrap;
+    overflow: hidden;
   }
   @media (max-width: @screen-xs-max) {
     .col-md-12 {
@@ -1449,6 +1515,14 @@ a:not(.btn) {
         .gn-related-item {
           border: 0;
           padding: @gn-spacing 0;
+          h3 + p {
+            .gn-collapse-content {
+              display: block !important;
+            }
+            .gn-collapse-toggle {
+              display: none !important;
+            }
+          }
           // adjust first column
           .gn-related-icon-col {
             &.col-xs-2 {
@@ -1512,37 +1586,6 @@ a:not(.btn) {
           margin-top: @gn-spacing;
           list-style: none;
         }
-      }
-    }
-    // keywords
-    .gn-keywords {
-      .gn-keyword {
-        float: left;
-        text-decoration: underline;
-        margin-right: 3px;
-        a {
-          margin-left: 2px;
-        }
-        &:after {
-          content: ",";
-        }
-        &:last-child:after {
-          content: "";
-        }
-      }
-    }
-    .dutch-keyword {
-      float: left;
-      text-decoration: underline;
-      margin-right: 3px;
-      a {
-        margin-left: 2px;
-      }
-      &:after {
-        content: ",";
-      }
-      &:last-child:after {
-        content: "";
       }
     }
     .gn-md-side {
@@ -1741,7 +1784,6 @@ a:not(.btn) {
   }
   .md-feedback {
     .btn {
-      font-size: 12px;
       padding: @gn-spacing-sm @gn-spacing;
       background: none;
       border: 0;

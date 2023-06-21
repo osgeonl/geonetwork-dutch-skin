@@ -219,6 +219,61 @@
 
           <div data-gn-related-observer class="gn-margin-top">
             <tabset id="detail-tabset" type="tabs" justified="false">
+              <!-- downloads & links -->
+              <tab
+                heading="{{ 'mdTabRelations' | translate }}"
+                active="infoTabs.relations.active"
+              >
+                <!-- links (Download, API, Others) -->
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div
+                      ng-include="'../../catalog/views/default/templates/recordView/downloads.html'"
+                    />
+                  </div>
+                </div>
+
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-types="services"
+                      data-title="{{ '<h2>' + ('openRecordservices' | translate) + '</h2>' }}"
+                    ></div>
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-size="4"
+                      data-types="datasets"
+                      data-title="{{ '<h2>' + ('openRecorddatasets' | translate) + '</h2>' }}"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-types="children"
+                      data-title="{{ 'seriesComposedOf' | translate }}"
+                    ></div>
+
+                    <div
+                      ng-include="'../../catalog/views/default/templates/recordView/related.html'"
+                    />
+                  </div>
+                </div>
+              </tab>
+              <!-- /downloads & links -->
+
               <!-- general -->
               <tab
                 heading="{{ 'mdTabGeneral' | translate }}"
@@ -744,61 +799,6 @@
               </tab>
               <!-- /contact -->
 
-              <!-- downloads & links -->
-              <tab
-                heading="{{ 'mdTabRelations' | translate }}"
-                active="infoTabs.relations.active"
-              >
-                <!-- links (Download, API, Others) -->
-                <div class="row gn-section">
-                  <div class="col-md-12 gn-record">
-                    <div
-                      ng-include="'../../catalog/views/default/templates/recordView/downloads.html'"
-                    />
-                  </div>
-                </div>
-
-                <div class="row gn-section">
-                  <div class="col-md-12 gn-record">
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-types="services"
-                      data-title="{{ '<h2>' + ('openRecordservices' | translate) + '</h2>' }}"
-                    ></div>
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-size="4"
-                      data-types="datasets"
-                      data-title="{{ '<h2>' + ('openRecorddatasets' | translate) + '</h2>' }}"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="row gn-section">
-                  <div class="col-md-12 gn-record">
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-types="children"
-                      data-title="{{ 'seriesComposedOf' | translate }}"
-                    ></div>
-
-                    <div
-                      ng-include="'../../catalog/views/default/templates/recordView/related.html'"
-                    />
-                  </div>
-                </div>
-              </tab>
-              <!-- /downloads & links -->
-
               <!-- catalog -->
               <tab
                 heading="{{ 'mdTabCatalog' | translate }}"
@@ -991,14 +991,6 @@
               <span data-translate="">extent</span>
             </h2>
 
-            <div data-ng-if="mdView.current.record.extentDescription">
-              <ul>
-                <li data-ng-repeat="d in mdView.current.record.extentDescription">
-                  {{ d }}
-                </li>
-              </ul>
-            </div>
-
             <!-- TODO: use map config -->
             <div
               data-ng-if="mdView.current.record.geom || mdView.current.record.hasBoundingPolygon"
@@ -1013,7 +1005,7 @@
           </section>
 
           <section
-            class="gn-md-side-dates"
+            class="gn-md-side-dates gn-margin-top-lg"
             data-ng-if="mdView.current.record.resourceDate.length > 0 ||
                               mdView.current.record.resourceTemporalExtentDateRange ||
                               mdView.current.record.resourceVerticalRange"
