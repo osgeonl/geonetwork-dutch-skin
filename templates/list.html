@@ -97,23 +97,15 @@
           ></span>
         </div>
         <!-- categories -->
-        <div
-          class="gn-md-category"
-          title="{{'listOfCategories' | translate}}"
-          data-ng-class="md.category.length > 0 ||
-                       md.topic.length > 0 ||
-                       md.inspireThemeUri.length > 0 ? '' : 'hidden'"
-        >
-          <b data-translate="">topiccat</b>:
-          <a
-            class="btn btn-link btn-badge"
-            data-ng-repeat="t in md.topic"
-            data-ng-href="#/search?topicCat={{t}}"
-            >{{t | translate}}</a
-          >
+        <div data-ng-if="md.cl_topic.length > 0" class="gn-keywords clearfix">
+          <div class="pull-left gn-margin-right-sm"><b data-translate="">listOfCategories</b>:</div>
+          <a class="gn-keyword"
+             data-ng-repeat="t in md.cl_topic"
+             data-ng-href="#/search?topicCat={{t.key}}">{{t.default}}
+          </a>
         </div>
 
-        <p title="{{md.resourceAbstract}}">
+        <p title="{{md.resourceAbstract}}" class="gn-margin-top">
           {{md.resourceAbstract.split('\n')[0] | striptags}}
         </p>
       </div>
