@@ -1,11 +1,14 @@
 <div>
   <div class="input-group col-md-3">
-    <button type="button" id="btn-advanced-search"
-            class="btn btn-link"
-            data-ng-model="searchObj.advancedMode"
-            btn-checkbox=""
-            btn-checkbox-true="1"
-            btn-checkbox-false="0">
+    <button
+      type="button"
+      id="btn-advanced-search"
+      class="btn btn-link"
+      data-ng-model="searchObj.advancedMode"
+      btn-checkbox=""
+      btn-checkbox-true="1"
+      btn-checkbox-false="0"
+    >
       {{'AdvancedSearch'|translate}} <i class="fa fa-arrow-down"></i>
     </button>
   </div>
@@ -14,50 +17,61 @@
 <div id="pnl-advanced-search" data-ng-show="searchObj.advancedMode">
   <!--Advanced search form-->
   <div>
-
-
     <div class="col-md-2">
-
       <div class="col-md-12">
         <div class="form-group">
           <label data-translate="">DataAvailability</label>
           <div class="checkbox">
             <label class="label-inline">
-              <input id="chk-visualisation" type="checkbox" value="true" checked="{searchObj.params.dynamic}"
-                     data-ng-model="searchObj.params.dynamic">
+              <input
+                id="chk-visualisation"
+                type="checkbox"
+                value="true"
+                checked="{searchObj.params.dynamic}"
+                data-ng-model="searchObj.params.dynamic"
+              />
               {{'Visualisation'|translate}}
             </label>
           </div>
           <div class="checkbox">
             <label class="label-inline">
-              <input id="chk-download" type="checkbox" value="true" data-ng-model="searchObj.params.download"/>
+              <input
+                id="chk-download"
+                type="checkbox"
+                value="true"
+                data-ng-model="searchObj.params.download"
+              />
               {{'DownloadData'|translate}}
             </label>
           </div>
           <div class="checkbox">
             <label class="label-inline">
-              <input id="chk-data-request" type="checkbox" value="true"
-                     data-ng-model="searchObj.params.nodynamicdownload"/>
+              <input
+                id="chk-data-request"
+                type="checkbox"
+                value="true"
+                data-ng-model="searchObj.params.nodynamicdownload"
+              />
               {{'DataOnRequest'|translate}}
             </label>
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="col-md-6">
-
       <div class="col-md-12">
         <label data-translate="">ByDate</label>
       </div>
 
       <div class="col-sm-12 col-md-12">
         <div class="form-group">
-          <select name="date-type"
-                  data-ng-model="dateType"
-                  class="form-control"
-                  aria-label="{{'dateType' | translate}}">
+          <select
+            name="date-type"
+            data-ng-model="dateType"
+            class="form-control"
+            aria-label="{{'dateType' | translate}}"
+          >
             <option value="creation">{{'dateCreation' | translate}}</option>
             <option value="revision">{{'dateRevision' | translate}}</option>
             <option value="publication">{{'datePublication' | translate}}</option>
@@ -66,7 +80,6 @@
           </select>
         </div>
       </div>
-
 
       <div data-ng-show="dateType=='metadata'">
         <div
@@ -99,7 +112,6 @@
       </div>
 
       <div data-ng-show="dateType=='publication'">
-
         <div
           data-ng-if="searchObj.params.publicationDateForResource"
           data-gn-date-range-filter="publicationDateForResource"
@@ -110,7 +122,6 @@
       </div>
 
       <div data-ng-show="dateType=='extent'">
-
         <div
           data-ng-if="searchObj.params.resourceTemporalDateRange"
           data-gn-date-range-filter="resourceTemporalDateRange"
@@ -118,10 +129,7 @@
           data-field="searchObj.params.resourceTemporalDateRange"
           class="gn-search-filter-datepicker"
         ></div>
-
       </div>
-
     </div>
-
   </div>
 </div>

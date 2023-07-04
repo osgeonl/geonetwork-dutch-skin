@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form">
+<form class="form-horizontal">
   <input type="hidden" name="_csrf" value="{{csrf}}" />
   <!--ANY full text search input-->
   <div class="row gn-top-search">
@@ -36,13 +36,11 @@
           </div>
           <!-- location -->
           <div class="col-md-4 gn-nopadding-left">
-            <label id="searchLocationLbl" for="loc" data-translate=""
-              >AtLocation</label
-            >
+            <label for="location" data-translate="">AtLocation</label>
             <select
               multiple
               class="form-control input-lg"
-              id="loc"
+              id="location"
               data-dutch-multi-location
               data-thesaurus-key="external.place.regions"
               data-limit="10"

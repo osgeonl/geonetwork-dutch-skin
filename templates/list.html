@@ -98,10 +98,14 @@
         </div>
         <!-- categories -->
         <div data-ng-if="md.cl_topic.length > 0" class="gn-keywords clearfix">
-          <div class="pull-left gn-margin-right-sm"><b data-translate="">listOfCategories</b>:</div>
-          <a class="gn-keyword"
-             data-ng-repeat="t in md.cl_topic"
-             data-ng-href="#/search?topicCat={{t.key}}">{{t.default}}
+          <div class="pull-left gn-margin-right-sm">
+            <b data-translate="">listOfTopics</b>:
+          </div>
+          <a
+            class="gn-keyword"
+            data-ng-repeat="t in md.cl_topic"
+            data-ng-href="#/search?topicCat={{t.key}}"
+            >{{t.default}}
           </a>
         </div>
 

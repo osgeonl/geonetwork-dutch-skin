@@ -15,8 +15,8 @@
 // Tint 1 #cce0f1 | RGB 204-224-241
 // Tint 2 #e5f0f9 | RGB 229-240-249
 // blues
-@ro-darkblue-full: #1A1E4F;
-@ro-darkblue-light: #98C8F6;
+@ro-darkblue-full: #1a1e4f;
+@ro-darkblue-light: #98c8f6;
 @ro-darkblue-lightest: #e5f0f9;
 // grays
 @ro-gray-1: #f3f3f3;
@@ -29,6 +29,7 @@
 
 // override bootstrap variables
 @badge-bg: @gray;
+@brand-danger: #dc3545;
 
 // fonts
 //
@@ -56,7 +57,7 @@
 //
 // change the variable to a string pointing towards an image, like 'www.dummy.net/image.png'. When no
 // background image is needed, leave as is (none).
-@gn-background-image: '../catalog/views/dutch/images/bg.jpg';
+@gn-background-image: "../catalog/views/dutch/images/bg.jpg";
 @gn-background-color: @body-bg;
 @gn-color: #333;
 
@@ -123,7 +124,10 @@
 // ----- resultcards
 @gn-resultcard-background-color: @body-bg;
 @gn-resultcard-title-background-color: @panel-default-heading-bg;
-@gn-resultcard-title-background-color-hover: darken(@panel-default-heading-bg, 5%);;
+@gn-resultcard-title-background-color-hover: darken(
+  @panel-default-heading-bg,
+  5%
+);
 @gn-resultcard-title-color: @panel-default-text;
 @gn-resultcard-title-border: 1px solid @panel-default-border;
 @gn-resultcard-title-border-color: @panel-default-border;
