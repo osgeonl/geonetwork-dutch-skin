@@ -509,60 +509,6 @@
                   </tbody>
                 </table>
 
-                <!-- TODOES -->
-                <div
-                  data-ng-if="mdView.current.record.featureTypes"
-                  data-ng-repeat="featureType in mdView.current.record.featureTypes"
-                >
-                  <h3>
-                    <span data-translate="">featureType</span>&nbsp;'{{
-                    featureType.typeName }}'
-                  </h3>
-
-                  <table class="table table-striped">
-                    <tbody>
-                      <tr data-ng-if="featureType.typeName">
-                        <th data-translate="">featureTypeName</th>
-                        <td>{{ featureType.typeName }}</td>
-                      </tr>
-                      <tr data-ng-if="featureType.definition">
-                        <th data-translate="">featureDefinition</th>
-                        <td>{{ featureType.definition }}</td>
-                      </tr>
-                      <tr data-ng-if="featureType.code">
-                        <th data-translate="">featureCode</th>
-                        <td>{{ featureType.code }}</td>
-                      </tr>
-                      <tr data-ng-if="featureType.isAbstract">
-                        <th data-translate="">featureIsAbstract</th>
-                        <td>{{ featureType.isAbstract }}</td>
-                      </tr>
-                      <tr data-ng-if="featureType.aliases">
-                        <th data-translate="">featureAliases</th>
-                        <td>{{ featureType.aliases }}</td>
-                      </tr>
-                      <tr data-ng-if="featureType.attributeTable">
-                        <th data-translate="">featureAttributeTable</th>
-                        <td></td>
-                      </tr>
-                      <tr data-ng-if="featureType.attributeTable">
-                        <td
-                          colspan="2"
-                          class="gn-noborder-top gn-nopadding-top gn-nopadding-bottom"
-                        />
-                      </tr>
-                      <tr data-ng-if="featureType.attributeTable">
-                        <td colspan="2" class="gn-noborder-top gn-table-attribute">
-                          <div
-                            data-ng-if="featureType.attributeTable"
-                            data-gn-attribute-table-renderer="featureType.attributeTable"
-                          ></div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
                 <div data-gn-related-observer>
                   <div
                     data-gn-related="mdView.current.record"
@@ -823,7 +769,7 @@
               <!-- catalog -->
               <tab
                 heading="{{ 'mdTabCatalog' | translate }}"
-                data-ng-if="fcatsFound"
+                data-ng-if="mdView.current.record.featureTypes"
                 active="infoTabs.catalog.active"
               >
                 <!-- id is needed for show or hiding the tab -->
@@ -836,12 +782,55 @@
                 ></div>
 
                 <div
-                  data-ng-if="mdView.current.record.attributeTable"
-                  class="gn-margin-top"
-                  data-gn-attribute-table-renderer="mdView.current.record.attributeTable"
-                ></div>
+                  data-ng-repeat="featureType in mdView.current.record.featureTypes"
+                  id="gn-featurecatalog-spy-target-{{((featureType.code + '-' + featureType.typeName) | md5)}}"
+                  class="gn-margin-bottom"
+                >
+
+                  <h3 data-ng-if="featureType.typeName"><span data-translate="">featureType</span>&nbsp;'{{featureType.typeName}}'</h3>
+
+                  <table class="table table-striped" data-ng-if="featureType.typeName">
+                    <tbody>
+                    <tr data-ng-if="featureType.typeName">
+                      <th data-translate="">featureTypeName</th>
+                      <td>{{featureType.typeName}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.definition">
+                      <th data-translate="">featureDefinition</th>
+                      <td>{{featureType.definition}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.code">
+                      <th data-translate="">featureCode</th>
+                      <td>{{featureType.code}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.isAbstract">
+                      <th data-translate="">featureIsAbstract</th>
+                      <td>{{featureType.isAbstract}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.aliases">
+                      <th data-translate="">featureAliases</th>
+                      <td>{{featureType.aliases}}</td>
+                    </tr>
+                    <tr data-ng-if="featureType.attributeTable">
+                      <th data-translate="">featureAttributeTable</th>
+                      <td></td>
+                    </tr>
+                    <tr data-ng-if="featureType.attributeTable">
+                      <td colspan="2" class="gn-noborder-top gn-nopadding-top gn-nopadding-bottom"/>
+                    </tr>
+                    <tr data-ng-if="featureType.attributeTable">
+                      <td colspan="2" class="gn-noborder-top gn-table-attribute">
+                        <div data-ng-if="featureType.attributeTable"
+                             data-gn-attribute-table-renderer="featureType.attributeTable">
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
               </tab>
-              <!-- /contact -->
+              <!-- /catalog -->
 
               <!-- inspire -->
               <tab
