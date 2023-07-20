@@ -223,6 +223,7 @@
               <tab
                 heading="{{ 'mdTabRelations' | translate }}"
                 active="infoTabs.relations.active"
+                data-ng-if="mdView.current.record.standardName !== 'iso19110' || mdView.current.record.related.uuids"
               >
                 <!-- links (Download, API, Others) -->
                 <div class="row gn-section">
@@ -239,6 +240,7 @@
                       data-ng-if="mdView.current.record.related.uuids"
                       data-gn-related="mdView.current.record"
                       data-user="user"
+                      data-layout="card"
                       data-types="services"
                       data-title="{{ '<h2>' + ('openRecordservices' | translate) + '</h2>' }}"
                     ></div>
@@ -246,9 +248,30 @@
                       data-ng-if="mdView.current.record.related.uuids"
                       data-gn-related="mdView.current.record"
                       data-user="user"
+                      data-layout="card"
                       data-size="4"
                       data-types="datasets"
                       data-title="{{ '<h2>' + ('openRecorddatasets' | translate) + '</h2>' }}"
+                    ></div>
+
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-size="4"
+                      data-types="fcats"
+                      data-title="{{ '<h2>' + ('openRecordfcat' | translate) + '</h2>' }}"
+                    ></div>
+
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-size="4"
+                      data-types="hasfeaturecats"
+                      data-title="{{ '<h2>' + ('openRecordhasfeaturecat' | translate) + '</h2>' }}"
                     ></div>
                   </div>
                 </div>
@@ -258,6 +281,7 @@
                     <div
                       data-ng-if="mdView.current.record.related.uuids"
                       data-gn-related="mdView.current.record"
+                      data-layout="card"
                       data-user="user"
                       data-types="children"
                       data-title="{{ 'seriesComposedOf' | translate }}"
