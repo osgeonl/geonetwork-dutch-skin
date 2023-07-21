@@ -223,7 +223,7 @@
               <tab
                 heading="{{ 'mdTabRelations' | translate }}"
                 active="infoTabs.relations.active"
-                data-ng-if="mdView.current.record.standardName !== 'iso19110' || mdView.current.record.related.uuids"
+                data-ng-if="mdView.current.record.documentStandard !== 'iso19110' || mdView.current.record.related.uuids"
               >
                 <!-- links (Download, API, Others) -->
                 <div class="row gn-section">
@@ -300,8 +300,9 @@
                 heading="{{ 'mdTabGeneral' | translate }}"
                 active="infoTabs.general.active"
               >
-                <h2 data-translate="" data-ng-if="mdView.current.record.standardName !== 'iso19110'">aboutThisResource</h2>
-                <table class="table table-striped" data-ng-if="mdView.current.record.standardName !== 'iso19110'">
+                <!-- Feature catalog metadata doesn't have this information in this section -->
+                <h2 data-translate="" data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">aboutThisResource</h2>
+                <table class="table table-striped" data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">
                   <tbody>
                     <!-- keywords -->
                     <tr
@@ -464,14 +465,15 @@
                 <!--<h2 data-translate="">preview</h2>-->
                 <!--<div class="gn-map-preview"/>-->
 
-                <h2 data-translate=""  data-ng-if="mdView.current.record.standardName !== 'iso19110'">technicalInformation</h2>
+                <!-- Feature catalog metadata doesn't have this information in this section -->
+                <h2 data-translate="" data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">technicalInformation</h2>
 
                 <!--
                     Technische informatie:
                     - Code referentie systeem
                     - Algemene beschrijving herkomst
                 -->
-                <table class="table table-striped"  data-ng-if="mdView.current.record.standardName !== 'iso19110'">
+                <table class="table table-striped"  data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">
                   <tbody>
                     <!-- identifier -->
                     <tr data-ng-if="mdView.current.record.resourceIdentifier">
@@ -571,15 +573,16 @@
                     </tr>
 
                     <!-- schema name -->
-                    <tr data-ng-show="mdView.current.record.standardName!=''">
+                    <!-- Feature catalog metadata doesn't have standardName -->
+                    <tr data-ng-show="mdView.current.record.standardName || mdView.current.record.documentStandard">
                       <th data-translate="">mdName</th>
                       <td>
-                        <p>{{ mdView.current.record.standardName }}</p>
+                        <p>{{ mdView.current.record.standardName || mdView.current.record.documentStandard }}</p>
                       </td>
                     </tr>
 
                     <!-- schema version -->
-                    <tr data-ng-show="mdView.current.record.standardVersion!=''">
+                    <tr data-ng-show="mdView.current.record.standardVersion">
                       <th data-translate="">mdVersion</th>
                       <td>
                         <p>{{ mdView.current.record.standardVersion }}</p>
@@ -587,7 +590,8 @@
                     </tr>
 
                     <!-- validation status -->
-                    <tr data-ng-show="mdView.current.record.standardName!=''">
+                    <!-- Feature catalog metadata doesn't have standardName -->
+                    <tr data-ng-show="mdView.current.record.standardName || mdView.current.record.documentStandard">
                       <th data-translate="">ValidationStatus</th>
                       <td>
                         <p>
