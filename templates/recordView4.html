@@ -300,8 +300,8 @@
                 heading="{{ 'mdTabGeneral' | translate }}"
                 active="infoTabs.general.active"
               >
-                <h2 data-translate="">aboutThisResource</h2>
-                <table class="table table-striped">
+                <h2 data-translate="" data-ng-if="mdView.current.record.standardName !== 'iso19110'">aboutThisResource</h2>
+                <table class="table table-striped" data-ng-if="mdView.current.record.standardName !== 'iso19110'">
                   <tbody>
                     <!-- keywords -->
                     <tr
@@ -464,14 +464,14 @@
                 <!--<h2 data-translate="">preview</h2>-->
                 <!--<div class="gn-map-preview"/>-->
 
-                <h2 data-translate="">technicalInformation</h2>
+                <h2 data-translate=""  data-ng-if="mdView.current.record.standardName !== 'iso19110'">technicalInformation</h2>
 
                 <!--
                     Technische informatie:
                     - Code referentie systeem
                     - Algemene beschrijving herkomst
                 -->
-                <table class="table table-striped">
+                <table class="table table-striped"  data-ng-if="mdView.current.record.standardName !== 'iso19110'">
                   <tbody>
                     <!-- identifier -->
                     <tr data-ng-if="mdView.current.record.resourceIdentifier">
