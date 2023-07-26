@@ -125,5 +125,6 @@
   "Visualisation-help": "Filter op visuele data",
   "DownloadData-help": "Filter op data die gedownload kan worden",
   "DataOnRequest-help": "Filter op data die op aanvraag beschikbaar is",
-  "listOfTopics": "Onderwerp(en)"
+  "listOfTopics": "Onderwerp(en)",",
+  "featureTypeTitle": "Featuretype"
 }

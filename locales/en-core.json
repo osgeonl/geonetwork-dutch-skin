@@ -68,5 +68,6 @@
   "feedback":"Feedback",
   "distributionContact": "Distributor contact",
   "mdTabCatalog": "Data model",
-  "website": "Web"
+  "website": "Web",
+  "featureTypeTitle": "Feature type"
 }
