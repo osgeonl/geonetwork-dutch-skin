@@ -219,90 +219,22 @@
 
           <div data-gn-related-observer class="gn-margin-top">
             <tabset id="detail-tabset" type="tabs" justified="false">
-              <!-- downloads & links -->
-              <tab
-                heading="{{ 'mdTabRelations' | translate }}"
-                active="infoTabs.relations.active"
-                data-ng-if="mdView.current.record.documentStandard !== 'iso19110' || mdView.current.record.related.uuids"
-              >
-                <!-- links (Download, API, Others) -->
-                <div class="row gn-section">
-                  <div class="col-md-12 gn-record">
-                    <div
-                      ng-include="'../../catalog/views/default/templates/recordView/downloads.html'"
-                    />
-                  </div>
-                </div>
-
-                <div class="row gn-section">
-                  <div class="col-md-12 gn-record">
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-types="services"
-                      data-title="{{ '<h2>' + ('openRecordservices' | translate) + '</h2>' }}"
-                    ></div>
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-size="4"
-                      data-types="datasets"
-                      data-title="{{ '<h2>' + ('openRecorddatasets' | translate) + '</h2>' }}"
-                    ></div>
-
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-size="4"
-                      data-types="fcats"
-                      data-title="{{ '<h2>' + ('openRecordfcat' | translate) + '</h2>' }}"
-                    ></div>
-
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-user="user"
-                      data-layout="card"
-                      data-size="4"
-                      data-types="hasfeaturecats"
-                      data-title="{{ '<h2>' + ('openRecordhasfeaturecat' | translate) + '</h2>' }}"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="row gn-section">
-                  <div class="col-md-12 gn-record">
-                    <div
-                      data-ng-if="mdView.current.record.related.uuids"
-                      data-gn-related="mdView.current.record"
-                      data-layout="card"
-                      data-user="user"
-                      data-types="children"
-                      data-title="{{ 'seriesComposedOf' | translate }}"
-                    ></div>
-
-                    <div
-                      ng-include="'../../catalog/views/dutch/templates/recordView/related.html'"
-                    />
-                  </div>
-                </div>
-              </tab>
-              <!-- /downloads & links -->
-
               <!-- general -->
               <tab
                 heading="{{ 'mdTabGeneral' | translate }}"
                 active="infoTabs.general.active"
               >
                 <!-- Feature catalog metadata doesn't have this information in this section -->
-                <h2 data-translate="" data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">aboutThisResource</h2>
-                <table class="table table-striped" data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">
+                <h2
+                  data-translate=""
+                  data-ng-if="mdView.current.record.documentStandard !== 'iso19110'"
+                >
+                  aboutThisResource
+                </h2>
+                <table
+                  class="table table-striped"
+                  data-ng-if="mdView.current.record.documentStandard !== 'iso19110'"
+                >
                   <tbody>
                     <!-- keywords -->
                     <tr
@@ -466,14 +398,22 @@
                 <!--<div class="gn-map-preview"/>-->
 
                 <!-- Feature catalog metadata doesn't have this information in this section -->
-                <h2 data-translate="" data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">technicalInformation</h2>
+                <h2
+                  data-translate=""
+                  data-ng-if="mdView.current.record.documentStandard !== 'iso19110'"
+                >
+                  technicalInformation
+                </h2>
 
                 <!--
                     Technische informatie:
                     - Code referentie systeem
                     - Algemene beschrijving herkomst
                 -->
-                <table class="table table-striped"  data-ng-if="mdView.current.record.documentStandard !== 'iso19110'">
+                <table
+                  class="table table-striped"
+                  data-ng-if="mdView.current.record.documentStandard !== 'iso19110'"
+                >
                   <tbody>
                     <!-- identifier -->
                     <tr data-ng-if="mdView.current.record.resourceIdentifier">
@@ -574,10 +514,15 @@
 
                     <!-- schema name -->
                     <!-- Feature catalog metadata doesn't have standardName -->
-                    <tr data-ng-show="mdView.current.record.standardName || mdView.current.record.documentStandard">
+                    <tr
+                      data-ng-show="mdView.current.record.standardName || mdView.current.record.documentStandard"
+                    >
                       <th data-translate="">mdName</th>
                       <td>
-                        <p>{{ mdView.current.record.standardName || mdView.current.record.documentStandard }}</p>
+                        <p>
+                          {{ mdView.current.record.standardName ||
+                          mdView.current.record.documentStandard }}
+                        </p>
                       </td>
                     </tr>
 
@@ -591,7 +536,9 @@
 
                     <!-- validation status -->
                     <!-- Feature catalog metadata doesn't have standardName -->
-                    <tr data-ng-show="mdView.current.record.standardName || mdView.current.record.documentStandard">
+                    <tr
+                      data-ng-show="mdView.current.record.standardName || mdView.current.record.documentStandard"
+                    >
                       <th data-translate="">ValidationStatus</th>
                       <td>
                         <p>
@@ -770,6 +717,82 @@
               </tab>
               <!-- /contact -->
 
+              <!-- downloads & links -->
+              <tab
+                heading="{{ 'mdTabRelations' | translate }}"
+                active="infoTabs.relations.active"
+                data-ng-if="mdView.current.record.documentStandard !== 'iso19110' || mdView.current.record.related.uuids"
+              >
+                <!-- links (Download, API, Others) -->
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div
+                      ng-include="'../../catalog/views/default/templates/recordView/downloads.html'"
+                    />
+                  </div>
+                </div>
+
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-types="services"
+                      data-title="{{ '<h2>' + ('openRecordservices' | translate) + '</h2>' }}"
+                    ></div>
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-size="4"
+                      data-types="datasets"
+                      data-title="{{ '<h2>' + ('openRecorddatasets' | translate) + '</h2>' }}"
+                    ></div>
+
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-size="4"
+                      data-types="fcats"
+                      data-title="{{ '<h2>' + ('openRecordfcat' | translate) + '</h2>' }}"
+                    ></div>
+
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-user="user"
+                      data-layout="card"
+                      data-size="4"
+                      data-types="hasfeaturecats"
+                      data-title="{{ '<h2>' + ('openRecordhasfeaturecat' | translate) + '</h2>' }}"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="row gn-section">
+                  <div class="col-md-12 gn-record">
+                    <div
+                      data-ng-if="mdView.current.record.related.uuids"
+                      data-gn-related="mdView.current.record"
+                      data-layout="card"
+                      data-user="user"
+                      data-types="children"
+                      data-title="{{ 'seriesComposedOf' | translate }}"
+                    ></div>
+
+                    <div
+                      ng-include="'../../catalog/views/dutch/templates/recordView/related.html'"
+                    />
+                  </div>
+                </div>
+              </tab>
+              <!-- /downloads & links -->
+
               <!-- catalog -->
               <tab
                 heading="{{ 'mdTabCatalog' | translate }}"
@@ -790,49 +813,54 @@
                   id="gn-featurecatalog-spy-target-{{((featureType.code + '-' + featureType.typeName) | md5)}}"
                   class="gn-margin-bottom"
                 >
-
-                  <h3 data-ng-if="featureType.typeName"><span data-translate="">featureType</span>&nbsp;'{{featureType.typeName}}'</h3>
+                  <h2 data-ng-if="featureType.typeName">
+                    <span data-translate="">featureType</span
+                    >&nbsp;'{{featureType.typeName}}'
+                  </h2>
 
                   <table class="table table-striped" data-ng-if="featureType.typeName">
                     <tbody>
-                    <tr data-ng-if="featureType.typeName">
-                      <th data-translate="">featureTypeName</th>
-                      <td>{{featureType.typeName}}</td>
-                    </tr>
-                    <tr data-ng-if="featureType.definition">
-                      <th data-translate="">featureDefinition</th>
-                      <td>{{featureType.definition}}</td>
-                    </tr>
-                    <tr data-ng-if="featureType.code">
-                      <th data-translate="">featureCode</th>
-                      <td>{{featureType.code}}</td>
-                    </tr>
-                    <tr data-ng-if="featureType.isAbstract">
-                      <th data-translate="">featureIsAbstract</th>
-                      <td>{{featureType.isAbstract}}</td>
-                    </tr>
-                    <tr data-ng-if="featureType.aliases">
-                      <th data-translate="">featureAliases</th>
-                      <td>{{featureType.aliases}}</td>
-                    </tr>
-                    <tr data-ng-if="featureType.attributeTable">
-                      <th data-translate="">featureAttributeTable</th>
-                      <td></td>
-                    </tr>
-                    <tr data-ng-if="featureType.attributeTable">
-                      <td colspan="2" class="gn-noborder-top gn-nopadding-top gn-nopadding-bottom"/>
-                    </tr>
-                    <tr data-ng-if="featureType.attributeTable">
-                      <td colspan="2" class="gn-noborder-top gn-table-attribute">
-                        <div data-ng-if="featureType.attributeTable"
-                             data-gn-attribute-table-renderer="featureType.attributeTable">
-                        </div>
-                      </td>
-                    </tr>
+                      <tr data-ng-if="featureType.typeName">
+                        <th data-translate="">featureTypeName</th>
+                        <td>{{featureType.typeName}}</td>
+                      </tr>
+                      <tr data-ng-if="featureType.definition">
+                        <th data-translate="">featureDefinition</th>
+                        <td>{{featureType.definition}}</td>
+                      </tr>
+                      <tr data-ng-if="featureType.code">
+                        <th data-translate="">featureCode</th>
+                        <td>{{featureType.code}}</td>
+                      </tr>
+                      <tr data-ng-if="featureType.isAbstract">
+                        <th data-translate="">featureIsAbstract</th>
+                        <td>{{featureType.isAbstract}}</td>
+                      </tr>
+                      <tr data-ng-if="featureType.aliases">
+                        <th data-translate="">featureAliases</th>
+                        <td>{{featureType.aliases}}</td>
+                      </tr>
+                      <tr data-ng-if="featureType.attributeTable">
+                        <th data-translate="">featureAttributeTable</th>
+                        <td></td>
+                      </tr>
+                      <tr data-ng-if="featureType.attributeTable">
+                        <td
+                          colspan="2"
+                          class="gn-noborder-top gn-nopadding-top gn-nopadding-bottom"
+                        />
+                      </tr>
+                      <tr data-ng-if="featureType.attributeTable">
+                        <td colspan="2" class="gn-noborder-top gn-table-attribute">
+                          <div
+                            data-ng-if="featureType.attributeTable"
+                            data-gn-attribute-table-renderer="featureType.attributeTable"
+                          ></div>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
-
               </tab>
               <!-- /catalog -->
 
