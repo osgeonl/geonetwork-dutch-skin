@@ -60,21 +60,21 @@
     "dutch_multi_location_directive"
   ]);
 
-  module.filter('metadataLicenses', function() {
-    return function(licenses){
+  module.filter("metadataLicenses", function () {
+    return function (licenses) {
       var filteredArray = [];
 
       if (licenses) {
-        for(var i=0; i<licenses.length; i++){
+        for (var i = 0; i < licenses.length; i++) {
           if (licenses[i].link) {
             filteredArray.push(licenses[i]);
-          } else if (licenses[i].default.indexOf('http') > -1) {
+          } else if (licenses[i].default.indexOf("http") > -1) {
             filteredArray.push(licenses[i]);
           }
         }
       }
       return filteredArray;
-    }
+    };
   });
 
   module.controller("DutchSearchHomeController", [
@@ -320,13 +320,6 @@
           callback: function () {
             $location.search("tab=search");
           }
-          //}).add({
-          //  combo: 'r',
-          //  description: $translate.instant('hotkeyResetSearch'),
-          //  allowIn: 'INPUT',
-          //  callback: function () {
-          //    $scope.resetSearch();
-          //  }
         })
         .add({
           combo: "m",
@@ -543,35 +536,6 @@
       $scope.$on("$locationChangeSuccess", setActiveTab);
 
       var sortConfig = gnSearchSettings.sortBy.split("#");
-
-      // tabs for the detail view
-      $scope.detailTabs = {
-        general: {
-          title: "general",
-          titleInfo: "GN",
-          active: true
-        },
-        contact: {
-          title: "contact",
-          titleInfo: "",
-          active: false
-        },
-        relations: {
-          title: "relations",
-          titleInfo: "",
-          active: false
-        },
-        catalog: {
-          title: "catalog",
-          titleInfo: "",
-          active: false
-        },
-        inspire: {
-          title: "inspire",
-          titleInfo: "",
-          active: false
-        }
-      };
 
       $scope.$on("$locationChangeSuccess", function (next, current) {
         try {
