@@ -917,6 +917,17 @@
                         </div>
                       </td>
                     </tr>
+
+                    <!-- format -->
+                    <tr data-ng-if="mdView.current.record.format">
+                      <th>
+                        <span data-translate="">format</span>
+                      </th>
+                      <td>
+                        <span data-ng-repeat="f in (mdView.current.record.format|asArray) track by $index"
+                              class="badge">{{f}} </span>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </tab>
