@@ -1820,12 +1820,12 @@ h6 {
   border-radius: @gn-border-radius;
   a {
     color: @gn-socialbar-color;
-    background: none;
+    background: none !important;
     border: 0;
     &:hover,
     &:focus {
       color: @gn-socialbar-color;
-      background: darken(@gn-socialbar-background, 10%);
+      background: darken(@gn-socialbar-background, 10%) !important;
       text-decoration: none;
     }
     @media (max-width: 767px) {
@@ -1835,12 +1835,12 @@ h6 {
   .md-feedback {
     .btn {
       padding: @gn-spacing-sm @gn-spacing;
-      background: none;
+      background: none !important;
       border: 0;
       &:hover,
       &:focus {
         color: @gn-socialbar-color;
-        background: darken(@gn-socialbar-background, 10%);
+        background: darken(@gn-socialbar-background, 10%) !important;
         text-decoration: none;
       }
     }
