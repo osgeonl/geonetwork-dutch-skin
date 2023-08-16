@@ -122,6 +122,7 @@
         params: {
           isTemplate: "n",
           sortBy: "popularity",
+          sortOrder: "desc",
           from: 1,
           to: 12
         }
