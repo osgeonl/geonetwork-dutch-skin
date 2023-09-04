@@ -813,12 +813,12 @@ h6 {
       }
     }
     .btn {
-      background-color: @gn-search-button-background-color;
-      border-color: darken(@gn-search-button-background-color, 5%);
-      color: @gn-search-button-color;
+      background-color: @gn-search-button-background-color !important;
+      border-color: darken(@gn-search-button-background-color, 5%) !important;
+      color: @gn-search-button-color !important;
       &:hover {
-        background-color: darken(@gn-search-button-background-color, 10%);
-        border-color: darken(@gn-search-button-background-color, 15%);
+        background-color: darken(@gn-search-button-background-color, 10%) !important;
+        border-color: darken(@gn-search-button-background-color, 15%) !important;
       }
     }
   }
@@ -1196,6 +1196,15 @@ h6 {
     .form-control-feedback {
       top: 34px !important;
       right: 16px;
+    }
+    .btn {
+      background-color: @gn-search-button-background-color !important;
+      border-color: darken(@gn-search-button-background-color, 5%) !important;
+      color: @gn-search-button-color !important;
+      &:hover {
+        background-color: darken(@gn-search-button-background-color, 10%) !important;
+        border-color: darken(@gn-search-button-background-color, 15%) !important;
+      }
     }
     .input-lg,
     .btn-lg {
@@ -2056,6 +2065,11 @@ h6 {
       width: 1400px;
     }
   }
+  // dropdown
+  .dropdown-menu > li > a {
+    padding: 8px 16px;
+  }
+
   .gn-editor-board {
     padding-top: 135px;
     .container {
