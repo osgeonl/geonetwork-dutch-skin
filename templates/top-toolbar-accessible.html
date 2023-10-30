@@ -7,7 +7,7 @@
     >
       <img
         class="gn-logo"
-        alt="{{'siteLogo' | translate}}"
+        alt="{{'siteLogoFor' | translate}}{{info['node/name'] || info['system/site/name']}}"
         data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
       />
     </a>
@@ -47,7 +47,7 @@
           <img
             class="gn-logo"
             data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}"
-            alt="{{'siteLogo' | translate}}"
+            alt="{{'siteLogoFor' | translate}}{{info['node/name'] || info['system/site/name']}}"
             data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
           />
           <i class="fa fa-fw fa-home hidden-sm"></i>
@@ -196,12 +196,13 @@
     </ul>
 
     <ul
-      class="nav navbar-nav gn-menu-xs" role="menu"
+      class="nav navbar-nav gn-menu-xs"
+      role="menu"
       gn-static-pages-list-viewer
       data-section="menu"
       data-language="{{lang}}"
-      role="menuitem">
-    </ul>
+      role="menuitem"
+    ></ul>
 
     <div class="navbar-right">
       <ul

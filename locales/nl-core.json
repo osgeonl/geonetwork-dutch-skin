@@ -126,5 +126,6 @@
   "DownloadData-help": "Filter op data die gedownload kan worden",
   "DataOnRequest-help": "Filter op data die op aanvraag beschikbaar is",
   "listOfTopics": "Onderwerp(en)",
-  "featureTypeTitle": "Featuretype"
+  "featureTypeTitle": "Featuretype",
+  "siteLogoFor": "Logo voor "
 }

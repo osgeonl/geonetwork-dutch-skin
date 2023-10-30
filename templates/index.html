@@ -4,25 +4,14 @@
 >
   <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
     <div class="row">
-      <div
-        class="col-md-6 col-sm-6 text-{{gnCfg.mods.header.logoInHeaderPosition}}"
-      >
+      <div class="col-md-12 col-sm-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
         <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
           <img
             class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-            alt="{{'siteLogo' | translate}}"
+            alt="{{'siteLogoFor' | translate}}{{info['node/name'] || info['system/site/name']}}"
             data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
           />
         </a>
-      </div>
-      <div class="col-md-6 col-sm-6 hidden-xs text-right">
-        <ul class="gn-static-pages">
-          <li
-            gn-static-pages-list-viewer
-            data-section="top"
-            data-language="{{lang}}"
-          />
-        </ul>
       </div>
     </div>
   </div>
