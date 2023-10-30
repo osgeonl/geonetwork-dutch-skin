@@ -315,14 +315,6 @@
           }
         })
         .add({
-          combo: "enter",
-          description: $translate.instant("hotkeySearchTheCatalog"),
-          allowIn: "INPUT",
-          callback: function () {
-            $location.search("tab=search");
-          }
-        })
-        .add({
           combo: "m",
           description: $translate.instant("hotkeyMap"),
           callback: function (event) {
