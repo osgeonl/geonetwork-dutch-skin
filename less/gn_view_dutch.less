@@ -275,6 +275,9 @@ h6 {
     word-break: break-word;
   }
 }
+p {
+  line-height: 1.5;
+}
 
 // ----- fix for icons (no camelcase)
 
@@ -945,7 +948,7 @@ h6 {
           }
         }
         .gn-icon-count {
-          color: #707070;
+          color: @gn-color;
         }
       }
     }
@@ -1624,6 +1627,7 @@ h6 {
     }
     .nav-tabs > li.active > a {
       background-color: #f3f3f3;
+      color: @gn-color;
     }
     .tab-pane {
       ul,
@@ -2592,6 +2596,14 @@ h6 {
     border-left: 1px solid @navbar-default-border;
     border-right: 1px solid @navbar-default-border;
   }
+  a {
+    text-decoration: underline;
+  }
+  .navbar {
+    a {
+      text-decoration: none;
+    }
+  }
   // facets
 
   // pagination
@@ -2626,6 +2638,11 @@ h6 {
         .table {
           .table-bordered();
           .table-striped();
+          td {
+            a {
+              word-break: break-all;
+            }
+          }
         }
       }
     }

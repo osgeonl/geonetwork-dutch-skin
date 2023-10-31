@@ -201,16 +201,16 @@
       gn-static-pages-list-viewer
       data-section="menu"
       data-language="{{lang}}"
-      role="menuitem"
     ></ul>
 
     <div class="navbar-right">
       <ul
         data-ng-if="gnCfg.mods.authentication.enabled"
         class="nav navbar-nav username-dropdown accessible-dropdown"
+        role="menu"
       >
         <!-- logged in -->
-        <li class="dropdown" data-ng-show="authenticated">
+        <li class="dropdown" data-ng-show="authenticated" role="menuitem">
           <a
             title="{{'userDetails' | translate}}"
             href
@@ -274,6 +274,7 @@
         </li>
         <li
           class="open signin-dropdown"
+          role="menuitem"
           data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && isShowLoginAsLink"
         >
           <a
@@ -289,6 +290,7 @@
         </li>
         <!-- not logged in -->
         <li
+          role="menuitem"
           class="dropdown signin-dropdown"
           data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && !isShowLoginAsLink && !isDisableLoginForm"
         >
