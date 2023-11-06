@@ -2573,8 +2573,20 @@ p {
       }
     }
   }
-  // ----- sidebar
   [data-ng-controller="GnAdminController"] {
+    .main {
+      .panel {
+        .panel-heading {
+          .btn-toolbar {
+            float: none !important;
+            @media (min-width: @screen-md-min) {
+              float: right !important;
+            }
+          }
+        }
+      }
+    }
+    // ----- sidebar
     .sidebar {
       ul {
         li {
