@@ -938,73 +938,6 @@ p {
       font-size: 24px;
     }
   }
-  .chips-card {
-    padding-top: 0;
-    padding-bottom: 0;
-    // badges
-    //
-    // ----- image/icon
-    .badge-result {
-      border-radius: 20px !important;
-      float: left;
-      height: 40px;
-      line-height: 43px;
-      text-align: center;
-      vertical-align: bottom;
-      width: auto;
-      font-size: 12px;
-      margin-bottom: @gn-spacing;
-      margin-right: @gn-spacing;
-      background: transparent;
-      a {
-        color: #fff;
-        border-radius: 20px;
-        padding-right: @gn-spacing;
-        &:hover {
-          text-decoration: none;
-        }
-      }
-      .badge {
-        margin-top: -7px;
-        margin-left: -16px;
-        background-color: #4d4c4c;
-        font-weight: normal;
-      }
-    }
-    .badge-result-topic {
-      margin-bottom: 0;
-      width: 100%;
-      background: none;
-      a {
-        background: none;
-        width: 100%;
-        .badge-icon {
-          color: @gn-color;
-          background: none;
-          width: 25px;
-          font-size: 7px;
-        }
-        .badge-text {
-          color: @gn-color;
-          font-size: 14px;
-          font-weight: bold;
-          line-height: 120%;
-          width: calc(~"100% - 65px");
-          text-align: left;
-        }
-        &:hover {
-          .badge-text {
-            text-decoration: underline;
-          }
-        }
-        .gn-icon-count {
-          color: @gn-color;
-        }
-      }
-    }
-  }
-
-
   .gn-topic {
     &.col-lg-2 {
       .make-lg-column(3);
@@ -1028,6 +961,7 @@ p {
             .clamp-2 {
               -webkit-line-clamp: 1;
             }
+            word-break: break-all;
           }
           i {
             color: @gn-topics-color;
