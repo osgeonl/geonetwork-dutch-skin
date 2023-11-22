@@ -12,7 +12,7 @@
       />
     </a>
     <a
-      class="hidden-sm hidden-md hidden-lg btn btn-link pull-left"
+      class="hidden-xs hidden-sm hidden-md hidden-lg btn btn-link pull-left"
       data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}"
     >
       <span
@@ -39,9 +39,9 @@
   </div>
   <div id="navbar" class="navbar-accessible navbar-collapse collapse">
     <ul class="nav navbar-nav gn-menu-xs" role="menu">
-      <li class="clearfix hidden-xs" data-ng-if="gnCfg.mods.home.enabled" role="menuitem">
+      <li class="gn-menuitem-xs clearfix" data-ng-if="gnCfg.mods.home.enabled" role="menuitem">
         <a
-          class="pull-left gn-logo-link"
+          class="pu1ll-left gn-logo-link"
           data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}"
         >
           <img
@@ -50,7 +50,7 @@
             alt="{{'siteLogoFor' | translate}}{{info['node/name'] || info['system/site/name']}}"
             data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
           />
-          <i class="fa fa-fw fa-home hidden-sm"></i>
+          <i class="fa fa-fw fa-home"></i>
           <span
             class="gn-name gn-margin-left hidden-sm"
             data-ng-if="gnCfg.mods.header.showGNName"
@@ -214,7 +214,7 @@
           <a
             title="{{'userDetails' | translate}}"
             href
-            class="dropdown-toggle gn-menuitem-xs"
+            class="dropdown-toggle gn-menuitem-xs hidden-xs"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -228,7 +228,7 @@
               <span class="gn-user-name">{{user.name}} {{user.surname}}</span><br />
               <span class="gn-user-role">{{user.profile | translate}}</span>
             </div>
-            <span class="caret"></span>
+            <span class="caret hidden-xs"></span>
             <span
               class="alert alert-danger ng-hide"
               data-ng-show="session.remainingTime > 0 &&

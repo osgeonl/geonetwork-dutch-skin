@@ -494,7 +494,47 @@ p {
       }
     }
   }
+  .navbar-toggle
+  {
+    border-color: #fff;
+    .icon-bar {
+      background-color: #fff;
+    }
+    &:focus, &:hover {
+      background-color: #fff;
+      border-color: @gn-menubar-background;
+      .icon-bar {
+        background-color: @gn-menubar-background;
+      }
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    .gn-menuheader-xs {
+      span {
+        color: @gn-color;
+      }
+    }
+    .gn-menu-xs {
+      .gn-menuitem-xs {
+        a {
+          color: @gn-color;
+        }
+      }
+    }
+    .gn-logo-link .gn-name {
+      display: block !important;
+    }
+    .username-dropdown {
+      padding: 0 2px;
+      .gn-menuitem-xs {
+        color: @gn-color;
+        height: auto !important;
+      }
+    }
+  }
 }
+
+
 // layout
 
 // check if the variable is a not an empty string, if not, then set the background image
@@ -953,6 +993,96 @@ p {
       }
     }
   }
+
+
+  .gn-topic {
+    &.col-lg-2 {
+      .make-lg-column(3);
+    }
+
+    .panel {
+      display: flex;
+      border: 0;
+      background: none !important;
+      box-shadow: none;
+      margin-bottom: 0;
+      .panel-body {
+        height: 40px;
+        a {
+          color: @gn-topics-color;
+          padding: 0;
+          word-wrap: normal;
+          display: inline;
+          h2 {
+            // override lineclamp - just 1 line
+            .clamp-2 {
+              -webkit-line-clamp: 1;
+            }
+          }
+          i {
+            color: @gn-topics-color;
+            font-size: 22px;
+            margin-top: 0;
+            line-height: 36px;
+          }
+          &:hover {
+            color: @gn-topics-color-hover;
+            text-decoration: underline;
+            i {
+              color: @gn-topics-color-hover;
+            }
+          }
+        }
+      }
+      .panel-footer {
+        border: 0;
+        background: none;
+        color: @gn-topics-color;
+        padding: 8px 4px;
+        i {
+          display: none;
+        }
+        &:before {
+          content: "(";
+          margin-right: -2px;
+        }
+        &:after {
+          content: ")";
+          margin-left: -2px;
+        }
+      }
+    }
+  }
+
+  .container {
+    @media (max-width: @screen-xs-max) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .gn-topic {
+      // beneath 500px a wider column is needed
+      @media (max-width: 500px) {
+        width: 100%;
+      }
+      .panel {
+        .panel-body {
+          flex-shrink: 1;
+          a {
+            display: inline-flex;
+            align-items: center;
+            h2 {
+              line-height: 36px;
+            }
+          }
+        }
+        .panel-footer {
+          flex-grow: 1;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
 }
 
 // facets
