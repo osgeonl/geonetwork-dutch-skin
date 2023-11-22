@@ -722,6 +722,16 @@ p {
       background-color: @gn-bottombar-background-hover !important;
     }
   }
+  @media (max-width: @screen-xs-max) {
+    .gn-navbar-social {
+      li {
+        &.navbar-text {
+          width: 100%;
+        }
+        float: left;
+      }
+    }
+  }
 }
 
 // home page
