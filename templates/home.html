@@ -17,7 +17,10 @@
 <!-- search -->
 <div class="row gn-row-main" data-ng-controller="DutchSearchHomeController">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-    <div class="col-sm-4 col-sm-offset-6 ng-cloak" data-ng-if="showHealthIndexError">
+    <div
+      class="col-sm-4 col-sm-offset-6 ng-cloak"
+      data-ng-if="showHealthIndexError"
+    >
       <div class="alert alert-warning text-center">
         <h3 data-translate="">indexNotAvailable</h3>
         <i class="fa fa-fw fa-cogs fa-3x" />
@@ -52,7 +55,9 @@
 
         <div class="col-md-5 gn-nopadding-left">
           <div class="form-group has-feedback">
-            <label id="searchLocationLbl" for="loc" data-translate="">AtLocation</label>
+            <label id="searchLocationLbl" for="loc" data-translate=""
+              >AtLocation</label
+            >
             <select
               multiple
               class="form-control input-lg"
@@ -136,35 +141,40 @@
     <div class="col-md-12" data-ng-show="homeFacet.list.length > 0">
       <h1 class="text-center">{{'byCategory'|translate}}</h1>
       <div class="row">
-        <span
+        <div
           data-ng-show="homeFacet.key !== 'inspireThemeUri'"
           data-ng-init="aggResponse = searchInfo.aggregations[homeFacet.key]"
           data-ng-repeat="facet in searchInfo.aggregations[homeFacet.key].buckets"
-          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 chips-card"
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 gn-topic"
         >
-          <div class="badge-result badge-result-topic clearfix">
-            <a
-              class="pull-left clearfix"
-              title="{{facet.key}}"
-              role="link"
-              data-ng-init="field = (aggResponse.meta && aggResponse.meta.field) || homeFacet.key"
-              data-ng-href='#/search?query_string={"{{field}}": {"{{facet.key}}": true} }'
-            >
-              <span class="badge-icon badge-result-topic pull-left">
-                <i
-                  class="fa fa-3x gn-icon gn-icon-{{facet.key.toLowerCase().replace('/', '').replace(' ', '')}}"
-                >
-                </i>
-              </span>
-              <span class="badge-text pull-left">
-                <span class="gn-icon-label"
-                  >{{facet.key | facetTranslator: homeFacet.key | capitalize}}</span
-                >
-                <span class="gn-icon-count">({{facet.doc_count}})</span>
-              </span>
-            </a>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a
+                class="pull-left clearfix"
+                title="{{facet.key}}"
+                role="link"
+                data-ng-init="field = (aggResponse.meta && aggResponse.meta.field) || homeFacet.key"
+                data-ng-href='#/search?query_string={"{{field}}": {"{{facet.key}}": true} }'
+              >
+                <span>
+                  <i
+                    class="fa fa-2x pull-left gn-icon-{{facet.key.toLowerCase().replace('/', '').replace(' ', '')}}"
+                  >
+                  </i>
+                </span>
+                <h2>
+                  <span class="clamp-2"
+                    >{{facet.key | facetTranslator: homeFacet.key |
+                    capitalize}}</span
+                  >
+                </h2>
+              </a>
+            </div>
+            <div class="panel-footer">
+              <span class="gn-icon-count">{{facet.doc_count}}</span>
+            </div>
           </div>
-        </span>
+        </div>
       </div>
     </div>
   </div>
