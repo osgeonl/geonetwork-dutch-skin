@@ -1,0 +1,120 @@
+<!-- dutch change: custom list view -->
+<ul class="list-group gn-resultview">
+  <li
+    class="list-group-item"
+    data-ng-repeat="md in searchResults.records"
+    data-gn-fix-mdlinks=""
+    data-gn-displayextent-onhover=""
+    data-gn-zoomto-onclick=""
+  >
+    <div class="media">
+      <div class="media-body">
+        <!--Edit button-->
+        <div class="pull-right hidden-sm">
+          <a
+            ng-href="catalog.edit#/metadata/{{md['geonet:info'].id}}"
+            data-ng-show="isAdmin"
+            class="btn btn-link pull-right"
+          >
+            <i class="fa fa-pencil"></i>
+          </a>
+          <!--Catalog or group Logo-->
+          <div class="gn-md-logo">
+            <a
+              class="pull-left"
+              ng-if="md.groupWebsite"
+              href="{{md.groupWebsite}}"
+              target="_blank"
+            >
+              <img
+                ng-src="../..{{md.logo}}"
+                alt="{{'siteLogo' | translate}}"
+                class="media-object"
+              />
+            </a>
+            <a class="pull-left" ng-if="!md.groupWebsite">
+              <img
+                ng-src="../..{{md.logo}}"
+                alt="{{'siteLogo' | translate}}"
+                class="media-object"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="flex-row">
+          <div data-ng-if="showBatchDropdown">
+            <input
+              data-gn-selection-md="md"
+              data-bucket="searchResults.selectionBucket"
+              data-results="searchResults"
+              type="checkbox"
+              data-ng-model="md.selected"
+              aria-label="{{'clickToSelect' | translate}}"
+            />
+          </div>
+          <div class="flex-spacer" data-ng-if="showBatchDropdown"></div>
+          <div
+            data-ng-click="openRecord($index, md, searchResults.records)"
+            data-ng-class="{'gn-record-selected': md.selected}"
+          >
+            <h1>
+              <a
+                href=""
+                gn-metadata-open="md"
+                gn-index="$index"
+                gn-records="searchResults.records"
+                gn-formatter="formatter.defaultUrl"
+                title="{{md.title || md.defaultTitle}}"
+                aria-label="{{md.resourceTitle}}"
+              >
+                <span class="fa gn-icon-{{md.resourceType[0]}}" title="{{md.resourceType[0]|translate}}"></span>
+                {{md.resourceTitle}}
+              </a>
+            </h1>
+          </div>
+        </div>
+        <!-- organization -->
+        <div ng-if="md.allContacts.metadata">
+          <span data-ng-repeat="o in md.allContacts.metadata">
+            <b translate="">organisation</b>: {{o.organisation}}<br />
+          </span>
+        </div>
+        <!-- dates -->
+        <div data-ng-show="md.dateStamp">
+          <b data-translate="">revisionDate</b>:
+          <span
+            data-gn-humanize-time="{{md.dateStamp|empty}}"
+            data-from-now=""
+            data-format="YYYY-MM-DD"
+          ></span>
+        </div>
+        <div data-ng-repeat="d in md.resourceDate">
+          <b data-translate="">{{d.type | translate}}</b>:
+          <span
+            data-gn-humanize-time="{{d.date|empty}}"
+            data-from-now=""
+            data-format="YYYY-MM-DD"
+          ></span>
+        </div>
+        <!-- categories -->
+        <div data-ng-if="md.cl_topic.length > 0" class="gn-keywords clearfix">
+          <div class="pull-left gn-margin-right-sm">
+            <b data-translate="">listOfTopics</b>:
+          </div>
+
+          <a
+            class="gn-keyword"
+            data-ng-repeat="t in md.cl_topic"
+            data-ng-href='#/search?query_string={"cl_topic.key": {"{{t.key}}":true}}'
+            >{{t.key | translate}}</a
+          >
+        </div>
+
+        <p title="{{md.resourceAbstract}}" class="gn-margin-top">
+          {{md.resourceAbstract.split('\n')[0] | striptags}}
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
