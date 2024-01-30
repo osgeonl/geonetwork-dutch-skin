@@ -329,6 +329,11 @@
       $scope.goToSearch = function (any) {
         $location.path("/search").search({ any: any });
       };
+
+      $scope.backToSearch = function() {
+        gnSearchLocation.restoreSearch();
+      };
+      
       $scope.canEdit = function (record) {
         // TODO: take catalog config for harvested records
         // TODOES: this property does not exist yet; makes sure it is
