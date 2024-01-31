@@ -237,9 +237,12 @@
                 >
                   <tbody>
                     <!-- keywords -->
+                    <!-- Don't display the GEMET INSPIRE Themes keywords if the metadata has the category INSPIRE, as are displayed in the tab INSPIRE -->
                     <tr
                       data-ng-repeat="(key, t) in mdView.current.record.allKeywords"
-                      ng-if="key.indexOf('th_httpinspireeceuropaeutheme') == -1"
+                      ng-if="key.indexOf('th_httpinspireeceuropaeutheme') == -1 ||
+                             (key.indexOf('th_httpinspireeceuropaeutheme') > -1 && (!mdView.current.record.hasOwnProperty('cat') ||
+                              (mdView.current.record.hasOwnProperty('cat') && mdView.current.record.cat.indexOf('inspire') == -1 && mdView.current.record.cat.indexOf('INSPIRE') == -1)))"
                     >
                       <th>{{ (t.title || key) | translate }}</th>
                       <td>
