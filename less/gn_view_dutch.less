@@ -535,6 +535,37 @@ p {
 }
 
 
+// ----- cookie message
+.cookie-warning {
+  position: absolute;
+  top: 0;
+  width: 350px;
+  margin: 30px;
+  padding: 250px 25px 25px 25px;
+  border-radius: 10px !important;
+  font-size: 16px;
+  border-color: #fceecf !important;
+  color: #000;
+  background: #fceecf url(../catalog/views/dutch/images/cookies.svg) scroll
+  no-repeat center 30px;
+  background-size: 200px 200px;
+  .cookie-warning-actions {
+    padding-top: @gn-spacing;
+    .btn {
+      font-size: 16px;
+      padding: 10px;
+      background-color: #de6932 !important;
+      border-color: #b74d1b !important;
+      &:hover {
+        background-color: #b74d1b !important;
+      }
+    }
+  }
+  span {
+    font-weight: normal;
+  }
+}
+
 // layout
 
 // check if the variable is a not an empty string, if not, then set the background image
