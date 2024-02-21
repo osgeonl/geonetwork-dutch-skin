@@ -726,7 +726,7 @@ p {
 // footer
 .gn-bottom-bar {
   background: none;
-  position: relative;
+  position: absolute;
   overflow: unset;
   height: @gn-bottombar-height;
   color: @gn-bottombar-color !important;
@@ -1204,7 +1204,7 @@ p {
 // search page
 .gn-search-page {
   background: none;
-  padding-bottom: 0;
+  padding-bottom: @gn-bottombar-height;
   .gn-status {
     position: relative;
   }
