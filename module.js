@@ -60,6 +60,27 @@
     "dutch_multi_location_directive"
   ]);
 
+  module.directive("gnToolbarDutch", [
+    "GN_DEFAULT_MENU",
+    "gnGlobalSettings",
+    function (GN_DEFAULT_MENU, gnGlobalSettings) {
+      return {
+        templateUrl: "../../catalog/components/toolbar/partials/top-toolbar.html",
+        link: function ($scope) {
+          $scope.toolbarMenu =
+            gnGlobalSettings.gnCfg.mods.header.menuCustomMenu &&
+            gnGlobalSettings.gnCfg.mods.header.menuCustomMenu.length > 0
+              ? gnGlobalSettings.gnCfg.mods.header.menuCustomMenu
+              : GN_DEFAULT_MENU;
+
+          $scope.isPage = function (page) {
+            return angular.isObject(page) || page.indexOf("gn-") === -1;
+          };
+        }
+      };
+    }
+  ]);
+
   module.filter("metadataLicenses", function () {
     return function (licenses) {
       var filteredArray = [];
@@ -333,7 +354,7 @@
       $scope.backToSearch = function() {
         gnSearchLocation.restoreSearch();
       };
-      
+
       $scope.canEdit = function (record) {
         // TODO: take catalog config for harvested records
         // TODOES: this property does not exist yet; makes sure it is
