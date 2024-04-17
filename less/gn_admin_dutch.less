@@ -10,8 +10,26 @@
       margin-left: -15px;
       margin-right: -15px;
     }
+    .container, .container-fluid {
+      border-bottom: 1px solid #e7e7e7;
+    }
     .navbar-right {
       margin-right: 0;
     }
+  }
+  [data-ng-controller="GnAdminController"] .sidebar .sidebar-col-sub .nav-sidebar {
+    li a {
+      display: flex;
+      .fa {
+        padding: 3px;
+        margin-right: 8px;
+      }
+      span {
+        text-transform: capitalize;
+      }
+    }
+  }
+  [data-ng-controller="GnAdminController"] [data-ng-controller="GnSystemSettingsController"] legend {
+    text-transform: capitalize;
   }
 }

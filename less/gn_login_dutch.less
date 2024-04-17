@@ -53,6 +53,18 @@
   }
 }
 
+.navbar .gn-user-info .gn-user-role {
+  color: @gn-menubar-color;
+}
+.navbar-default .dropdown-menu {
+  > li > a {
+    padding: 8px 20px !important;
+  }
+  .fa-fw {
+    width: 2em;
+  }
+}
+
 .navbar-default {
   background-color: @gn-menubar-background;
   border-color: @gn-menubar-border-color;
@@ -64,6 +76,7 @@
     &:hover,
     &:focus {
       color: @gn-menubar-color-hover;
+      background-color: @gn-menubar-background-active;
     }
   }
   .gn-name.gn-truncate {

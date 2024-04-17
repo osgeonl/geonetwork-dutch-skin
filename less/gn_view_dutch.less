@@ -207,45 +207,39 @@
 @gn-card-footer-height: 52px;
 
 // ----- font bold
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b,
-dt,
-.table-striped th,
-.table-striped th span,
-.share-banner-title,
-label {
-  font-family: @gn-fontfamily-bold !important;
-  font-weight: @gn-fontweight-bold;
+[ng-app^="gn_search_"], [ng-app="gn_login"], [ng-app="gn_editor"] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b,
+  dt,
+  .table-striped th,
+  .table-striped th span,
+  .share-banner-title,
+  label {
+    font-family: @gn-fontfamily-bold !important;
+    font-weight: @gn-fontweight-bold;
+  }
 }
 
 // ----- font regular
-body,
-p,
-div,
-span:not(.fa),
-a,
-blockquote,
-.radio label,
-.checkbox label,
-.btn:not(.fa) {
-  font-family: @gn-fontfamily-regular !important;
-  font-weight: @gn-fontweight-regular;
-}
-div.ace_editor,
-div.ace_content,
-div.ace_content *,
-[gn-json-edit] {
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro",
-    monospace !important;
-  font-size: 14px !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
+[ng-app^="gn_search_"], [ng-app="gn_login"], [ng-app="gn_editor"] {
+  body,
+  p,
+  div,
+  span:not(.fa),
+  a,
+  blockquote,
+  .radio label,
+  .checkbox label,
+  .btn:not(.fa) {
+    font-family: @gn-fontfamily-regular !important;
+    font-weight: @gn-fontweight-regular;
+  }
 }
 
 // body
