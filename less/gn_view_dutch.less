@@ -627,7 +627,7 @@ p {
     }
   }
   // no icons
-  @media (min-width: @screen-lg-min) {
+  @media (min-width: @screen-sm-min) {
     .fa {
       display: none;
     }
@@ -1220,6 +1220,13 @@ p {
       min-height: 46px !important;
       padding: 8px 30px 8px 16px;
     }
+
+    @media (max-width: @screen-md-max) {
+      .gn-nopadding-left {
+        padding-left: 15px !important;
+      }
+    }
+
     .btn-group-justified {
       .btn {
         font-size: 16px !important;
@@ -1337,11 +1344,24 @@ p {
       width: 100%;
       border-top: 0;
       border-radius: @gn-border-radius;
-      [class*="col-md"] {
-        padding-right: 0;
+
+      @media (max-width: @screen-md-min) {
+        .gn-search-filter-datepicker {
+          [class*="col-md"] {
+            padding-right: 0;
+            padding-left: 0;
+            padding-bottom: @gn-spacing-sm;
+          }
+        }
       }
-      .col-md-2 {
-        padding-left: 0;
+
+      @media (min-width: @screen-md-min) {
+        [class*="col-md"] {
+          padding-right: 0;
+        }
+        .col-md-2 {
+          padding-left: 0;
+        }
       }
       .search-options {
         label {
