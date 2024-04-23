@@ -92,6 +92,37 @@
   }
 }
 
+.navbar-toggle {
+  margin-top: 0;
+}
+
+@media (max-width: @screen-xs-max) {
+  .navbar-default .gn-menu-xs .gn-menuitem-xs a {
+    color: @gn-menubar-color;
+    &:hover, &:focus {
+      color: @gn-menubar-color-active;
+    }
+  }
+  .navbar-default .gn-menuheader-xs span {
+    color: @gn-menubar-color;
+    &:hover, &:focus {
+      color: @gn-menubar-color-active;
+    }
+  }
+  .navbar-default .username-dropdown .gn-menuitem-xs {
+    color: @gn-menubar-color;
+    &:hover, &:focus {
+      color: @gn-menubar-color-active;
+    }
+  }
+  .navbar-default .btn-link {
+    color: @gn-menubar-color;
+    &:hover, &:focus {
+      color: @gn-menubar-color;
+    }
+  }
+}
+
 @media (max-width: @grid-float-breakpoint) {
   .navbar-nav {
     margin: 0;
