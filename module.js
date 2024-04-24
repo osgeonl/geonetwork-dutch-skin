@@ -60,12 +60,21 @@
     "dutch_multi_location_directive"
   ]);
 
+  module.directive("gnSiteNameMenuDutch", [
+    function () {
+      return {
+        replace: true,
+        templateUrl: "../../catalog/views/dutch/templates/partials/menu-sitename.html"
+      };
+    }
+  ]);
+
   module.directive("gnToolbarDutch", [
     "GN_DEFAULT_MENU",
     "gnGlobalSettings",
     function (GN_DEFAULT_MENU, gnGlobalSettings) {
       return {
-        templateUrl: "../../catalog/components/toolbar/partials/top-toolbar.html",
+        templateUrl: "../../catalog/views/dutch/templates/top-toolbar-accessible.html",
         link: function ($scope) {
           $scope.toolbarMenu =
             gnGlobalSettings.gnCfg.mods.header.menuCustomMenu &&
