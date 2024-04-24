@@ -174,9 +174,11 @@
     "$scope",
     "gnRelatedResources",
     function ($scope, gnRelatedResources) {
-      $scope.resultTemplate =
-        "../../catalog/components/" +
-        "search/resultsview/partials/viewtemplates/grid4maps.html";
+      $scope.resultTemplate = {
+        tplUrl:
+          "../../catalog/components/" +
+          "search/resultsview/partials/viewtemplates/grid4maps.html"
+      };
       $scope.searchObj = {
         permalink: false,
         internal: true,
@@ -275,7 +277,7 @@
       $scope.activeTab = "/home";
       $scope.formatter = gnGlobalSettings.gnCfg.mods.search.formatter;
       $scope.listOfResultTemplate = gnGlobalSettings.gnCfg.mods.search.resultViewTpls;
-      $scope.resultTemplate = gnSearchSettings.resultTemplate;
+      $scope.resultTemplate = gnGlobalSettings.getDefaultResultTemplate();
       $scope.dateType = "metadata";
       /* Default advanced search form template */
       $scope.advancedSearchTemplate =
