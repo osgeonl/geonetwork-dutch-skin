@@ -47,6 +47,7 @@
     "gnDefaultGazetteer",
     "gnDutchGazetteer",
     "gnESService",
+    "gnESFacet",
     function (
       searchSettings,
       viewerSettings,
@@ -55,7 +56,8 @@
       gnMapsManager,
       gnDefaultGazetteer,
       gnDutchGazetteer,
-      gnESService
+      gnESService,
+      gnESFacet
     ) {
 
       gnESService.addExcludeField('geometryUris');
@@ -66,6 +68,9 @@
             "Please configure layer per map type."
         );
       }
+
+      // Return date information and keywords in search results query
+      gnESFacet.configs.search.source.includes.push("resourceDate");
 
       // Keep one layer in the background
       // while the context is not yet loaded.
