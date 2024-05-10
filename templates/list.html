@@ -80,16 +80,8 @@
           </span>
         </div>
         <!-- dates -->
-        <div data-ng-show="md.dateStamp">
-          <b data-translate="">revisionDate</b>:
-          <span
-            data-gn-humanize-time="{{md.dateStamp|empty}}"
-            data-from-now=""
-            data-format="YYYY-MM-DD"
-          ></span>
-        </div>
         <div data-ng-repeat="d in md.resourceDate">
-          <b data-translate="">{{d.type | translate}}</b>:
+          <b data-translate="">{{d.type + 'Date' | translate}}</b>:
           <span
             data-gn-humanize-time="{{d.date|empty}}"
             data-from-now=""
@@ -101,7 +93,7 @@
           <div class="pull-left gn-margin-right-sm">
             <b data-translate="">listOfTopics</b>:
           </div>
-          
+
           <a
             class="gn-keyword"
             data-ng-repeat="t in md.cl_topic"
