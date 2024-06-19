@@ -17,10 +17,6 @@
     </div>
   </div>
 
-  <!--<pre>
-  {{mdView.current.record}}
-  </pre>-->
-
   <div
     data-ng-if="mdView.current.record.draft == 'e' || mdView.current.record.draft == 'y'"
     data-ng-show="user.canEditRecord(mdView.current.record)"
@@ -144,7 +140,7 @@
           <div
             class="gn-md-actions-btn pull-left"
             data-gn-md-actions-menu="mdView.current.record"
-          />
+          ></div>
 
           <!-- display mode -->
           <div class="btn-group gn-view-menu-button pull-left">
@@ -195,17 +191,17 @@
           <div data-ng-switch-when="series">
             <div
               ng-include="'../../catalog/views/dutch/templates/recordView/type-series.html'"
-            />
+            ></div>
           </div>
           <div data-ng-switch-when="service">
             <div
               ng-include="'../../catalog/views/dutch/templates/recordView/type-service.html'"
-            />
+            ></div>
           </div>
           <div data-ng-switch-default>
             <div
               ng-include="'../../catalog/views/dutch/templates/recordView/type-dataset.html'"
-            />
+            ></div>
           </div>
         </div>
       </div>

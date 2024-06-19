@@ -1,9 +1,10 @@
-<div class="row gn-row-intro">
+<div class="row gn-row-intro" role="row">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div class="row">
       <div class="col-md-12">
         <h1 id="homeHeaderText">{{info['system/site/name']}}</h1>
         <p
+          data-ng-show="authenticated"
           data-translate=""
           data-translate-values="{records: '{{searchInfo.hits.total.value}}'}"
         >
@@ -15,7 +16,11 @@
 </div>
 
 <!-- search -->
-<div class="row gn-row-main" data-ng-controller="DutchSearchHomeController">
+<div
+  class="row gn-row-main"
+  data-ng-controller="DutchSearchHomeController"
+  data-ng-show="authenticated"
+>
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div
       class="col-sm-4 col-sm-offset-6 ng-cloak"
@@ -23,7 +28,7 @@
     >
       <div class="alert alert-warning text-center">
         <h3 data-translate="">indexNotAvailable</h3>
-        <i class="fa fa-fw fa-cogs fa-3x" />
+        <i class="fa fa-fw fa-cogs fa-3x"></i>
       </div>
     </div>
 
@@ -94,7 +99,10 @@
 <!-- /.gn-row-main -->
 
 <!-- no data message -->
-<div class="row gn-margin-top" data-ng-show="searchInfo.count == 0">
+<div
+  class="row gn-margin-top"
+  data-ng-show="searchInfo.count == 0 && authenticated"
+>
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div
       data-ng-show="searchInfo.count == 0"
@@ -109,10 +117,11 @@
 <!-- user saved maps -->
 <form
   class="form-horizontal"
+  role="form"
   data-ng-controller="gnsSearchTopEntriesController"
   data-ng-search-form=""
   data-runSearch="true"
-  data-ng-show="searchResults.records.length > 0"
+  data-ng-show="searchResults.records.length > 0 && authenticated"
 >
   <div class="row gn-top-records" role="row">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
@@ -136,6 +145,7 @@
 <div
   class="row gn-row-topics"
   data-ng-show="searchInfo.hits.total.value > 0 && searchInfo.aggregations"
+  data-ng-if="authenticated"
 >
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div class="col-md-12" data-ng-show="homeFacet.list.length > 0">
@@ -147,7 +157,7 @@
         data-home-facet="homeFacet"
         data-search-info="searchInfo"
         data-agg-config="aggConfig"
-      />
+      ></div>
     </div>
   </div>
 </div>

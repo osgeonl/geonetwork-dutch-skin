@@ -1,6 +1,6 @@
 <div>
   <h1>
-    <i class="fa gn-icon-{{mdView.current.record.resourceType[0]}}" />
+    <i class="fa gn-icon-{{mdView.current.record.resourceType[0]}}"></i>
 
     {{mdView.current.record.resourceTitle}}
 
@@ -26,7 +26,5 @@
     data-types="parent"
   ></div>
 
-  <p
-    data-ng-bind-html="(mdView.current.record.resourceAbstract) | linky | newlines"
-  ></p>
+  <p data-ng-bind-html="(mdView.current.record.resourceAbstract) | linky | newlines"></p>
 </div>

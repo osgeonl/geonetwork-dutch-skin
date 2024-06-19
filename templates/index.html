@@ -4,11 +4,13 @@
 >
   <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
     <div class="row">
-      <div class="col-md-12 col-sm-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
+      <div
+        class="col-md-12 col-sm-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}"
+      >
         <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
           <img
             class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-            alt="{{'siteLogoFor' | translate}}{{info['node/name'] || info['system/site/name']}}"
+            alt="{{'siteLogo' | translate}}"
             data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
           />
         </a>
@@ -20,11 +22,15 @@
   class="navbar navbar-default gn-top-bar"
   role="navigation"
   data-ng-show="gnCfg.mods.header.enabled"
-  data-gn-toolbar-dutch=""
+  data-ng-include="'../../catalog/views/dutch/templates/top-toolbar-accessible.html'"
   xmlns="http://www.w3.org/1999/html"
 ></nav>
 
-<div class="gn-search-page" role="main" data-ng-controller="GnSearchController">
+<main
+  class="gn-search-page"
+  role="main-content"
+  data-ng-controller="GnSearchController"
+>
   <cookiewarning></cookiewarning>
   <div class="" data-ng-controller="gnsDutch">
     <gn-extend-mainctrl></gn-extend-mainctrl>
@@ -33,36 +39,37 @@
       <div
         data-ng-include="'../../catalog/views/dutch/templates/home.html'"
         data-ng-if="activeTab == '/home'"
-      />
+      ></div>
       <div
         data-ng-include="'../../catalog/views/dutch/templates/results.html'"
         data-ng-show="activeTab == '/search'"
-      />
+      ></div>
       <div
         data-ng-if="isMapViewerEnabled && !isExternalViewerEnabled && activeTab == '/map'"
         data-ng-include="'../../catalog/views/dutch/templates/map.html'"
-      />
+      ></div>
       <div
         data-ng-include="recordViewTemplate"
         data-ng-if="activeTab == '/metadata'"
         class="gn-view-approved"
-      />
+      ></div>
       <div
         data-ng-include="recordViewTemplate"
         data-ng-if="activeTab == '/metadraf'"
         class="gn-view-not-approved"
-      />
+      ></div>
       <div
         data-ng-include="'../../catalog/views/default/templates/page.html'"
         data-ng-if="activeTab == '/page'"
         class="page"
-      />
+      ></div>
     </div>
   </div>
-</div>
+</main>
 
 <footer
   class="navbar navbar-default gn-bottom-bar"
+  role="navigation"
   data-ng-show="gnCfg.mods.footer.enabled"
   data-ng-include="'../../catalog/views/dutch/templates/footer.html'"
 ></footer>

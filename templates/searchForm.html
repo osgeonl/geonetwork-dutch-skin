@@ -3,7 +3,9 @@
   <!--ANY full text search input-->
   <div class="row gn-top-search">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-      <div data-ng-class="fluidLayout ? 'col-md-10 col-md-offset-1' : 'col-md-12'">
+      <div
+        data-ng-class="fluidLayout ? 'col-md-10 col-md-offset-1' : 'col-md-12'"
+      >
         <div class="row">
           <div class="col-md-4">
             <label for="gn-any-field" data_translate="">SearchAny</label>
@@ -27,7 +29,6 @@
                 data-typeahead="md.label as md.label for md in getAnySuggestions($viewValue, searchObj)"
                 data-typeahead-template-url="../../catalog/templates/gn-typeahead-match.html"
                 data-typeahead-loading="anyLoading"
-                class="form-control"
                 data-typeahead-min-length="1"
                 data-typeahead-focus-first="false"
                 data-typeahead-wait-ms="600"

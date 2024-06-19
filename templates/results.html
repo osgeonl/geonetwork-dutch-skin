@@ -1,7 +1,5 @@
 <div data-ng-search-form="" data-runSearch="true">
-  <div
-    data-ng-include="'../../catalog/views/dutch/templates/searchForm.html'"
-  ></div>
+  <div data-ng-include="'../../catalog/views/dutch/templates/searchForm.html'"></div>
   <div
     data-ng-if="resultTemplate.indexOf('grid.html') === -1"
     gn-grid-related-query="searchResults.records"
@@ -9,7 +7,6 @@
 
   <div class="row gn-row-results">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-
       <div class="col-md-9 col-md-offset-3">
         <div
           class="row gn-row-tools gn-noborder-bottom"
@@ -22,7 +19,6 @@
               data-results="searchResults"
             ></div>
             <h4>{{searchResults.count}} <span data-translate="">resultsFound</span></h4>
-
           </div>
 
           <div class="col-xs-6 col-sm-6 col-md-6 gn-nopadding-right">
@@ -76,7 +72,6 @@
       <!-- /.gn-search-facet -->
 
       <div class="col-md-9 container-fluid">
-
         <div class="row">
           <div
             data-ng-show="searchResults.records.length > 0"
@@ -89,10 +84,7 @@
             class="col-xs-12"
             data-ng-class="fixedMiniMap ? 'col-md-12' : 'col-md-8 col-lg-9'"
           >
-            <span
-              class="loading fa fa-spinner fa-spin"
-              data-ng-show="searching"
-            ></span>
+            <span class="loading fa fa-spinner fa-spin" data-ng-show="searching"></span>
 
             <div
               class="alert alert-warning"
@@ -117,7 +109,7 @@
               onClick="window.scrollTo(0,0);"
               title="{{'scrollTop' | translate}}"
             >
-              <i class="fa fa-fw fa-chevron-up" />
+              <i class="fa fa-fw fa-chevron-up"></i>
             </button>
           </div>
 
@@ -137,12 +129,15 @@
               <button
                 data-ng-click="toggleMap()"
                 title="{{'toggleMiniMap' | translate}}"
-                class="gn-toggle gn-minimap-toggle btn btn-primary gn-minimap-button hidden-xs"
+                class="
+                  gn-toggle gn-minimap-toggle
+                  btn btn-primary
+                  gn-minimap-button
+                  hidden-xs
+                "
               >
                 <i class="fa fa-angle-double-right"></i>
-                <strong
-                  class="gn-minimap-toggle gn-minimap-text"
-                  data-translate=""
+                <strong class="gn-minimap-toggle gn-minimap-text" data-translate=""
                   >map</strong
                 >
               </button>

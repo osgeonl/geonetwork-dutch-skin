@@ -15,7 +15,7 @@
     data-record="md"
     data-user="user"
     data-lang="lang"
-  />
+  ></div>
 
   <div class="btn-group" data-ng-class="::links.length > 0 ? '' : 'hidden'">
     <button
@@ -64,9 +64,15 @@
       </li>
       <li data-ng-show="layers.length > 1" class="divider"></li>
       <li data-ng-show="layers.length > 1">
-        <a href="" data-ng-click="resultviewFns.addAllMdLayersToMap(layers, md)">
+        <a
+          href=""
+          data-ng-click="resultviewFns.addAllMdLayersToMap(layers, md)"
+        >
           <i class="fa fa-plus"></i>&nbsp;
-          <span data-translate="" data-translate-values="{number: '{{layers.length}}'}">
+          <span
+            data-translate=""
+            data-translate-values="{number: '{{layers.length}}'}"
+          >
             addAllLayersToMap
           </span>
         </a>
