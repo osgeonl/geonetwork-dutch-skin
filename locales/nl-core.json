@@ -127,5 +127,9 @@
   "DataOnRequest-help": "Filter op data die op aanvraag beschikbaar is",
   "listOfTopics": "Onderwerp(en)",
   "featureTypeTitle": "Featuretype",
-  "siteLogoFor": "Logo voor "
+  "siteLogoFor": "Logo voor ",
+  "range-relation-desc": "Uitleg over de datum opties:",
+  "range-relation-intersects-desc": "Overlapt: de waarde ligt gedeeltelijk tussen de 'van' en 'tot' waarden",
+  "range-relation-within-desc": "Binnen: waarde ligt geheel tussen de 'van' en 'tot' waarden",
+  "range-relation-contains-desc": "Bevat: waarde omvat zowel de 'van' als 'tot' waarde"
 }

@@ -70,5 +70,9 @@
   "mdTabCatalog": "Data model",
   "website": "Web",
   "featureTypeTitle": "Feature type",
-  "siteLogoFor": "Logo for "
+  "siteLogoFor": "Logo for ",
+  "range-relation-desc": "Information about the date options:",
+  "range-relation-intersects-desc": "Intersects: the values is partially between the 'from' and 'to' dates",
+  "range-relation-within-desc": "Within: the value is completely between the 'from' and 'to' dates",
+  "range-relation-contains-desc": "Contains: the value completely contains both the 'from' and 'to' dates"
 }
