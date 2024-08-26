@@ -161,6 +161,9 @@
         outline: 0;
         box-shadow: none;
       }
+      .tag {
+        padding: @gn-spacing;
+      }
     }
     .btn {
       border-radius: @gn-border-radius;
@@ -247,19 +250,27 @@
         margin-bottom: 0;
       }
       fieldset {
-        margin: 10px;
+        margin: 15px;
         padding-bottom: 10px;
         padding-left: 0;
+        border-left-color: #ddd;
         legend {
           padding-right: 11px;
           font-size: 16px;
           font-weight: 400;
+          border-left-color: #ddd;
         }
         @media (max-width: @screen-xs-max) {
           margin: 10px;
         }
         .table {
           margin-bottom: -10px;
+        }
+        fieldset {
+          border-left-color: #ddd;
+          legend {
+            border-left-color: #ddd;
+          }
         }
       }
     }
@@ -383,7 +394,7 @@
     .gn-field {
       float: none;
       label {
-        font-size: 12px;
+        font-size: 14px;
         &:after {
           font-size: 24px;
         }
