@@ -77,7 +77,7 @@
         <div ng-if="md.allContacts.metadata">
           <span data-ng-repeat="o in md.allContacts.metadata">
             <b translate="">organisation</b> (<b translate=""
-              >{{ ('role-' + o.role) | translate }}</b
+              >{{ o.role | translate }}</b
             >): {{o.organisation}}<br />
           </span>
         </div>
@@ -98,9 +98,9 @@
           <a
             class="gn-keyword"
             data-ng-repeat="t in md.cl_topic"
-            data-ng-href="#/search?topicCat={{t.key}}"
-            >{{t.default}}
-          </a>
+            data-ng-href='#/search?query_string={"cl_topic.key": {"{{t.key}}":true}}'
+            >{{t.key | translate}}</a
+          >
         </div>
 
         <p title="{{md.resourceAbstract}}" class="gn-margin-top">
