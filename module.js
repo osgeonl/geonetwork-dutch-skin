@@ -71,8 +71,9 @@
 
   module.directive("gnToolbarDutch", [
     "GN_DEFAULT_MENU",
+    "GN_DEFAULT_RECORD_VIEW_MENU",
     "gnGlobalSettings",
-    function (GN_DEFAULT_MENU, gnGlobalSettings) {
+    function (GN_DEFAULT_MENU, GN_DEFAULT_RECORD_VIEW_MENU, gnGlobalSettings) {
       return {
         templateUrl: "../../catalog/views/dutch/templates/top-toolbar-accessible.html",
         link: function ($scope) {
@@ -81,6 +82,11 @@
             gnGlobalSettings.gnCfg.mods.header.menuCustomMenu.length > 0
               ? gnGlobalSettings.gnCfg.mods.header.menuCustomMenu
               : GN_DEFAULT_MENU;
+          $scope.recordviewMenu =
+            gnGlobalSettings.gnCfg.mods.recordview.recordviewCustomMenu &&
+            gnGlobalSettings.gnCfg.mods.recordview.recordviewCustomMenu.length > 0
+              ? gnGlobalSettings.gnCfg.mods.recordview.recordviewCustomMenu
+              : GN_DEFAULT_RECORD_VIEW_MENU;
 
           $scope.isPage = function (page) {
             return angular.isObject(page) || page.indexOf("gn-") === -1;
