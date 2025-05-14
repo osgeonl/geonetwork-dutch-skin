@@ -69,6 +69,32 @@
     }
   ]);
 
+  module.directive("gnMetadataDutchSocialLink", [
+    "gnMetadataActions",
+    "$http",
+    function (gnMetadataActions, $http) {
+      return {
+        templateUrl: "../../catalog/views/dutch/templates/partials/social-record.html",
+        scope: {
+          md: "=gnMetadataDutchSocialLink"
+        },
+        link: function (scope, element, attrs) {
+          scope.mdService = gnMetadataActions;
+
+          scope.$watch("md", function (oldVal, newVal) {
+            if (newVal) {
+              $http
+                .get("../api/records/" + scope.md.getUuid() + "/permalink")
+                .then(function (r) {
+                  scope.socialMediaLink = r.data;
+                });
+            }
+          });
+        }
+      };
+    }
+  ]);
+
   module.directive("gnToolbarDutch", [
     "GN_DEFAULT_MENU",
     "GN_DEFAULT_RECORD_VIEW_MENU",
