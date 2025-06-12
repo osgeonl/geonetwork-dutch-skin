@@ -26,7 +26,7 @@
       data-ng-if="mdView.current.record.draft == 'e'"
       class="see-draft see-draft-not-approved"
       title=" {{ ('status-' + mdView.current.record.mdStatus) | translate }}"
-      data-ng-href="#/metadraf/{{ md.uuid }}"
+      data-ng-href="#/metadraf/{{ mdView.current.record.uuid }}"
       data-ng-show="user.canEditRecord(mdView.current.record)"
     >
       {{ 'seeDraft' | translate }}
@@ -37,7 +37,7 @@
       data-ng-if="mdView.current.record.draft == 'y'"
       class="see-draft see-draft-approved"
       title=" {{ ('status-' + mdView.current.record.mdStatus) | translate }}"
-      data-ng-href="#/metadata/{{ md.uuid }}"
+      data-ng-href="#/metadata/{{ mdView.current.record.uuid }}"
       data-ng-show="user.canEditRecord(mdView.current.record)"
     >
       {{ 'seeNoDraft' | translate }}
@@ -155,9 +155,9 @@
             {{ mdView.current.record.resourceTitle }}
             <span
               class="text-muted badge"
-              data-ng-class="{'text-success': md.mdStatus == 2, 'text-warning': md.mdStatus == 4}"
-              data-ng-if="user.isEditorOrMore() && md.mdStatus<50 && isMdWorkflowEnable"
-              >{{ ('mdStatus-' + md.mdStatus) | translate }}</span
+              data-ng-class="{'text-success': mdView.current.record.mdStatus == 2, 'text-warning': mdView.current.record.mdStatus == 4}"
+              data-ng-if="user.isEditorOrMore() && mdView.current.record.mdStatus<50 && isMdWorkflowEnable"
+              >{{ ('mdStatus-' + mdView.current.record.mdStatus) | translate }}</span
             >
           </h1>
 
