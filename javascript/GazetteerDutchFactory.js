@@ -100,7 +100,7 @@
               );
 
               if (coord) {
-                function moveTo(map, zoom, center) {
+                var moveTo = function(map, zoom, center) {
                   var view = map.getView();
 
                   view.setZoom(zoom);
@@ -135,7 +135,7 @@
                     return;
                   }
                   // get the results
-                  $features = response.data.response.docs;
+                  var $features = response.data.response.docs;
                   // loop through the results
                   $.each($features, function (i, item) {
                     // create the result
