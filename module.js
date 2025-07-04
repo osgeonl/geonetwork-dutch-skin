@@ -81,8 +81,8 @@
         link: function (scope, element, attrs) {
           scope.mdService = gnMetadataActions;
 
-          scope.$watch("md", function (oldVal, newVal) {
-            if (newVal) {
+          scope.$watch("md",function (newVal, oldVal) {
+            if (newVal !== null && newVal !== oldVal) {
               $http
                 .get("../api/records/" + scope.md.getUuid() + "/permalink")
                 .then(function (r) {
