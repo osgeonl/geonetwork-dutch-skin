@@ -1020,13 +1020,15 @@ p {
           color: @gn-topics-color;
           padding: 0;
           word-wrap: normal;
-          display: inline;
+          align-items: center;
+          display: inline-flex;
           h2 {
             // override lineclamp - just 1 line
             .clamp-2 {
               -webkit-line-clamp: 1;
             }
             word-break: break-all;
+            line-height: 36px;
           }
           i {
             color: @gn-topics-color;
@@ -1048,6 +1050,8 @@ p {
         background: none;
         color: @gn-topics-color;
         padding: 8px 4px;
+        flex-grow: 1;
+        white-space: nowrap;
         i {
           display: none;
         }
