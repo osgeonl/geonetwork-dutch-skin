@@ -203,7 +203,9 @@
                       data-ng-repeat="(key, t) in mdView.current.record.allKeywords"
                       ng-if="key.indexOf('th_httpinspireeceuropaeutheme') == -1"
                     >
-                      <th>{{ (t.multilingualTitle.default || t.title || key) | translate }}</th>
+                      <th>
+                        {{ (t.multilingualTitle.default || t.title || key) | translate }}
+                      </th>
                       <td>
                         <div class="gn-keywords">
                           <div

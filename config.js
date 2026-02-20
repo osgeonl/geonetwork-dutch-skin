@@ -59,8 +59,7 @@
       gnESService,
       gnESFacet
     ) {
-
-      gnESService.addExcludeField('geometryUris');
+      gnESService.addExcludeField("geometryUris");
 
       if (viewerSettings.mapConfig.viewerMapLayers) {
         console.warn(

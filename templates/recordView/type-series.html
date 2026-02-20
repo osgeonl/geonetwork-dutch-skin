@@ -2,23 +2,16 @@
   class="row gn-card gn-card-{{mdView.current.record.resourceType[0]}} gn-margin-bottom gn-margin-top"
 >
   <div class="col-md-8 gn-record gn-{{mdView.current.record.resourceType[0]}}">
-    <div
-      ng-include="'../../catalog/views/dutch/templates/recordView/title.html'"
-    ></div>
+    <div ng-include="'../../catalog/views/dutch/templates/recordView/title.html'"></div>
   </div>
   <div class="col-md-4 gn-md-side">
-    <div
-      ng-include="'../../catalog/views/dutch/templates/recordView/status.html'"
-    ></div>
+    <div ng-include="'../../catalog/views/dutch/templates/recordView/status.html'"></div>
     <div
       class="gn-margin-top"
       ng-include="'../../catalog/views/default/templates/recordView/summary.html'"
     ></div>
 
-    <div
-      class="gn-margin-bottom-lg"
-      data-gn-data-preview="mdView.current.record"
-    ></div>
+    <div class="gn-margin-bottom-lg" data-gn-data-preview="mdView.current.record"></div>
   </div>
 </div>
 <div class="row">
@@ -146,12 +139,8 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div
-      ng-include="'../../catalog/views/dutch/templates/recordView/share.html'"
-    ></div>
+    <div ng-include="'../../catalog/views/dutch/templates/recordView/share.html'"></div>
   </div>
 </div>
 
-<div
-  ng-include="'../../catalog/views/default/templates/recordView/footer.html'"
-></div>
+<div ng-include="'../../catalog/views/default/templates/recordView/footer.html'"></div>

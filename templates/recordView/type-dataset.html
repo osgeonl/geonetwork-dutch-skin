@@ -3,14 +3,10 @@
   class="row gn-card gn-card-{{mdView.current.record.resourceType[0]}} gn-margin-top gn-margin-bottom gn-padding-top gn-padding-bottom"
 >
   <div class="col-md-8 gn-record">
-    <div
-      ng-include="'../../catalog/views/default/templates/recordView/title.html'"
-    ></div>
+    <div ng-include="'../../catalog/views/default/templates/recordView/title.html'"></div>
   </div>
   <div class="col-md-4 gn-md-side">
-    <div
-      ng-include="'../../catalog/views/dutch/templates/recordView/status.html'"
-    ></div>
+    <div ng-include="'../../catalog/views/dutch/templates/recordView/status.html'"></div>
     <div
       class="gn-margin-top"
       ng-include="'../../catalog/views/default/templates/recordView/thumbnails.html'"
@@ -110,22 +106,15 @@
     ></div>
 
     <!-- format -->
-    <div
-      data-ng-if="mdView.current.record.format"
-      class="gn-margin-bottom flex-row"
-    >
+    <div data-ng-if="mdView.current.record.format" class="gn-margin-bottom flex-row">
       <span class="badge badge-rounded">
         <i class="fa fa-fw fa-globe"></i>
       </span>
       <div>
         <h3 data-translate="">format</h3>
         <ul class="gn-label-list">
-          <li
-            data-ng-repeat="f in mdView.current.record.format track by $index"
-          >
-            <a data-gn-search-filter-popup-link="format" data-filter="f"
-              >{{f}}</a
-            >
+          <li data-ng-repeat="f in mdView.current.record.format track by $index">
+            <a data-gn-search-filter-popup-link="format" data-filter="f">{{f}}</a>
           </li>
         </ul>
       </div>
@@ -179,9 +168,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div
-      ng-include="'../../catalog/views/dutch/templates/recordView/share.html'"
-    ></div>
+    <div ng-include="'../../catalog/views/dutch/templates/recordView/share.html'"></div>
   </div>
 </div>
 
@@ -193,6 +180,4 @@
   </div>
 </div>
 
-<div
-  ng-include="'../../catalog/views/default/templates/recordView/footer.html'"
-></div>
+<div ng-include="'../../catalog/views/default/templates/recordView/footer.html'"></div>

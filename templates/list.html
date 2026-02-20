@@ -75,27 +75,27 @@
         </div>
         <!-- organization -->
         <div data-ng-if="searchResultContact == 'OrgForResource'">
-              <span data-ng-repeat="o in md.allContacts.resource">
-                <b translate="">organisation</b> (<b translate=""
-              >{{ o.role | translate }}</b
-              >): {{o.organisation}}<br />
-              </span>
+          <span data-ng-repeat="o in md.allContacts.resource">
+            <b translate="">organisation</b> (<b translate="">{{ o.role | translate }}</b
+            >): {{o.organisation}}<br />
+          </span>
         </div>
 
-        <div ng-if="md.allContacts.metadata" data-ng-if="searchResultContact == 'OrgForDistribution'">
-              <span data-ng-repeat="o in md.allContacts.distribution">
-                <b translate="">organisation</b> (<b translate=""
-              >{{ o.role | translate }}</b
-              >): {{o.organisation}}<br />
-              </span>
+        <div
+          ng-if="md.allContacts.metadata"
+          data-ng-if="searchResultContact == 'OrgForDistribution'"
+        >
+          <span data-ng-repeat="o in md.allContacts.distribution">
+            <b translate="">organisation</b> (<b translate="">{{ o.role | translate }}</b
+            >): {{o.organisation}}<br />
+          </span>
         </div>
 
         <div ng-if="md.allContacts.metadata" data-ng-if="searchResultContact == 'Org'">
-              <span data-ng-repeat="o in md.allContacts.metadata">
-                <b translate="">organisation</b> (<b translate=""
-              >{{ o.role | translate }}</b
-              >): {{o.organisation}}<br />
-              </span>
+          <span data-ng-repeat="o in md.allContacts.metadata">
+            <b translate="">organisation</b> (<b translate="">{{ o.role | translate }}</b
+            >): {{o.organisation}}<br />
+          </span>
         </div>
         <!-- dates -->
         <div data-ng-repeat="d in md.resourceDate">

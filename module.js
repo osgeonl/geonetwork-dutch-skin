@@ -81,7 +81,7 @@
         link: function (scope, element, attrs) {
           scope.mdService = gnMetadataActions;
 
-          scope.$watch("md",function (newVal, oldVal) {
+          scope.$watch("md", function (newVal, oldVal) {
             if (newVal !== null && newVal !== oldVal) {
               $http
                 .get("../api/records/" + scope.md.getUuid() + "/permalink")
@@ -394,7 +394,7 @@
         $location.path("/search").search({ any: any });
       };
 
-      $scope.backToSearch = function() {
+      $scope.backToSearch = function () {
         gnSearchLocation.restoreSearch();
       };
 

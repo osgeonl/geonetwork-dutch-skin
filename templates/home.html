@@ -15,15 +15,9 @@
 </div>
 
 <!-- search -->
-<div
-  class="row gn-row-main"
-  data-ng-controller="DutchSearchHomeController"
->
+<div class="row gn-row-main" data-ng-controller="DutchSearchHomeController">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
-    <div
-      class="col-sm-4 col-sm-offset-6 ng-cloak"
-      data-ng-if="showHealthIndexError"
-    >
+    <div class="col-sm-4 col-sm-offset-6 ng-cloak" data-ng-if="showHealthIndexError">
       <div class="alert alert-warning text-center">
         <h3 data-translate="">indexNotAvailable</h3>
         <i class="fa fa-fw fa-cogs fa-3x"></i>
@@ -58,9 +52,7 @@
 
         <div class="col-md-5 gn-nopadding-left">
           <div class="form-group has-feedback">
-            <label id="searchLocationLbl" for="loc" data-translate=""
-              >AtLocation</label
-            >
+            <label id="searchLocationLbl" for="loc" data-translate="">AtLocation</label>
             <select
               multiple
               class="form-control input-lg"
@@ -97,10 +89,7 @@
 <!-- /.gn-row-main -->
 
 <!-- no data message -->
-<div
-  class="row gn-margin-top"
-  data-ng-show="searchInfo.count == 0"
->
+<div class="row gn-margin-top" data-ng-show="searchInfo.count == 0">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
     <div
       data-ng-show="searchInfo.count == 0"
