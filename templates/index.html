@@ -4,7 +4,7 @@
 >
   <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
     <div class="row">
-      <div class="col-md-12 col-sm-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
+      <div class="col-md-6 col-sm-6 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
         <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
           <img
             class="{{gnCfg.mods.header.logoInHeaderPosition}}"
@@ -13,10 +13,14 @@
           />
         </a>
       </div>
+      <div class="col-md-6 col-sm-6 hidden-xs text-right">
+        <ul class="gn-static-pages">
+          <li gn-static-pages-list-viewer data-section="top" data-language="{{lang}}" />
+        </ul>
+      </div>
     </div>
   </div>
 </header>
-
 <nav
   class="navbar navbar-default gn-top-bar"
   role="navigation"
