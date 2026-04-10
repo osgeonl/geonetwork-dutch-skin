@@ -45,7 +45,7 @@ git submodule init
 - In `pom.xml`, configure the database type and connection details, `Language.default`, `Language.forcedefault`.
 - Check https://github.com/metadata101/iso19139.nl.geografie.1.3.1 and https://github.com/metadata101/iso19139.nl.services.1.2.1 how to add dutch schema plugins
 - On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` configure things such as catalog title, logo, URL, map extent, etc.
-- Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.administrativeAreas and upload it in `admin` > `classification` (from local file > place)
+- Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/api/registries/vocabularies/external.place.regions and upload it in `admin` > `classification` (from local file > place)
 
 ### Set custom search list items
 
