@@ -21,6 +21,7 @@
     </div>
   </div>
 </header>
+
 <nav
   class="navbar navbar-default gn-top-bar"
   role="navigation"
@@ -28,6 +29,10 @@
   data-gn-toolbar-dutch=""
   xmlns="http://www.w3.org/1999/html"
 ></nav>
+
+<div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+  <gn-application-banner></gn-application-banner>
+</div>
 
 <main class="gn-search-page" role="main-content" data-ng-controller="GnSearchController">
   <cookiewarning></cookiewarning>
