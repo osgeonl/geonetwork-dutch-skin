@@ -220,7 +220,7 @@
                     <!-- keywords -->
                     <tr
                       data-ng-repeat="(key, t) in mdView.current.record.allKeywords"
-                      ng-if="key.indexOf('th_httpinspireeceuropaeutheme') == -1"
+                      ng-if="key.indexOf('th_httpinspireeceuropaeutheme') == -1 && t.keywords.length > 0"
                     >
                       <th>
                         {{ (t.multilingualTitle.default || t.title || key) | translate }}
