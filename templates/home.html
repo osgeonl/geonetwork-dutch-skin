@@ -14,6 +14,12 @@
   </div>
 </div>
 
+<div class="row gn-row-welcome" data-ng-if="showWelcomeMessage">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+    <div class="gn-welcome-message" data-ng-bind-html="welcomeMessage"></div>
+  </div>
+</div>
+
 <!-- search -->
 <div class="row gn-row-main" data-ng-controller="DutchSearchHomeController">
   <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
