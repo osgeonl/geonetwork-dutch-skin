@@ -1518,6 +1518,10 @@ p {
     .gn-row-tools {
       border-bottom: 1px solid @panel-default-border;
       margin: 3px 10px @gn-spacing-lg @gn-spacing-sm;
+      // keep the sort combo on the right when the toolbar wraps
+      > div:nth-child(2) {
+        margin-left: auto;
+      }
       .btn-default {
         border: 1px solid #ccc;
       }
