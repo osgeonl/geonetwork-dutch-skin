@@ -66,6 +66,13 @@ Change the width of the page to a fixed width:
 Do not change:
 - Editor width: Go to  `Settings` > `User Interface` > `Editor application` > `Fluid container for the Editor` and make shure the option is checked
 
+### Home page mosaic
+
+The home page shows a mosaic with the overviews of some records. It needs GeoNetwork 4.4.13 or later and is enabled by default.
+
+- To hide it, go to `Settings` > `User Interface` > `Home page` and uncheck `Show overview mosaic in home page`
+- In the same section, `Overview mosaic layout` selects the `Gallery` (default) or `Grid` layout, and the records to display can be configured
+
 ### Custom background layers for the Map
 
 On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` set the default map to load to use the thematic map with pdok-backgrounds at `../../catalog/views/dutch/config-nl-viewer.xml`
