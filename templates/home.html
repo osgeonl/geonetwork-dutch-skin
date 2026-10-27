@@ -93,6 +93,16 @@
   </div>
 </div>
 <!-- /.gn-row-main -->
+<div class="row gn-row-mosaic" data-ng-if="showMosaic">
+  <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+    <div
+      data-gn-record-mosaic="{{mosaicQuery}}"
+      data-items="mosaicRecords"
+      data-layout="{{mosaicLayout}}"
+      size="{{mosaicLayout === 'grid' ? 8 : 9}}"
+    ></div>
+  </div>
+</div>
 
 <!-- no data message -->
 <div class="row gn-margin-top" data-ng-show="searchInfo.count == 0">

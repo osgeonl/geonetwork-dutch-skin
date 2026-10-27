@@ -1,6 +1,6 @@
 # A custom view for GeoNetwork 4.4.x: 'Dutch Government Skin'
 
-This project contains a skin for the GeoNetwork Opensource project at https://github.com/geonetwork. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
+This project contains a skin for the GeoNetwork Opensource project at <https://github.com/geonetwork>. A skin generally consists of a number of overrides for templates (html), styles (less) and scripts (js). The skin can be added to a GeoNetwork core sources as a git submodule or as a zipfile to a pre-build WAR.
 
 Version 4.4 is rebuilt from the ground up. It's closely matched with the version 4.4.x of GeoNetwork OpenSource (main branch).
 
@@ -8,14 +8,15 @@ This version replaces version 4.0.
 
 ![Homepage](images/gn-dutch-home.png)
 
-## Features:
+## Features
+
 - Design slightly follows [dutch rijkshuisstijl](https://www.rijkshuisstijl.nl/)
 - PDOK background layers as map backgrounds
 - PDOK locationserver as gazetteer
 
-This work has been started by PDOK and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the Github issue tracker here https://github.com/osgeonl/geonetwork-dutch-skin/issues.
+This work has been started by PDOK and is further maintained by the GeoNetwork Usergroup Netherlands. If you find any issues, use the Github issue tracker here <https://github.com/osgeonl/geonetwork-dutch-skin/issues>.
 
-A preconfigured skin is available as Docker image at https://hub.docker.com/r/geocat/geonetwork-nl/
+A preconfigured skin is available as Docker image at <https://hub.docker.com/r/geocat/geonetwork-nl/>
 
 The license of the project is GPLv2.
 
@@ -33,7 +34,7 @@ git submodule init
 ## If at run time (WAR)
 
 - Deploy the latest geonetwork `4.4.x` WAR from [Sourceforge](https://sourceforge.net/projects/geonetwork/files/GeoNetwork_opensource/)
-- Grab a zip of https://github.com/osgeonl/geonetwork-dutch-skin/tree/4.4.x
+- Grab a zip of <https://github.com/osgeonl/geonetwork-dutch-skin/tree/4.4.x>
 - Unzip it in `/geonetwork/catalog/views/dutch`
 
 ## Settings
@@ -44,12 +45,12 @@ git submodule init
 
 - In `pom.xml`, configure the database type and connection details, `Language.default`, `Language.forcedefault`.
 - Check how to add dutch schema plugins:
-  - https://github.com/metadata101/iso19139.nl.geografie.2.0.0
-  - https://github.com/metadata101/iso19139.nl.geografie.1.3.1
-  - https://github.com/metadata101/iso19139.nl.services.2.0.0 
-  - https://github.com/metadata101/iso19139.nl.services.1.2.1 
+  - <https://github.com/metadata101/iso19139.nl.geografie.2.0.0>
+  - <https://github.com/metadata101/iso19139.nl.geografie.1.3.1>
+  - <https://github.com/metadata101/iso19139.nl.services.2.0.0>
+  - <https://github.com/metadata101/iso19139.nl.services.1.2.1>
 - On `Admin` > `Settings` and `Admin` > `Settings` > `User Interface` configure things such as catalog title, logo, URL, map extent, etc.
-- Set the thesaurus used by the location-search (homepage), download file from https://www.nationaalgeoregister.nl/geonetwork/srv/api/registries/vocabularies/external.place.regions and upload it in `admin` > `classification` (from local file > place)
+- Set the thesaurus used by the location-search (homepage), download file from <https://www.nationaalgeoregister.nl/geonetwork/srv/api/registries/vocabularies/external.place.regions> and upload it in `admin` > `classification` (from local file > place)
 
 ### Set custom search list items
 
@@ -60,11 +61,20 @@ In `Admin` > `Settings` > `User Interface` select the option to show the logo in
 ### Layout width
 
 Change the width of the page to a fixed width:
+
 - Go to  `Settings` > `User Interface` > `Top toolbar` > `Fluid container for Header and Top menu` and uncheck the option
 - Go to  `Settings` > `User Interface` > `Home page` > `Fluid container for Home and Search` and uncheck the option
 
 Do not change:
+
 - Editor width: Go to  `Settings` > `User Interface` > `Editor application` > `Fluid container for the Editor` and make shure the option is checked
+
+### Home page mosaic
+
+The home page shows a mosaic with the overviews of some records. It needs GeoNetwork 4.4.13 or later and is enabled by default.
+
+- To hide it, go to `Settings` > `User Interface` > `Home page` and uncheck `Show overview mosaic in home page`
+- In the same section, `Overview mosaic layout` selects the `Gallery` (default) or `Grid` layout, and the records to display can be configured
 
 ### Custom background layers for the Map
 
@@ -84,6 +94,5 @@ Go to `Admin` > `Settings` > `User Interface` > `Display filter tags in the sear
 ## Finally
 
 - (re)start the service
-- Verify the view by browsing to `catalog.search?view=dutch`. 
+- Verify the view by browsing to `catalog.search?view=dutch`.
 - If Ok, then alter the setting "view" to "dutch" in `Admin` > `Settings`
-
