@@ -494,7 +494,7 @@
                       <td>
                         <p>
                           <span
-                            data-gn-humanize-time="{{ mdView.current.record.changeDate }}"
+                            data-gn-humanize-time="{{ mdView.current.record.dateStamp || mdView.current.record.changeDate }}"
                             data-format="DD-MM-YYYY"
                           ></span>
                         </p>
@@ -1020,7 +1020,7 @@
             </h2>
             <p>
               <span
-                data-gn-humanize-time="{{ mdView.current.record.changeDate }}"
+                data-gn-humanize-time="{{ mdView.current.record.dateStamp || mdView.current.record.changeDate }}"
                 data-from-now=""
               ></span>
             </p>
